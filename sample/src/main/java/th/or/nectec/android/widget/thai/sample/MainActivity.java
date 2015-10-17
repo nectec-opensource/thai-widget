@@ -1,4 +1,4 @@
-package th.or.nectec.android.widget.thai;
+package th.or.nectec.android.widget.thai.sample;
 
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
