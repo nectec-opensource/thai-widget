@@ -4,6 +4,7 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import th.or.nectec.android.widget.thai.sample.R;
 
 
 public class MainActivity extends ActionBarActivity {
