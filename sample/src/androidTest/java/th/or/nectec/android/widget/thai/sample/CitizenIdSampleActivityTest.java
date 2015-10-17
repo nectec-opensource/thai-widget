@@ -2,6 +2,7 @@ package th.or.nectec.android.widget.thai.sample;
 
 import android.support.test.rule.ActivityTestRule;
 import android.support.test.runner.AndroidJUnit4;
+import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
@@ -16,7 +17,8 @@ import static android.support.test.espresso.matcher.ViewMatchers.withId;
 @RunWith(AndroidJUnit4.class)
 public class CitizenIdSampleActivityTest {
 
-    ActivityTestRule<CitizenIdSampleActivity> activityRule = new ActivityTestRule(CitizenIdSampleActivity.class);
+    @Rule
+    public ActivityTestRule<CitizenIdSampleActivity> activityRule = new ActivityTestRule(CitizenIdSampleActivity.class);
 
     @Test
     public void checkIdEditTextdisplay(){
