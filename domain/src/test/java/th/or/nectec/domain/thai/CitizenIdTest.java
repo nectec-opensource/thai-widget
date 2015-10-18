@@ -10,9 +10,6 @@ import static org.junit.Assert.*;
  */
 public class CitizenIdTest {
 
-
-
-
     private boolean invalid = false;
     private boolean valid = true;
 

@@ -10,7 +10,7 @@
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="Citizen ID :"/>
-    <th.or.nectec.android.widget.sample.CitizenIdEditText
+    <th.or.nectec.android.widget.thai.CitizenIdEditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/citizen_id"
