@@ -5,6 +5,7 @@ import android.text.Editable;
 import android.text.InputFilter;
 import android.text.InputType;
 import android.text.Selection;
+import android.text.SpannableStringBuilder;
 import android.text.TextWatcher;
 import android.text.method.DigitsKeyListener;
 import android.util.AttributeSet;
@@ -15,7 +16,7 @@ import th.or.nectec.domain.thai.CitizenId;
 /**
  * Created by blaze on 10/17/2015 AD.
  */
-public class CitizenIdEditText extends EditText{
+public class CitizenIdEditText extends EditText implements PrettyEditText {
 
     private static final int MAX_LENGTH = 17;
 
@@ -65,4 +66,10 @@ public class CitizenIdEditText extends EditText{
         });
     }
 
+    @Override
+    public Editable getNonPrettyText() {
+        String text = getText().toString();
+        String nonPrettyText = text.replaceAll("-", "");
+        return new SpannableStringBuilder(nonPrettyText);
+    }
 }

@@ -13,6 +13,7 @@ import static android.support.test.espresso.assertion.ViewAssertions.matches;
 import static android.support.test.espresso.matcher.ViewMatchers.isDisplayed;
 import static android.support.test.espresso.matcher.ViewMatchers.withId;
 import static android.support.test.espresso.matcher.ViewMatchers.withText;
+import static th.or.nectec.android.widget.thai.sample.PrettyTextMatcher.withNonPrettyText;
 
 /**
  * Created by blaze on 10/17/2015 AD.
@@ -49,6 +50,14 @@ public class CitizenIdSampleActivityTest {
         onView(withId(R.id.citizen_id))
                 .perform(ViewActions.typeText("1z6102ab55811-11-2"))
                 .check(matches(withText("1-6102-55811-11-2")));
+    }
+
+    @Test
+    public void getNonPrettyText() {
+        onView(withId(R.id.citizen_id))
+                .perform(ViewActions.typeText("1610255811112"))
+                .check(matches(withNonPrettyText("1610255811112")));
+
     }
 
 
