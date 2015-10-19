@@ -17,13 +17,10 @@
 
 package th.or.nectec.android.widget.thai.sample;
 
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
-import th.or.nectec.android.widget.thai.sample.R;
+import android.support.v7.app.AppCompatActivity;
 
-public class MainActivity extends ActionBarActivity {
+public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
