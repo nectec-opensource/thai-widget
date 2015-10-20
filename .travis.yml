@@ -17,6 +17,6 @@ android:
     - adb shell input keyevent 82 &
 
   script:
-    ./gradlew :domain:test --continue
-    ./gradlew :sample:connectedAndroidTest
-    ./gradlew build
+    - ./gradlew :domain:test --continue
+    - ./gradlew :sample:connectedAndroidTest
+    - ./gradlew build
