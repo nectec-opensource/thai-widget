@@ -1,5 +1,7 @@
 # Android-Thai-Widget [![Build Status](https://travis-ci.org/NECTEC-WISRU/Android-Thai-Widget.svg?branch=master)](https://travis-ci.org/NECTEC-WISRU/Android-Thai-Widget)
 
+
+
 Thai style android custom widget by thai-dev for thai-dev
 
 Widget
@@ -27,3 +29,7 @@ License
     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
     See the License for the specific language governing permissions and
     limitations under the License.
+    
+
+[![NECTEC](http://www.nectec.or.th/themes/nectec/img/logo.png)](https://www.nectec.or.th)
+
