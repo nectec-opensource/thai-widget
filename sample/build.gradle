@@ -35,7 +35,7 @@ android {
         exclude 'META-INF/NOTICE'
         exclude 'META-INF/LICENSE'
     }
-    
+
     lintOptions {
         abortOnError true
         checkAllWarnings true

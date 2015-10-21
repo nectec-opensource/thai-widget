@@ -16,6 +16,6 @@
 <resources>
     <string name="app_name">Android-Thai-Widget</string>
 
+    <string name="lable_citizen_id">Citizen ID : </string>
     <string name="hello_world">Hello world!</string>
-    <string name="action_settings">Settings</string>
 </resources>
