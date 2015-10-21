@@ -17,6 +17,7 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_7
         targetCompatibility JavaVersion.VERSION_1_7
     }
+
     buildTypes {
         debug{
             testCoverageEnabled = true
@@ -33,6 +34,12 @@ android {
         exclude 'META-INF/ASL2.0'
         exclude 'META-INF/NOTICE'
         exclude 'META-INF/LICENSE'
+    }
+    
+    lintOptions {
+        abortOnError true
+        checkAllWarnings true
+        warningsAsErrors true
     }
 
 }
