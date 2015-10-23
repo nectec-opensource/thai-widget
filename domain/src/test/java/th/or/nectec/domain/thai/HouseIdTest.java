@@ -18,6 +18,7 @@
 package th.or.nectec.domain.thai;
 
 import org.junit.Test;
+import th.or.nectec.util.TextUtils;
 
 import static org.junit.Assert.assertEquals;
 
@@ -46,6 +47,10 @@ public class HouseIdTest {
         hid = new HouseId("123456789012345");
         assertEquals("Id's length 15 must be invalid", invalid, hid.isValidFormat());
 
+        hid = new HouseId("ab34/6789x1");
+        assertEquals("Not only digit must be invalid", invalid, hid.isValidFormat());
+        hid = new HouseId("1234x678901");
+        assertEquals("Not only digit must be invalid", invalid, hid.isValidFormat());
     }
 
     @Test(expected = NullPointerException.class)
@@ -68,7 +73,7 @@ public class HouseIdTest {
 
         public  boolean isValidFormat() {
 
-            if (id.length() != LENGTH) {
+            if (id.length() != LENGTH || !TextUtils.isDigitOnly(id)) {
                 return false;
             }
             return true;
