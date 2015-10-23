@@ -79,10 +79,7 @@ public class HouseIdTest {
         }
 
         public  boolean isValidFormat() {
-            if (id.length() != LENGTH || !TextUtils.isDigitOnly(id)) {
-                return false;
-            }
-            return true;
+            return !(id.length() != LENGTH || !TextUtils.isDigitOnly(id));
         }
     }
 }
