@@ -69,8 +69,16 @@ public class HouseIdTest {
     public void checkDigit() {
         HouseId hid;
         hid = new HouseId("1234x678901");
+        assertEquals("test id must be invalid format id", invalid, hid.isValidFormat());
         assertEquals("check digit of invalid format should be -1 ", -1, hid.getCheckDigit());
-
+        hid = new HouseId("12345678901");
+        assertEquals("check digit must be 1", 1, hid.getCheckDigit());
+        hid = new HouseId("09876543210");
+        assertEquals("check digit must be 0", 0, hid.getCheckDigit());
+        hid = new HouseId("78901234567");
+        assertEquals("check digit must be 7", 7, hid.getCheckDigit());
+        hid = new HouseId("90123456789");
+        assertEquals("check digit must be 9", 9, hid.getCheckDigit());
     }
 
 
@@ -90,10 +98,12 @@ public class HouseIdTest {
             return !(id.length() != LENGTH || !TextUtils.isDigitOnly(id));
         }
 
-        public int getCheckDigit() {
+        protected int getCheckDigit() {
             if (!isValidFormat())
                 return -1;
-            return 0;
+            int lastIndex = HouseId.LENGTH - 1;
+            return Character.digit(id.charAt(lastIndex), 10);
         }
+
     }
 }
