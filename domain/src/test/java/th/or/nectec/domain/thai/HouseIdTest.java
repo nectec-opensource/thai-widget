@@ -34,6 +34,12 @@ public class HouseIdTest {
     }
 
     @Test
+    public void acceptPrettyId() {
+        HouseId hid = new HouseId("1-2345-67890-1");
+        assertEquals("1-2345-67890-1 is valid format", valid, hid.isValidFormat());
+    }
+
+    @Test
     public void setInvalidFormatId(){
         HouseId hid;
         hid = new HouseId("123456");
@@ -46,11 +52,12 @@ public class HouseIdTest {
         assertEquals("Id's length 12 must be invalid", invalid, hid.isValidFormat());
         hid = new HouseId("123456789012345");
         assertEquals("Id's length 15 must be invalid", invalid, hid.isValidFormat());
-
         hid = new HouseId("ab34/6789x1");
         assertEquals("Not only digit must be invalid", invalid, hid.isValidFormat());
         hid = new HouseId("1234x678901");
         assertEquals("Not only digit must be invalid", invalid, hid.isValidFormat());
+        hid = new HouseId("-----------");
+        assertEquals("only slash sign must be invalid", invalid, hid.isValidFormat());
     }
 
     @Test(expected = NullPointerException.class)
@@ -68,11 +75,10 @@ public class HouseIdTest {
         public HouseId(String id) {
             if (id == null)
                 throw new NullPointerException("ID must not be null");
-            this.id = id;
+            this.id = id.replace("-", "");
         }
 
         public  boolean isValidFormat() {
-
             if (id.length() != LENGTH || !TextUtils.isDigitOnly(id)) {
                 return false;
             }
