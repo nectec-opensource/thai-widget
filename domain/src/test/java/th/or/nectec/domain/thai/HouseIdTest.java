@@ -65,6 +65,14 @@ public class HouseIdTest {
         HouseId hid = new HouseId(null);
     }
 
+    @Test
+    public void checkDigit() {
+        HouseId hid;
+        hid = new HouseId("1234x678901");
+        assertEquals("check digit of invalid format should be -1 ", -1, hid.getCheckDigit());
+
+    }
+
 
     private static class HouseId {
 
@@ -80,6 +88,12 @@ public class HouseIdTest {
 
         public  boolean isValidFormat() {
             return !(id.length() != LENGTH || !TextUtils.isDigitOnly(id));
+        }
+
+        public int getCheckDigit() {
+            if (!isValidFormat())
+                return -1;
+            return 0;
         }
     }
 }
