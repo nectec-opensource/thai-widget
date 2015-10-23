@@ -19,7 +19,7 @@ package th.or.nectec.domain.thai;
 
 import org.junit.Test;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 public class CitizenIdTest {
 
@@ -27,70 +27,55 @@ public class CitizenIdTest {
     private boolean valid = true;
 
     @Test
-    public void LengthLessThan13shouldInvalid(){
-
-        assertEquals("citizen-id length less than 13, must be invalid", invalid, CitizenId.isValid("00000") );
+    public void InvalidFormatCitizenId() {
+        assertEquals("Not Only Digit citizen-id, must be invalid", invalid, CitizenId.isValid("1a3456789101b"));
+        assertEquals("citizen-id length more than 13, must be invalid", invalid, CitizenId.isValid("12345678910124"));
+        assertEquals("citizen-id length less than 13, must be invalid", invalid, CitizenId.isValid("00000"));
     }
 
     @Test
-    public void LengthMoreThan13shouldInvalid(){
-
-        assertEquals("citizen-id length more than 13, must be invalid", invalid, CitizenId.isValid("12345678910124") );
+    public void validId() {
+        assertEquals("1610255800005 should be valid", valid, CitizenId.isValid("1610255800005"));
+        assertEquals("1610255811112 should be valid", valid, CitizenId.isValid("1610255811112"));
+        assertEquals("1610255822220 should be valid", valid, CitizenId.isValid("1610255822220"));
     }
 
     @Test
-    public void NotOnlyDigitIdShouldInvalid(){
-        assertEquals("Not Only Digit citizen-id, must be invalid", invalid, CitizenId.isValid("1a3456789101b") );
+    public void invalIdWithValidFormat() {
+        assertEquals("0012300000000 should be invalid", invalid, CitizenId.isValid("0012300000000"));
+        assertEquals("0012300000000 should be invalid", invalid, CitizenId.isValid("0012300000000"));
     }
 
     @Test
-    public void lastPositionIs3ThenCheckDigitShouldBe3(){
-        CitizenId cid = new CitizenId("0000500005003");
+    public void prettyPrint() {
+        CitizenId cid;
+        cid = new CitizenId("1610255822220");
+        assertEquals("pretty Print not as except ", "1-6102-55822-22-0", cid.prettyPrint());
+        cid = new CitizenId("1610255811112");
+        assertEquals("pretty Print not as except ", "1-6102-55811-11-2", cid.prettyPrint());
+        cid = new CitizenId("161025");
+        assertEquals("pretty Print not as except ", "1-6102-5", cid.prettyPrint());
+    }
+
+    @Test
+    public void getCheckDigit() {
+        CitizenId cid;
+        cid = new CitizenId("0000000000003");
         assertEquals("check digit should be 3", 3, cid.getCheckDigit());
-    }
-
-    @Test
-    public void lastPositionIs5ThenCheckDigitShouldBe5(){
-        CitizenId cid = new CitizenId("0000500005005");
+        cid = new CitizenId("0000000000005");
         assertEquals("check digit should be 5", 5, cid.getCheckDigit());
+        cid = new CitizenId("000000000000x");
+        assertEquals("check digit should be -1", -1, cid.getCheckDigit());
     }
 
     @Test
-    public void calculateCheckDigitShouldBe2(){
-        CitizenId cid = new CitizenId("1610255811112");
+    public void calculateCheckDigit() {
+        CitizenId cid;
+        cid = new CitizenId("161025581111");
         assertEquals("calculate check digit result should be 2", 2, cid.calculateCheckDigit());
-    }
-
-    @Test
-    public void calculateCheckDigitShouldBe5(){
-        CitizenId cid = new CitizenId("1610255800005");
+        cid = new CitizenId("161025580000");
         assertEquals("calculate check digit result should be 5", 5, cid.calculateCheckDigit());
-    }
 
-
-
-
-    @Test
-    public void validIdShouldReturnValid(){
-
-        assertEquals("1610255822220 should be valid", valid, CitizenId.isValid("1610255822220") );
-    }
-
-    @Test
-    public void invalidIdShouldReturnInValid(){
-        assertEquals("0012300000000 should be invalid", invalid, CitizenId.isValid("0012300000000") );
-    }
-
-    @Test
-    public void prettyPrint(){
-        CitizenId cid = new CitizenId("1610255822220");
-        assertEquals("pretty Print not as except ", "1-6102-55822-22-0",cid.prettyPrint() );
-    }
-
-    @Test
-    public void prettyPrint2(){
-        CitizenId cid = new CitizenId("1610255811112");
-        assertEquals("pretty Print not as except ", "1-6102-55811-11-2",cid.prettyPrint() );
     }
 
 }
