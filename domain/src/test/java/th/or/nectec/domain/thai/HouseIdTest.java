@@ -36,11 +36,23 @@ public class HouseIdTest {
     public void setInvalidFormatId(){
         HouseId hid;
         hid = new HouseId("123456");
-        assertEquals("Id's length less than 11 must be invalid", invalid, hid.isValidFormat() );
+        assertEquals("Id's length 6 must be invalid", invalid, hid.isValidFormat());
         hid = new HouseId("1234567890");
-        assertEquals("Id's length less than 11 must be invalid", invalid, hid.isValidFormat() );
-       
+        assertEquals("Id's length 10 must be invalid", invalid, hid.isValidFormat());
+        hid = new HouseId("");
+        assertEquals("Id's length 0 must be invalid", invalid, hid.isValidFormat());
+        hid = new HouseId("123456789012");
+        assertEquals("Id's length 12 must be invalid", invalid, hid.isValidFormat());
+        hid = new HouseId("123456789012345");
+        assertEquals("Id's length 15 must be invalid", invalid, hid.isValidFormat());
+
     }
+
+    @Test(expected = NullPointerException.class)
+    public void nullIdException() {
+        HouseId hid = new HouseId(null);
+    }
+
 
     private static class HouseId {
 
@@ -49,13 +61,14 @@ public class HouseIdTest {
         private String id;
 
         public HouseId(String id) {
-
+            if (id == null)
+                throw new NullPointerException("ID must not be null");
             this.id = id;
         }
 
         public  boolean isValidFormat() {
 
-            if(id.length() < LENGTH){
+            if (id.length() != LENGTH) {
                 return false;
             }
             return true;
