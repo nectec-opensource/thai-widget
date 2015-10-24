@@ -19,7 +19,9 @@ package th.or.nectec.domain.thai;
 
 import th.or.nectec.util.TextUtils;
 
-class HouseId implements Id {
+import java.util.Objects;
+
+public class HouseId implements Id {
 
 
     public static final int LENGTH = 11;
@@ -40,7 +42,7 @@ class HouseId implements Id {
     public HouseId(String id) {
         if (id == null)
             throw new NullPointerException("ID must not be null");
-        this.id = id.replace("-", "");
+        this.id = id.replace(printer.separator(), "");
     }
 
     @Override
@@ -68,12 +70,29 @@ class HouseId implements Id {
             sum += Character.digit(id.charAt(position), 10) * MULTIPLIER_TABLE[position];
         }
         int x = sum % 11;
-        int n11 = (11 - x) % 10;
-        return n11;
+        return (11 - x) % 10;
     }
 
     @Override
     public String prettyPrint() {
         return printer.print(id);
+    }
+
+    @Override
+    public String getId() {
+        return id;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        HouseId houseId = (HouseId) o;
+        return Objects.equals(id, houseId.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
     }
 }

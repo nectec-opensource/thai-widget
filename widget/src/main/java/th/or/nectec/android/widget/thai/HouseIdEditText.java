@@ -13,6 +13,8 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
+ *
+ *
  */
 
 package th.or.nectec.android.widget.thai;
@@ -22,34 +24,35 @@ import android.text.*;
 import android.text.method.DigitsKeyListener;
 import android.util.AttributeSet;
 import android.widget.EditText;
-import th.or.nectec.domain.thai.CitizenId;
+import th.or.nectec.domain.thai.HouseId;
 import th.or.nectec.domain.thai.Id;
 
-public class CitizenIdEditText extends EditText implements IdEditText {
+public class HouseIdEditText extends EditText implements IdEditText {
+    private static final int MAX_LENGTH = 13;
 
-    private static final int MAX_LENGTH = 17;
-    private Id id;
-
-    public CitizenIdEditText(Context context) {
+    public HouseIdEditText(Context context) {
         super(context);
         init();
     }
 
-    public CitizenIdEditText(Context context, AttributeSet attrs) {
+    public HouseIdEditText(Context context, AttributeSet attrs) {
         super(context, attrs);
         init();
     }
 
-    public CitizenIdEditText(Context context, AttributeSet attrs, int defStyleAttr) {
+    public HouseIdEditText(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         init();
     }
 
-    private void init(){
-        setFilters(new InputFilter[] { new InputFilter.LengthFilter(MAX_LENGTH), });
+    private Id id;
+
+    private void init() {
+        setFilters(new InputFilter[]{new InputFilter.LengthFilter(MAX_LENGTH),});
         setInputType(InputType.TYPE_CLASS_NUMBER);
         setKeyListener(DigitsKeyListener.getInstance(false, true));
         addTextChangedListener(new TextWatcher() {
+
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
 
@@ -62,16 +65,15 @@ public class CitizenIdEditText extends EditText implements IdEditText {
 
             @Override
             public void afterTextChanged(Editable editable) {
-                Id id = new CitizenId(editable.toString());
-                if (!id.equals(CitizenIdEditText.this.id)) {
-                    CitizenIdEditText.this.id = id;
+                Id id = new HouseId(editable.toString());
+                if (!id.equals(HouseIdEditText.this.id)) {
+                    HouseIdEditText.this.id = id;
                     setText(id.prettyPrint());
                     Selection.setSelection(getEditableText(), length());
                 }
             }
         });
     }
-
 
     @Override
     public Id getIdObject() {

@@ -13,12 +13,20 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
+ *
+ *
  */
 
-package th.or.nectec.android.widget.thai;
+package th.or.nectec.android.widget.thai.sample;
 
-import android.text.Editable;
+import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 
-public interface PrettyEditText {
-    Editable getNonPrettyText();
+public class HouseIdSampleActivity extends AppCompatActivity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_sample_house_id);
+    }
 }

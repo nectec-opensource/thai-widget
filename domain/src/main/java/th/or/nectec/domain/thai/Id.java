@@ -25,4 +25,6 @@ public interface Id {
     boolean validate();
 
     String prettyPrint();
+
+    String getId();
 }

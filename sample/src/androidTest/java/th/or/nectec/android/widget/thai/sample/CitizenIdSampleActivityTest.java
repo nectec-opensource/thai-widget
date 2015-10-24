@@ -20,17 +20,15 @@ package th.or.nectec.android.widget.thai.sample;
 import android.support.test.espresso.action.ViewActions;
 import android.support.test.rule.ActivityTestRule;
 import android.support.test.runner.AndroidJUnit4;
-
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import th.or.nectec.domain.thai.CitizenId;
 
 import static android.support.test.espresso.Espresso.onView;
 import static android.support.test.espresso.assertion.ViewAssertions.matches;
-import static android.support.test.espresso.matcher.ViewMatchers.isDisplayed;
-import static android.support.test.espresso.matcher.ViewMatchers.withId;
-import static android.support.test.espresso.matcher.ViewMatchers.withText;
-import static th.or.nectec.android.widget.thai.sample.PrettyTextMatcher.withNonPrettyText;
+import static android.support.test.espresso.matcher.ViewMatchers.*;
+import static th.or.nectec.android.widget.thai.sample.IdEditTextMatcher.withIdObject;
 
 @RunWith(AndroidJUnit4.class)
 public class CitizenIdSampleActivityTest {
@@ -70,7 +68,7 @@ public class CitizenIdSampleActivityTest {
     public void getNonPrettyText() {
         onView(withId(R.id.citizen_id))
                 .perform(ViewActions.typeText("1610255811112"))
-                .check(matches(withNonPrettyText("1610255811112")));
+                .check(matches(withIdObject(new CitizenId("1610255811112"))));
 
     }
 

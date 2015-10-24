@@ -38,6 +38,7 @@ public class CitizenIdTest {
         assertEquals("1610255800005 should be valid", valid, CitizenId.isValid("1610255800005"));
         assertEquals("1610255811112 should be valid", valid, CitizenId.isValid("1610255811112"));
         assertEquals("1610255822220 should be valid", valid, CitizenId.isValid("1610255822220"));
+        assertEquals("pretty format id should be valid", valid, CitizenId.isValid("1-6102-55800-00-5"));
     }
 
     @Test

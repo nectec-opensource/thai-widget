@@ -15,10 +15,10 @@
  * limitations under the License.
  */
 
-package th.or.nectec.domain.thai;
+package th.or.nectec.android.widget.thai;
 
-public interface PrettyPrinter {
-    String print(String id);
+import th.or.nectec.domain.thai.Id;
 
-    String separator();
+public interface IdEditText {
+    Id getIdObject();
 }

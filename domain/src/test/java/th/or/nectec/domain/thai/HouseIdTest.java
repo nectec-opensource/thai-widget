@@ -34,8 +34,8 @@ public class HouseIdTest {
 
     @Test
     public void acceptPrettyId() {
-        HouseId hid = new HouseId("1-2345-67890-1");
-        assertEquals("1-2345-67890-1 is valid format", valid, hid.isValidFormat());
+        HouseId hid = new HouseId("1234-567890-1");
+        assertEquals("1234-567890-1 is valid format", valid, hid.isValidFormat());
     }
 
     @Test

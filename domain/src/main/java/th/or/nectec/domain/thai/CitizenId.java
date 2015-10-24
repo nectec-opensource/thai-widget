@@ -19,6 +19,8 @@ package th.or.nectec.domain.thai;
 
 import th.or.nectec.util.TextUtils;
 
+import java.util.Objects;
+
 public class CitizenId implements Id {
 
     private static final int[] MULTIPLIER_TABLE = {13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2};
@@ -40,6 +42,9 @@ public class CitizenId implements Id {
     };
 
     public CitizenId(String id) {
+        if (id == null)
+            throw new NullPointerException("id must not be null");
+        id = id.replace(printer.separator(), "");
         this.id = id;
     }
 
@@ -71,12 +76,29 @@ public class CitizenId implements Id {
             sum += Character.digit(id.charAt(position), 10) * MULTIPLIER_TABLE[position];
         }
         int x = sum % 11;
-        int n13 = (11 - x) % 10;
-        return n13;
+        return (11 - x) % 10;
     }
 
     @Override
     public String prettyPrint() {
         return printer.print(id);
+    }
+
+    @Override
+    public String getId() {
+        return id;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        CitizenId citizenId = (CitizenId) o;
+        return Objects.equals(id, citizenId.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
     }
 }
