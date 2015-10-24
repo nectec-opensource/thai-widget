@@ -81,6 +81,21 @@ public class HouseIdTest {
         assertEquals("check digit must be 9", 9, hid.getCheckDigit());
     }
 
+    @Test
+    public void validdateId() {
+        HouseId hid;
+        hid = new HouseId("123456789012345");
+        assertEquals("test id must be invalid format id", invalid, hid.isValidFormat());
+        assertEquals("validate invalid format id must be invalid", invalid, hid.validate());
+        hid = new HouseId("74020749965");
+        assertEquals("Valid Id must return valid", valid, hid.validate());
+        hid = new HouseId("12040847961");
+        assertEquals("Valid Id must return valid", valid, hid.validate());
+        hid = new HouseId("2-7920-01391-7");
+        assertEquals("Valid Id in pretty format must be valid", valid, hid.validate());
+
+    }
+
 
     private static class HouseId {
 
@@ -104,6 +119,25 @@ public class HouseIdTest {
             int lastIndex = HouseId.LENGTH - 1;
             return Character.digit(id.charAt(lastIndex), 10);
         }
+
+        public boolean validate() {
+            return isValidFormat() && calculateCheckDigit() == getCheckDigit();
+
+        }
+
+        protected int calculateCheckDigit() {
+            int sum = 0;
+            for (int position = 0; position < LENGTH - 1; position++) {
+                sum += Character.digit(id.charAt(position), 10) * MULTIPLIER_TABLE[position];
+            }
+            int x = sum % 11;
+            int n11 = (11 - x) % 10;
+            return n11;
+        }
+
+
+        private static final int[] MULTIPLIER_TABLE = {11, 10, 9, 8, 7, 6, 5, 4, 3, 2};
+
 
     }
 }
