@@ -61,29 +61,20 @@ public class CitizenId {
     }
 
     public String prettyPrint() {
-        CitizenId.PrettyPrinter printer = new PrettyPrinter();
         return printer.print(id);
     }
 
-
-
-    private class PrettyPrinter {
-        public String print(String id) {
-            id = id.trim();
-            StringBuilder idFormatted = new StringBuilder();
-            for (int i = 0; i < id.length(); i++) {
-                switch (i) {
-                    case 1:
-                    case 5:
-                    case 10:
-                    case 12:
-                        idFormatted.append("-");
-                    default:
-                        idFormatted.append(id.charAt(i));
-                        break;
-                }
+    private PrettyPrinter printer = new IdPrettyPrinter() {
+        @Override
+        boolean positionToInsertSeparatorBefore(int position) {
+            switch (position) {
+                case 1:
+                case 5:
+                case 10:
+                case 12:
+                    return true;
             }
-            return idFormatted.toString();
+            return false;
         }
-    }
+    };
 }
