@@ -1,7 +1,8 @@
 language: android
+cache: false
 env:
   global:
-    - ADB_INSTALL_TIMEOUT=8
+    - ADB_INSTALL_TIMEOUT=10
 android:
   components:
     - platform-tools
@@ -18,7 +19,6 @@ script:
   - ./gradlew clean
   - ./gradlew :domain:test --continue
   - ./gradlew build
-  - android-wait-for-emulator
-  - adb shell input keyevent 82 &
+  - ./android-wait-for-emulator
+  - ./adb shell input keyevent 82 &
   - ./gradlew :sample:connectedAndroidTest --stacktrace
-  - cat /home/travis/build/NECTEC-WISRU/Android-Thai-Widget/sample/build/reports/androidTests/connected/index.html
