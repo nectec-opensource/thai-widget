@@ -54,7 +54,6 @@ public abstract class AbstractIdHandler implements TextWatcher {
         onIdChanged(editable);
     }
 
-
     public void onIdChanged(Editable editable) {
         Id id = onCreateNewId(editable.toString());
         updateText(id);

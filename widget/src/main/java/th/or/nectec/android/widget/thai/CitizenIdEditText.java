@@ -46,7 +46,6 @@ public class CitizenIdEditText extends EditText implements IdEditText {
         idHandler = new CitizenIdHandler(this);
     }
 
-
     @Override
     public Id getIdObject() {
         return idHandler.getId();
