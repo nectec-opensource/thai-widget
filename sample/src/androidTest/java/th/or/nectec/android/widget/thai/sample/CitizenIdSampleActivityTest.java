@@ -65,7 +65,7 @@ public class CitizenIdSampleActivityTest {
     }
 
     @Test
-    public void getNonPrettyText() {
+    public void getIdObject() {
         onView(withId(R.id.citizen_id))
                 .perform(ViewActions.typeText("1610255811112"))
                 .check(matches(withIdObject(new CitizenId("1610255811112"))));

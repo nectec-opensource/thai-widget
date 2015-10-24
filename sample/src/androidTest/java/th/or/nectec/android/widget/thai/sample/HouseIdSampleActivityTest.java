@@ -19,14 +19,17 @@
 
 package th.or.nectec.android.widget.thai.sample;
 
+import android.support.test.espresso.action.ViewActions;
 import android.support.test.rule.ActivityTestRule;
 import org.junit.Rule;
 import org.junit.Test;
+import th.or.nectec.domain.thai.HouseId;
 
 import static android.support.test.espresso.Espresso.onView;
 import static android.support.test.espresso.assertion.ViewAssertions.matches;
-import static android.support.test.espresso.matcher.ViewMatchers.isDisplayed;
-import static android.support.test.espresso.matcher.ViewMatchers.withId;
+import static android.support.test.espresso.matcher.ViewMatchers.*;
+import static th.or.nectec.android.widget.thai.sample.EditTextMatcher.withError;
+import static th.or.nectec.android.widget.thai.sample.IdEditTextMatcher.withIdObject;
 
 public class HouseIdSampleActivityTest {
 
@@ -38,5 +41,21 @@ public class HouseIdSampleActivityTest {
         onView(withId(R.id.house_id))
                 .check(matches(isDisplayed()));
     }
+
+    @Test
+    public void typeInvalidId() {
+        onView(withId(R.id.house_id))
+                .perform(ViewActions.typeText("12345678901"))
+                .check(matches(withText("1234-567890-1")))
+                .check(matches(withError("invalid house id")));
+    }
+
+    @Test
+    public void getIdObject() {
+        onView(withId(R.id.house_id))
+                .perform(ViewActions.typeText("74020749965"))
+                .check(matches(withIdObject(new HouseId("74020749965"))));
+    }
+
 
 }

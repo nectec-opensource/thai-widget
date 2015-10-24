@@ -66,13 +66,26 @@ public class HouseIdEditText extends EditText implements IdEditText {
             @Override
             public void afterTextChanged(Editable editable) {
                 Id id = new HouseId(editable.toString());
-                if (!id.equals(HouseIdEditText.this.id)) {
-                    HouseIdEditText.this.id = id;
-                    setText(id.prettyPrint());
-                    Selection.setSelection(getEditableText(), length());
-                }
+                updateText(id);
+                updateErrorMessage(id);
             }
         });
+    }
+
+    private void updateText(Id id) {
+        if (!id.equals(HouseIdEditText.this.id)) {
+            HouseIdEditText.this.id = id;
+            setText(id.prettyPrint());
+            Selection.setSelection(getEditableText(), length());
+        }
+    }
+
+    private void updateErrorMessage(Id id) {
+        if (id.isValidFormat()) {
+            setError(id.validate() ? null : "invalid house id");
+        } else {
+            setError(null);
+        }
     }
 
     @Override

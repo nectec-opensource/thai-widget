@@ -26,11 +26,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="@string/lable_citizen_id"/>
+            android:text="@string/lable_house_id"/>
     <th.or.nectec.android.widget.thai.HouseIdEditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/house_id"
-            tools:text="1-3453-02323-93-3"/>
+            tools:text="1234-567890-1"/>
 
 </LinearLayout>
