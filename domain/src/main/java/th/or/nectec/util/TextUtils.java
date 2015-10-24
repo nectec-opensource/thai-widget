@@ -22,4 +22,15 @@ public class TextUtils {
     public static boolean isDigitOnly(String text) {
         return text.matches("\\d+");
     }
+
+    public static boolean isRepeatingNumber(String text) {
+        return text.matches("\\b(\\d)\\1+\\b");
+    }
+
+    public static boolean isRepeatPatternNumber(String text) {
+        return text.matches("\\b(\\d+)\\1+\\b");
+    }
+
+
+
 }
