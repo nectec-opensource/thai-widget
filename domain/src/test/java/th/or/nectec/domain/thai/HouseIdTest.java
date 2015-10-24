@@ -18,7 +18,6 @@
 package th.or.nectec.domain.thai;
 
 import org.junit.Test;
-import th.or.nectec.util.TextUtils;
 
 import static org.junit.Assert.assertEquals;
 
@@ -95,52 +94,7 @@ public class HouseIdTest {
         assertEquals("Valid Id in pretty format must be valid", valid, hid.validate());
         hid = new HouseId("11111111111");
         assertEquals("repeating number must be invalid", invalid, hid.validate());
-
     }
 
 
-    private static class HouseId {
-
-
-        public static final int LENGTH = 11;
-        private String id;
-
-        public HouseId(String id) {
-            if (id == null)
-                throw new NullPointerException("ID must not be null");
-            this.id = id.replace("-", "");
-        }
-
-        public  boolean isValidFormat() {
-            return !(id.length() != LENGTH || !TextUtils.isDigitOnly(id));
-        }
-
-        protected int getCheckDigit() {
-            if (!isValidFormat())
-                return -1;
-            int lastIndex = HouseId.LENGTH - 1;
-            return Character.digit(id.charAt(lastIndex), 10);
-        }
-
-        public boolean validate() {
-            return isValidFormat() &&
-                    !TextUtils.isRepeatingNumber(id) &&
-                    calculateCheckDigit() == getCheckDigit();
-        }
-
-        protected int calculateCheckDigit() {
-            int sum = 0;
-            for (int position = 0; position < LENGTH - 1; position++) {
-                sum += Character.digit(id.charAt(position), 10) * MULTIPLIER_TABLE[position];
-            }
-            int x = sum % 11;
-            int n11 = (11 - x) % 10;
-            return n11;
-        }
-
-
-        private static final int[] MULTIPLIER_TABLE = {11, 10, 9, 8, 7, 6, 5, 4, 3, 2};
-
-
-    }
 }
