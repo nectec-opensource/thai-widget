@@ -70,7 +70,7 @@ public class CitizenId {
     private class PrettyPrinter {
         public String print(String id) {
             id = id.trim();
-            StringBuffer idFormatted = new StringBuffer();
+            StringBuilder idFormatted = new StringBuilder();
             for (int i = 0; i < id.length(); i++) {
                 switch (i) {
                     case 1:

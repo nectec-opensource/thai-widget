@@ -25,6 +25,7 @@ class HouseId {
 
 
     public static final int LENGTH = 11;
+    private static final int[] MULTIPLIER_TABLE = {11, 10, 9, 8, 7, 6, 5, 4, 3, 2};
     private String id;
 
     public HouseId(String id) {
@@ -60,8 +61,26 @@ class HouseId {
         return n11;
     }
 
+    public String prettyPrint() {
+        PrettyPrinter printer = new PrettyPrinter();
+        return printer.print(id);
+    }
 
-    private static final int[] MULTIPLIER_TABLE = {11, 10, 9, 8, 7, 6, 5, 4, 3, 2};
-
-
+    private class PrettyPrinter {
+        public String print(String id) {
+            id = id.trim();
+            StringBuilder idFormatted = new StringBuilder();
+            for (int i = 0; i < id.length(); i++) {
+                switch (i) {
+                    case 4:
+                    case 10:
+                        idFormatted.append("-");
+                    default:
+                        idFormatted.append(id.charAt(i));
+                        break;
+                }
+            }
+            return idFormatted.toString();
+        }
+    }
 }

@@ -96,5 +96,17 @@ public class HouseIdTest {
         assertEquals("repeating number must be invalid", invalid, hid.validate());
     }
 
+    @Test
+    public void prettyPrint() {
+        HouseId hid;
+        hid = new HouseId("74020749965");
+        assertEquals("pretty print should work", "7402-074996-5", hid.prettyPrint());
+        hid = new HouseId("7402074");
+        assertEquals("pretty print should work with not complete id", "7402-074", hid.prettyPrint());
+        hid = new HouseId("7402");
+        assertEquals("pretty print should work with not complete id", "7402", hid.prettyPrint());
+        hid = new HouseId("7402074996");
+        assertEquals("pretty print should work with not complete id", "7402-074996", hid.prettyPrint());
+    }
 
 }
