@@ -19,37 +19,25 @@
 
 package th.or.nectec.android.widget.thai;
 
-import android.content.Context;
-import android.util.AttributeSet;
 import android.widget.EditText;
+import th.or.nectec.domain.thai.HouseId;
 import th.or.nectec.domain.thai.Id;
 
-public class HouseIdEditText extends EditText implements IdEditText {
+public class HouseIdHandler extends AbstractIdHandler {
 
-    AbstractIdHandler hidHandler;
+    private static final int MAX_LENGTH = 13;
 
-    public HouseIdEditText(Context context) {
-        super(context);
-        initialHandler();
-    }
-
-    public HouseIdEditText(Context context, AttributeSet attrs) {
-        super(context, attrs);
-        initialHandler();
-    }
-
-
-    public HouseIdEditText(Context context, AttributeSet attrs, int defStyleAttr) {
-        super(context, attrs, defStyleAttr);
-        initialHandler();
-    }
-
-    private void initialHandler() {
-        hidHandler = new HouseIdHandler(this);
+    public HouseIdHandler(EditText editText) {
+        super(editText);
     }
 
     @Override
-    public Id getIdObject() {
-        return hidHandler.getId();
+    protected int getMaxLenght() {
+        return MAX_LENGTH;
+    }
+
+    @Override
+    protected Id onCreateNewId(String id) {
+        return new HouseId(id);
     }
 }
