@@ -36,7 +36,7 @@ import static th.or.nectec.android.widget.thai.sample.PrettyTextMatcher.withNonP
 public class CitizenIdSampleActivityTest {
 
     @Rule
-    public ActivityTestRule<CitizenIdSampleActivity> activityRule = new ActivityTestRule(CitizenIdSampleActivity.class);
+    public ActivityTestRule<CitizenIdSampleActivity> activityRule = new ActivityTestRule<>(CitizenIdSampleActivity.class);
 
     @Test
     public void checkIdEditTextDisplay(){
