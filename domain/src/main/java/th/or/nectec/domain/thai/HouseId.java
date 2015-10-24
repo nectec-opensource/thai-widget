@@ -19,12 +19,23 @@ package th.or.nectec.domain.thai;
 
 import th.or.nectec.util.TextUtils;
 
-class HouseId {
+class HouseId implements Id {
 
 
     public static final int LENGTH = 11;
     private static final int[] MULTIPLIER_TABLE = {11, 10, 9, 8, 7, 6, 5, 4, 3, 2};
     private String id;
+    private PrettyPrinter printer = new IdPrettyPrinter() {
+        @Override
+        boolean positionToInsertSeparatorBefore(int position) {
+            switch (position) {
+                case 4:
+                case 10:
+                    return true;
+            }
+            return false;
+        }
+    };
 
     public HouseId(String id) {
         if (id == null)
@@ -32,6 +43,7 @@ class HouseId {
         this.id = id.replace("-", "");
     }
 
+    @Override
     public boolean isValidFormat() {
         return !(id.length() != LENGTH || !TextUtils.isDigitOnly(id));
     }
@@ -43,6 +55,7 @@ class HouseId {
         return Character.digit(id.charAt(lastIndex), 10);
     }
 
+    @Override
     public boolean validate() {
         return isValidFormat() &&
                 !TextUtils.isRepeatingNumber(id) &&
@@ -59,19 +72,8 @@ class HouseId {
         return n11;
     }
 
+    @Override
     public String prettyPrint() {
         return printer.print(id);
     }
-
-    private PrettyPrinter printer = new IdPrettyPrinter() {
-        @Override
-        boolean positionToInsertSeparatorBefore(int position) {
-            switch (position) {
-                case 4:
-                case 10:
-                    return true;
-            }
-            return false;
-        }
-    };
 }

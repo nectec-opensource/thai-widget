@@ -19,12 +19,25 @@ package th.or.nectec.domain.thai;
 
 import th.or.nectec.util.TextUtils;
 
-public class CitizenId {
+public class CitizenId implements Id {
 
     private static final int[] MULTIPLIER_TABLE = {13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2};
     private static int LENGTH = 13;
 
     private String id;
+    private PrettyPrinter printer = new IdPrettyPrinter() {
+        @Override
+        boolean positionToInsertSeparatorBefore(int position) {
+            switch (position) {
+                case 1:
+                case 5:
+                case 10:
+                case 12:
+                    return true;
+            }
+            return false;
+        }
+    };
 
     public CitizenId(String id) {
         this.id = id;
@@ -35,14 +48,16 @@ public class CitizenId {
         return cid.validate();
     }
 
+    @Override
+    public boolean isValidFormat() {
+        return id.length() == LENGTH && TextUtils.isDigitOnly(id);
+
+    }
+
+    @Override
     public boolean validate() {
-        if (id.length() != LENGTH)
-            return false;
+        return isValidFormat() && calculateCheckDigit() == getCheckDigit();
 
-        if (!TextUtils.isDigitOnly(id))
-            return false;
-
-        return calculateCheckDigit() == getCheckDigit();
     }
 
     protected int getCheckDigit() {
@@ -60,21 +75,8 @@ public class CitizenId {
         return n13;
     }
 
+    @Override
     public String prettyPrint() {
         return printer.print(id);
     }
-
-    private PrettyPrinter printer = new IdPrettyPrinter() {
-        @Override
-        boolean positionToInsertSeparatorBefore(int position) {
-            switch (position) {
-                case 1:
-                case 5:
-                case 10:
-                case 12:
-                    return true;
-            }
-            return false;
-        }
-    };
 }
