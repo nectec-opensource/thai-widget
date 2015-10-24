@@ -35,10 +35,14 @@ public abstract class AbstractIdHandler implements TextWatcher {
     }
 
     protected void initialize() {
-        editText.setFilters(new InputFilter[]{new InputFilter.LengthFilter(getMaxLenght()),});
         editText.setInputType(InputType.TYPE_CLASS_NUMBER);
+        editText.setFilters(new InputFilter[]{new InputFilter.LengthFilter(getMaxLenght()),});
         editText.setKeyListener(DigitsKeyListener.getInstance(false, true));
         editText.addTextChangedListener(this);
+    }
+
+    @Override
+    public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
     }
 
     @Override
@@ -50,9 +54,6 @@ public abstract class AbstractIdHandler implements TextWatcher {
         onIdChanged(editable);
     }
 
-    @Override
-    public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-    }
 
     public void onIdChanged(Editable editable) {
         Id id = onCreateNewId(editable.toString());

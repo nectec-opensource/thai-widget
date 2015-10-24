@@ -13,42 +13,31 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
+ *
+ *
  */
 
 package th.or.nectec.android.widget.thai;
 
-import android.content.Context;
-import android.util.AttributeSet;
 import android.widget.EditText;
+import th.or.nectec.domain.thai.CitizenId;
 import th.or.nectec.domain.thai.Id;
 
-public class CitizenIdEditText extends EditText implements IdEditText {
+public class CitizenIdHandler extends AbstractIdHandler {
 
+    private static final int MAX_LENGTH = 17;
 
-    public CitizenIdEditText(Context context) {
-        super(context);
-        initialHandler();
+    public CitizenIdHandler(EditText editText) {
+        super(editText);
     }
-
-    public CitizenIdEditText(Context context, AttributeSet attrs) {
-        super(context, attrs);
-        initialHandler();
-    }
-
-    public CitizenIdEditText(Context context, AttributeSet attrs, int defStyleAttr) {
-        super(context, attrs, defStyleAttr);
-        initialHandler();
-    }
-
-    private AbstractIdHandler idHandler;
-
-    private void initialHandler() {
-        idHandler = new CitizenIdHandler(this);
-    }
-
 
     @Override
-    public Id getIdObject() {
-        return idHandler.getId();
+    protected int getMaxLenght() {
+        return MAX_LENGTH;
+    }
+
+    @Override
+    protected Id onCreateNewId(String id) {
+        return new CitizenId(id);
     }
 }
