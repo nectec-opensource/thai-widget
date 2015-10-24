@@ -93,6 +93,8 @@ public class HouseIdTest {
         assertEquals("Valid Id must return valid", valid, hid.validate());
         hid = new HouseId("2-7920-01391-7");
         assertEquals("Valid Id in pretty format must be valid", valid, hid.validate());
+        hid = new HouseId("11111111111");
+        assertEquals("repeating number must be invalid", invalid, hid.validate());
 
     }
 
@@ -121,8 +123,9 @@ public class HouseIdTest {
         }
 
         public boolean validate() {
-            return isValidFormat() && calculateCheckDigit() == getCheckDigit();
-
+            return isValidFormat() &&
+                    !TextUtils.isRepeatingNumber(id) &&
+                    calculateCheckDigit() == getCheckDigit();
         }
 
         protected int calculateCheckDigit() {
