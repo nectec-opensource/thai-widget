@@ -1,0 +1,17 @@
+ext {
+    bintrayRepo = 'maven'
+    bintrayPackageName = 'thai-widget'
+    bintrayOrg = "nectec-wisru"
+
+    publishedGroupId = 'th.or.nectec.android'
+    libraryName = 'Android Thai Widget'
+    libraryArtifactId = 'android-thai-widget'
+
+    libraryDescription = 'A Thai style custom widget for andoird'
+
+    siteUrl = 'https://github.com/nectec-wisru/Android-Thai-Widget'
+    gitUrl = 'https://github.com/nectec-wisru/Android-Thai-Widget.git'
+
+    libraryVersion = '0.0.1'
+
+}

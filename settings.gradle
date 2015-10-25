@@ -15,4 +15,6 @@
  * limitations under the License.
  */
 
-include ':sample', ':domain', ':widget'
+include ':sample'
+include ':domain'
+include ':widget'

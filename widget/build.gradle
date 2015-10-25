@@ -56,9 +56,10 @@ android {
         exclude 'META-INF/NOTICE'
         exclude 'META-INF/LICENSE'
     }
-
 }
 
 dependencies {
     compile project(':domain')
 }
+
+apply from: '../publish/artifact.gradle'
