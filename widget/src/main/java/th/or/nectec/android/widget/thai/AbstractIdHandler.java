@@ -70,11 +70,12 @@ public abstract class AbstractIdHandler implements TextWatcher {
 
     private void updateErrorMessage(Id id) {
         if (id.isValidFormat()) {
-            editText.setError(id.validate() ? null : "invalid house id");
+            editText.setError(id.validate() ? null : getErrorMessage());
         } else {
-            editText.setError(null);
+            editText.setError(id.getId());
         }
     }
+
 
     public Id getId() {
         return id;
@@ -82,5 +83,9 @@ public abstract class AbstractIdHandler implements TextWatcher {
 
     protected abstract int getMaxLenght();
 
+    protected abstract String getErrorMessage();
+
     protected abstract Id onCreateNewId(String id);
+
+
 }

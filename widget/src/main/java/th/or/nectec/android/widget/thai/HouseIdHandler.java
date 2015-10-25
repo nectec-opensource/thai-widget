@@ -25,6 +25,7 @@ import th.or.nectec.domain.thai.Id;
 
 public class HouseIdHandler extends AbstractIdHandler {
 
+    public static final String DEFAULT_ERROR_MESSAGE = "รหัสประจำบ้านไม่ถูกต้อง";
     private static final int MAX_LENGTH = 13;
 
     public HouseIdHandler(EditText editText) {
@@ -34,6 +35,11 @@ public class HouseIdHandler extends AbstractIdHandler {
     @Override
     protected int getMaxLenght() {
         return MAX_LENGTH;
+    }
+
+    @Override
+    protected String getErrorMessage() {
+        return DEFAULT_ERROR_MESSAGE;
     }
 
     @Override
