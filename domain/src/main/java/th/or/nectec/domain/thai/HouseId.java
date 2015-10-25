@@ -19,8 +19,6 @@ package th.or.nectec.domain.thai;
 
 import th.or.nectec.util.TextUtils;
 
-import java.util.Objects;
-
 public class HouseId implements Id {
 
 
@@ -86,13 +84,14 @@ public class HouseId implements Id {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (!(o instanceof HouseId)) return false;
+
         HouseId houseId = (HouseId) o;
-        return Objects.equals(id, houseId.id);
+        return id.equals(houseId.id);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id);
+        return id.hashCode();
     }
 }

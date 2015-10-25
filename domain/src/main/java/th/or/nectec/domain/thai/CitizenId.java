@@ -19,8 +19,6 @@ package th.or.nectec.domain.thai;
 
 import th.or.nectec.util.TextUtils;
 
-import java.util.Objects;
-
 public class CitizenId implements Id {
 
     private static final int[] MULTIPLIER_TABLE = {13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2};
@@ -94,16 +92,18 @@ public class CitizenId implements Id {
         return id;
     }
 
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (!(o instanceof CitizenId)) return false;
+
         CitizenId citizenId = (CitizenId) o;
-        return Objects.equals(id, citizenId.id);
+        return id.equals(citizenId.id);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id);
+        return id.hashCode();
     }
 }
