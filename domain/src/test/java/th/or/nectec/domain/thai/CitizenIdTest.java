@@ -86,4 +86,13 @@ public class CitizenIdTest {
 
     }
 
+    @Test
+    public void repeatNumberWithValidCheckDigit() {
+        CitizenId cid;
+        cid = new CitizenId("0000000000001");
+        assertEquals("repeat number with valid check digit should be Invalid", invalid, cid.validate());
+        cid = new CitizenId("1234123412340");
+        assertEquals("repeat pattern number with valid check digit should be Invalid", invalid, cid.validate());
+    }
+
 }

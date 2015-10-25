@@ -61,8 +61,13 @@ public class CitizenId implements Id {
 
     @Override
     public boolean validate() {
-        return isValidFormat() && calculateCheckDigit() == getCheckDigit();
+        return isValidFormat() && !isRepeatNumber() && calculateCheckDigit() == getCheckDigit();
 
+    }
+
+    private boolean isRepeatNumber() {
+        String idWithoutCheckDigit = id.substring(0, 12);
+        return TextUtils.isRepeatingNumber(idWithoutCheckDigit) || TextUtils.isRepeatPatternNumber(idWithoutCheckDigit);
     }
 
     protected int getCheckDigit() {
