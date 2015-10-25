@@ -47,7 +47,7 @@ public class HouseIdSampleActivityTest {
         onView(withId(R.id.house_id))
                 .perform(ViewActions.typeText("12345678901"))
                 .check(matches(withText("1234-567890-1")))
-                .check(matches(withError("invalid house id")));
+                .check(matches(withError("รหัสประจำบ้านไม่ถูกต้อง")));
     }
 
     @Test

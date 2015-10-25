@@ -72,7 +72,7 @@ public abstract class AbstractIdHandler implements TextWatcher {
         if (id.isValidFormat()) {
             editText.setError(id.validate() ? null : getErrorMessage());
         } else {
-            editText.setError(id.getId());
+            editText.setError(null);
         }
     }
 
