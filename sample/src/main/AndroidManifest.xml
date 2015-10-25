@@ -15,31 +15,38 @@
 
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           xmlns:tools="http://schemas.android.com/tools"
-    package="th.or.nectec.android.widget.thai.sample" >
+          package="th.or.nectec.android.widget.thai.sample">
 
     <application
-        android:allowBackup="false"
-        tools:ignore="UnusedAttribute"
-        android:fullBackupContent="false"
-        android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
-        android:theme="@style/AppTheme" >
+            android:allowBackup="false"
+            tools:ignore="UnusedAttribute"
+            android:fullBackupContent="false"
+            android:icon="@mipmap/ic_launcher"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme">
         <activity
-            android:name=".MainActivity"
-            android:label="@string/app_name" >
+                android:name=".MainActivity"
+                android:label="@string/app_name">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
         <activity
-            android:name=".CitizenIdSampleActivity"
-            android:label="@string/app_name" >
+                android:name=".CitizenIdSampleActivity"
+                android:label="@string/app_name">
+            <intent-filter>
+                <action android:name="ANDROID.INTENT.ACTION.EDIT"/>
+                <category android:name="ANDROID.INTENT.CATEGORY.DEFAULT"/>
+            </intent-filter>
         </activity>
         <activity
                 android:name=".HouseIdSampleActivity"
                 android:label="@string/app_name">
+            <intent-filter>
+                <action android:name="ANDROID.INTENT.ACTION.EDIT"/>
+                <category android:name="ANDROID.INTENT.CATEGORY.DEFAULT"/>
+            </intent-filter>
         </activity>
     </application>
 
