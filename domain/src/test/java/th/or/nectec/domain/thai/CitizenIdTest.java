@@ -76,6 +76,13 @@ public class CitizenIdTest {
         assertEquals("calculate check digit result should be 2", 2, cid.calculateCheckDigit());
         cid = new CitizenId("161025580000");
         assertEquals("calculate check digit result should be 5", 5, cid.calculateCheckDigit());
+    }
+
+    @Test
+    public void equals() {
+        CitizenId c1 = new CitizenId("161025581111");
+        CitizenId c2 = new CitizenId("161025581111");
+        assertEquals("2 Object with same id should be equal", c1, c2);
 
     }
 
