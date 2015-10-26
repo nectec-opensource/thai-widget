@@ -63,4 +63,5 @@ dependencies {
 }
 
 apply from: '../gradle/artifact.gradle'
+apply from: '../gradle/install.gradle'
 apply from: '../gradle/bintray.gradle'
