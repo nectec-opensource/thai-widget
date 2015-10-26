@@ -18,6 +18,11 @@
 
 apply plugin: 'java'
 
+//noinspection GroovyUnusedAssignment
+sourceCompatibility = rootProject.ext.javaSourceCompatibility
+//noinspection GroovyUnusedAssignment
+targetCompatibility = rootProject.ext.javaTargetCompatibility
+
 dependencies {
     testCompile 'junit:junit:' + rootProject.ext.junitVersion
 }
