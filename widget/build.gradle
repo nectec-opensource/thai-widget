@@ -62,4 +62,4 @@ dependencies {
     compile project(':domain')
 }
 
-apply from: '../publish/artifact.gradle'
+apply from: '../gradle/artifact.gradle'
