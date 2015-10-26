@@ -64,7 +64,7 @@ android {
 
 dependencies {
     compile project(':domain')
-    compile project(':widget')
+    compile project(':thai-widget')
     compile 'com.android.support:appcompat-v7:' + rootProject.ext.supportLibVersion
 
     androidTestCompile 'com.android.support.test:runner:' + rootProject.ext.runnerVersion
