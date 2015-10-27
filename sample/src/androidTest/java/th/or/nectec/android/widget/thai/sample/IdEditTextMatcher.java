@@ -23,21 +23,21 @@ import android.widget.EditText;
 import org.hamcrest.Description;
 import org.hamcrest.Matcher;
 import th.or.nectec.android.widget.thai.IdEditText;
-import th.or.nectec.domain.thai.Id;
+import th.or.nectec.domain.thai.Identity;
 
 public class IdEditTextMatcher {
 
-    public static Matcher<View> withIdObject(final Id idMatcher) {
+    public static Matcher<View> withIdObject(final Identity identityMatcher) {
         return new BoundedMatcher<View, EditText>(EditText.class) {
 
             @Override
             public void describeTo(Description description) {
-                description.appendText("with pretty text: " + idMatcher.prettyPrint());
+                description.appendText("with pretty text: " + identityMatcher.prettyPrint());
             }
 
             @Override
             protected boolean matchesSafely(EditText editText) {
-                return editText instanceof IdEditText && idMatcher.equals(((IdEditText) editText).getIdObject());
+                return editText instanceof IdEditText && identityMatcher.equals(((IdEditText) editText).getIdObject());
             }
         };
     }

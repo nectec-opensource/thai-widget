@@ -22,11 +22,11 @@ package th.or.nectec.android.widget.thai;
 import android.text.*;
 import android.text.method.DigitsKeyListener;
 import android.widget.EditText;
-import th.or.nectec.domain.thai.Id;
+import th.or.nectec.domain.thai.Identity;
 
 public abstract class AbstractIdHandler implements TextWatcher {
     protected EditText editText;
-    private Id id;
+    private Identity id;
 
     public AbstractIdHandler(EditText editText) {
         this.editText = editText;
@@ -55,12 +55,12 @@ public abstract class AbstractIdHandler implements TextWatcher {
     }
 
     public void onIdChanged(Editable editable) {
-        Id id = onCreateNewId(editable.toString());
+        Identity id = onCreateNewId(editable.toString());
         updateText(id);
         updateErrorMessage(id);
     }
 
-    private void updateText(Id id) {
+    private void updateText(Identity id) {
         if (!id.equals(this.id)) {
             this.id = id;
             editText.setText(id.prettyPrint());
@@ -68,7 +68,7 @@ public abstract class AbstractIdHandler implements TextWatcher {
         }
     }
 
-    private void updateErrorMessage(Id id) {
+    private void updateErrorMessage(Identity id) {
         if (id.isValidFormat()) {
             editText.setError(id.validate() ? null : getErrorMessage());
         } else {
@@ -77,7 +77,7 @@ public abstract class AbstractIdHandler implements TextWatcher {
     }
 
 
-    public Id getId() {
+    public Identity getId() {
         return id;
     }
 
@@ -85,7 +85,7 @@ public abstract class AbstractIdHandler implements TextWatcher {
 
     protected abstract String getErrorMessage();
 
-    protected abstract Id onCreateNewId(String id);
+    protected abstract Identity onCreateNewId(String id);
 
 
 }

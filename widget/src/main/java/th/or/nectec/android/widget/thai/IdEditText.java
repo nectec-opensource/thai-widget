@@ -17,8 +17,8 @@
 
 package th.or.nectec.android.widget.thai;
 
-import th.or.nectec.domain.thai.Id;
+import th.or.nectec.domain.thai.Identity;
 
 public interface IdEditText {
-    Id getIdObject();
+    Identity getIdObject();
 }

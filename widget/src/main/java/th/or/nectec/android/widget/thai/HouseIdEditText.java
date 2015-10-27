@@ -22,7 +22,7 @@ package th.or.nectec.android.widget.thai;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.EditText;
-import th.or.nectec.domain.thai.Id;
+import th.or.nectec.domain.thai.Identity;
 
 public class HouseIdEditText extends EditText implements IdEditText {
 
@@ -49,7 +49,7 @@ public class HouseIdEditText extends EditText implements IdEditText {
     }
 
     @Override
-    public Id getIdObject() {
+    public Identity getIdObject() {
         return hidHandler.getId();
     }
 }

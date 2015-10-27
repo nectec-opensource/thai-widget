@@ -21,7 +21,7 @@ package th.or.nectec.android.widget.thai;
 
 import android.widget.EditText;
 import th.or.nectec.domain.thai.HouseId;
-import th.or.nectec.domain.thai.Id;
+import th.or.nectec.domain.thai.Identity;
 
 public class HouseIdHandler extends AbstractIdHandler {
 
@@ -43,7 +43,7 @@ public class HouseIdHandler extends AbstractIdHandler {
     }
 
     @Override
-    protected Id onCreateNewId(String id) {
+    protected Identity onCreateNewId(String id) {
         return new HouseId(id);
     }
 }

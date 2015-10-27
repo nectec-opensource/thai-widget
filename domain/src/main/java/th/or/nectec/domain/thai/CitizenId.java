@@ -19,7 +19,7 @@ package th.or.nectec.domain.thai;
 
 import th.or.nectec.util.TextUtils;
 
-public class CitizenId implements Id {
+public class CitizenId implements Identity {
 
     private static final int[] MULTIPLIER_TABLE = {13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2};
     private static int LENGTH = 13;

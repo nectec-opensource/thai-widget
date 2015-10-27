@@ -19,7 +19,7 @@ package th.or.nectec.domain.thai;
 
 import th.or.nectec.util.TextUtils;
 
-public class HouseId implements Id {
+public class HouseId implements Identity {
 
 
     public static final int LENGTH = 11;
