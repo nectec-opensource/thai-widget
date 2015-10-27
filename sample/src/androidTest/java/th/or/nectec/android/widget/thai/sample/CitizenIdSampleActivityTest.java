@@ -28,7 +28,7 @@ import th.or.nectec.domain.thai.CitizenId;
 import static android.support.test.espresso.Espresso.onView;
 import static android.support.test.espresso.assertion.ViewAssertions.matches;
 import static android.support.test.espresso.matcher.ViewMatchers.*;
-import static th.or.nectec.android.widget.thai.sample.IdEditTextMatcher.withIdObject;
+import static th.or.nectec.android.widget.thai.sample.IdentityViewMatcher.withIdentity;
 
 @RunWith(AndroidJUnit4.class)
 public class CitizenIdSampleActivityTest {
@@ -68,7 +68,7 @@ public class CitizenIdSampleActivityTest {
     public void getIdObject() {
         onView(withId(R.id.citizen_id))
                 .perform(ViewActions.typeText("1610255811112"))
-                .check(matches(withIdObject(new CitizenId("1610255811112"))));
+                .check(matches(withIdentity(new CitizenId("1610255811112"))));
 
     }
 

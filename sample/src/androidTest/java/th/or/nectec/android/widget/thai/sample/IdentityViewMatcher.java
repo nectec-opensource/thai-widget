@@ -22,12 +22,12 @@ import android.view.View;
 import android.widget.EditText;
 import org.hamcrest.Description;
 import org.hamcrest.Matcher;
-import th.or.nectec.android.widget.thai.IdEditText;
+import th.or.nectec.android.widget.thai.IdentityView;
 import th.or.nectec.domain.thai.Identity;
 
-public class IdEditTextMatcher {
+public class IdentityViewMatcher {
 
-    public static Matcher<View> withIdObject(final Identity identityMatcher) {
+    public static Matcher<View> withIdentity(final Identity identityMatcher) {
         return new BoundedMatcher<View, EditText>(EditText.class) {
 
             @Override
@@ -37,7 +37,7 @@ public class IdEditTextMatcher {
 
             @Override
             protected boolean matchesSafely(EditText editText) {
-                return editText instanceof IdEditText && identityMatcher.equals(((IdEditText) editText).getIdObject());
+                return editText instanceof IdentityView && identityMatcher.equals(((IdentityView) editText).getIdentity());
             }
         };
     }

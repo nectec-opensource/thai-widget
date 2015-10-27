@@ -29,7 +29,7 @@ import static android.support.test.espresso.Espresso.onView;
 import static android.support.test.espresso.assertion.ViewAssertions.matches;
 import static android.support.test.espresso.matcher.ViewMatchers.*;
 import static th.or.nectec.android.widget.thai.sample.EditTextMatcher.withError;
-import static th.or.nectec.android.widget.thai.sample.IdEditTextMatcher.withIdObject;
+import static th.or.nectec.android.widget.thai.sample.IdentityViewMatcher.withIdentity;
 
 public class HouseIdSampleActivityTest {
 
@@ -54,7 +54,7 @@ public class HouseIdSampleActivityTest {
     public void getIdObject() {
         onView(withId(R.id.house_id))
                 .perform(ViewActions.typeText("74020749965"))
-                .check(matches(withIdObject(new HouseId("74020749965"))));
+                .check(matches(withIdentity(new HouseId("74020749965"))));
     }
 
 

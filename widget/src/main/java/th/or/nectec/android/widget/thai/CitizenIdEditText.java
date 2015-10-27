@@ -22,7 +22,7 @@ import android.util.AttributeSet;
 import android.widget.EditText;
 import th.or.nectec.domain.thai.Identity;
 
-public class CitizenIdEditText extends EditText implements IdEditText {
+public class CitizenIdEditText extends EditText implements IdentityView {
 
 
     public CitizenIdEditText(Context context) {
@@ -47,7 +47,7 @@ public class CitizenIdEditText extends EditText implements IdEditText {
     }
 
     @Override
-    public Identity getIdObject() {
+    public Identity getIdentity() {
         return idHandler.getId();
     }
 }

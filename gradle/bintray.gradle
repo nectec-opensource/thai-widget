@@ -3,8 +3,8 @@ apply plugin: 'com.jfrog.bintray'
 version = libraryVersion
 
 bintray {
-    key = project.hasProperty('bintrayKey') ? project.getProperty('bintrayKey') : System.getenv('BINTRAY_KEY') ?: ''
     user = project.hasProperty('bintrayUser') ? project.getProperty('bintrayUser') : System.getenv('BINTRAY_USER') ?: ''
+    key = project.hasProperty('bintrayKey') ? project.getProperty('bintrayKey') : System.getenv('BINTRAY_KEY') ?: ''
     configurations = ['archives']
     pkg {
         userOrg = bintrayOrg

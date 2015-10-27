@@ -67,6 +67,7 @@ dependencies {
     compile project(':thai-widget')
     compile 'com.android.support:appcompat-v7:' + rootProject.ext.supportLibVersion
 
+    androidTestCompile project(':thai-widget')
     androidTestCompile 'com.android.support.test:runner:' + rootProject.ext.runnerVersion
     androidTestCompile 'com.android.support.test:rules:' + rootProject.ext.rulesVersion
     androidTestCompile 'com.android.support.test.espresso:espresso-core:' + rootProject.ext.espressoVersion

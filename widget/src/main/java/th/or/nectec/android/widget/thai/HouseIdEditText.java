@@ -24,7 +24,7 @@ import android.util.AttributeSet;
 import android.widget.EditText;
 import th.or.nectec.domain.thai.Identity;
 
-public class HouseIdEditText extends EditText implements IdEditText {
+public class HouseIdEditText extends EditText implements IdentityView {
 
     AbstractIdHandler hidHandler;
 
@@ -49,7 +49,7 @@ public class HouseIdEditText extends EditText implements IdEditText {
     }
 
     @Override
-    public Identity getIdObject() {
+    public Identity getIdentity() {
         return hidHandler.getId();
     }
 }
