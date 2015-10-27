@@ -1,4 +1,4 @@
-# Android-Thai-Widget [![Build Status](https://travis-ci.org/NECTEC-WISRU/Android-Thai-Widget.svg?branch=master)](https://travis-ci.org/NECTEC-WISRU/Android-Thai-Widget)
+# Android-Thai-Widget [![Build Status](https://travis-ci.org/NECTEC-WISRU/android-ThaiWidget.svg?branch=master)](https://travis-ci.org/NECTEC-WISRU/android-ThaiWidget)
 
 
 
