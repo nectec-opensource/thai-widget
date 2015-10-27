@@ -6,8 +6,8 @@ Properties properties = new Properties()
 properties.load(project.rootProject.file('local.properties').newDataInputStream())
 
 bintray {
-    user = properties.getProperty("bintray.user")
-    key = properties.getProperty("bintray.apikey")
+    user = properties.hasProperty("bintray.user") ? properties.getProperty("bintray.user") : System.getenv('BINTRAY_USER') ?: ''
+    key = properties.hasProperty("bintray.apikey") ? properties.getProperty("bintray.apikey") : System.getenv('BINTRAY_API') ?: ''
     configurations = ['archives']
     pkg {
         userOrg = bintrayOrg
@@ -25,7 +25,7 @@ bintray {
             vcsTag = libraryVersion
             gpg {
                 sign = true
-                passphrase = properties.getProperty("bintray.gpg.password")
+                passphrase = properties.hasProperty("bintray.gpg.password") ? properties.getProperty("bintray.gpg.password") : System.getenv('BINTRAY_GPG_PASSWORD') ?: ''
             }
         }
     }
