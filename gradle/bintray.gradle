@@ -2,12 +2,9 @@ apply plugin: 'com.jfrog.bintray'
 
 version = libraryVersion
 
-Properties properties = new Properties()
-properties.load(project.rootProject.file('local.properties').newDataInputStream())
-
 bintray {
-    user = properties.hasProperty("bintray.user") ? properties.getProperty("bintray.user") : System.getenv('BINTRAY_USER') ?: ''
-    key = properties.hasProperty("bintray.apikey") ? properties.getProperty("bintray.apikey") : System.getenv('BINTRAY_API') ?: ''
+    key = project.hasProperty('bintrayKey') ? project.getProperty('bintrayKey') : System.getenv('BINTRAY_KEY') ?: ''
+    user = project.hasProperty('bintrayUser') ? project.getProperty('bintrayUser') : System.getenv('BINTRAY_USER') ?: ''
     configurations = ['archives']
     pkg {
         userOrg = bintrayOrg
@@ -25,7 +22,7 @@ bintray {
             vcsTag = libraryVersion
             gpg {
                 sign = true
-                passphrase = properties.hasProperty("bintray.gpg.password") ? properties.getProperty("bintray.gpg.password") : System.getenv('BINTRAY_GPG_PASSWORD') ?: ''
+                passphrase = project.hasProperty('GpgPasspharse') ? project.getProperty('GpgPasspharse') : System.getenv('GPG_PASSPHARSE') ?: ''
             }
         }
     }
