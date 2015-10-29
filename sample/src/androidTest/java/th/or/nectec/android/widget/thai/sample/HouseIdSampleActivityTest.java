@@ -23,6 +23,7 @@ import android.support.test.espresso.action.ViewActions;
 import android.support.test.rule.ActivityTestRule;
 import org.junit.Rule;
 import org.junit.Test;
+import th.or.nectec.android.widget.thai.HouseIdHandler;
 import th.or.nectec.domain.thai.HouseId;
 
 import static android.support.test.espresso.Espresso.onView;
@@ -32,6 +33,9 @@ import static th.or.nectec.android.widget.thai.sample.EditTextMatcher.withError;
 import static th.or.nectec.android.widget.thai.sample.IdentityViewMatcher.withIdentity;
 
 public class HouseIdSampleActivityTest {
+
+    public static final String VALID_ID = "12040847961";
+    public static final String INVALID_ID = "12345678901";
 
     @Rule
     public ActivityTestRule<HouseIdSampleActivity> activityRule = new ActivityTestRule<>(HouseIdSampleActivity.class);
@@ -43,18 +47,33 @@ public class HouseIdSampleActivityTest {
     }
 
     @Test
-    public void typeInvalidId() {
+    public void prettyPrint() {
+        HouseId hid = new HouseId(VALID_ID);
         onView(withId(R.id.house_id))
-                .perform(ViewActions.typeText("12345678901"))
-                .check(matches(withText("1234-567890-1")))
-                .check(matches(withError("รหัสประจำบ้านไม่ถูกต้อง")));
+                .perform(ViewActions.typeText(hid.getId()))
+                .check(matches(withText(hid.prettyPrint())));
     }
 
     @Test
-    public void getIdObject() {
+    public void typeValidId() {
         onView(withId(R.id.house_id))
-                .perform(ViewActions.typeText("74020749965"))
-                .check(matches(withIdentity(new HouseId("74020749965"))));
+                .perform(ViewActions.typeText(VALID_ID))
+                .check(matches(withError(null)));
+    }
+
+
+    @Test
+    public void typeInvalidId() {
+        onView(withId(R.id.house_id))
+                .perform(ViewActions.typeText(INVALID_ID))
+                .check(matches(withError(HouseIdHandler.DEFAULT_ERROR_MESSAGE)));
+    }
+
+    @Test
+    public void getIdentity() {
+        onView(withId(R.id.house_id))
+                .perform(ViewActions.typeText(VALID_ID))
+                .check(matches(withIdentity(new HouseId(VALID_ID))));
     }
 
 

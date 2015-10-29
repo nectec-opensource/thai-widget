@@ -17,58 +17,76 @@
 
 package th.or.nectec.android.widget.thai.sample;
 
-import android.support.test.espresso.action.ViewActions;
 import android.support.test.rule.ActivityTestRule;
 import android.support.test.runner.AndroidJUnit4;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import th.or.nectec.android.widget.thai.CitizenIdHandler;
 import th.or.nectec.domain.thai.CitizenId;
 
 import static android.support.test.espresso.Espresso.onView;
+import static android.support.test.espresso.action.ViewActions.typeText;
 import static android.support.test.espresso.assertion.ViewAssertions.matches;
 import static android.support.test.espresso.matcher.ViewMatchers.*;
+import static th.or.nectec.android.widget.thai.sample.EditTextMatcher.withError;
 import static th.or.nectec.android.widget.thai.sample.IdentityViewMatcher.withIdentity;
 
 @RunWith(AndroidJUnit4.class)
 public class CitizenIdSampleActivityTest {
 
+    public static final String VALID_ID = "1610255811112";
+    public static final String INVALID_ID = "1234567890123";
     @Rule
     public ActivityTestRule<CitizenIdSampleActivity> activityRule = new ActivityTestRule<>(CitizenIdSampleActivity.class);
 
     @Test
-    public void checkIdEditTextDisplay(){
+    public void checkIdEditTextDisplay() {
         onView(withId(R.id.citizen_id))
                 .check(matches(isDisplayed()));
     }
 
     @Test
-    public void typeValidId(){
+    public void prettyPrint() {
+        CitizenId cid = new CitizenId(VALID_ID);
         onView(withId(R.id.citizen_id))
-                .perform(ViewActions.typeText("1610255811112"))
-                .check(matches(withText("1-6102-55811-11-2")));
-
+                .perform(typeText(cid.getId()))
+                .check(matches(withText(cid.prettyPrint())));
     }
 
     @Test
-    public void mustCannottypeIdLengthMoreThan13(){
+    public void typeValidId() {
         onView(withId(R.id.citizen_id))
-                .perform(ViewActions.typeText("1610255811112123"))
+                .perform(typeText(VALID_ID))
+                .check(matches(withError(null)));
+    }
+
+    @Test
+    public void typeInvalidId() {
+        onView(withId(R.id.citizen_id))
+                .perform(typeText(INVALID_ID))
+                .check(matches(withError(CitizenIdHandler.DEFAULT_ERROR_MESSAGE)));
+    }
+
+    @Test
+    public void mustCannottypeIdLengthMoreThan13() {
+        onView(withId(R.id.citizen_id))
+                .perform(typeText("1610255811112123"))
                 .check(matches(withText("1-6102-55811-11-2")));
     }
 
     @Test
-    public void mustCannottypeCharacter(){
+    public void mustCannottypeCharacter() {
         onView(withId(R.id.citizen_id))
-                .perform(ViewActions.typeText("1z6102ab55811-11-2"))
+                .perform(typeText("1z6102ab55811-11-2"))
                 .check(matches(withText("1-6102-55811-11-2")));
     }
 
     @Test
-    public void getIdObject() {
+    public void getIdentity() {
         onView(withId(R.id.citizen_id))
-                .perform(ViewActions.typeText("1610255811112"))
-                .check(matches(withIdentity(new CitizenId("1610255811112"))));
+                .perform(typeText(VALID_ID))
+                .check(matches(withIdentity(new CitizenId(VALID_ID))));
 
     }
 
