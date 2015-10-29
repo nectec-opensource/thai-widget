@@ -23,7 +23,7 @@ import android.widget.EditText;
 import th.or.nectec.domain.thai.CitizenId;
 import th.or.nectec.domain.thai.Identity;
 
-public class CitizenIdHandler extends AbstractIdHandler {
+public class CitizenIdHandler extends IdentityEditTextHandler {
 
     public static final String DEFAULT_ERROR_MESSAGE = "รหัสประชาชน ไม่ถูกต้อง";
     private static final int MAX_LENGTH = 17;

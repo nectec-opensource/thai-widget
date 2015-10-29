@@ -40,7 +40,7 @@ public class CitizenIdEditText extends EditText implements IdentityView {
         initialHandler();
     }
 
-    private AbstractIdHandler idHandler;
+    private IdentityEditTextHandler idHandler;
 
     private void initialHandler() {
         idHandler = new CitizenIdHandler(this);

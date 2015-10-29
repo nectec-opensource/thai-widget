@@ -24,11 +24,11 @@ import android.text.method.DigitsKeyListener;
 import android.widget.EditText;
 import th.or.nectec.domain.thai.Identity;
 
-public abstract class AbstractIdHandler implements TextWatcher {
+public abstract class IdentityEditTextHandler implements TextWatcher {
     protected EditText editText;
     private Identity id;
 
-    public AbstractIdHandler(EditText editText) {
+    public IdentityEditTextHandler(EditText editText) {
         this.editText = editText;
         this.id = onCreateNewId(editText.getText().toString());
         initialize();

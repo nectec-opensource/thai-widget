@@ -23,7 +23,7 @@ import android.widget.EditText;
 import th.or.nectec.domain.thai.HouseId;
 import th.or.nectec.domain.thai.Identity;
 
-public class HouseIdHandler extends AbstractIdHandler {
+public class HouseIdHandler extends IdentityEditTextHandler {
 
     public static final String DEFAULT_ERROR_MESSAGE = "รหัสประจำบ้านไม่ถูกต้อง";
     private static final int MAX_LENGTH = 13;
