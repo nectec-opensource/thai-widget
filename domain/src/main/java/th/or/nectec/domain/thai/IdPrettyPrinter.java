@@ -20,6 +20,7 @@ package th.or.nectec.domain.thai;
 public abstract class IdPrettyPrinter implements PrettyPrinter {
     public static final String DEFAULT_SEPARATOR = "-";
 
+    @Override
     public String print(String id) {
         id = id.trim();
         StringBuilder idFormatted = new StringBuilder();

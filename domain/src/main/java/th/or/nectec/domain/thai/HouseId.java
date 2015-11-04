@@ -19,6 +19,9 @@ package th.or.nectec.domain.thai;
 
 import th.or.nectec.util.TextUtils;
 
+/**
+ * A class that represent an identity of house in thailand
+ */
 public class HouseId implements Identity {
 
 
@@ -79,6 +82,11 @@ public class HouseId implements Identity {
     @Override
     public String getId() {
         return id;
+    }
+
+    @Override
+    public String toString() {
+        return printer.print(id);
     }
 
     @Override
