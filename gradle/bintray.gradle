@@ -13,17 +13,14 @@ bintray {
         websiteUrl = siteUrl
         vcsUrl = gitUrl
         licenses = ['Apache-2.0']
-        publish = false
+        labels = ['aar', 'android', 'library', 'thai', 'widget']
+        publish = true
         publicDownloadNumbers = true
         version {
             name = libraryVersion
             desc = libraryDescription
             released = new Date()
             vcsTag = libraryVersion
-            gpg {
-                sign = true
-                passphrase = project.hasProperty('GpgPasspharse') ? project.getProperty('GpgPasspharse') : System.getenv('GPG_PASSPHARSE') ?: ''
-            }
         }
     }
 }
