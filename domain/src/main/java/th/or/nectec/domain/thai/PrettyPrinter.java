@@ -17,8 +17,9 @@
 
 package th.or.nectec.domain.thai;
 
+
 public interface PrettyPrinter {
-    String print(String id);
+    String print(String text);
 
     String separator();
 }

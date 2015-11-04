@@ -19,7 +19,11 @@
 
 package th.or.nectec.domain.thai;
 
+/**
+ * Interface of represent
+ */
 public interface Identity {
+
     boolean isValidFormat();
 
     boolean validate();
