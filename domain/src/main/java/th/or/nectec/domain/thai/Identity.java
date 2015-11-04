@@ -20,7 +20,7 @@
 package th.or.nectec.domain.thai;
 
 /**
- * Interface of represent
+ * Interface to represent identity of something that have specify format and validation
  */
 public interface Identity {
 
