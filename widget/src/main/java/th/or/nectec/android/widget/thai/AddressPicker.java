@@ -21,10 +21,15 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.Button;
 
+import th.or.nectec.domain.thai.ThaiAddressPrinter;
+import th.or.nectec.entity.ThaiAddress;
+
 /**
  * Created by N. Choatravee on 5/11/2558.
  */
-public class AddressPicker extends Button implements AddressView {
+public class AddressPicker extends Button implements AddressView, AddressChangedListener {
+
+    ThaiAddress thaiAddress;
 
     public AddressPicker(Context context) {
         super(context);
@@ -38,6 +43,10 @@ public class AddressPicker extends Button implements AddressView {
         super(context, attrs, defStyleAttr);
     }
 
+    public void init() {
+        setOnAddressChangedListener(this);
+    }
+
     @Override
     public void setAddressCode(String addressCode) {
 
@@ -45,11 +54,26 @@ public class AddressPicker extends Button implements AddressView {
 
     @Override
     public void setAddress(String subdistrict, String district, String province) {
-
+        setText(ThaiAddressPrinter.buildShortAddress(subdistrict, district, province));
     }
 
     @Override
     public void setOnAddressChangedListener(AddressChangedListener addressChangedListener) {
 
+    }
+
+    @Override
+    public ThaiAddress getAddress() {
+        return thaiAddress;
+    }
+
+    @Override
+    public void onAddressChanged(ThaiAddress thaiAddress) {
+        this.thaiAddress = thaiAddress;
+    }
+
+    @Override
+    public void onAddressCanceled() {
+        this.thaiAddress = null;
     }
 }

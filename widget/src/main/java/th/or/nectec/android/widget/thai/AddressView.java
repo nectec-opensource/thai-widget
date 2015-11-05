@@ -17,10 +17,14 @@
 
 package th.or.nectec.android.widget.thai;
 
+import th.or.nectec.entity.ThaiAddress;
+
 public interface AddressView {
     void setAddressCode(String addressCode);
 
     void setAddress(String subdistrict, String district, String province);
 
     void setOnAddressChangedListener(AddressChangedListener addressChangedListener);
+
+    ThaiAddress getAddress();
 }
