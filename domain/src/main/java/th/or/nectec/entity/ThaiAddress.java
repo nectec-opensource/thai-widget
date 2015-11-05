@@ -26,6 +26,7 @@ public class ThaiAddress {
     String district;
     String province;
     String postCode;
+    String region;
 
     @Override
     public String toString() {
@@ -35,7 +36,16 @@ public class ThaiAddress {
                 ", district='" + district + '\'' +
                 ", province='" + province + '\'' +
                 ", postCode='" + postCode + '\'' +
+                ", region='" + region + '\'' +
                 '}';
+    }
+
+    public String getRegion() {
+        return region;
+    }
+
+    public void setRegion(String region) {
+        this.region = region;
     }
 
     public String getAddressCode() {
