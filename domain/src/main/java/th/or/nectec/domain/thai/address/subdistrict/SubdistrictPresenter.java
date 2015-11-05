@@ -15,15 +15,17 @@
  * limitations under the License.
  */
 
-package th.or.nectec.entity.address.region;
+package th.or.nectec.domain.thai.address.subdistrict;
 
 import java.util.List;
+
+import th.or.nectec.entity.ThaiAddress;
 
 /**
  * Created by N. Choatravee on 5/11/2558.
  */
-public interface RegionPresenter {
-    void showRegionList(List<String> regions);
+public interface SubdistrictPresenter {
+    void showSubdistrictList(List<ThaiAddress> subdistrict);
 
-    void showNotFoundRegion();
+    void showNotFoundSubdistrict();
 }

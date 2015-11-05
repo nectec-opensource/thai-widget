@@ -15,28 +15,15 @@
  * limitations under the License.
  */
 
-package th.or.nectec.entity.address.region;
+package th.or.nectec.domain.thai.address.subdistrict;
 
 import java.util.List;
+
+import th.or.nectec.entity.ThaiAddress;
 
 /**
  * Created by N. Choatravee on 5/11/2558.
  */
-public class RegionChooser {
-    private final RegionRepository regionRepository;
-    private final RegionPresenter regionPresenter;
-
-    public RegionChooser(RegionRepository regionRepository, RegionPresenter regionPresenter) {
-        this.regionRepository = regionRepository;
-        this.regionPresenter = regionPresenter;
-    }
-
-    public void showAllRegionList() {
-        List<String> allRegionList = regionRepository.getAllRegions();
-        if (allRegionList != null) {
-            regionPresenter.showRegionList(allRegionList);
-        } else {
-            regionPresenter.showNotFoundRegion();
-        }
-    }
+public interface SubdistrictRepository {
+    List<ThaiAddress> findByDistrictCode(String districtCode);
 }
