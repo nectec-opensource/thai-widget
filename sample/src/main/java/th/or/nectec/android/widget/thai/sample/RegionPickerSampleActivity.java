@@ -24,8 +24,8 @@ import android.widget.TextView;
 import java.util.List;
 
 import th.or.nectec.android.widget.thai.sample.repository.StubRegionRepository;
-import th.or.nectec.entity.address.region.RegionChooser;
-import th.or.nectec.entity.address.region.RegionPresenter;
+import th.or.nectec.domain.thai.address.region.RegionChooser;
+import th.or.nectec.domain.thai.address.region.RegionPresenter;
 
 public class RegionPickerSampleActivity extends AppCompatActivity {
 
@@ -56,7 +56,7 @@ public class RegionPickerSampleActivity extends AppCompatActivity {
 
         textView = (TextView) findViewById(R.id.text);
         regionChooser = new RegionChooser(new StubRegionRepository(), regionPresenter);
-        regionChooser.showAllRegionList();
+        regionChooser.showRegionList();
     }
 
 }

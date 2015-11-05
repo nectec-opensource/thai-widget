@@ -15,27 +15,13 @@
  * limitations under the License.
  */
 
-package th.or.nectec.android.widget.thai.sample.repository;
+package th.or.nectec.domain.thai.address.region;
 
-import java.util.ArrayList;
 import java.util.List;
-
-import th.or.nectec.domain.thai.address.region.RegionRepository;
 
 /**
  * Created by N. Choatravee on 5/11/2558.
  */
-public class StubRegionRepository implements RegionRepository {
-    @Override
-    public List<String> getAllRegions() {
-        List<String> regions = new ArrayList<>();
-        regions.add("ภาคกลาง");
-        regions.add("ภาคเหนือ");
-        regions.add("ภาคตะวันออกเฉียงเหนือ");
-        regions.add("ภาคตะวันออก");
-        regions.add("ภาคตะวันตก");
-        regions.add("ภาคใต้");
-
-        return regions;
-    }
+public interface RegionRepository {
+    List<String> getAllRegions();
 }
