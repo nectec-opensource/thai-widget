@@ -42,7 +42,7 @@ public class RegionPickerSampleActivity extends AppCompatActivity {
             for (ThaiAddress eachSubdistrict : provinces) {
                 stringBuilder.append(
                         ThaiAddressPrinter.buildShortAddress(
-                                eachSubdistrict.getSubDistrict(), eachSubdistrict.getDistrict(), eachSubdistrict.getProvince()));
+                                eachSubdistrict.getSubdistrict(), eachSubdistrict.getDistrict(), eachSubdistrict.getProvince()));
                 stringBuilder.append("\n");
             }
             textView.setText(stringBuilder);

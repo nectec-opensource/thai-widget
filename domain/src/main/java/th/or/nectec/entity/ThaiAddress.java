@@ -22,20 +22,20 @@ package th.or.nectec.entity;
  */
 public class ThaiAddress {
     String addressCode;
-    String subDistrict;
+    String subdistrict;
     String district;
     String province;
-    String postCode;
+    String postcode;
     String region;
 
     @Override
     public String toString() {
         return "ThaiAddress{" +
                 "addressCode='" + addressCode + '\'' +
-                ", subDistrict='" + subDistrict + '\'' +
+                ", subdistrict='" + subdistrict + '\'' +
                 ", district='" + district + '\'' +
                 ", province='" + province + '\'' +
-                ", postCode='" + postCode + '\'' +
+                ", postcode='" + postcode + '\'' +
                 ", region='" + region + '\'' +
                 '}';
     }
@@ -56,12 +56,12 @@ public class ThaiAddress {
         this.addressCode = addressCode;
     }
 
-    public String getSubDistrict() {
-        return subDistrict;
+    public String getSubdistrict() {
+        return subdistrict;
     }
 
-    public void setSubDistrict(String subDistrict) {
-        this.subDistrict = subDistrict;
+    public void setSubdistrict(String subdistrict) {
+        this.subdistrict = subdistrict;
     }
 
     public String getDistrict() {
@@ -80,12 +80,12 @@ public class ThaiAddress {
         this.province = province;
     }
 
-    public String getPostCode() {
-        return postCode;
+    public String getPostcode() {
+        return postcode;
     }
 
-    public void setPostCode(String postCode) {
-        this.postCode = postCode;
+    public void setPostcode(String postcode) {
+        this.postcode = postcode;
     }
 
     @Override
@@ -96,19 +96,19 @@ public class ThaiAddress {
         ThaiAddress that = (ThaiAddress) o;
 
         if (!addressCode.equals(that.addressCode)) return false;
-        if (!subDistrict.equals(that.subDistrict)) return false;
+        if (!subdistrict.equals(that.subdistrict)) return false;
         if (!district.equals(that.district)) return false;
         if (!province.equals(that.province)) return false;
-        return postCode.equals(that.postCode);
+        return postcode.equals(that.postcode);
     }
 
     @Override
     public int hashCode() {
         int result = addressCode.hashCode();
-        result = 31 * result + subDistrict.hashCode();
+        result = 31 * result + subdistrict.hashCode();
         result = 31 * result + district.hashCode();
         result = 31 * result + province.hashCode();
-        result = 31 * result + postCode.hashCode();
+        result = 31 * result + postcode.hashCode();
         return result;
     }
 }
