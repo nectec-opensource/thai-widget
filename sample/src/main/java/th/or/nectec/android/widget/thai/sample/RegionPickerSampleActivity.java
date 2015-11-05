@@ -23,8 +23,10 @@ import android.widget.TextView;
 
 import java.util.List;
 
-import th.or.nectec.android.widget.thai.sample.repository.StubSubdistrictRepository;
+import th.or.nectec.android.widget.thai.sample.repository.StubProvinceRepository;
 import th.or.nectec.domain.thai.ThaiAddressPrinter;
+import th.or.nectec.domain.thai.address.province.ProvinceChooser;
+import th.or.nectec.domain.thai.address.province.ProvincePresenter;
 import th.or.nectec.domain.thai.address.region.RegionChooser;
 import th.or.nectec.domain.thai.address.region.RegionPresenter;
 import th.or.nectec.domain.thai.address.subdistrict.SubdistrictChooser;
@@ -69,7 +71,26 @@ public class RegionPickerSampleActivity extends AppCompatActivity {
 
         @Override
         public void showNotFoundSubdistrict() {
-            textView.setText("ไม่เจอตำบล");
+        }
+    };
+
+    ProvinceChooser provinceChooser;
+    ProvincePresenter provincePresenter = new ProvincePresenter() {
+        @Override
+        public void showProvinceList(List<ThaiAddress> provinces) {
+            StringBuilder stringBuilder = new StringBuilder();
+            for (ThaiAddress eachSubdistrict : provinces) {
+                stringBuilder.append(
+                        ThaiAddressPrinter.buildShortAddress(
+                                eachSubdistrict.getSubDistrict(), eachSubdistrict.getDistrict(), eachSubdistrict.getProvince()));
+                stringBuilder.append("\n");
+            }
+            textView.setText(stringBuilder);
+        }
+
+        @Override
+        public void showNotFoundProvince() {
+            textView.setText("ไม่เจอจังหวัด");
         }
     };
 
@@ -82,8 +103,11 @@ public class RegionPickerSampleActivity extends AppCompatActivity {
 /*        regionChooser = new RegionChooser(new StubRegionRepository(), regionPresenter);
         regionChooser.showRegionList();*/
 
-        subdistrictChooser = new SubdistrictChooser(new StubSubdistrictRepository(), subdistrictPresenter);
-        subdistrictChooser.showSubdistrictByDistrictCodeList("1406");
+/*        subdistrictChooser = new SubdistrictChooser(new StubSubdistrictRepository(), subdistrictPresenter);
+        subdistrictChooser.showSubdistrictByDistrictCodeList("1406");*/
+
+        provinceChooser = new ProvinceChooser(new StubProvinceRepository(), provincePresenter);
+        provinceChooser.showSubdistrictByDistrictCodeList("21");
     }
 
 }
