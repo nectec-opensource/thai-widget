@@ -33,10 +33,10 @@ public class ProvinceChooser {
         this.provincePresenter = regionPresenter;
     }
 
-    public void showSubdistrictByDistrictCodeList(String districtCode) {
-        List<ThaiAddress> allSubdistrictList = provinceRepository.findByProvinceCode(districtCode);
-        if (allSubdistrictList != null) {
-            provincePresenter.showProvinceList(allSubdistrictList);
+    public void showProvinceListByRegion(String region) {
+        List<ThaiAddress> allProvinceList = provinceRepository.findByRegion(region);
+        if (allProvinceList != null) {
+            provincePresenter.showProvinceList(allProvinceList);
         } else {
             provincePresenter.showNotFoundProvince();
         }

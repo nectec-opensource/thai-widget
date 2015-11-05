@@ -25,5 +25,5 @@ import th.or.nectec.entity.ThaiAddress;
  * Created by N. Choatravee on 5/11/2558.
  */
 public interface ProvinceRepository {
-    List<ThaiAddress> findByProvinceCode(String provinceCode);
+    List<ThaiAddress> findByRegion(String region);
 }

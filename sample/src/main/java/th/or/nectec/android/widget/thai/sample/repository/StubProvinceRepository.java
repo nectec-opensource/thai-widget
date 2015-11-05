@@ -100,16 +100,14 @@ public class StubProvinceRepository implements ProvinceRepository {
     }
 
     @Override
-    public List<ThaiAddress> findByProvinceCode(String districtCode) {
+    public List<ThaiAddress> findByRegion(String region) {
         List<ThaiAddress> queryProvince = new ArrayList<>();
         for (ThaiAddress eachProvince : allProvince) {
             String queryAddressCode = eachProvince.getAddressCode();
-            if (queryAddressCode.startsWith(districtCode)) {
+            if (queryAddressCode.equals(region)) {
                 queryProvince.add(eachProvince);
             }
         }
         return queryProvince.isEmpty() ? null : queryProvince;
     }
-
-
 }
