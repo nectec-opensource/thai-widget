@@ -23,9 +23,13 @@ import android.widget.TextView;
 
 import java.util.List;
 
-import th.or.nectec.android.widget.thai.sample.repository.StubRegionRepository;
+import th.or.nectec.android.widget.thai.sample.repository.StubSubdistrictRepository;
+import th.or.nectec.domain.thai.ThaiAddressPrinter;
 import th.or.nectec.domain.thai.address.region.RegionChooser;
 import th.or.nectec.domain.thai.address.region.RegionPresenter;
+import th.or.nectec.domain.thai.address.subdistrict.SubdistrictChooser;
+import th.or.nectec.domain.thai.address.subdistrict.SubdistrictPresenter;
+import th.or.nectec.entity.ThaiAddress;
 
 public class RegionPickerSampleActivity extends AppCompatActivity {
 
@@ -49,14 +53,37 @@ public class RegionPickerSampleActivity extends AppCompatActivity {
         }
     };
 
+    SubdistrictChooser subdistrictChooser;
+    SubdistrictPresenter subdistrictPresenter = new SubdistrictPresenter() {
+        @Override
+        public void showSubdistrictList(List<ThaiAddress> subdistricts) {
+            StringBuilder stringBuilder = new StringBuilder();
+            for (ThaiAddress eachSubdistrict : subdistricts) {
+                stringBuilder.append(
+                        ThaiAddressPrinter.buildShortAddress(
+                                eachSubdistrict.getSubDistrict(), eachSubdistrict.getDistrict(), eachSubdistrict.getProvince()));
+                stringBuilder.append("\n");
+            }
+            textView.setText(stringBuilder);
+        }
+
+        @Override
+        public void showNotFoundSubdistrict() {
+            textView.setText("ไม่เจอตำบล");
+        }
+    };
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_region_picker);
 
         textView = (TextView) findViewById(R.id.text);
-        regionChooser = new RegionChooser(new StubRegionRepository(), regionPresenter);
-        regionChooser.showRegionList();
+/*        regionChooser = new RegionChooser(new StubRegionRepository(), regionPresenter);
+        regionChooser.showRegionList();*/
+
+        subdistrictChooser = new SubdistrictChooser(new StubSubdistrictRepository(), subdistrictPresenter);
+        subdistrictChooser.showSubdistrictByDistrictCodeList("1406");
     }
 
 }
