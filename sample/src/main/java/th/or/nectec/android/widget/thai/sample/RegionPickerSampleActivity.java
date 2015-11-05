@@ -23,61 +23,21 @@ import android.widget.TextView;
 
 import java.util.List;
 
-import th.or.nectec.android.widget.thai.sample.repository.StubProvinceRepository;
+import th.or.nectec.android.widget.thai.sample.repository.StubDistrictRepository;
 import th.or.nectec.domain.thai.ThaiAddressPrinter;
-import th.or.nectec.domain.thai.address.province.ProvinceChooser;
-import th.or.nectec.domain.thai.address.province.ProvincePresenter;
-import th.or.nectec.domain.thai.address.region.RegionChooser;
-import th.or.nectec.domain.thai.address.region.RegionPresenter;
-import th.or.nectec.domain.thai.address.subdistrict.SubdistrictChooser;
-import th.or.nectec.domain.thai.address.subdistrict.SubdistrictPresenter;
+import th.or.nectec.domain.thai.address.district.DistrictChooser;
+import th.or.nectec.domain.thai.address.district.DistrictPresenter;
 import th.or.nectec.entity.ThaiAddress;
 
 public class RegionPickerSampleActivity extends AppCompatActivity {
 
     TextView textView;
-    RegionChooser regionChooser;
-    RegionPresenter regionPresenter = new RegionPresenter() {
-        @Override
-        public void showRegionList(List<String> regions) {
-            StringBuilder stringBuilder = new StringBuilder();
-            for (String region : regions) {
-                stringBuilder.append(region);
-                stringBuilder.append("\n");
-            }
 
-            textView.setText(stringBuilder);
-        }
 
+    DistrictChooser districtChooser;
+    DistrictPresenter districtPresenter = new DistrictPresenter() {
         @Override
-        public void showNotFoundRegion() {
-            textView.setText("ไม่เจอข้อมูลภูมิภาค");
-        }
-    };
-
-    SubdistrictChooser subdistrictChooser;
-    SubdistrictPresenter subdistrictPresenter = new SubdistrictPresenter() {
-        @Override
-        public void showSubdistrictList(List<ThaiAddress> subdistricts) {
-            StringBuilder stringBuilder = new StringBuilder();
-            for (ThaiAddress eachSubdistrict : subdistricts) {
-                stringBuilder.append(
-                        ThaiAddressPrinter.buildShortAddress(
-                                eachSubdistrict.getSubDistrict(), eachSubdistrict.getDistrict(), eachSubdistrict.getProvince()));
-                stringBuilder.append("\n");
-            }
-            textView.setText(stringBuilder);
-        }
-
-        @Override
-        public void showNotFoundSubdistrict() {
-        }
-    };
-
-    ProvinceChooser provinceChooser;
-    ProvincePresenter provincePresenter = new ProvincePresenter() {
-        @Override
-        public void showProvinceList(List<ThaiAddress> provinces) {
+        public void showDistrictList(List<ThaiAddress> provinces) {
             StringBuilder stringBuilder = new StringBuilder();
             for (ThaiAddress eachSubdistrict : provinces) {
                 stringBuilder.append(
@@ -89,8 +49,8 @@ public class RegionPickerSampleActivity extends AppCompatActivity {
         }
 
         @Override
-        public void showNotFoundProvince() {
-            textView.setText("ไม่เจอจังหวัด");
+        public void showNotFoundDistrict() {
+            textView.setText("ไม่เจออำเภอ");
         }
     };
 
@@ -106,8 +66,8 @@ public class RegionPickerSampleActivity extends AppCompatActivity {
 /*        subdistrictChooser = new SubdistrictChooser(new StubSubdistrictRepository(), subdistrictPresenter);
         subdistrictChooser.showSubdistrictByDistrictCodeList("1406");*/
 
-        provinceChooser = new ProvinceChooser(new StubProvinceRepository(), provincePresenter);
-        provinceChooser.showSubdistrictByDistrictCodeList("21");
+        districtChooser = new DistrictChooser(new StubDistrictRepository(), districtPresenter);
+        districtChooser.showDistrictListByProvinceCode("14");
     }
 
 }
