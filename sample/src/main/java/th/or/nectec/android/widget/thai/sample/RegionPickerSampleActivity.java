@@ -23,7 +23,7 @@ import android.widget.TextView;
 
 import java.util.List;
 
-import th.or.nectec.android.widget.thai.sample.repository.StubDistrictRepository;
+import th.or.nectec.android.widget.thai.repository.StubDistrictRepository;
 import th.or.nectec.domain.thai.ThaiAddressPrinter;
 import th.or.nectec.domain.thai.address.district.DistrictChooser;
 import th.or.nectec.domain.thai.address.district.DistrictPresenter;

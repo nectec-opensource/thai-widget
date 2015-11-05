@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package th.or.nectec.android.widget.thai.sample.repository;
+package th.or.nectec.android.widget.thai.repository;
 
 import android.content.Context;
 
