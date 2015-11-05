@@ -54,10 +54,10 @@ public class ThaiAddressPrinter {
                 }
             } else {
                 if (!subdistrict.isEmpty()) {
-                    address += "ตำบล" + subdistrict + " ";
+                    address += "ต." + subdistrict + " ";
                 }
                 if (!district.isEmpty()) {
-                    address += "อำเภอ" + district + " จังหวัด" + province;
+                    address += "อ." + district + " จ." + province;
                 }
             }
         }
