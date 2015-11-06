@@ -57,10 +57,11 @@ public class StubProvinceRepository implements ProvinceRepository {
 
     @Override
     public List<Address> findByRegion(String region) {
+        Region targetRegion = Region.fromName(region);
         List<Address> queryProvince = new ArrayList<>();
         for (Address eachProvince : allProvince) {
             Region queryRegion = eachProvince.getRegion();
-            if (queryRegion.equals(region)) {
+            if (queryRegion.equals(targetRegion)) {
                 queryProvince.add(eachProvince);
             }
         }

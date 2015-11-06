@@ -17,13 +17,15 @@
 
 package th.or.nectec.entity.thai;
 
+import com.google.gson.annotations.SerializedName;
+
 public enum Region {
-    CENTER(Name.ภาคกลาง),
-    NORTH(Name.ภาคเหนือ),
-    EAST_NORTH(Name.ภาคตะวันออกเฉียงเหนือ),
-    EAST(Name.ภาคตะวันออก),
-    WEST(Name.ภาคตะวันตก),
-    SOUTH(Name.ภาคใต้);
+    @SerializedName(Name.ภาคกลาง)CENTER(Name.ภาคกลาง),
+    @SerializedName(Name.ภาคเหนือ)NORTH(Name.ภาคเหนือ),
+    @SerializedName(Name.ภาคตะวันออกเฉียงเหนือ)EAST_NORTH(Name.ภาคตะวันออกเฉียงเหนือ),
+    @SerializedName(Name.ภาคตะวันออก)EAST(Name.ภาคตะวันออก),
+    @SerializedName(Name.ภาคตะวันตก)WEST(Name.ภาคตะวันตก),
+    @SerializedName(Name.ภาคใต้)SOUTH(Name.ภาคใต้);
 
 
     private String regionName;
