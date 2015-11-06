@@ -22,7 +22,6 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AbsListView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -78,8 +77,6 @@ public class RegionListFragment extends Fragment {
 
     private void initInstances(View view) {
         regionList = (ListView) view.findViewById(R.id.picker_list);
-        regionList.setChoiceMode(AbsListView.CHOICE_MODE_SINGLE);
-
         regionChooser = new RegionChooser(new StubRegionRepository(), regionPresenter);
         regionChooser.showRegionList();
         regionList.setAdapter(regionAdapter);
