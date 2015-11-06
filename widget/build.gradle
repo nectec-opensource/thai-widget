@@ -61,6 +61,7 @@ android {
 dependencies {
     compile project(':domain')
     compile 'com.google.code.gson:gson:2.4'
+    compile 'com.android.support:appcompat-v7:' + rootProject.ext.supportLibVersion
 }
 
 apply from: '../gradle/artifact.gradle'
