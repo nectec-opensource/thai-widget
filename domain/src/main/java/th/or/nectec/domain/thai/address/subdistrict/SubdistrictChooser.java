@@ -33,7 +33,7 @@ public class SubdistrictChooser {
         this.subdistrictPresenter = regionPresenter;
     }
 
-    public void showSubdistrictByDistrictCodeList(String districtCode) {
+    public void showSubdistrictListByDistrictCode(String districtCode) {
         List<ThaiAddress> allSubdistrictList = subdistrictRepository.findByDistrictCode(districtCode);
         if (allSubdistrictList != null) {
             subdistrictPresenter.showSubdistrictList(allSubdistrictList);

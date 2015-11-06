@@ -19,6 +19,12 @@ package th.or.nectec.android.widget.thai.repository;
 
 import android.content.Context;
 
+import com.google.gson.Gson;
+import com.google.gson.stream.JsonReader;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -30,54 +36,24 @@ import th.or.nectec.entity.ThaiAddress;
  */
 public class StubSubdistrictRepository implements SubdistrictRepository {
 
-    Context context;
     ArrayList<ThaiAddress> allSubdistrict = new ArrayList<>();
 
-    public StubSubdistrictRepository() {
-        ThaiAddress subdistrict1 = new ThaiAddress();
-        subdistrict1.setAddressCode("140605");
-        subdistrict1.setSubdistrict("บางกระสั้น");
-        subdistrict1.setDistrict("บางปะอิน");
-        subdistrict1.setProvince("พระนครศรีอยุธยา");
-        subdistrict1.setPostcode("13160");
-        subdistrict1.setRegion("ภาคกลาง");
-        allSubdistrict.add(subdistrict1);
+    public StubSubdistrictRepository(Context context) {
+        try {
+            InputStream inputStream = context.getAssets().open("subdistrict.json");
+            JsonReader reader = new JsonReader(new InputStreamReader(inputStream, "UTF-8"));
+            Gson gson = new Gson();
 
-        ThaiAddress subdistrict2 = new ThaiAddress();
-        subdistrict2.setAddressCode("140602");
-        subdistrict2.setSubdistrict("เชียงรากน้อย");
-        subdistrict2.setDistrict("บางปะอิน");
-        subdistrict2.setProvince("พระนครศรีอยุธยา");
-        subdistrict2.setPostcode("13180");
-        subdistrict2.setRegion("ภาคกลาง");
-        allSubdistrict.add(subdistrict2);
-
-        ThaiAddress subdistrict3 = new ThaiAddress();
-        subdistrict3.setAddressCode("140601");
-        subdistrict3.setSubdistrict("บ้านเลน");
-        subdistrict3.setDistrict("บางปะอิน");
-        subdistrict3.setProvince("พระนครศรีอยุธยา");
-        subdistrict3.setPostcode("13160");
-        subdistrict3.setRegion("ภาคกลาง");
-        allSubdistrict.add(subdistrict3);
-
-        ThaiAddress subdistrict4 = new ThaiAddress();
-        subdistrict4.setAddressCode("140611");
-        subdistrict4.setSubdistrict("เกาะเกิด");
-        subdistrict4.setDistrict("บางปะอิน");
-        subdistrict4.setProvince("พระนครศรีอยุธยา");
-        subdistrict4.setPostcode("13160");
-        subdistrict4.setRegion("ภาคกลาง");
-        allSubdistrict.add(subdistrict4);
-
-        ThaiAddress subdistrict5 = new ThaiAddress();
-        subdistrict5.setAddressCode("140811");
-        subdistrict5.setSubdistrict("เชียงรากน้อย");
-        subdistrict5.setDistrict("บางไทร");
-        subdistrict5.setProvince("พระนครศรีอยุธยา");
-        subdistrict5.setPostcode("13160");
-        subdistrict5.setRegion("ภาคกลาง");
-        allSubdistrict.add(subdistrict5);
+            reader.beginArray();
+            while (reader.hasNext()) {
+                ThaiAddress message = gson.fromJson(reader, ThaiAddress.class);
+                allSubdistrict.add(message);
+            }
+            reader.endArray();
+            reader.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override

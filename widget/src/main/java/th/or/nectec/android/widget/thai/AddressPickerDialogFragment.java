@@ -41,6 +41,7 @@ public class AddressPickerDialogFragment extends DialogFragment implements View.
     RegionListFragment regionListFragment;
     ProvinceListFragment provinceListFragment;
     DistrictListFragment districtListFragment;
+    SubdistrictListFragment subdistrictListFragment;
 
     private String addressCode;
     private int currentState = SELECT_REGION;
@@ -125,15 +126,23 @@ public class AddressPickerDialogFragment extends DialogFragment implements View.
             if (districtListFragment.getData() == null) {
                 Toast.makeText(getActivity(), "ไปเลือกอำเภอก่อนเลย", Toast.LENGTH_LONG).show();
             } else {
-                Toast.makeText(getActivity(), districtListFragment.getData().getAddressCode(), Toast.LENGTH_LONG).show();
-                /*districtListFragment = DistrictListFragment.newInstance(districtListFragment.getData().getAddressCode());
-                fragmentManager.beginTransaction().replace(R.id.container, districtListFragment, DistrictListFragment.FRAGMENT_TAG).commit();
+                Toast.makeText(getActivity(), districtListFragment.getData().getDistrict(), Toast.LENGTH_LONG).show();
+                subdistrictListFragment = SubdistrictListFragment.newInstance(districtListFragment.getData().getAddressCode());
+                fragmentManager.beginTransaction().replace(R.id.container, subdistrictListFragment, SubdistrictListFragment.FRAGMENT_TAG).commit();
                 getDialog().setTitle(R.string.choose_subdistrict);
-                currentState = SELECT_SUBDISTRICT;*/
+                currentState = SELECT_SUBDISTRICT;
             }
 
         } else if (currentState == SELECT_SUBDISTRICT) {
-
+            if (subdistrictListFragment.getData() == null) {
+                Toast.makeText(getActivity(), "ไปเลือกตำบลก่อนเลย", Toast.LENGTH_LONG).show();
+            } else {
+                Toast.makeText(getActivity(), subdistrictListFragment.getData().getSubdistrict(), Toast.LENGTH_LONG).show();
+                /*subdistrictListFragment = SubdistrictListFragment.newInstance(districtListFragment.getData().getAddressCode());
+                fragmentManager.beginTransaction().replace(R.id.container, subdistrictListFragment, SubdistrictListFragment.FRAGMENT_TAG).commit();
+                getDialog().setTitle(R.string.choose_subdistrict);
+                currentState = SELECT_SUBDISTRICT;*/
+            }
         }
 
 
