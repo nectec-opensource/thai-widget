@@ -90,6 +90,7 @@ public class AddressPickerDialogFragment extends DialogFragment implements View.
         getDialog().setTitle(R.string.choose_region);
         regionListFragment = new RegionListFragment();
         fragmentManager.beginTransaction().replace(R.id.container, regionListFragment, RegionListFragment.FRAGMENT_TAG).commit();
+        backButton.setEnabled(false);
     }
 
     @Override
@@ -114,6 +115,7 @@ public class AddressPickerDialogFragment extends DialogFragment implements View.
                         .commit();
                 currentState = SELECT_PROVINCE;
                 getDialog().setTitle(R.string.choose_province);
+                backButton.setEnabled(true);
             }
         } else if (currentState == SELECT_PROVINCE) {
             if (provinceListFragment.getData() == null) {
@@ -140,6 +142,7 @@ public class AddressPickerDialogFragment extends DialogFragment implements View.
                         .commit();
                 getDialog().setTitle(R.string.choose_subdistrict);
                 currentState = SELECT_SUBDISTRICT;
+                nextButton.setText(R.string.finish);
             }
 
         } else if (currentState == SELECT_SUBDISTRICT) {
@@ -156,10 +159,12 @@ public class AddressPickerDialogFragment extends DialogFragment implements View.
         fragmentManager.popBackStack();
         if (currentState == SELECT_PROVINCE) {
             currentState = SELECT_REGION;
+            backButton.setEnabled(false);
         } else if (currentState == SELECT_DISTRICT) {
             currentState = SELECT_PROVINCE;
         } else if (currentState == SELECT_SUBDISTRICT) {
             currentState = SELECT_DISTRICT;
+            nextButton.setText(R.string.back);
         }
     }
 
