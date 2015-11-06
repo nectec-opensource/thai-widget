@@ -17,9 +17,9 @@
 
 package th.or.nectec.domain.thai.address.subdistrict;
 
-import java.util.List;
-
 import th.or.nectec.entity.ThaiAddress;
+
+import java.util.List;
 
 /**
  * Created by N. Choatravee on 5/11/2558.
@@ -34,9 +34,9 @@ public class SubdistrictChooser {
     }
 
     public void showSubdistrictListByDistrictCode(String districtCode) {
-        List<ThaiAddress> allSubdistrictList = subdistrictRepository.findByDistrictCode(districtCode);
-        if (allSubdistrictList != null) {
-            subdistrictPresenter.showSubdistrictList(allSubdistrictList);
+        List<ThaiAddress> subdistricts = subdistrictRepository.findByDistrictCode(districtCode);
+        if (subdistricts != null) {
+            subdistrictPresenter.showSubdistrictList(subdistricts);
         } else {
             subdistrictPresenter.showNotFoundSubdistrict();
         }

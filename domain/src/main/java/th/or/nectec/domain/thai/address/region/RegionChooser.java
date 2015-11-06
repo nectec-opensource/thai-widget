@@ -32,9 +32,9 @@ public class RegionChooser {
     }
 
     public void showRegionList() {
-        List<String> allRegionList = regionRepository.find();
-        if (allRegionList != null) {
-            regionPresenter.showRegionList(allRegionList);
+        List<String> regions = regionRepository.find();
+        if (regions != null) {
+            regionPresenter.showRegionList(regions);
         } else {
             regionPresenter.showNotFoundRegion();
         }

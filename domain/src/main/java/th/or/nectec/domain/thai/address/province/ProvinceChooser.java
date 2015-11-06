@@ -17,9 +17,9 @@
 
 package th.or.nectec.domain.thai.address.province;
 
-import java.util.List;
-
 import th.or.nectec.entity.ThaiAddress;
+
+import java.util.List;
 
 /**
  * Created by N. Choatravee on 5/11/2558.
@@ -34,9 +34,9 @@ public class ProvinceChooser {
     }
 
     public void showProvinceListByRegion(String region) {
-        List<ThaiAddress> allProvinceList = provinceRepository.findByRegion(region);
-        if (allProvinceList != null) {
-            provincePresenter.showProvinceList(allProvinceList);
+        List<ThaiAddress> provinces = provinceRepository.findByRegion(region);
+        if (provinces != null) {
+            provincePresenter.showProvinceList(provinces);
         } else {
             provincePresenter.showNotFoundProvince();
         }
