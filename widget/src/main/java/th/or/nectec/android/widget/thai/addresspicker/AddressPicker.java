@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package th.or.nectec.android.widget.thai;
+package th.or.nectec.android.widget.thai.addresspicker;
 
 import android.content.Context;
 import android.content.res.ColorStateList;
@@ -27,6 +27,9 @@ import android.support.v7.internal.widget.TintTypedArray;
 import android.support.v7.widget.AppCompatButton;
 import android.util.AttributeSet;
 
+import th.or.nectec.android.widget.thai.AddressView;
+import th.or.nectec.android.widget.thai.OnAddressChangedListener;
+import th.or.nectec.android.widget.thai.R;
 import th.or.nectec.domain.thai.ThaiAddressPrinter;
 import th.or.nectec.entity.ThaiAddress;
 
@@ -103,10 +106,14 @@ public class AddressPicker extends AppCompatButton implements AddressView, OnAdd
         if (this.addressPickerDialogFragment != null) {
             FragmentManager fm = activity.getSupportFragmentManager();
 
-            if (!this.addressPickerDialogFragment.isAdded())
+            if (!this.addressPickerDialogFragment.isAdded()) {
                 this.addressPickerDialogFragment.show(fm, "dialog");
+                handle = true;
 
-            handle = true;
+                if (thaiAddress != null) {
+
+                }
+            }
         }
         return handle;
     }

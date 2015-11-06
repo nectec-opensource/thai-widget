@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package th.or.nectec.android.widget.thai;
+package th.or.nectec.android.widget.thai.addresspicker.fragment;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -27,43 +27,45 @@ import android.widget.Toast;
 
 import java.util.List;
 
-import th.or.nectec.android.widget.thai.repository.StubSubdistrictRepository;
-import th.or.nectec.domain.thai.address.subdistrict.SubdistrictChooser;
-import th.or.nectec.domain.thai.address.subdistrict.SubdistrictPresenter;
+import th.or.nectec.android.widget.thai.R;
+import th.or.nectec.android.widget.thai.addresspicker.adapter.ProvinceAdapter;
+import th.or.nectec.android.widget.thai.addresspicker.repository.StubProvinceRepository;
+import th.or.nectec.domain.thai.address.province.ProvinceChooser;
+import th.or.nectec.domain.thai.address.province.ProvincePresenter;
 import th.or.nectec.entity.ThaiAddress;
 
 
-public class SubdistrictListFragment extends Fragment {
+public class ProvinceListFragment extends Fragment {
 
-    public static final String FRAGMENT_TAG = "subdistrict_list";
+    public static final String FRAGMENT_TAG = "province_list";
 
-    private static final String DISTRICT_CODE = "district_code";
+    private static final String REGION = "region";
     ListView listView;
-    SubdistrictAdapter provinceAdapter;
+    ProvinceAdapter provinceAdapter;
 
-    String districtCode;
+    String region;
 
-    SubdistrictChooser subdistrictChooser;
-    SubdistrictPresenter subdistrictPresenter = new SubdistrictPresenter() {
+    ProvinceChooser provinceChooser;
+    ProvincePresenter provincePresenter = new ProvincePresenter() {
         @Override
-        public void showSubdistrictList(List<ThaiAddress> districts) {
-            provinceAdapter = new SubdistrictAdapter(getActivity(), districts);
+        public void showProvinceList(List<ThaiAddress> provinces) {
+            provinceAdapter = new ProvinceAdapter(getActivity(), provinces);
         }
 
         @Override
-        public void showNotFoundSubdistrict() {
-            Toast.makeText(getActivity(), "ไม่พบตำบล", Toast.LENGTH_LONG).show();
+        public void showNotFoundProvince() {
+            Toast.makeText(getActivity(), "ไม่พบจังหวัด", Toast.LENGTH_LONG).show();
         }
     };
 
-    public SubdistrictListFragment() {
+    public ProvinceListFragment() {
         // Required empty public constructor
     }
 
-    public static SubdistrictListFragment newInstance(String provinceCode) {
-        SubdistrictListFragment fragment = new SubdistrictListFragment();
+    public static ProvinceListFragment newInstance(String region) {
+        ProvinceListFragment fragment = new ProvinceListFragment();
         Bundle args = new Bundle();
-        args.putString(DISTRICT_CODE, provinceCode);
+        args.putString(REGION, region);
         fragment.setArguments(args);
         return fragment;
     }
@@ -78,11 +80,11 @@ public class SubdistrictListFragment extends Fragment {
     }
 
     private void initInstances(View view) {
-        districtCode = getArguments().getString(DISTRICT_CODE);
+        region = getArguments().getString(REGION);
 
         listView = (ListView) view.findViewById(R.id.picker_list);
-        subdistrictChooser = new SubdistrictChooser(new StubSubdistrictRepository(getActivity()), subdistrictPresenter);
-        subdistrictChooser.showSubdistrictListByDistrictCode(districtCode);
+        provinceChooser = new ProvinceChooser(new StubProvinceRepository(getActivity()), provincePresenter);
+        provinceChooser.showProvinceListByRegion(region);
         listView.setAdapter(provinceAdapter);
     }
 

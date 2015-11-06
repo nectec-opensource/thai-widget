@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package th.or.nectec.android.widget.thai;
+package th.or.nectec.android.widget.thai.addresspicker.adapter;
 
 import android.content.Context;
 import android.view.View;
@@ -24,14 +24,15 @@ import android.widget.TextView;
 
 import java.util.List;
 
+import th.or.nectec.android.widget.thai.R;
 import th.or.nectec.entity.ThaiAddress;
 
 /**
  * Created by N. Choatravee on 20/4/2558.
  */
-public class ProvinceAdapter extends ThaiAddressAdapter {
+public class SubdistrictAdapter extends ThaiAddressAdapter {
 
-    public ProvinceAdapter(Context context, List<ThaiAddress> thaiAddressList) {
+    public SubdistrictAdapter(Context context, List<ThaiAddress> thaiAddressList) {
         super(context, thaiAddressList);
     }
 
@@ -43,7 +44,7 @@ public class ProvinceAdapter extends ThaiAddressAdapter {
 
         TextView text = (TextView) convertView;
 
-        text.setText(getItem(position).getProvince());
+        text.setText(getItem(position).getSubdistrict());
         return text;
     }
 }

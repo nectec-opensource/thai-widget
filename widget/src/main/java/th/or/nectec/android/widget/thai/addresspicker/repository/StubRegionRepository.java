@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package th.or.nectec.android.widget.thai.repository;
+package th.or.nectec.android.widget.thai.addresspicker.repository;
 
 import java.util.ArrayList;
 import java.util.List;

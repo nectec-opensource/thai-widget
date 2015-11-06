@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package th.or.nectec.android.widget.thai;
+package th.or.nectec.android.widget.thai.addresspicker.fragment;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -27,7 +27,9 @@ import android.widget.Toast;
 
 import java.util.List;
 
-import th.or.nectec.android.widget.thai.repository.StubDistrictRepository;
+import th.or.nectec.android.widget.thai.R;
+import th.or.nectec.android.widget.thai.addresspicker.adapter.DistrictAdapter;
+import th.or.nectec.android.widget.thai.addresspicker.repository.StubDistrictRepository;
 import th.or.nectec.domain.thai.address.district.DistrictChooser;
 import th.or.nectec.domain.thai.address.district.DistrictPresenter;
 import th.or.nectec.entity.ThaiAddress;

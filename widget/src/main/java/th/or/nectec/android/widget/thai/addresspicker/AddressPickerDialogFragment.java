@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package th.or.nectec.android.widget.thai;
+package th.or.nectec.android.widget.thai.addresspicker;
 
 import android.content.DialogInterface;
 import android.os.Bundle;
@@ -27,6 +27,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.Toast;
+
+import th.or.nectec.android.widget.thai.OnAddressChangedListener;
+import th.or.nectec.android.widget.thai.R;
+import th.or.nectec.android.widget.thai.addresspicker.fragment.DistrictListFragment;
+import th.or.nectec.android.widget.thai.addresspicker.fragment.ProvinceListFragment;
+import th.or.nectec.android.widget.thai.addresspicker.fragment.RegionListFragment;
+import th.or.nectec.android.widget.thai.addresspicker.fragment.SubdistrictListFragment;
 
 
 public class AddressPickerDialogFragment extends DialogFragment implements View.OnClickListener {
@@ -43,6 +50,8 @@ public class AddressPickerDialogFragment extends DialogFragment implements View.
     DistrictListFragment districtListFragment;
     SubdistrictListFragment subdistrictListFragment;
     OnAddressChangedListener addressChangedListener;
+
+
     private String addressCode;
     private int currentState = SELECT_REGION;
 

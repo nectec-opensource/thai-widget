@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package th.or.nectec.android.widget.thai;
+package th.or.nectec.android.widget.thai.addresspicker.adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -28,6 +28,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
+import th.or.nectec.android.widget.thai.R;
 import th.or.nectec.entity.ThaiAddress;
 
 /**
