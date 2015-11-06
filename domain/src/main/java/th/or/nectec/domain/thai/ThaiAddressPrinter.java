@@ -46,7 +46,7 @@ public class ThaiAddressPrinter {
         String address = "";
         if (!province.isEmpty()) {
             if (province.equals("กรุงเทพมหานคร")) {
-                if (subdistrict.isEmpty()) {
+                if (!subdistrict.isEmpty()) {
                     address += "แขวง" + subdistrict + " ";
                 }
                 if (!district.isEmpty()) {
