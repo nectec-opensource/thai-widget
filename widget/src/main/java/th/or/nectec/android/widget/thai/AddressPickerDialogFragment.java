@@ -42,7 +42,7 @@ public class AddressPickerDialogFragment extends DialogFragment implements View.
     ProvinceListFragment provinceListFragment;
     DistrictListFragment districtListFragment;
     SubdistrictListFragment subdistrictListFragment;
-
+    OnAddressChangedListener addressChangedListener;
     private String addressCode;
     private int currentState = SELECT_REGION;
 
@@ -96,7 +96,7 @@ public class AddressPickerDialogFragment extends DialogFragment implements View.
     public void onClick(View view) {
         int id = view.getId();
         if (id == R.id.back) {
-
+            backStep();
         } else if (id == R.id.next) {
             nextStep();
         }
@@ -108,7 +108,10 @@ public class AddressPickerDialogFragment extends DialogFragment implements View.
                 Toast.makeText(getActivity(), "ไปเลือกภูมิภาคก่อนเลย", Toast.LENGTH_LONG).show();
             } else {
                 provinceListFragment = ProvinceListFragment.newInstance(regionListFragment.getRegion());
-                fragmentManager.beginTransaction().replace(R.id.container, provinceListFragment, ProvinceListFragment.FRAGMENT_TAG).commit();
+                fragmentManager.beginTransaction()
+                        .replace(R.id.container, provinceListFragment, ProvinceListFragment.FRAGMENT_TAG)
+                        .addToBackStack(null)
+                        .commit();
                 currentState = SELECT_PROVINCE;
                 getDialog().setTitle(R.string.choose_province);
             }
@@ -117,7 +120,10 @@ public class AddressPickerDialogFragment extends DialogFragment implements View.
                 Toast.makeText(getActivity(), "ไปเลือกจังหวัดก่อนเลย", Toast.LENGTH_LONG).show();
             } else {
                 districtListFragment = DistrictListFragment.newInstance(provinceListFragment.getData().getAddressCode());
-                fragmentManager.beginTransaction().replace(R.id.container, districtListFragment, DistrictListFragment.FRAGMENT_TAG).commit();
+                fragmentManager.beginTransaction()
+                        .replace(R.id.container, districtListFragment, DistrictListFragment.FRAGMENT_TAG)
+                        .addToBackStack(null)
+                        .commit();
                 getDialog().setTitle(R.string.choose_district);
                 currentState = SELECT_DISTRICT;
             }
@@ -128,7 +134,10 @@ public class AddressPickerDialogFragment extends DialogFragment implements View.
             } else {
                 Toast.makeText(getActivity(), districtListFragment.getData().getDistrict(), Toast.LENGTH_LONG).show();
                 subdistrictListFragment = SubdistrictListFragment.newInstance(districtListFragment.getData().getAddressCode());
-                fragmentManager.beginTransaction().replace(R.id.container, subdistrictListFragment, SubdistrictListFragment.FRAGMENT_TAG).commit();
+                fragmentManager.beginTransaction()
+                        .replace(R.id.container, subdistrictListFragment, SubdistrictListFragment.FRAGMENT_TAG)
+                        .addToBackStack(null)
+                        .commit();
                 getDialog().setTitle(R.string.choose_subdistrict);
                 currentState = SELECT_SUBDISTRICT;
             }
@@ -137,26 +146,20 @@ public class AddressPickerDialogFragment extends DialogFragment implements View.
             if (subdistrictListFragment.getData() == null) {
                 Toast.makeText(getActivity(), "ไปเลือกตำบลก่อนเลย", Toast.LENGTH_LONG).show();
             } else {
-                Toast.makeText(getActivity(), subdistrictListFragment.getData().getSubdistrict(), Toast.LENGTH_LONG).show();
-                /*subdistrictListFragment = SubdistrictListFragment.newInstance(districtListFragment.getData().getAddressCode());
-                fragmentManager.beginTransaction().replace(R.id.container, subdistrictListFragment, SubdistrictListFragment.FRAGMENT_TAG).commit();
-                getDialog().setTitle(R.string.choose_subdistrict);
-                currentState = SELECT_SUBDISTRICT;*/
+                this.addressChangedListener.onAddressChanged(subdistrictListFragment.getData());
+                dismiss();
             }
         }
-
-
     }
 
     public void backStep() {
-        if (currentState == SELECT_REGION) {
-
-        } else if (currentState == SELECT_PROVINCE) {
-
+        fragmentManager.popBackStack();
+        if (currentState == SELECT_PROVINCE) {
+            currentState = SELECT_REGION;
         } else if (currentState == SELECT_DISTRICT) {
-
+            currentState = SELECT_PROVINCE;
         } else if (currentState == SELECT_SUBDISTRICT) {
-
+            currentState = SELECT_DISTRICT;
         }
     }
 
@@ -164,5 +167,9 @@ public class AddressPickerDialogFragment extends DialogFragment implements View.
     public void onDismiss(DialogInterface dialog) {
         super.onDismiss(dialog);
         currentState = SELECT_REGION;
+    }
+
+    public void setOnAddressChangedListener(OnAddressChangedListener addressChangedListener) {
+        this.addressChangedListener = addressChangedListener;
     }
 }

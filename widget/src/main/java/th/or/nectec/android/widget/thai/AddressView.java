@@ -24,7 +24,7 @@ public interface AddressView {
 
     void setAddress(String subdistrict, String district, String province);
 
-    void setOnAddressChangedListener(AddressChangedListener addressChangedListener);
+    void setOnAddressChangedListener(OnAddressChangedListener onAddressChangedListener);
 
     ThaiAddress getAddress();
 }

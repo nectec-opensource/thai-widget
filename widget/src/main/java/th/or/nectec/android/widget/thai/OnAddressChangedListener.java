@@ -19,7 +19,7 @@ package th.or.nectec.android.widget.thai;
 
 import th.or.nectec.entity.ThaiAddress;
 
-public interface AddressChangedListener {
+public interface OnAddressChangedListener {
 
     void onAddressChanged(ThaiAddress thaiAddress);
 

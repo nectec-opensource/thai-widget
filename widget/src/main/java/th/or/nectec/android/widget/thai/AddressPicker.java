@@ -33,7 +33,7 @@ import th.or.nectec.entity.ThaiAddress;
 /**
  * Created by N. Choatravee on 5/11/2558.
  */
-public class AddressPicker extends AppCompatButton implements AddressView, AddressChangedListener {
+public class AddressPicker extends AppCompatButton implements AddressView, OnAddressChangedListener {
 
     public static final int[] TINT_ATTRS = {android.R.attr.background};
     public static final String FRAGMENT_TAG = "address_dialog";
@@ -89,6 +89,8 @@ public class AddressPicker extends AppCompatButton implements AddressView, Addre
             this.addressPickerDialogFragment = new AddressPickerDialogFragment();
         }
 
+        this.addressPickerDialogFragment.setOnAddressChangedListener(this);
+
         fragmentManager.beginTransaction().add(new AddressPickerDialogFragment(), "dialog");
 
         setText("กรุณาระบุ ตำบล อำเภอ จังหวัด");
@@ -120,7 +122,7 @@ public class AddressPicker extends AppCompatButton implements AddressView, Addre
     }
 
     @Override
-    public void setOnAddressChangedListener(AddressChangedListener addressChangedListener) {
+    public void setOnAddressChangedListener(OnAddressChangedListener onAddressChangedListener) {
 
     }
 
@@ -132,10 +134,11 @@ public class AddressPicker extends AppCompatButton implements AddressView, Addre
     @Override
     public void onAddressChanged(ThaiAddress thaiAddress) {
         this.thaiAddress = thaiAddress;
+        setAddress(thaiAddress.getSubdistrict(), thaiAddress.getDistrict(), thaiAddress.getProvince());
     }
 
     @Override
     public void onAddressCanceled() {
-        this.thaiAddress = null;
+
     }
 }
