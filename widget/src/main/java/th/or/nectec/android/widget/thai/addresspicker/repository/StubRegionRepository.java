@@ -17,17 +17,17 @@
 
 package th.or.nectec.android.widget.thai.addresspicker.repository;
 
+import th.or.nectec.domain.thai.address.region.RegionRepository;
+
 import java.util.ArrayList;
 import java.util.List;
-
-import th.or.nectec.domain.thai.address.region.RegionRepository;
 
 /**
  * Created by N. Choatravee on 5/11/2558.
  */
 public class StubRegionRepository implements RegionRepository {
     @Override
-    public List<String> getAllRegions() {
+    public List<String> find() {
         List<String> regions = new ArrayList<>();
         regions.add("ภาคกลาง");
         regions.add("ภาคเหนือ");

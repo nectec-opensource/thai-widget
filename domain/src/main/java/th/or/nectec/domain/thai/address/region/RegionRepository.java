@@ -23,5 +23,5 @@ import java.util.List;
  * Created by N. Choatravee on 5/11/2558.
  */
 public interface RegionRepository {
-    List<String> getAllRegions();
+    List<String> find();
 }
