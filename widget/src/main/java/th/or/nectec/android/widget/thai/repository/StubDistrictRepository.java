@@ -40,7 +40,6 @@ public class StubDistrictRepository implements DistrictRepository {
 
     public StubDistrictRepository(Context context) {
         try {
-
             InputStream inputStream = context.getAssets().open("RefAddress.json");
             JsonReader reader = new JsonReader(new InputStreamReader(inputStream, "UTF-8"));
             Gson gson = new Gson();

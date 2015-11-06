@@ -23,10 +23,10 @@ import android.widget.TextView;
 
 import java.util.List;
 
-import th.or.nectec.android.widget.thai.repository.StubDistrictRepository;
+import th.or.nectec.android.widget.thai.repository.StubProvinceRepository;
 import th.or.nectec.domain.thai.ThaiAddressPrinter;
-import th.or.nectec.domain.thai.address.district.DistrictChooser;
-import th.or.nectec.domain.thai.address.district.DistrictPresenter;
+import th.or.nectec.domain.thai.address.province.ProvinceChooser;
+import th.or.nectec.domain.thai.address.province.ProvincePresenter;
 import th.or.nectec.entity.ThaiAddress;
 
 public class RegionPickerSampleActivity extends AppCompatActivity {
@@ -34,10 +34,10 @@ public class RegionPickerSampleActivity extends AppCompatActivity {
     TextView textView;
 
 
-    DistrictChooser districtChooser;
-    DistrictPresenter districtPresenter = new DistrictPresenter() {
+    ProvinceChooser provinceChooser;
+    ProvincePresenter provincePresenter = new ProvincePresenter() {
         @Override
-        public void showDistrictList(List<ThaiAddress> provinces) {
+        public void showProvinceList(List<ThaiAddress> provinces) {
             StringBuilder stringBuilder = new StringBuilder();
             for (ThaiAddress eachSubdistrict : provinces) {
                 stringBuilder.append(
@@ -49,8 +49,8 @@ public class RegionPickerSampleActivity extends AppCompatActivity {
         }
 
         @Override
-        public void showNotFoundDistrict() {
-            textView.setText("ไม่เจออำเภอ");
+        public void showNotFoundProvince() {
+            textView.setText("ไม่เจอจังหวัด");
         }
     };
 
@@ -61,8 +61,8 @@ public class RegionPickerSampleActivity extends AppCompatActivity {
 
         textView = (TextView) findViewById(R.id.text);
 
-        districtChooser = new DistrictChooser(new StubDistrictRepository(RegionPickerSampleActivity.this), districtPresenter);
-        districtChooser.showDistrictListByProvinceCode("14");
+        provinceChooser = new ProvinceChooser(new StubProvinceRepository(RegionPickerSampleActivity.this), provincePresenter);
+        provinceChooser.showProvinceListByRegion("ภาคกลาง");
     }
 
 }

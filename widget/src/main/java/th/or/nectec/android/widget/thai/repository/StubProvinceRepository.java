@@ -19,6 +19,12 @@ package th.or.nectec.android.widget.thai.repository;
 
 import android.content.Context;
 
+import com.google.gson.Gson;
+import com.google.gson.stream.JsonReader;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -30,81 +36,38 @@ import th.or.nectec.entity.ThaiAddress;
  */
 public class StubProvinceRepository implements ProvinceRepository {
 
-    Context context;
     ArrayList<ThaiAddress> allProvince = new ArrayList<>();
 
-    public StubProvinceRepository() {
-        ThaiAddress subdistrict1 = new ThaiAddress();
-        subdistrict1.setAddressCode("140605");
-        subdistrict1.setSubdistrict("บางกระสั้น");
-        subdistrict1.setDistrict("บางปะอิน");
-        subdistrict1.setProvince("พระนครศรีอยุธยา");
-        subdistrict1.setPostcode("13160");
-        subdistrict1.setRegion("ภาคกลาง");
-        allProvince.add(subdistrict1);
+    public StubProvinceRepository(Context context) {
+        try {
+            InputStream inputStream = context.getAssets().open("RefAddress.json");
+            JsonReader reader = new JsonReader(new InputStreamReader(inputStream, "UTF-8"));
+            Gson gson = new Gson();
 
-        ThaiAddress subdistrict2 = new ThaiAddress();
-        subdistrict2.setAddressCode("140602");
-        subdistrict2.setSubdistrict("เชียงรากน้อย");
-        subdistrict2.setDistrict("บางปะอิน");
-        subdistrict2.setProvince("พระนครศรีอยุธยา");
-        subdistrict2.setPostcode("13180");
-        subdistrict2.setRegion("ภาคกลาง");
-        allProvince.add(subdistrict2);
+            String currentProvinceCode = "";
+            reader.beginArray();
+            while (reader.hasNext()) {
+                ThaiAddress eachAddress = gson.fromJson(reader, ThaiAddress.class);
+                String readingProvinceCode = eachAddress.getAddressCode().substring(0, 2);
+                currentProvinceCode = currentProvinceCode.equals(readingProvinceCode) ? currentProvinceCode : readingProvinceCode;
+                if (!eachAddress.getAddressCode().startsWith(currentProvinceCode)) {
+                    allProvince.add(eachAddress);
+                }
 
-        ThaiAddress subdistrict3 = new ThaiAddress();
-        subdistrict3.setAddressCode("140601");
-        subdistrict3.setSubdistrict("บ้านเลน");
-        subdistrict3.setDistrict("บางปะอิน");
-        subdistrict3.setProvince("พระนครศรีอยุธยา");
-        subdistrict3.setPostcode("13160");
-        subdistrict3.setRegion("ภาคกลาง");
-        allProvince.add(subdistrict3);
-
-        ThaiAddress subdistrict4 = new ThaiAddress();
-        subdistrict4.setAddressCode("140611");
-        subdistrict4.setSubdistrict("เกาะเกิด");
-        subdistrict4.setDistrict("บางปะอิน");
-        subdistrict4.setProvince("พระนครศรีอยุธยา");
-        subdistrict4.setPostcode("13160");
-        subdistrict4.setRegion("ภาคกลาง");
-        allProvince.add(subdistrict4);
-
-        ThaiAddress subdistrict5 = new ThaiAddress();
-        subdistrict5.setAddressCode("140811");
-        subdistrict5.setSubdistrict("เชียงรากน้อย");
-        subdistrict5.setDistrict("บางไทร");
-        subdistrict5.setProvince("พระนครศรีอยุธยา");
-        subdistrict5.setPostcode("13160");
-        subdistrict5.setRegion("ภาคกลาง");
-        allProvince.add(subdistrict5);
-
-
-        ThaiAddress subdistrict6 = new ThaiAddress();
-        subdistrict6.setAddressCode("100101");
-        subdistrict6.setSubdistrict("พระบรมมหาราชวัง");
-        subdistrict6.setDistrict("พระนคร");
-        subdistrict6.setProvince("กรุงเทพมหานคร");
-        subdistrict6.setPostcode("10200");
-        subdistrict6.setRegion("ภาคกลาง");
-        allProvince.add(subdistrict6);
-
-        ThaiAddress subdistrict7 = new ThaiAddress();
-        subdistrict7.setAddressCode("210302");
-        subdistrict7.setSubdistrict("วังหว้า");
-        subdistrict7.setDistrict("แกลง");
-        subdistrict7.setProvince("ระยอง");
-        subdistrict7.setPostcode("21110");
-        subdistrict7.setRegion("ภาคตะวันออก");
-        allProvince.add(subdistrict7);
+            }
+            reader.endArray();
+            reader.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
     public List<ThaiAddress> findByRegion(String region) {
         List<ThaiAddress> queryProvince = new ArrayList<>();
         for (ThaiAddress eachProvince : allProvince) {
-            String queryAddressCode = eachProvince.getAddressCode();
-            if (queryAddressCode.equals(region)) {
+            String queryRegion = eachProvince.getRegion();
+            if (queryRegion.equals(region)) {
                 queryProvince.add(eachProvince);
             }
         }
