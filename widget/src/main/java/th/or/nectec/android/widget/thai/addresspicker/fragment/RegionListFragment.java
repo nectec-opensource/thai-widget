@@ -1,6 +1,6 @@
 /*
- * Copyright 2015 NECTEC
- * National Electronics and Computer Technology Center, Thailand
+ * Copyright (c) 2015 NECTEC
+ *   National Electronics and Computer Technology Center, Thailand
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -25,13 +25,14 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
-
-import java.util.List;
-
 import th.or.nectec.android.widget.thai.R;
-import th.or.nectec.android.widget.thai.addresspicker.repository.StubRegionRepository;
+import th.or.nectec.android.widget.thai.addresspicker.repository.EnumRegionRepository;
 import th.or.nectec.domain.thai.address.region.RegionChooser;
 import th.or.nectec.domain.thai.address.region.RegionPresenter;
+import th.or.nectec.entity.thai.Region;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class RegionListFragment extends Fragment {
@@ -45,13 +46,22 @@ public class RegionListFragment extends Fragment {
     RegionChooser regionChooser;
     RegionPresenter regionPresenter = new RegionPresenter() {
         @Override
-        public void showRegionList(List<String> regions) {
-            regionAdapter = new ArrayAdapter(getActivity(), R.layout.address_picker_list_item, regions);
+        public void showRegionList(List<Region> regions) {
+            List<String> regionStringList = mapToListOfString(regions);
+            regionAdapter = new ArrayAdapter(getActivity(), R.layout.address_picker_list_item, regionStringList);
         }
 
         @Override
         public void showNotFoundRegion() {
             Toast.makeText(getActivity(), "ไม่พบภูมิภาค", Toast.LENGTH_LONG).show();
+        }
+
+        public List<String> mapToListOfString(List<Region> regions) {
+            List<String> stringList = new ArrayList<>();
+            for (Region region : regions) {
+                stringList.add(region.toString());
+            }
+            return stringList;
         }
     };
 
@@ -78,7 +88,7 @@ public class RegionListFragment extends Fragment {
 
     private void initInstances(View view) {
         regionList = (ListView) view.findViewById(R.id.picker_list);
-        regionChooser = new RegionChooser(new StubRegionRepository(), regionPresenter);
+        regionChooser = new RegionChooser(new EnumRegionRepository(), regionPresenter);
         regionChooser.showRegionList();
         regionList.setAdapter(regionAdapter);
     }

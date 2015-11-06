@@ -17,9 +17,6 @@
 
 package th.or.nectec.entity.thai;
 
-/**
- * Created by N. Choatravee on 5/11/2558.
- */
 public class Address {
     String addressCode;
     String subdistrict;

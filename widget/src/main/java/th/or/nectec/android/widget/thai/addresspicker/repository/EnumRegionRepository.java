@@ -1,6 +1,6 @@
 /*
- * Copyright 2015 NECTEC
- * National Electronics and Computer Technology Center, Thailand
+ * Copyright (c) 2015 NECTEC
+ *   National Electronics and Computer Technology Center, Thailand
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -18,23 +18,21 @@
 package th.or.nectec.android.widget.thai.addresspicker.repository;
 
 import th.or.nectec.domain.thai.address.region.RegionRepository;
+import th.or.nectec.entity.thai.Region;
 
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by N. Choatravee on 5/11/2558.
- */
-public class StubRegionRepository implements RegionRepository {
+public class EnumRegionRepository implements RegionRepository {
     @Override
-    public List<String> find() {
-        List<String> regions = new ArrayList<>();
-        regions.add("ภาคกลาง");
-        regions.add("ภาคเหนือ");
-        regions.add("ภาคตะวันออกเฉียงเหนือ");
-        regions.add("ภาคตะวันออก");
-        regions.add("ภาคตะวันตก");
-        regions.add("ภาคใต้");
+    public List<Region> find() {
+        List<Region> regions = new ArrayList<>();
+        regions.add(Region.CENTER);
+        regions.add(Region.NORTH);
+        regions.add(Region.EAST_NORTH);
+        regions.add(Region.EAST);
+        regions.add(Region.WEST);
+        regions.add(Region.SOUTH);
 
         return regions;
     }

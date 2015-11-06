@@ -1,6 +1,6 @@
 /*
- * Copyright 2015 NECTEC
- * National Electronics and Computer Technology Center, Thailand
+ * Copyright (c) 2015 NECTEC
+ *   National Electronics and Computer Technology Center, Thailand
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -17,13 +17,12 @@
 
 package th.or.nectec.domain.thai.address.region;
 
+import th.or.nectec.entity.thai.Region;
+
 import java.util.List;
 
-/**
- * Created by N. Choatravee on 5/11/2558.
- */
 public interface RegionPresenter {
-    void showRegionList(List<String> regions);
+    void showRegionList(List<Region> regions);
 
     void showNotFoundRegion();
 }
