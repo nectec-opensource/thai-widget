@@ -17,6 +17,7 @@
 
 package th.or.nectec.android.widget.thai;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.FragmentManager;
@@ -30,10 +31,19 @@ import android.widget.Toast;
 
 public class AddressPickerDialogFragment extends DialogFragment implements View.OnClickListener {
     private static final String ADDRESS_CODE = "address_code";
+    private static final int SELECT_REGION = 0;
+    private static final int SELECT_PROVINCE = 1;
+    private static final int SELECT_DISTRICT = 2;
+    private static final int SELECT_SUBDISTRICT = 3;
     FragmentManager fragmentManager;
     Button backButton, nextButton;
+
     RegionListFragment regionListFragment;
+    ProvinceListFragment provinceListFragment;
+    DistrictListFragment districtListFragment;
+
     private String addressCode;
+    private int currentState = SELECT_REGION;
 
     public AddressPickerDialogFragment() {
         // Required empty public constructor
@@ -78,7 +88,7 @@ public class AddressPickerDialogFragment extends DialogFragment implements View.
         super.onActivityCreated(savedInstanceState);
         getDialog().setTitle(R.string.choose_region);
         regionListFragment = new RegionListFragment();
-        fragmentManager.beginTransaction().add(R.id.container, regionListFragment, RegionListFragment.FRAGMENT_TAG).commit();
+        fragmentManager.beginTransaction().replace(R.id.container, regionListFragment, RegionListFragment.FRAGMENT_TAG).commit();
     }
 
     @Override
@@ -87,8 +97,63 @@ public class AddressPickerDialogFragment extends DialogFragment implements View.
         if (id == R.id.back) {
 
         } else if (id == R.id.next) {
-            String region = TextUtils.isEmpty(regionListFragment.getRegion()) ? "ไปเลือกภูมิภาคก่อนเลย" : regionListFragment.getRegion();
-            Toast.makeText(getActivity(), region, Toast.LENGTH_LONG).show();
+            nextStep();
         }
+    }
+
+    public void nextStep() {
+        if (currentState == SELECT_REGION) {
+            if (TextUtils.isEmpty(regionListFragment.getRegion())) {
+                Toast.makeText(getActivity(), "ไปเลือกภูมิภาคก่อนเลย", Toast.LENGTH_LONG).show();
+            } else {
+                provinceListFragment = ProvinceListFragment.newInstance(regionListFragment.getRegion());
+                fragmentManager.beginTransaction().replace(R.id.container, provinceListFragment, ProvinceListFragment.FRAGMENT_TAG).commit();
+                currentState = SELECT_PROVINCE;
+                getDialog().setTitle(R.string.choose_province);
+            }
+        } else if (currentState == SELECT_PROVINCE) {
+            if (provinceListFragment.getData() == null) {
+                Toast.makeText(getActivity(), "ไปเลือกจังหวัดก่อนเลย", Toast.LENGTH_LONG).show();
+            } else {
+                districtListFragment = DistrictListFragment.newInstance(provinceListFragment.getData().getAddressCode());
+                fragmentManager.beginTransaction().replace(R.id.container, districtListFragment, DistrictListFragment.FRAGMENT_TAG).commit();
+                getDialog().setTitle(R.string.choose_district);
+                currentState = SELECT_DISTRICT;
+            }
+
+        } else if (currentState == SELECT_DISTRICT) {
+            if (districtListFragment.getData() == null) {
+                Toast.makeText(getActivity(), "ไปเลือกอำเภอก่อนเลย", Toast.LENGTH_LONG).show();
+            } else {
+                Toast.makeText(getActivity(), districtListFragment.getData().getAddressCode(), Toast.LENGTH_LONG).show();
+                /*districtListFragment = DistrictListFragment.newInstance(districtListFragment.getData().getAddressCode());
+                fragmentManager.beginTransaction().replace(R.id.container, districtListFragment, DistrictListFragment.FRAGMENT_TAG).commit();
+                getDialog().setTitle(R.string.choose_subdistrict);
+                currentState = SELECT_SUBDISTRICT;*/
+            }
+
+        } else if (currentState == SELECT_SUBDISTRICT) {
+
+        }
+
+
+    }
+
+    public void backStep() {
+        if (currentState == SELECT_REGION) {
+
+        } else if (currentState == SELECT_PROVINCE) {
+
+        } else if (currentState == SELECT_DISTRICT) {
+
+        } else if (currentState == SELECT_SUBDISTRICT) {
+
+        }
+    }
+
+    @Override
+    public void onDismiss(DialogInterface dialog) {
+        super.onDismiss(dialog);
+        currentState = SELECT_REGION;
     }
 }
