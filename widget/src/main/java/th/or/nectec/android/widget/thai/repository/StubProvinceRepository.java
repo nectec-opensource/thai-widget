@@ -40,20 +40,14 @@ public class StubProvinceRepository implements ProvinceRepository {
 
     public StubProvinceRepository(Context context) {
         try {
-            InputStream inputStream = context.getAssets().open("RefAddress.json");
+            InputStream inputStream = context.getAssets().open("province.json");
             JsonReader reader = new JsonReader(new InputStreamReader(inputStream, "UTF-8"));
             Gson gson = new Gson();
 
-            String currentProvinceCode = "";
             reader.beginArray();
             while (reader.hasNext()) {
-                ThaiAddress eachAddress = gson.fromJson(reader, ThaiAddress.class);
-                String readingProvinceCode = eachAddress.getAddressCode().substring(0, 2);
-                currentProvinceCode = currentProvinceCode.equals(readingProvinceCode) ? currentProvinceCode : readingProvinceCode;
-                if (!eachAddress.getAddressCode().startsWith(currentProvinceCode)) {
-                    allProvince.add(eachAddress);
-                }
-
+                ThaiAddress message = gson.fromJson(reader, ThaiAddress.class);
+                allProvince.add(message);
             }
             reader.endArray();
             reader.close();
