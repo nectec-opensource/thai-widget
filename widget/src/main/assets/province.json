@@ -1,0 +1,387 @@
+[
+  {
+    "addressCode": "10",
+    "province": "กรุงเทพมหานคร",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "11",
+    "province": "สมุทรปราการ",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "12",
+    "province": "นนทบุรี",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "13",
+    "province": "ปทุมธานี",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "14",
+    "province": "พระนครศรีอยุธยา",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "15",
+    "province": "อ่างทอง",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "16",
+    "province": "ลพบุรี",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "17",
+    "province": "สิงห์บุรี",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "18",
+    "province": "ชัยนาท",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "19",
+    "province": "สระบุรี",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "20",
+    "province": "ชลบุรี",
+    "region": "ภาคตะวันออก"
+  },
+  {
+    "addressCode": "21",
+    "province": "ระยอง",
+    "region": "ภาคตะวันออก"
+  },
+  {
+    "addressCode": "22",
+    "province": "จันทบุรี",
+    "region": "ภาคตะวันออก"
+  },
+  {
+    "addressCode": "23",
+    "province": "ตราด",
+    "region": "ภาคตะวันออก"
+  },
+  {
+    "addressCode": "24",
+    "province": "ฉะเชิงเทรา",
+    "region": "ภาคตะวันออก"
+  },
+  {
+    "addressCode": "25",
+    "province": "ปราจีนบุรี",
+    "region": "ภาคตะวันออก"
+  },
+  {
+    "addressCode": "26",
+    "province": "นครนายก",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "27",
+    "province": "สระแก้ว",
+    "region": "ภาคตะวันออก"
+  },
+  {
+    "addressCode": "30",
+    "province": "นครราชสีมา",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "31",
+    "province": "บุรีรัมย์",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "32",
+    "province": "สุรินทร์",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "33",
+    "province": "ศรีสะเกษ",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "34",
+    "province": "อุบลราชธานี",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "35",
+    "province": "ยโสธร",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "36",
+    "province": "ชัยภูมิ",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "37",
+    "province": "อำนาจเจริญ",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "38",
+    "province": "บึงกาฬ",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "39",
+    "province": "หนองบัวลำภู",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "40",
+    "province": "ขอนแก่น",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "41",
+    "province": "อุดรธานี",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "42",
+    "province": "เลย",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "43",
+    "province": "หนองคาย",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "44",
+    "province": "มหาสารคาม",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "45",
+    "province": "ร้อยเอ็ด",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "46",
+    "province": "กาฬสินธุ์",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "47",
+    "province": "สกลนคร",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "48",
+    "province": "นครพนม",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "49",
+    "province": "มุกดาหาร",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "50",
+    "province": "เชียงใหม่",
+    "region": "ภาคเหนือ"
+  },
+  {
+    "addressCode": "51",
+    "province": "ลำพูน",
+    "region": "ภาคเหนือ"
+  },
+  {
+    "addressCode": "52",
+    "province": "ลำปาง",
+    "region": "ภาคเหนือ"
+  },
+  {
+    "addressCode": "53",
+    "province": "อุตรดิตถ์",
+    "region": "ภาคเหนือ"
+  },
+  {
+    "addressCode": "54",
+    "province": "แพร่",
+    "region": "ภาคเหนือ"
+  },
+  {
+    "addressCode": "55",
+    "province": "น่าน",
+    "region": "ภาคเหนือ"
+  },
+  {
+    "addressCode": "56",
+    "province": "พะเยา",
+    "region": "ภาคเหนือ"
+  },
+  {
+    "addressCode": "57",
+    "province": "เชียงราย",
+    "region": "ภาคเหนือ"
+  },
+  {
+    "addressCode": "58",
+    "province": "แม่ฮ่องสอน",
+    "region": "ภาคเหนือ"
+  },
+  {
+    "addressCode": "60",
+    "province": "นครสวรรค์",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "61",
+    "province": "อุทัยธานี",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "62",
+    "province": "กำแพงเพชร",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "63",
+    "province": "ตาก",
+    "region": "ภาคตะวันตก"
+  },
+  {
+    "addressCode": "64",
+    "province": "สุโขทัย",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "65",
+    "province": "พิษณุโลก",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "66",
+    "province": "พิจิตร",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "67",
+    "province": "เพชรบูรณ์",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "70",
+    "province": "ราชบุรี",
+    "region": "ภาคตะวันตก"
+  },
+  {
+    "addressCode": "71",
+    "province": "กาญจนบุรี",
+    "region": "ภาคตะวันตก"
+  },
+  {
+    "addressCode": "72",
+    "province": "สุพรรณบุรี",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "73",
+    "province": "นครปฐม",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "74",
+    "province": "สมุทรสาคร",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "75",
+    "province": "สมุทรสงคราม",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "76",
+    "province": "เพชรบุรี",
+    "region": "ภาคตะวันตก"
+  },
+  {
+    "addressCode": "77",
+    "province": "ประจวบคีรีขันธ์",
+    "region": "ภาคตะวันตก"
+  },
+  {
+    "addressCode": "80",
+    "province": "นครศรีธรรมราช",
+    "region": "ภาคใต้"
+  },
+  {
+    "addressCode": "81",
+    "province": "กระบี่",
+    "region": "ภาคใต้"
+  },
+  {
+    "addressCode": "82",
+    "province": "พังงา",
+    "region": "ภาคใต้"
+  },
+  {
+    "addressCode": "83",
+    "province": "ภูเก็ต",
+    "region": "ภาคใต้"
+  },
+  {
+    "addressCode": "84",
+    "province": "สุราษฎร์ธานี",
+    "region": "ภาคใต้"
+  },
+  {
+    "addressCode": "85",
+    "province": "ระนอง",
+    "region": "ภาคใต้"
+  },
+  {
+    "addressCode": "86",
+    "province": "ชุมพร",
+    "region": "ภาคใต้"
+  },
+  {
+    "addressCode": "90",
+    "province": "สงขลา",
+    "region": "ภาคใต้"
+  },
+  {
+    "addressCode": "91",
+    "province": "สตูล",
+    "region": "ภาคใต้"
+  },
+  {
+    "addressCode": "92",
+    "province": "ตรัง",
+    "region": "ภาคใต้"
+  },
+  {
+    "addressCode": "93",
+    "province": "พัทลุง",
+    "region": "ภาคใต้"
+  },
+  {
+    "addressCode": "94",
+    "province": "ปัตตานี",
+    "region": "ภาคใต้"
+  },
+  {
+    "addressCode": "95",
+    "province": "ยะลา",
+    "region": "ภาคใต้"
+  },
+  {
+    "addressCode": "96",
+    "province": "นราธิวาส",
+    "region": "ภาคใต้"
+  }
+]
