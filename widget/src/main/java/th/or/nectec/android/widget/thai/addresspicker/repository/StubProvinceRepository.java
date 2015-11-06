@@ -1,6 +1,6 @@
 /*
- * Copyright 2015 NECTEC
- * National Electronics and Computer Technology Center, Thailand
+ * Copyright (c) 2015 NECTEC
+ *   National Electronics and Computer Technology Center, Thailand
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -22,6 +22,7 @@ import com.google.gson.Gson;
 import com.google.gson.stream.JsonReader;
 import th.or.nectec.domain.thai.address.province.ProvinceRepository;
 import th.or.nectec.entity.thai.Address;
+import th.or.nectec.entity.thai.Region;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -58,7 +59,7 @@ public class StubProvinceRepository implements ProvinceRepository {
     public List<Address> findByRegion(String region) {
         List<Address> queryProvince = new ArrayList<>();
         for (Address eachProvince : allProvince) {
-            String queryRegion = eachProvince.getRegion();
+            Region queryRegion = eachProvince.getRegion();
             if (queryRegion.equals(region)) {
                 queryProvince.add(eachProvince);
             }
