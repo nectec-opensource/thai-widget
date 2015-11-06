@@ -60,13 +60,8 @@ public class RegionPickerSampleActivity extends AppCompatActivity {
         setContentView(R.layout.activity_region_picker);
 
         textView = (TextView) findViewById(R.id.text);
-/*        regionChooser = new RegionChooser(new StubRegionRepository(), regionPresenter);
-        regionChooser.showRegionList();*/
 
-/*        subdistrictChooser = new SubdistrictChooser(new StubSubdistrictRepository(), subdistrictPresenter);
-        subdistrictChooser.showSubdistrictByDistrictCodeList("1406");*/
-
-        districtChooser = new DistrictChooser(new StubDistrictRepository(), districtPresenter);
+        districtChooser = new DistrictChooser(new StubDistrictRepository(RegionPickerSampleActivity.this), districtPresenter);
         districtChooser.showDistrictListByProvinceCode("14");
     }
 
