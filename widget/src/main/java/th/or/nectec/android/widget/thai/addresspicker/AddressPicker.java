@@ -26,12 +26,11 @@ import android.support.v7.internal.widget.TintManager;
 import android.support.v7.internal.widget.TintTypedArray;
 import android.support.v7.widget.AppCompatButton;
 import android.util.AttributeSet;
-
 import th.or.nectec.android.widget.thai.AddressView;
 import th.or.nectec.android.widget.thai.OnAddressChangedListener;
 import th.or.nectec.android.widget.thai.R;
 import th.or.nectec.domain.thai.ThaiAddressPrinter;
-import th.or.nectec.entity.ThaiAddress;
+import th.or.nectec.entity.thai.Address;
 
 /**
  * Created by N. Choatravee on 5/11/2558.
@@ -40,7 +39,7 @@ public class AddressPicker extends AppCompatButton implements AddressView, OnAdd
 
     public static final int[] TINT_ATTRS = {android.R.attr.background};
     public static final String FRAGMENT_TAG = "address_dialog";
-    ThaiAddress thaiAddress;
+    Address address;
     Context context;
     AppCompatActivity activity;
     AddressPickerDialogFragment addressPickerDialogFragment;
@@ -110,7 +109,7 @@ public class AddressPicker extends AppCompatButton implements AddressView, OnAdd
                 this.addressPickerDialogFragment.show(fm, "dialog");
                 handle = true;
 
-                if (thaiAddress != null) {
+                if (address != null) {
 
                 }
             }
@@ -134,14 +133,14 @@ public class AddressPicker extends AppCompatButton implements AddressView, OnAdd
     }
 
     @Override
-    public ThaiAddress getAddress() {
-        return thaiAddress;
+    public Address getAddress() {
+        return address;
     }
 
     @Override
-    public void onAddressChanged(ThaiAddress thaiAddress) {
-        this.thaiAddress = thaiAddress;
-        setAddress(thaiAddress.getSubdistrict(), thaiAddress.getDistrict(), thaiAddress.getProvince());
+    public void onAddressChanged(Address address) {
+        this.address = address;
+        setAddress(address.getSubdistrict(), address.getDistrict(), address.getProvince());
     }
 
     @Override

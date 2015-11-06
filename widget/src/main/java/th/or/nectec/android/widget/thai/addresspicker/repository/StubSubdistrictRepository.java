@@ -18,9 +18,10 @@
 package th.or.nectec.android.widget.thai.addresspicker.repository;
 
 import android.content.Context;
-
 import com.google.gson.Gson;
 import com.google.gson.stream.JsonReader;
+import th.or.nectec.domain.thai.address.subdistrict.SubdistrictRepository;
+import th.or.nectec.entity.thai.Address;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -28,15 +29,12 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
-import th.or.nectec.domain.thai.address.subdistrict.SubdistrictRepository;
-import th.or.nectec.entity.ThaiAddress;
-
 /**
  * Created by N. Choatravee on 5/11/2558.
  */
 public class StubSubdistrictRepository implements SubdistrictRepository {
 
-    ArrayList<ThaiAddress> allSubdistrict = new ArrayList<>();
+    ArrayList<Address> allSubdistrict = new ArrayList<>();
 
     public StubSubdistrictRepository(Context context) {
         try {
@@ -46,7 +44,7 @@ public class StubSubdistrictRepository implements SubdistrictRepository {
 
             reader.beginArray();
             while (reader.hasNext()) {
-                ThaiAddress message = gson.fromJson(reader, ThaiAddress.class);
+                Address message = gson.fromJson(reader, Address.class);
                 allSubdistrict.add(message);
             }
             reader.endArray();
@@ -57,9 +55,9 @@ public class StubSubdistrictRepository implements SubdistrictRepository {
     }
 
     @Override
-    public List<ThaiAddress> findByDistrictCode(String districtCode) {
-        List<ThaiAddress> querySubdistrict = new ArrayList<>();
-        for (ThaiAddress eachSubdistrict : allSubdistrict) {
+    public List<Address> findByDistrictCode(String districtCode) {
+        List<Address> querySubdistrict = new ArrayList<>();
+        for (Address eachSubdistrict : allSubdistrict) {
             String queryAddressCode = eachSubdistrict.getAddressCode();
             if (queryAddressCode.startsWith(districtCode)) {
                 querySubdistrict.add(eachSubdistrict);

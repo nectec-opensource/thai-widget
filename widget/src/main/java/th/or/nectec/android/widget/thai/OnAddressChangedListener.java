@@ -17,11 +17,11 @@
 
 package th.or.nectec.android.widget.thai;
 
-import th.or.nectec.entity.ThaiAddress;
+import th.or.nectec.entity.thai.Address;
 
 public interface OnAddressChangedListener {
 
-    void onAddressChanged(ThaiAddress thaiAddress);
+    void onAddressChanged(Address address);
 
     void onAddressCanceled();
 }

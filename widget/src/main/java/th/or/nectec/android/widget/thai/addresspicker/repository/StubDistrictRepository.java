@@ -18,9 +18,10 @@
 package th.or.nectec.android.widget.thai.addresspicker.repository;
 
 import android.content.Context;
-
 import com.google.gson.Gson;
 import com.google.gson.stream.JsonReader;
+import th.or.nectec.domain.thai.address.district.DistrictRepository;
+import th.or.nectec.entity.thai.Address;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -28,15 +29,12 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
-import th.or.nectec.domain.thai.address.district.DistrictRepository;
-import th.or.nectec.entity.ThaiAddress;
-
 /**
  * Created by N. Choatravee on 5/11/2558.
  */
 public class StubDistrictRepository implements DistrictRepository {
 
-    ArrayList<ThaiAddress> allDistrict = new ArrayList<>();
+    ArrayList<Address> allDistrict = new ArrayList<>();
 
     public StubDistrictRepository(Context context) {
         try {
@@ -46,7 +44,7 @@ public class StubDistrictRepository implements DistrictRepository {
 
             reader.beginArray();
             while (reader.hasNext()) {
-                ThaiAddress message = gson.fromJson(reader, ThaiAddress.class);
+                Address message = gson.fromJson(reader, Address.class);
                 allDistrict.add(message);
             }
             reader.endArray();
@@ -57,9 +55,9 @@ public class StubDistrictRepository implements DistrictRepository {
     }
 
     @Override
-    public List<ThaiAddress> findByProvinceCode(String provinceCode) {
-        List<ThaiAddress> queryProvince = new ArrayList<>();
-        for (ThaiAddress eachProvince : allDistrict) {
+    public List<Address> findByProvinceCode(String provinceCode) {
+        List<Address> queryProvince = new ArrayList<>();
+        for (Address eachProvince : allDistrict) {
             String queryAddressCode = eachProvince.getAddressCode();
             if (queryAddressCode.startsWith(provinceCode)) {
                 queryProvince.add(eachProvince);

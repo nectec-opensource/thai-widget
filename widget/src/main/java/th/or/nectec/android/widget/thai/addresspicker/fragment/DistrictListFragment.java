@@ -24,15 +24,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
 import android.widget.Toast;
-
-import java.util.List;
-
 import th.or.nectec.android.widget.thai.R;
 import th.or.nectec.android.widget.thai.addresspicker.adapter.DistrictAdapter;
 import th.or.nectec.android.widget.thai.addresspicker.repository.StubDistrictRepository;
 import th.or.nectec.domain.thai.address.district.DistrictChooser;
 import th.or.nectec.domain.thai.address.district.DistrictPresenter;
-import th.or.nectec.entity.ThaiAddress;
+import th.or.nectec.entity.thai.Address;
+
+import java.util.List;
 
 
 public class DistrictListFragment extends Fragment {
@@ -48,7 +47,7 @@ public class DistrictListFragment extends Fragment {
     DistrictChooser districtChooser;
     DistrictPresenter districtPresenter = new DistrictPresenter() {
         @Override
-        public void showDistrictList(List<ThaiAddress> districts) {
+        public void showDistrictList(List<Address> districts) {
             provinceAdapter = new DistrictAdapter(getActivity(), districts);
         }
 
@@ -93,7 +92,7 @@ public class DistrictListFragment extends Fragment {
         super.onActivityCreated(savedInstanceState);
     }
 
-    public ThaiAddress getData() {
+    public Address getData() {
         return listView.getCheckedItemPosition() == -1 ? null : provinceAdapter.getItem(listView.getCheckedItemPosition());
     }
 }

@@ -17,7 +17,7 @@
 
 package th.or.nectec.domain.thai.address.district;
 
-import th.or.nectec.entity.ThaiAddress;
+import th.or.nectec.entity.thai.Address;
 
 import java.util.List;
 
@@ -34,7 +34,7 @@ public class DistrictChooser {
     }
 
     public void showDistrictListByProvinceCode(String provinceCode) {
-        List<ThaiAddress> districts = districtRepository.findByProvinceCode(provinceCode);
+        List<Address> districts = districtRepository.findByProvinceCode(provinceCode);
         if (districts != null) {
             districtPresenter.showDistrictList(districts);
         } else {

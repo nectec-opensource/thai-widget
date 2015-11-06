@@ -23,30 +23,29 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
+import th.or.nectec.android.widget.thai.R;
+import th.or.nectec.entity.thai.Address;
 
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
-
-import th.or.nectec.android.widget.thai.R;
-import th.or.nectec.entity.ThaiAddress;
 
 /**
  * Created by N. Choatravee on 20/4/2558.
  */
 public class ThaiAddressAdapter extends BaseAdapter {
 
-    ArrayList<ThaiAddress> thaiAddressList;
+    ArrayList<Address> addressList;
     LayoutInflater mInflater;
 
-    public ThaiAddressAdapter(Context context, List<ThaiAddress> thaiAddressList) {
+    public ThaiAddressAdapter(Context context, List<Address> addressList) {
         mInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        addAll(thaiAddressList);
+        addAll(addressList);
     }
 
-    public void addAll(Collection<? extends ThaiAddress> collection) {
-        thaiAddressList = new ArrayList<>();
-        thaiAddressList.addAll(collection);
+    public void addAll(Collection<? extends Address> collection) {
+        addressList = new ArrayList<>();
+        addressList.addAll(collection);
         notifyDataSetChanged();
     }
 
@@ -79,11 +78,11 @@ public class ThaiAddressAdapter extends BaseAdapter {
 
     @Override
     public int getCount() {
-        return thaiAddressList.size();
+        return addressList.size();
     }
 
     @Override
-    public ThaiAddress getItem(int position) {
-        return thaiAddressList.get(position);
+    public Address getItem(int position) {
+        return addressList.get(position);
     }
 }

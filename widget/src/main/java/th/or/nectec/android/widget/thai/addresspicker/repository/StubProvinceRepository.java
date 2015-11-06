@@ -18,9 +18,10 @@
 package th.or.nectec.android.widget.thai.addresspicker.repository;
 
 import android.content.Context;
-
 import com.google.gson.Gson;
 import com.google.gson.stream.JsonReader;
+import th.or.nectec.domain.thai.address.province.ProvinceRepository;
+import th.or.nectec.entity.thai.Address;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -28,15 +29,12 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
-import th.or.nectec.domain.thai.address.province.ProvinceRepository;
-import th.or.nectec.entity.ThaiAddress;
-
 /**
  * Created by N. Choatravee on 5/11/2558.
  */
 public class StubProvinceRepository implements ProvinceRepository {
 
-    ArrayList<ThaiAddress> allProvince = new ArrayList<>();
+    ArrayList<Address> allProvince = new ArrayList<>();
 
     public StubProvinceRepository(Context context) {
         try {
@@ -46,7 +44,7 @@ public class StubProvinceRepository implements ProvinceRepository {
 
             reader.beginArray();
             while (reader.hasNext()) {
-                ThaiAddress message = gson.fromJson(reader, ThaiAddress.class);
+                Address message = gson.fromJson(reader, Address.class);
                 allProvince.add(message);
             }
             reader.endArray();
@@ -57,9 +55,9 @@ public class StubProvinceRepository implements ProvinceRepository {
     }
 
     @Override
-    public List<ThaiAddress> findByRegion(String region) {
-        List<ThaiAddress> queryProvince = new ArrayList<>();
-        for (ThaiAddress eachProvince : allProvince) {
+    public List<Address> findByRegion(String region) {
+        List<Address> queryProvince = new ArrayList<>();
+        for (Address eachProvince : allProvince) {
             String queryRegion = eachProvince.getRegion();
             if (queryRegion.equals(region)) {
                 queryProvince.add(eachProvince);

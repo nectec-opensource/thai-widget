@@ -15,12 +15,12 @@
  * limitations under the License.
  */
 
-package th.or.nectec.entity;
+package th.or.nectec.entity.thai;
 
 /**
  * Created by N. Choatravee on 5/11/2558.
  */
-public class ThaiAddress {
+public class Address {
     String addressCode;
     String subdistrict;
     String district;
@@ -30,7 +30,7 @@ public class ThaiAddress {
 
     @Override
     public String toString() {
-        return "ThaiAddress{" +
+        return "Address{" +
                 "addressCode='" + addressCode + '\'' +
                 ", subdistrict='" + subdistrict + '\'' +
                 ", district='" + district + '\'' +
@@ -93,7 +93,7 @@ public class ThaiAddress {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        ThaiAddress that = (ThaiAddress) o;
+        Address that = (Address) o;
 
         if (!addressCode.equals(that.addressCode)) return false;
         if (!subdistrict.equals(that.subdistrict)) return false;

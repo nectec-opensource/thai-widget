@@ -17,15 +17,15 @@
 
 package th.or.nectec.domain.thai.address.province;
 
-import java.util.List;
+import th.or.nectec.entity.thai.Address;
 
-import th.or.nectec.entity.ThaiAddress;
+import java.util.List;
 
 /**
  * Created by N. Choatravee on 5/11/2558.
  */
 public interface ProvincePresenter {
-    void showProvinceList(List<ThaiAddress> province);
+    void showProvinceList(List<Address> province);
 
     void showNotFoundProvince();
 }

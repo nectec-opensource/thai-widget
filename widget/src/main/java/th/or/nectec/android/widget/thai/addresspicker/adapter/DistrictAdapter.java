@@ -21,19 +21,18 @@ import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import th.or.nectec.android.widget.thai.R;
+import th.or.nectec.entity.thai.Address;
 
 import java.util.List;
-
-import th.or.nectec.android.widget.thai.R;
-import th.or.nectec.entity.ThaiAddress;
 
 /**
  * Created by N. Choatravee on 20/4/2558.
  */
 public class DistrictAdapter extends ThaiAddressAdapter {
 
-    public DistrictAdapter(Context context, List<ThaiAddress> thaiAddressList) {
-        super(context, thaiAddressList);
+    public DistrictAdapter(Context context, List<Address> addressList) {
+        super(context, addressList);
     }
 
     @Override

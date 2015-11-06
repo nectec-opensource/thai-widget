@@ -17,7 +17,7 @@
 
 package th.or.nectec.android.widget.thai;
 
-import th.or.nectec.entity.ThaiAddress;
+import th.or.nectec.entity.thai.Address;
 
 public interface AddressView {
     void setAddressCode(String addressCode);
@@ -26,5 +26,5 @@ public interface AddressView {
 
     void setOnAddressChangedListener(OnAddressChangedListener onAddressChangedListener);
 
-    ThaiAddress getAddress();
+    Address getAddress();
 }
