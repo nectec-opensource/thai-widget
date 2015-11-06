@@ -18,8 +18,14 @@
 package th.or.nectec.android.widget.thai;
 
 import android.content.Context;
+import android.content.res.ColorStateList;
+import android.support.v4.app.FragmentManager;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.internal.widget.TintContextWrapper;
+import android.support.v7.internal.widget.TintManager;
+import android.support.v7.internal.widget.TintTypedArray;
+import android.support.v7.widget.AppCompatButton;
 import android.util.AttributeSet;
-import android.widget.Button;
 
 import th.or.nectec.domain.thai.ThaiAddressPrinter;
 import th.or.nectec.entity.ThaiAddress;
@@ -27,24 +33,80 @@ import th.or.nectec.entity.ThaiAddress;
 /**
  * Created by N. Choatravee on 5/11/2558.
  */
-public class AddressPicker extends Button implements AddressView, AddressChangedListener {
+public class AddressPicker extends AppCompatButton implements AddressView, AddressChangedListener {
 
+    public static final int[] TINT_ATTRS = {android.R.attr.background};
+    public static final String FRAGMENT_TAG = "address_dialog";
     ThaiAddress thaiAddress;
+    Context context;
+    AppCompatActivity activity;
+    AddressPickerDialogFragment addressPickerDialogFragment;
 
     public AddressPicker(Context context) {
         super(context);
     }
 
     public AddressPicker(Context context, AttributeSet attrs) {
-        super(context, attrs);
+        this(context, attrs, R.attr.spinnerStyle);
     }
 
     public AddressPicker(Context context, AttributeSet attrs, int defStyleAttr) {
-        super(context, attrs, defStyleAttr);
+        super(TintContextWrapper.wrap(context), attrs, defStyleAttr);
+        initTintManager(attrs, defStyleAttr);
+        init(context);
     }
 
-    public void init() {
-        setOnAddressChangedListener(this);
+    private void initTintManager(AttributeSet attrs, int defStyleAttr) {
+        if (TintManager.SHOULD_BE_USED) {
+            TintTypedArray a = TintTypedArray.obtainStyledAttributes(getContext(), attrs,
+                    TINT_ATTRS, defStyleAttr, 0);
+            if (a.hasValue(0)) {
+                ColorStateList tint = a.getTintManager().getTintList(a.getResourceId(0, -1));
+                if (tint != null) {
+                    setSupportBackgroundTintList(tint);
+                }
+            }
+            a.recycle();
+        }
+    }
+
+    public void init(Context context) {
+        this.context = context;
+
+        if (context instanceof AppCompatActivity) {
+            activity = (AppCompatActivity) context;
+        }
+
+        if (activity == null) {
+            return;
+        }
+        FragmentManager fragmentManager = activity.getSupportFragmentManager();
+        AddressPickerDialogFragment addressPickerDialogFragment = (AddressPickerDialogFragment) fragmentManager.findFragmentByTag(FRAGMENT_TAG);
+
+        if (addressPickerDialogFragment != null) {
+            this.addressPickerDialogFragment = addressPickerDialogFragment;
+        } else {
+            this.addressPickerDialogFragment = new AddressPickerDialogFragment();
+        }
+
+        fragmentManager.beginTransaction().add(new AddressPickerDialogFragment(), "dialog");
+
+        setText("กรุณาระบุ ตำบล อำเภอ จังหวัด");
+
+    }
+
+    @Override
+    public boolean performClick() {
+        boolean handle = false;
+        if (this.addressPickerDialogFragment != null) {
+            FragmentManager fm = activity.getSupportFragmentManager();
+
+            if (!this.addressPickerDialogFragment.isAdded())
+                this.addressPickerDialogFragment.show(fm, "dialog");
+
+            handle = true;
+        }
+        return handle;
     }
 
     @Override

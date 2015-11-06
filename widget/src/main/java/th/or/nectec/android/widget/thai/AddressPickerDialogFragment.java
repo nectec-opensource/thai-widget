@@ -20,14 +20,19 @@ package th.or.nectec.android.widget.thai;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.FragmentManager;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.Toast;
 
 
-public class AddressPickerDialogFragment extends DialogFragment {
+public class AddressPickerDialogFragment extends DialogFragment implements View.OnClickListener {
     private static final String ADDRESS_CODE = "address_code";
     FragmentManager fragmentManager;
+    Button backButton, nextButton;
+    RegionListFragment regionListFragment;
     private String addressCode;
 
     public AddressPickerDialogFragment() {
@@ -54,13 +59,36 @@ public class AddressPickerDialogFragment extends DialogFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_address_picker_dialog, container, false);
+        View view = inflater.inflate(R.layout.fragment_address_picker_dialog, container, false);
+
+        initInstances(view);
+
+        return view;
+    }
+
+    private void initInstances(View view) {
+        backButton = (Button) view.findViewById(R.id.back);
+        nextButton = (Button) view.findViewById(R.id.next);
+        backButton.setOnClickListener(this);
+        nextButton.setOnClickListener(this);
     }
 
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         getDialog().setTitle(R.string.choose_region);
+        regionListFragment = new RegionListFragment();
+        fragmentManager.beginTransaction().add(R.id.container, regionListFragment, RegionListFragment.FRAGMENT_TAG).commit();
+    }
+
+    @Override
+    public void onClick(View view) {
+        int id = view.getId();
+        if (id == R.id.back) {
+
+        } else if (id == R.id.next) {
+            String region = TextUtils.isEmpty(regionListFragment.getRegion()) ? "ไปเลือกภูมิภาคก่อนเลย" : regionListFragment.getRegion();
+            Toast.makeText(getActivity(), region, Toast.LENGTH_LONG).show();
+        }
     }
 }
