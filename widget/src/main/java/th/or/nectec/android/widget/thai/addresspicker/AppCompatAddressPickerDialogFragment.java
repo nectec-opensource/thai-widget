@@ -36,7 +36,10 @@ import th.or.nectec.android.widget.thai.addresspicker.fragment.RegionListFragmen
 import th.or.nectec.android.widget.thai.addresspicker.fragment.SubdistrictListFragment;
 
 
-public class AddressPickerDialogFragment extends DialogFragment implements View.OnClickListener {
+public class AppCompatAddressPickerDialogFragment extends DialogFragment implements View.OnClickListener {
+
+    public static final String FRAGMENT_TAG = "address_dialog";
+
     private static final String ADDRESS_CODE = "address_code";
     private static final int SELECT_REGION = 0;
     private static final int SELECT_PROVINCE = 1;
@@ -55,12 +58,12 @@ public class AddressPickerDialogFragment extends DialogFragment implements View.
     private String addressCode;
     private int currentState = SELECT_REGION;
 
-    public AddressPickerDialogFragment() {
+    public AppCompatAddressPickerDialogFragment() {
         // Required empty public constructor
     }
 
-    public static AddressPickerDialogFragment newInstance(String addressCode) {
-        AddressPickerDialogFragment fragment = new AddressPickerDialogFragment();
+    public static AppCompatAddressPickerDialogFragment newInstance(String addressCode) {
+        AppCompatAddressPickerDialogFragment fragment = new AppCompatAddressPickerDialogFragment();
         Bundle args = new Bundle();
         args.putString(ADDRESS_CODE, addressCode);
         fragment.setArguments(args);

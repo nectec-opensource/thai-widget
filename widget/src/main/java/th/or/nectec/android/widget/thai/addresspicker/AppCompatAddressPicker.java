@@ -36,24 +36,24 @@ import th.or.nectec.entity.thai.Address;
 /**
  * Created by N. Choatravee on 5/11/2558.
  */
-public class AddressPicker extends AppCompatButton implements AddressView, OnAddressChangedListener {
+public class AppCompatAddressPicker extends AppCompatButton implements AddressView, OnAddressChangedListener {
 
     public static final int[] TINT_ATTRS = {android.R.attr.background};
-    public static final String FRAGMENT_TAG = "address_dialog";
+
     Address address;
     Context context;
     AppCompatActivity activity;
-    AddressPickerDialogFragment addressPickerDialogFragment;
+    AppCompatAddressPickerDialogFragment addressPickerDialogFragment;
 
-    public AddressPicker(Context context) {
+    public AppCompatAddressPicker(Context context) {
         super(context);
     }
 
-    public AddressPicker(Context context, AttributeSet attrs) {
+    public AppCompatAddressPicker(Context context, AttributeSet attrs) {
         this(context, attrs, R.attr.spinnerStyle);
     }
 
-    public AddressPicker(Context context, AttributeSet attrs, int defStyleAttr) {
+    public AppCompatAddressPicker(Context context, AttributeSet attrs, int defStyleAttr) {
         super(TintContextWrapper.wrap(context), attrs, defStyleAttr);
         initTintManager(attrs, defStyleAttr);
         init(context);
@@ -84,17 +84,15 @@ public class AddressPicker extends AppCompatButton implements AddressView, OnAdd
             return;
         }
         FragmentManager fragmentManager = activity.getSupportFragmentManager();
-        AddressPickerDialogFragment addressPickerDialogFragment = (AddressPickerDialogFragment) fragmentManager.findFragmentByTag(FRAGMENT_TAG);
+        AppCompatAddressPickerDialogFragment addressPickerDialogFragment = (AppCompatAddressPickerDialogFragment) fragmentManager.findFragmentByTag(AppCompatAddressPickerDialogFragment.FRAGMENT_TAG);
 
         if (addressPickerDialogFragment != null) {
             this.addressPickerDialogFragment = addressPickerDialogFragment;
         } else {
-            this.addressPickerDialogFragment = new AddressPickerDialogFragment();
+            this.addressPickerDialogFragment = new AppCompatAddressPickerDialogFragment();
         }
 
         this.addressPickerDialogFragment.setOnAddressChangedListener(this);
-
-        fragmentManager.beginTransaction().add(new AddressPickerDialogFragment(), "dialog").commit();
 
         setText("กรุณาระบุ ตำบล อำเภอ จังหวัด");
 
