@@ -26,6 +26,7 @@ import android.support.v7.internal.widget.TintManager;
 import android.support.v7.internal.widget.TintTypedArray;
 import android.support.v7.widget.AppCompatButton;
 import android.util.AttributeSet;
+
 import th.or.nectec.android.widget.thai.AddressView;
 import th.or.nectec.android.widget.thai.OnAddressChangedListener;
 import th.or.nectec.android.widget.thai.R;
@@ -93,7 +94,7 @@ public class AddressPicker extends AppCompatButton implements AddressView, OnAdd
 
         this.addressPickerDialogFragment.setOnAddressChangedListener(this);
 
-        fragmentManager.beginTransaction().add(new AddressPickerDialogFragment(), "dialog");
+        fragmentManager.beginTransaction().add(new AddressPickerDialogFragment(), "dialog").commit();
 
         setText("กรุณาระบุ ตำบล อำเภอ จังหวัด");
 

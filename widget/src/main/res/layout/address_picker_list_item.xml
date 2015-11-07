@@ -23,5 +23,4 @@
     android:gravity="center_vertical"
     android:minHeight="48dp"
     android:padding="6dp"
-    android:text="New Text"
-    android:textSize="18dp" />
+    android:textSize="18sp" />

@@ -23,13 +23,13 @@
     tools:context=".MainActivity">
 
     <TextView
-        android:id="@+id/text"
+        android:id="@+id/text_debug"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/hello_world" />
 
     <th.or.nectec.android.widget.thai.addresspicker.AddressPicker
-        android:id="@+id/addressView"
+        android:id="@+id/address_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
