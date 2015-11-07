@@ -59,6 +59,6 @@ public class Province {
         this.region = region;
     }
 
-    private class InvalidCodeFormatException extends RuntimeException {
+    public class InvalidCodeFormatException extends RuntimeException {
     }
 }
