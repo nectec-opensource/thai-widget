@@ -28,7 +28,7 @@ import th.or.nectec.android.widget.thai.addresspicker.repository.StubProvinceRep
 import th.or.nectec.domain.thai.ThaiAddressPrinter;
 import th.or.nectec.domain.thai.address.province.ProvinceChooser;
 import th.or.nectec.domain.thai.address.province.ProvincePresenter;
-import th.or.nectec.entity.thai.Address;
+import th.or.nectec.entity.thai.Province;
 
 public class RegionPickerSampleActivity extends AppCompatActivity {
 
@@ -39,12 +39,10 @@ public class RegionPickerSampleActivity extends AppCompatActivity {
     ProvinceChooser provinceChooser;
     ProvincePresenter provincePresenter = new ProvincePresenter() {
         @Override
-        public void showProvinceList(List<Address> provinces) {
+        public void showProvinceList(List<Province> provinces) {
             StringBuilder stringBuilder = new StringBuilder();
-            for (Address eachSubdistrict : provinces) {
-                stringBuilder.append(
-                        ThaiAddressPrinter.buildShortAddress(
-                                eachSubdistrict.getSubdistrict(), eachSubdistrict.getDistrict(), eachSubdistrict.getProvince()));
+            for (Province eachSubdistrict : provinces) {
+                stringBuilder.append(eachSubdistrict.getName());
                 stringBuilder.append("\n");
             }
             textView.setText(stringBuilder);

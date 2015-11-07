@@ -22,6 +22,7 @@ import com.google.gson.Gson;
 import com.google.gson.stream.JsonReader;
 import th.or.nectec.domain.thai.address.province.ProvinceRepository;
 import th.or.nectec.entity.thai.Address;
+import th.or.nectec.entity.thai.Province;
 import th.or.nectec.entity.thai.Region;
 
 import java.io.IOException;
@@ -35,7 +36,7 @@ import java.util.List;
  */
 public class StubProvinceRepository implements ProvinceRepository {
 
-    ArrayList<Address> allProvince = new ArrayList<>();
+    ArrayList<Province> allProvince = new ArrayList<>();
 
     public StubProvinceRepository(Context context) {
         try {
@@ -45,7 +46,7 @@ public class StubProvinceRepository implements ProvinceRepository {
 
             reader.beginArray();
             while (reader.hasNext()) {
-                Address message = gson.fromJson(reader, Address.class);
+                Province message = gson.fromJson(reader, Province.class);
                 allProvince.add(message);
             }
             reader.endArray();
@@ -56,10 +57,10 @@ public class StubProvinceRepository implements ProvinceRepository {
     }
 
     @Override
-    public List<Address> findByRegion(String region) {
+    public List<Province> findByRegion(String region) {
         Region targetRegion = Region.fromName(region);
-        List<Address> queryProvince = new ArrayList<>();
-        for (Address eachProvince : allProvince) {
+        List<Province> queryProvince = new ArrayList<>();
+        for (Province eachProvince : allProvince) {
             Region queryRegion = eachProvince.getRegion();
             if (queryRegion.equals(targetRegion)) {
                 queryProvince.add(eachProvince);

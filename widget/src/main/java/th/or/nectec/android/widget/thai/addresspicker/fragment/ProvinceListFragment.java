@@ -30,7 +30,9 @@ import th.or.nectec.android.widget.thai.addresspicker.repository.StubProvinceRep
 import th.or.nectec.domain.thai.address.province.ProvinceChooser;
 import th.or.nectec.domain.thai.address.province.ProvincePresenter;
 import th.or.nectec.entity.thai.Address;
+import th.or.nectec.entity.thai.Province;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -47,13 +49,24 @@ public class ProvinceListFragment extends Fragment {
     ProvinceChooser provinceChooser;
     ProvincePresenter provincePresenter = new ProvincePresenter() {
         @Override
-        public void showProvinceList(List<Address> provinces) {
-            provinceAdapter = new ProvinceAdapter(getActivity(), provinces);
+        public void showProvinceList(List<Province> provinces) {
+            provinceAdapter = new ProvinceAdapter(getActivity(), mapToAddressObject(provinces));
         }
 
         @Override
         public void showNotFoundProvince() {
             Toast.makeText(getActivity(), "ไม่พบจังหวัด", Toast.LENGTH_LONG).show();
+        }
+
+        public List<Address> mapToAddressObject(List<Province> provinces ){
+            ArrayList<Address> addresses = new ArrayList<>();
+            for(Province province : provinces){
+                Address address = new Address();
+                address.setAddressCode(province.getCode());
+                address.setProvince(province.getName());
+                addresses.add(address);
+            }
+            return addresses;
         }
     };
 
