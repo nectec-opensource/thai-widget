@@ -34,6 +34,7 @@ import th.or.nectec.android.widget.thai.addresspicker.fragment.DistrictListFragm
 import th.or.nectec.android.widget.thai.addresspicker.fragment.ProvinceListFragment;
 import th.or.nectec.android.widget.thai.addresspicker.fragment.RegionListFragment;
 import th.or.nectec.android.widget.thai.addresspicker.fragment.SubdistrictListFragment;
+import th.or.nectec.entity.thai.Address;
 
 
 public class AddressPickerDialogFragment extends DialogFragment implements View.OnClickListener {
@@ -155,10 +156,12 @@ public class AddressPickerDialogFragment extends DialogFragment implements View.
             }
 
         } else if (currentState == SELECT_SUBDISTRICT) {
-            if (subdistrictListFragment.getData() == null) {
+            Address data = subdistrictListFragment.getData();
+            if (data == null) {
                 Toast.makeText(getActivity(), "ไปเลือกตำบลก่อนเลย", Toast.LENGTH_LONG).show();
             } else {
-                this.addressChangedListener.onAddressChanged(subdistrictListFragment.getData());
+                if(addressChangedListener != null)
+                    this.addressChangedListener.onAddressChanged(data);
                 dismiss();
             }
         }
