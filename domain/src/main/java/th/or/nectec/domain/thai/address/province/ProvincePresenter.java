@@ -15,26 +15,17 @@
  * limitations under the License.
  */
 
-package th.or.nectec.util;
+package th.or.nectec.domain.thai.address.province;
 
-public class TextUtils {
+import th.or.nectec.entity.thai.Province;
 
-    public static boolean isDigitOnly(String text) {
-        return text.matches("\\d+");
-    }
+import java.util.List;
 
-    public static boolean isRepeatingNumber(String text) {
-        return text.matches("\\b(\\d)\\1+\\b");
-    }
+/**
+ * Created by N. Choatravee on 5/11/2558.
+ */
+public interface ProvincePresenter {
+    void showProvinceList(List<Province> province);
 
-    public static boolean isRepeatPatternNumber(String text) {
-        return text.matches("\\b(\\d+)\\1+\\b");
-    }
-
-    public static boolean isEmpty(String text) {
-        return text != null && !text.isEmpty();
-    }
-
-
-
+    void showNotFoundProvince();
 }

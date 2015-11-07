@@ -15,26 +15,15 @@
  * limitations under the License.
  */
 
-package th.or.nectec.util;
+package th.or.nectec.domain.thai.address.district;
 
-public class TextUtils {
+import th.or.nectec.entity.thai.Address;
 
-    public static boolean isDigitOnly(String text) {
-        return text.matches("\\d+");
-    }
+import java.util.List;
 
-    public static boolean isRepeatingNumber(String text) {
-        return text.matches("\\b(\\d)\\1+\\b");
-    }
-
-    public static boolean isRepeatPatternNumber(String text) {
-        return text.matches("\\b(\\d+)\\1+\\b");
-    }
-
-    public static boolean isEmpty(String text) {
-        return text != null && !text.isEmpty();
-    }
-
-
-
+/**
+ * Created by N. Choatravee on 5/11/2558.
+ */
+public interface DistrictRepository {
+    List<Address> findByProvinceCode(String provinceCode);
 }

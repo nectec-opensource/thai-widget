@@ -1,0 +1,5570 @@
+[
+  {
+    "addressCode": "1001",
+    "province": "กรุงเทพมหานคร",
+    "district": "พระนคร",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "1002",
+    "province": "กรุงเทพมหานคร",
+    "district": "ดุสิต",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "1003",
+    "province": "กรุงเทพมหานคร",
+    "district": "หนองจอก",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "1004",
+    "province": "กรุงเทพมหานคร",
+    "district": "บางรัก",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "1005",
+    "province": "กรุงเทพมหานคร",
+    "district": "บางเขน",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "1006",
+    "province": "กรุงเทพมหานคร",
+    "district": "บางกะปิ",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "1007",
+    "province": "กรุงเทพมหานคร",
+    "district": "ปทุมวัน",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "1008",
+    "province": "กรุงเทพมหานคร",
+    "district": "ป้อมปราบศัตรูพ่าย",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "1009",
+    "province": "กรุงเทพมหานคร",
+    "district": "พระโขนง",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "1010",
+    "province": "กรุงเทพมหานคร",
+    "district": "มีนบุรี",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "1011",
+    "province": "กรุงเทพมหานคร",
+    "district": "ลาดกระบัง",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "1012",
+    "province": "กรุงเทพมหานคร",
+    "district": "ยานนาวา",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "1013",
+    "province": "กรุงเทพมหานคร",
+    "district": "สัมพันธวงศ์",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "1014",
+    "province": "กรุงเทพมหานคร",
+    "district": "พญาไท",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "1015",
+    "province": "กรุงเทพมหานคร",
+    "district": "ธนบุรี",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "1016",
+    "province": "กรุงเทพมหานคร",
+    "district": "บางกอกใหญ่",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "1017",
+    "province": "กรุงเทพมหานคร",
+    "district": "ห้วยขวาง",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "1018",
+    "province": "กรุงเทพมหานคร",
+    "district": "คลองสาน",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "1019",
+    "province": "กรุงเทพมหานคร",
+    "district": "ตลิ่งชัน",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "1020",
+    "province": "กรุงเทพมหานคร",
+    "district": "บางกอกน้อย",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "1021",
+    "province": "กรุงเทพมหานคร",
+    "district": "บางขุนเทียน",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "1022",
+    "province": "กรุงเทพมหานคร",
+    "district": "ภาษีเจริญ",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "1023",
+    "province": "กรุงเทพมหานคร",
+    "district": "หนองแขม",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "1024",
+    "province": "กรุงเทพมหานคร",
+    "district": "ราษฎร์บูรณะ",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "1025",
+    "province": "กรุงเทพมหานคร",
+    "district": "บางพลัด",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "1026",
+    "province": "กรุงเทพมหานคร",
+    "district": "ดินแดง",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "1027",
+    "province": "กรุงเทพมหานคร",
+    "district": "บึงกุ่ม",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "1028",
+    "province": "กรุงเทพมหานคร",
+    "district": "สาทร",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "1029",
+    "province": "กรุงเทพมหานคร",
+    "district": "บางซื่อ",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "1030",
+    "province": "กรุงเทพมหานคร",
+    "district": "จตุจักร",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "1031",
+    "province": "กรุงเทพมหานคร",
+    "district": "บางคอแหลม",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "1032",
+    "province": "กรุงเทพมหานคร",
+    "district": "ประเวศ",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "1033",
+    "province": "กรุงเทพมหานคร",
+    "district": "คลองเตย",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "1034",
+    "province": "กรุงเทพมหานคร",
+    "district": "สวนหลวง",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "1035",
+    "province": "กรุงเทพมหานคร",
+    "district": "จอมทอง",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "1036",
+    "province": "กรุงเทพมหานคร",
+    "district": "ดอนเมือง",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "1037",
+    "province": "กรุงเทพมหานคร",
+    "district": "ราชเทวี",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "1038",
+    "province": "กรุงเทพมหานคร",
+    "district": "ลาดพร้าว",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "1039",
+    "province": "กรุงเทพมหานคร",
+    "district": "วัฒนา",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "1040",
+    "province": "กรุงเทพมหานคร",
+    "district": "บางแค",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "1041",
+    "province": "กรุงเทพมหานคร",
+    "district": "หลักสี่",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "1042",
+    "province": "กรุงเทพมหานคร",
+    "district": "สายไหม",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "1043",
+    "province": "กรุงเทพมหานคร",
+    "district": "คันนายาว",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "1044",
+    "province": "กรุงเทพมหานคร",
+    "district": "สะพานสูง",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "1045",
+    "province": "กรุงเทพมหานคร",
+    "district": "วังทองหลาง",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "1046",
+    "province": "กรุงเทพมหานคร",
+    "district": "คลองสามวา",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "1047",
+    "province": "กรุงเทพมหานคร",
+    "district": "บางนา",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "1048",
+    "province": "กรุงเทพมหานคร",
+    "district": "ทวีวัฒนา",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "1049",
+    "province": "กรุงเทพมหานคร",
+    "district": "ทุ่งครุ",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "1050",
+    "province": "กรุงเทพมหานคร",
+    "district": "บางบอน",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "1101",
+    "province": "สมุทรปราการ",
+    "district": "เมืองสมุทรปราการ",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "1102",
+    "province": "สมุทรปราการ",
+    "district": "บางบ่อ",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "1103",
+    "province": "สมุทรปราการ",
+    "district": "บางพลี",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "1104",
+    "province": "สมุทรปราการ",
+    "district": "พระประแดง",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "1105",
+    "province": "สมุทรปราการ",
+    "district": "พระสมุทรเจดีย์",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "1106",
+    "province": "สมุทรปราการ",
+    "district": "บางเสาธง",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "1201",
+    "province": "นนทบุรี",
+    "district": "เมืองนนทบุรี",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "1202",
+    "province": "นนทบุรี",
+    "district": "บางกรวย",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "1203",
+    "province": "นนทบุรี",
+    "district": "บางใหญ่",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "1204",
+    "province": "นนทบุรี",
+    "district": "บางบัวทอง",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "1205",
+    "province": "นนทบุรี",
+    "district": "ไทรน้อย",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "1206",
+    "province": "นนทบุรี",
+    "district": "ปากเกร็ด",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "1301",
+    "province": "ปทุมธานี",
+    "district": "เมืองปทุมธานี",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "1302",
+    "province": "ปทุมธานี",
+    "district": "คลองหลวง",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "1303",
+    "province": "ปทุมธานี",
+    "district": "ธัญบุรี",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "1304",
+    "province": "ปทุมธานี",
+    "district": "หนองเสือ",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "1305",
+    "province": "ปทุมธานี",
+    "district": "ลาดหลุมแก้ว",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "1306",
+    "province": "ปทุมธานี",
+    "district": "ลำลูกกา",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "1307",
+    "province": "ปทุมธานี",
+    "district": "สามโคก",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "1401",
+    "province": "พระนครศรีอยุธยา",
+    "district": "พระนครศรีอยุธยา",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "1402",
+    "province": "พระนครศรีอยุธยา",
+    "district": "ท่าเรือ",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "1403",
+    "province": "พระนครศรีอยุธยา",
+    "district": "นครหลวง",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "1404",
+    "province": "พระนครศรีอยุธยา",
+    "district": "บางไทร",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "1405",
+    "province": "พระนครศรีอยุธยา",
+    "district": "บางบาล",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "1406",
+    "province": "พระนครศรีอยุธยา",
+    "district": "บางปะอิน",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "1407",
+    "province": "พระนครศรีอยุธยา",
+    "district": "บางปะหัน",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "1408",
+    "province": "พระนครศรีอยุธยา",
+    "district": "ผักไห่",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "1409",
+    "province": "พระนครศรีอยุธยา",
+    "district": "ภาชี",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "1410",
+    "province": "พระนครศรีอยุธยา",
+    "district": "ลาดบัวหลวง",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "1411",
+    "province": "พระนครศรีอยุธยา",
+    "district": "วังน้อย",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "1412",
+    "province": "พระนครศรีอยุธยา",
+    "district": "เสนา",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "1413",
+    "province": "พระนครศรีอยุธยา",
+    "district": "บางซ้าย",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "1414",
+    "province": "พระนครศรีอยุธยา",
+    "district": "อุทัย",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "1415",
+    "province": "พระนครศรีอยุธยา",
+    "district": "มหาราช",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "1416",
+    "province": "พระนครศรีอยุธยา",
+    "district": "บ้านแพรก",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "1501",
+    "province": "อ่างทอง",
+    "district": "เมืองอ่างทอง",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "1502",
+    "province": "อ่างทอง",
+    "district": "ไชโย",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "1503",
+    "province": "อ่างทอง",
+    "district": "ป่าโมก",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "1504",
+    "province": "อ่างทอง",
+    "district": "โพธิ์ทอง",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "1505",
+    "province": "อ่างทอง",
+    "district": "แสวงหา",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "1506",
+    "province": "อ่างทอง",
+    "district": "วิเศษชัยชาญ",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "1507",
+    "province": "อ่างทอง",
+    "district": "สามโก้",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "1601",
+    "province": "ลพบุรี",
+    "district": "เมืองลพบุรี",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "1602",
+    "province": "ลพบุรี",
+    "district": "พัฒนานิคม",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "1603",
+    "province": "ลพบุรี",
+    "district": "โคกสำโรง",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "1604",
+    "province": "ลพบุรี",
+    "district": "ชัยบาดาล",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "1605",
+    "province": "ลพบุรี",
+    "district": "ท่าวุ้ง",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "1606",
+    "province": "ลพบุรี",
+    "district": "บ้านหมี่",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "1607",
+    "province": "ลพบุรี",
+    "district": "ท่าหลวง",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "1608",
+    "province": "ลพบุรี",
+    "district": "สระโบสถ์",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "1609",
+    "province": "ลพบุรี",
+    "district": "โคกเจริญ",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "1610",
+    "province": "ลพบุรี",
+    "district": "ลำสนธิ",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "1611",
+    "province": "ลพบุรี",
+    "district": "หนองม่วง",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "1701",
+    "province": "สิงห์บุรี",
+    "district": "เมืองสิงห์บุรี",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "1702",
+    "province": "สิงห์บุรี",
+    "district": "บางระจัน",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "1703",
+    "province": "สิงห์บุรี",
+    "district": "ค่ายบางระจัน",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "1704",
+    "province": "สิงห์บุรี",
+    "district": "พรหมบุรี",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "1705",
+    "province": "สิงห์บุรี",
+    "district": "ท่าช้าง",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "1706",
+    "province": "สิงห์บุรี",
+    "district": "อินทร์บุรี",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "1801",
+    "province": "ชัยนาท",
+    "district": "เมืองชัยนาท",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "1802",
+    "province": "ชัยนาท",
+    "district": "มโนรมย์",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "1803",
+    "province": "ชัยนาท",
+    "district": "วัดสิงห์",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "1804",
+    "province": "ชัยนาท",
+    "district": "สรรพยา",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "1805",
+    "province": "ชัยนาท",
+    "district": "สรรคบุรี",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "1806",
+    "province": "ชัยนาท",
+    "district": "หันคา",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "1807",
+    "province": "ชัยนาท",
+    "district": "หนองมะโมง",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "1808",
+    "province": "ชัยนาท",
+    "district": "เนินขาม",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "1901",
+    "province": "สระบุรี",
+    "district": "เมืองสระบุรี",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "1902",
+    "province": "สระบุรี",
+    "district": "แก่งคอย",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "1903",
+    "province": "สระบุรี",
+    "district": "หนองแค",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "1904",
+    "province": "สระบุรี",
+    "district": "วิหารแดง",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "1905",
+    "province": "สระบุรี",
+    "district": "หนองแซง",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "1906",
+    "province": "สระบุรี",
+    "district": "บ้านหมอ",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "1907",
+    "province": "สระบุรี",
+    "district": "ดอนพุด",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "1908",
+    "province": "สระบุรี",
+    "district": "หนองโดน",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "1909",
+    "province": "สระบุรี",
+    "district": "พระพุทธบาท",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "1910",
+    "province": "สระบุรี",
+    "district": "เสาไห้",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "1911",
+    "province": "สระบุรี",
+    "district": "มวกเหล็ก",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "1912",
+    "province": "สระบุรี",
+    "district": "วังม่วง",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "1913",
+    "province": "สระบุรี",
+    "district": "เฉลิมพระเกียรติ",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "2001",
+    "province": "ชลบุรี",
+    "district": "เมืองชลบุรี",
+    "region": "ภาคตะวันออก"
+  },
+  {
+    "addressCode": "2002",
+    "province": "ชลบุรี",
+    "district": "บ้านบึง",
+    "region": "ภาคตะวันออก"
+  },
+  {
+    "addressCode": "2003",
+    "province": "ชลบุรี",
+    "district": "หนองใหญ่",
+    "region": "ภาคตะวันออก"
+  },
+  {
+    "addressCode": "2004",
+    "province": "ชลบุรี",
+    "district": "บางละมุง",
+    "region": "ภาคตะวันออก"
+  },
+  {
+    "addressCode": "2005",
+    "province": "ชลบุรี",
+    "district": "พานทอง",
+    "region": "ภาคตะวันออก"
+  },
+  {
+    "addressCode": "2006",
+    "province": "ชลบุรี",
+    "district": "พนัสนิคม",
+    "region": "ภาคตะวันออก"
+  },
+  {
+    "addressCode": "2007",
+    "province": "ชลบุรี",
+    "district": "ศรีราชา",
+    "region": "ภาคตะวันออก"
+  },
+  {
+    "addressCode": "2008",
+    "province": "ชลบุรี",
+    "district": "เกาะสีชัง",
+    "region": "ภาคตะวันออก"
+  },
+  {
+    "addressCode": "2009",
+    "province": "ชลบุรี",
+    "district": "สัตหีบ",
+    "region": "ภาคตะวันออก"
+  },
+  {
+    "addressCode": "2010",
+    "province": "ชลบุรี",
+    "district": "บ่อทอง",
+    "region": "ภาคตะวันออก"
+  },
+  {
+    "addressCode": "2011",
+    "province": "ชลบุรี",
+    "district": "เกาะจันทร์",
+    "region": "ภาคตะวันออก"
+  },
+  {
+    "addressCode": "2101",
+    "province": "ระยอง",
+    "district": "เมืองระยอง",
+    "region": "ภาคตะวันออก"
+  },
+  {
+    "addressCode": "2102",
+    "province": "ระยอง",
+    "district": "บ้านฉาง",
+    "region": "ภาคตะวันออก"
+  },
+  {
+    "addressCode": "2103",
+    "province": "ระยอง",
+    "district": "แกลง",
+    "region": "ภาคตะวันออก"
+  },
+  {
+    "addressCode": "2104",
+    "province": "ระยอง",
+    "district": "วังจันทร์",
+    "region": "ภาคตะวันออก"
+  },
+  {
+    "addressCode": "2105",
+    "province": "ระยอง",
+    "district": "บ้านค่าย",
+    "region": "ภาคตะวันออก"
+  },
+  {
+    "addressCode": "2106",
+    "province": "ระยอง",
+    "district": "ปลวกแดง",
+    "region": "ภาคตะวันออก"
+  },
+  {
+    "addressCode": "2107",
+    "province": "ระยอง",
+    "district": "เขาชะเมา",
+    "region": "ภาคตะวันออก"
+  },
+  {
+    "addressCode": "2108",
+    "province": "ระยอง",
+    "district": "นิคมพัฒนา",
+    "region": "ภาคตะวันออก"
+  },
+  {
+    "addressCode": "2201",
+    "province": "จันทบุรี",
+    "district": "เมืองจันทบุรี",
+    "region": "ภาคตะวันออก"
+  },
+  {
+    "addressCode": "2202",
+    "province": "จันทบุรี",
+    "district": "ขลุง",
+    "region": "ภาคตะวันออก"
+  },
+  {
+    "addressCode": "2203",
+    "province": "จันทบุรี",
+    "district": "ท่าใหม่",
+    "region": "ภาคตะวันออก"
+  },
+  {
+    "addressCode": "2204",
+    "province": "จันทบุรี",
+    "district": "โป่งน้ำร้อน",
+    "region": "ภาคตะวันออก"
+  },
+  {
+    "addressCode": "2205",
+    "province": "จันทบุรี",
+    "district": "มะขาม",
+    "region": "ภาคตะวันออก"
+  },
+  {
+    "addressCode": "2206",
+    "province": "จันทบุรี",
+    "district": "แหลมสิงห์",
+    "region": "ภาคตะวันออก"
+  },
+  {
+    "addressCode": "2207",
+    "province": "จันทบุรี",
+    "district": "สอยดาว",
+    "region": "ภาคตะวันออก"
+  },
+  {
+    "addressCode": "2208",
+    "province": "จันทบุรี",
+    "district": "แก่งหางแมว",
+    "region": "ภาคตะวันออก"
+  },
+  {
+    "addressCode": "2209",
+    "province": "จันทบุรี",
+    "district": "นายายอาม",
+    "region": "ภาคตะวันออก"
+  },
+  {
+    "addressCode": "2210",
+    "province": "จันทบุรี",
+    "district": "เขาคิชฌกูฏ",
+    "region": "ภาคตะวันออก"
+  },
+  {
+    "addressCode": "2301",
+    "province": "ตราด",
+    "district": "เมืองตราด",
+    "region": "ภาคตะวันออก"
+  },
+  {
+    "addressCode": "2302",
+    "province": "ตราด",
+    "district": "คลองใหญ่",
+    "region": "ภาคตะวันออก"
+  },
+  {
+    "addressCode": "2303",
+    "province": "ตราด",
+    "district": "เขาสมิง",
+    "region": "ภาคตะวันออก"
+  },
+  {
+    "addressCode": "2304",
+    "province": "ตราด",
+    "district": "บ่อไร่",
+    "region": "ภาคตะวันออก"
+  },
+  {
+    "addressCode": "2305",
+    "province": "ตราด",
+    "district": "แหลมงอบ",
+    "region": "ภาคตะวันออก"
+  },
+  {
+    "addressCode": "2306",
+    "province": "ตราด",
+    "district": "เกาะกูด",
+    "region": "ภาคตะวันออก"
+  },
+  {
+    "addressCode": "2307",
+    "province": "ตราด",
+    "district": "เกาะช้าง",
+    "region": "ภาคตะวันออก"
+  },
+  {
+    "addressCode": "2401",
+    "province": "ฉะเชิงเทรา",
+    "district": "เมืองฉะเชิงเทรา",
+    "region": "ภาคตะวันออก"
+  },
+  {
+    "addressCode": "2402",
+    "province": "ฉะเชิงเทรา",
+    "district": "บางคล้า",
+    "region": "ภาคตะวันออก"
+  },
+  {
+    "addressCode": "2403",
+    "province": "ฉะเชิงเทรา",
+    "district": "บางน้ำเปรี้ยว",
+    "region": "ภาคตะวันออก"
+  },
+  {
+    "addressCode": "2404",
+    "province": "ฉะเชิงเทรา",
+    "district": "บางปะกง",
+    "region": "ภาคตะวันออก"
+  },
+  {
+    "addressCode": "2405",
+    "province": "ฉะเชิงเทรา",
+    "district": "บ้านโพธิ์",
+    "region": "ภาคตะวันออก"
+  },
+  {
+    "addressCode": "2406",
+    "province": "ฉะเชิงเทรา",
+    "district": "พนมสารคาม",
+    "region": "ภาคตะวันออก"
+  },
+  {
+    "addressCode": "2407",
+    "province": "ฉะเชิงเทรา",
+    "district": "ราชสาส์น",
+    "region": "ภาคตะวันออก"
+  },
+  {
+    "addressCode": "2408",
+    "province": "ฉะเชิงเทรา",
+    "district": "สนามชัยเขต",
+    "region": "ภาคตะวันออก"
+  },
+  {
+    "addressCode": "2409",
+    "province": "ฉะเชิงเทรา",
+    "district": "แปลงยาว",
+    "region": "ภาคตะวันออก"
+  },
+  {
+    "addressCode": "2410",
+    "province": "ฉะเชิงเทรา",
+    "district": "ท่าตะเกียบ",
+    "region": "ภาคตะวันออก"
+  },
+  {
+    "addressCode": "2411",
+    "province": "ฉะเชิงเทรา",
+    "district": "คลองเขื่อน",
+    "region": "ภาคตะวันออก"
+  },
+  {
+    "addressCode": "2501",
+    "province": "ปราจีนบุรี",
+    "district": "เมืองปราจีนบุรี",
+    "region": "ภาคตะวันออก"
+  },
+  {
+    "addressCode": "2502",
+    "province": "ปราจีนบุรี",
+    "district": "กบินทร์บุรี",
+    "region": "ภาคตะวันออก"
+  },
+  {
+    "addressCode": "2503",
+    "province": "ปราจีนบุรี",
+    "district": "นาดี",
+    "region": "ภาคตะวันออก"
+  },
+  {
+    "addressCode": "2506",
+    "province": "ปราจีนบุรี",
+    "district": "บ้านสร้าง",
+    "region": "ภาคตะวันออก"
+  },
+  {
+    "addressCode": "2507",
+    "province": "ปราจีนบุรี",
+    "district": "ประจันตคาม",
+    "region": "ภาคตะวันออก"
+  },
+  {
+    "addressCode": "2508",
+    "province": "ปราจีนบุรี",
+    "district": "ศรีมหาโพธิ",
+    "region": "ภาคตะวันออก"
+  },
+  {
+    "addressCode": "2509",
+    "province": "ปราจีนบุรี",
+    "district": "ศรีมโหสถ",
+    "region": "ภาคตะวันออก"
+  },
+  {
+    "addressCode": "2601",
+    "province": "นครนายก",
+    "district": "เมืองนครนายก",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "2602",
+    "province": "นครนายก",
+    "district": "ปากพลี",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "2603",
+    "province": "นครนายก",
+    "district": "บ้านนา",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "2604",
+    "province": "นครนายก",
+    "district": "องครักษ์",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "2701",
+    "province": "สระแก้ว",
+    "district": "เมืองสระแก้ว",
+    "region": "ภาคตะวันออก"
+  },
+  {
+    "addressCode": "2702",
+    "province": "สระแก้ว",
+    "district": "คลองหาด",
+    "region": "ภาคตะวันออก"
+  },
+  {
+    "addressCode": "2703",
+    "province": "สระแก้ว",
+    "district": "ตาพระยา",
+    "region": "ภาคตะวันออก"
+  },
+  {
+    "addressCode": "2704",
+    "province": "สระแก้ว",
+    "district": "วังน้ำเย็น",
+    "region": "ภาคตะวันออก"
+  },
+  {
+    "addressCode": "2705",
+    "province": "สระแก้ว",
+    "district": "วัฒนานคร",
+    "region": "ภาคตะวันออก"
+  },
+  {
+    "addressCode": "2706",
+    "province": "สระแก้ว",
+    "district": "อรัญประเทศ",
+    "region": "ภาคตะวันออก"
+  },
+  {
+    "addressCode": "2707",
+    "province": "สระแก้ว",
+    "district": "เขาฉกรรจ์",
+    "region": "ภาคตะวันออก"
+  },
+  {
+    "addressCode": "2708",
+    "province": "สระแก้ว",
+    "district": "โคกสูง",
+    "region": "ภาคตะวันออก"
+  },
+  {
+    "addressCode": "2709",
+    "province": "สระแก้ว",
+    "district": "วังสมบูรณ์",
+    "region": "ภาคตะวันออก"
+  },
+  {
+    "addressCode": "3001",
+    "province": "นครราชสีมา",
+    "district": "เมืองนครราชสีมา",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "3002",
+    "province": "นครราชสีมา",
+    "district": "ครบุรี",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "3003",
+    "province": "นครราชสีมา",
+    "district": "เสิงสาง",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "3004",
+    "province": "นครราชสีมา",
+    "district": "คง",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "3005",
+    "province": "นครราชสีมา",
+    "district": "บ้านเหลื่อม",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "3006",
+    "province": "นครราชสีมา",
+    "district": "จักราช",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "3007",
+    "province": "นครราชสีมา",
+    "district": "โชคชัย",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "3008",
+    "province": "นครราชสีมา",
+    "district": "ด่านขุนทด",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "3009",
+    "province": "นครราชสีมา",
+    "district": "โนนไทย",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "3010",
+    "province": "นครราชสีมา",
+    "district": "โนนสูง",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "3011",
+    "province": "นครราชสีมา",
+    "district": "ขามสะแกแสง",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "3012",
+    "province": "นครราชสีมา",
+    "district": "บัวใหญ่",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "3013",
+    "province": "นครราชสีมา",
+    "district": "ประทาย",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "3014",
+    "province": "นครราชสีมา",
+    "district": "ปักธงชัย",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "3015",
+    "province": "นครราชสีมา",
+    "district": "พิมาย",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "3016",
+    "province": "นครราชสีมา",
+    "district": "ห้วยแถลง",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "3017",
+    "province": "นครราชสีมา",
+    "district": "ชุมพวง",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "3018",
+    "province": "นครราชสีมา",
+    "district": "สูงเนิน",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "3019",
+    "province": "นครราชสีมา",
+    "district": "ขามทะเลสอ",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "3020",
+    "province": "นครราชสีมา",
+    "district": "สีคิ้ว",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "3021",
+    "province": "นครราชสีมา",
+    "district": "ปากช่อง",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "3022",
+    "province": "นครราชสีมา",
+    "district": "หนองบุญมาก",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "3023",
+    "province": "นครราชสีมา",
+    "district": "แก้งสนามนาง",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "3024",
+    "province": "นครราชสีมา",
+    "district": "โนนแดง",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "3025",
+    "province": "นครราชสีมา",
+    "district": "วังน้ำเขียว",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "3026",
+    "province": "นครราชสีมา",
+    "district": "เทพารักษ์",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "3027",
+    "province": "นครราชสีมา",
+    "district": "เมืองยาง",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "3028",
+    "province": "นครราชสีมา",
+    "district": "พระทองคำ",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "3029",
+    "province": "นครราชสีมา",
+    "district": "ลำทะเมนชัย",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "3030",
+    "province": "นครราชสีมา",
+    "district": "บัวลาย",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "3031",
+    "province": "นครราชสีมา",
+    "district": "สีดา",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "3032",
+    "province": "นครราชสีมา",
+    "district": "เฉลิมพระเกียรติ",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "3101",
+    "province": "บุรีรัมย์",
+    "district": "เมืองบุรีรัมย์",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "3102",
+    "province": "บุรีรัมย์",
+    "district": "คูเมือง",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "3103",
+    "province": "บุรีรัมย์",
+    "district": "กระสัง",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "3104",
+    "province": "บุรีรัมย์",
+    "district": "นางรอง",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "3105",
+    "province": "บุรีรัมย์",
+    "district": "หนองกี่",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "3106",
+    "province": "บุรีรัมย์",
+    "district": "ละหานทราย",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "3107",
+    "province": "บุรีรัมย์",
+    "district": "ประโคนชัย",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "3108",
+    "province": "บุรีรัมย์",
+    "district": "บ้านกรวด",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "3109",
+    "province": "บุรีรัมย์",
+    "district": "พุทไธสง",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "3110",
+    "province": "บุรีรัมย์",
+    "district": "ลำปลายมาศ",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "3111",
+    "province": "บุรีรัมย์",
+    "district": "สตึก",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "3112",
+    "province": "บุรีรัมย์",
+    "district": "ปะคำ",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "3113",
+    "province": "บุรีรัมย์",
+    "district": "นาโพธิ์",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "3114",
+    "province": "บุรีรัมย์",
+    "district": "หนองหงส์",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "3115",
+    "province": "บุรีรัมย์",
+    "district": "พลับพลาชัย",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "3116",
+    "province": "บุรีรัมย์",
+    "district": "ห้วยราช",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "3117",
+    "province": "บุรีรัมย์",
+    "district": "โนนสุวรรณ",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "3118",
+    "province": "บุรีรัมย์",
+    "district": "ชำนิ",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "3119",
+    "province": "บุรีรัมย์",
+    "district": "บ้านใหม่ไชยพจน์",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "3120",
+    "province": "บุรีรัมย์",
+    "district": "โนนดินแดง",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "3121",
+    "province": "บุรีรัมย์",
+    "district": "บ้านด่าน",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "3122",
+    "province": "บุรีรัมย์",
+    "district": "แคนดง",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "3123",
+    "province": "บุรีรัมย์",
+    "district": "เฉลิมพระเกียรติ",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "3201",
+    "province": "สุรินทร์",
+    "district": "เมืองสุรินทร์",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "3202",
+    "province": "สุรินทร์",
+    "district": "ชุมพลบุรี",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "3203",
+    "province": "สุรินทร์",
+    "district": "ท่าตูม",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "3204",
+    "province": "สุรินทร์",
+    "district": "จอมพระ",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "3205",
+    "province": "สุรินทร์",
+    "district": "ปราสาท",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "3206",
+    "province": "สุรินทร์",
+    "district": "กาบเชิง",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "3207",
+    "province": "สุรินทร์",
+    "district": "รัตนบุรี",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "3208",
+    "province": "สุรินทร์",
+    "district": "สนม",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "3209",
+    "province": "สุรินทร์",
+    "district": "ศีขรภูมิ",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "3210",
+    "province": "สุรินทร์",
+    "district": "สังขะ",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "3211",
+    "province": "สุรินทร์",
+    "district": "ลำดวน",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "3212",
+    "province": "สุรินทร์",
+    "district": "สำโรงทาบ",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "3213",
+    "province": "สุรินทร์",
+    "district": "บัวเชด",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "3214",
+    "province": "สุรินทร์",
+    "district": "พนมดงรัก",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "3215",
+    "province": "สุรินทร์",
+    "district": "ศรีณรงค์",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "3216",
+    "province": "สุรินทร์",
+    "district": "เขวาสินรินทร์",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "3217",
+    "province": "สุรินทร์",
+    "district": "โนนนารายณ์",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "3301",
+    "province": "ศรีสะเกษ",
+    "district": "เมืองศรีสะเกษ",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "3302",
+    "province": "ศรีสะเกษ",
+    "district": "ยางชุมน้อย",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "3303",
+    "province": "ศรีสะเกษ",
+    "district": "กันทรารมย์",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "3304",
+    "province": "ศรีสะเกษ",
+    "district": "กันทรลักษ์",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "3305",
+    "province": "ศรีสะเกษ",
+    "district": "ขุขันธ์",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "3306",
+    "province": "ศรีสะเกษ",
+    "district": "ไพรบึง",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "3307",
+    "province": "ศรีสะเกษ",
+    "district": "ปรางค์กู่",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "3308",
+    "province": "ศรีสะเกษ",
+    "district": "ขุนหาญ",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "3309",
+    "province": "ศรีสะเกษ",
+    "district": "ราษีไศล",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "3310",
+    "province": "ศรีสะเกษ",
+    "district": "อุทุมพรพิสัย",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "3311",
+    "province": "ศรีสะเกษ",
+    "district": "บึงบูรพ์",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "3312",
+    "province": "ศรีสะเกษ",
+    "district": "ห้วยทับทัน",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "3313",
+    "province": "ศรีสะเกษ",
+    "district": "โนนคูณ",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "3314",
+    "province": "ศรีสะเกษ",
+    "district": "ศรีรัตนะ",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "3315",
+    "province": "ศรีสะเกษ",
+    "district": "น้ำเกลี้ยง",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "3316",
+    "province": "ศรีสะเกษ",
+    "district": "วังหิน",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "3317",
+    "province": "ศรีสะเกษ",
+    "district": "ภูสิงห์",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "3318",
+    "province": "ศรีสะเกษ",
+    "district": "เมืองจันทร์",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "3319",
+    "province": "ศรีสะเกษ",
+    "district": "เบญจลักษ์",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "3320",
+    "province": "ศรีสะเกษ",
+    "district": "พยุห์",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "3321",
+    "province": "ศรีสะเกษ",
+    "district": "โพธิ์ศรีสุวรรณ",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "3322",
+    "province": "ศรีสะเกษ",
+    "district": "ศิลาลาด",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "3401",
+    "province": "อุบลราชธานี",
+    "district": "เมืองอุบลราชธานี",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "3402",
+    "province": "อุบลราชธานี",
+    "district": "ศรีเมืองใหม่",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "3403",
+    "province": "อุบลราชธานี",
+    "district": "โขงเจียม",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "3404",
+    "province": "อุบลราชธานี",
+    "district": "เขื่องใน",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "3405",
+    "province": "อุบลราชธานี",
+    "district": "เขมราฐ",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "3407",
+    "province": "อุบลราชธานี",
+    "district": "เดชอุดม",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "3408",
+    "province": "อุบลราชธานี",
+    "district": "นาจะหลวย",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "3409",
+    "province": "อุบลราชธานี",
+    "district": "น้ำยืน",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "3410",
+    "province": "อุบลราชธานี",
+    "district": "บุณฑริก",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "3411",
+    "province": "อุบลราชธานี",
+    "district": "ตระการพืชผล",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "3412",
+    "province": "อุบลราชธานี",
+    "district": "กุดข้าวปุ้น",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "3414",
+    "province": "อุบลราชธานี",
+    "district": "ม่วงสามสิบ",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "3415",
+    "province": "อุบลราชธานี",
+    "district": "วารินชำราบ",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "3419",
+    "province": "อุบลราชธานี",
+    "district": "พิบูลมังสาหาร",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "3420",
+    "province": "อุบลราชธานี",
+    "district": "ตาลสุม",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "3421",
+    "province": "อุบลราชธานี",
+    "district": "โพธิ์ไทร",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "3422",
+    "province": "อุบลราชธานี",
+    "district": "สำโรง",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "3424",
+    "province": "อุบลราชธานี",
+    "district": "ดอนมดแดง",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "3425",
+    "province": "อุบลราชธานี",
+    "district": "สิรินธร",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "3426",
+    "province": "อุบลราชธานี",
+    "district": "ทุ่งศรีอุดม",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "3429",
+    "province": "อุบลราชธานี",
+    "district": "นาเยีย",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "3430",
+    "province": "อุบลราชธานี",
+    "district": "นาตาล",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "3431",
+    "province": "อุบลราชธานี",
+    "district": "เหล่าเสือโก้ก",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "3432",
+    "province": "อุบลราชธานี",
+    "district": "สว่างวีระวงศ์",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "3433",
+    "province": "อุบลราชธานี",
+    "district": "น้ำขุ่น",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "3501",
+    "province": "ยโสธร",
+    "district": "เมืองยโสธร",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "3502",
+    "province": "ยโสธร",
+    "district": "ทรายมูล",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "3503",
+    "province": "ยโสธร",
+    "district": "กุดชุม",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "3504",
+    "province": "ยโสธร",
+    "district": "คำเขื่อนแก้ว",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "3505",
+    "province": "ยโสธร",
+    "district": "ป่าติ้ว",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "3506",
+    "province": "ยโสธร",
+    "district": "มหาชนะชัย",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "3507",
+    "province": "ยโสธร",
+    "district": "ค้อวัง",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "3508",
+    "province": "ยโสธร",
+    "district": "เลิงนกทา",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "3509",
+    "province": "ยโสธร",
+    "district": "ไทยเจริญ",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "3601",
+    "province": "ชัยภูมิ",
+    "district": "เมืองชัยภูมิ",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "3602",
+    "province": "ชัยภูมิ",
+    "district": "บ้านเขว้า",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "3603",
+    "province": "ชัยภูมิ",
+    "district": "คอนสวรรค์",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "3604",
+    "province": "ชัยภูมิ",
+    "district": "เกษตรสมบูรณ์",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "3605",
+    "province": "ชัยภูมิ",
+    "district": "หนองบัวแดง",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "3606",
+    "province": "ชัยภูมิ",
+    "district": "จัตุรัส",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "3607",
+    "province": "ชัยภูมิ",
+    "district": "บำเหน็จณรงค์",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "3608",
+    "province": "ชัยภูมิ",
+    "district": "หนองบัวระเหว",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "3609",
+    "province": "ชัยภูมิ",
+    "district": "เทพสถิต",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "3610",
+    "province": "ชัยภูมิ",
+    "district": "ภูเขียว",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "3611",
+    "province": "ชัยภูมิ",
+    "district": "บ้านแท่น",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "3612",
+    "province": "ชัยภูมิ",
+    "district": "แก้งคร้อ",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "3613",
+    "province": "ชัยภูมิ",
+    "district": "คอนสาร",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "3614",
+    "province": "ชัยภูมิ",
+    "district": "ภักดีชุมพล",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "3615",
+    "province": "ชัยภูมิ",
+    "district": "เนินสง่า",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "3616",
+    "province": "ชัยภูมิ",
+    "district": "ซับใหญ่",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "3701",
+    "province": "อำนาจเจริญ",
+    "district": "เมืองอำนาจเจริญ",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "3702",
+    "province": "อำนาจเจริญ",
+    "district": "ชานุมาน",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "3703",
+    "province": "อำนาจเจริญ",
+    "district": "ปทุมราชวงศา",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "3704",
+    "province": "อำนาจเจริญ",
+    "district": "พนา",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "3705",
+    "province": "อำนาจเจริญ",
+    "district": "เสนางคนิคม",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "3706",
+    "province": "อำนาจเจริญ",
+    "district": "หัวตะพาน",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "3707",
+    "province": "อำนาจเจริญ",
+    "district": "ลืออำนาจ",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "3801",
+    "province": "บึงกาฬ",
+    "district": "เมืองบึงกาฬ",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "3802",
+    "province": "บึงกาฬ",
+    "district": "พรเจริญ",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "3803",
+    "province": "บึงกาฬ",
+    "district": "โซ่พิสัย",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "3804",
+    "province": "บึงกาฬ",
+    "district": "เซกา",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "3805",
+    "province": "บึงกาฬ",
+    "district": "ปากคาด",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "3806",
+    "province": "บึงกาฬ",
+    "district": "บึงโขงหลง",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "3807",
+    "province": "บึงกาฬ",
+    "district": "ศรีวิไล",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "3808",
+    "province": "บึงกาฬ",
+    "district": "บุ่งคล้า",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "3901",
+    "province": "หนองบัวลำภู",
+    "district": "เมืองหนองบัวลำภู",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "3902",
+    "province": "หนองบัวลำภู",
+    "district": "นากลาง",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "3903",
+    "province": "หนองบัวลำภู",
+    "district": "โนนสัง",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "3904",
+    "province": "หนองบัวลำภู",
+    "district": "ศรีบุญเรือง",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "3905",
+    "province": "หนองบัวลำภู",
+    "district": "สุวรรณคูหา",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "3906",
+    "province": "หนองบัวลำภู",
+    "district": "นาวัง",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "4001",
+    "province": "ขอนแก่น",
+    "district": "เมืองขอนแก่น",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "4002",
+    "province": "ขอนแก่น",
+    "district": "บ้านฝาง",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "4003",
+    "province": "ขอนแก่น",
+    "district": "พระยืน",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "4004",
+    "province": "ขอนแก่น",
+    "district": "หนองเรือ",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "4005",
+    "province": "ขอนแก่น",
+    "district": "ชุมแพ",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "4006",
+    "province": "ขอนแก่น",
+    "district": "สีชมพู",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "4007",
+    "province": "ขอนแก่น",
+    "district": "น้ำพอง",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "4008",
+    "province": "ขอนแก่น",
+    "district": "อุบลรัตน์",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "4009",
+    "province": "ขอนแก่น",
+    "district": "กระนวน",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "4010",
+    "province": "ขอนแก่น",
+    "district": "บ้านไผ่",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "4011",
+    "province": "ขอนแก่น",
+    "district": "เปือยน้อย",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "4012",
+    "province": "ขอนแก่น",
+    "district": "พล",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "4013",
+    "province": "ขอนแก่น",
+    "district": "แวงใหญ่",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "4014",
+    "province": "ขอนแก่น",
+    "district": "แวงน้อย",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "4015",
+    "province": "ขอนแก่น",
+    "district": "หนองสองห้อง",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "4016",
+    "province": "ขอนแก่น",
+    "district": "ภูเวียง",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "4017",
+    "province": "ขอนแก่น",
+    "district": "มัญจาคีรี",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "4018",
+    "province": "ขอนแก่น",
+    "district": "ชนบท",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "4019",
+    "province": "ขอนแก่น",
+    "district": "เขาสวนกวาง",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "4020",
+    "province": "ขอนแก่น",
+    "district": "ภูผาม่าน",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "4021",
+    "province": "ขอนแก่น",
+    "district": "ซำสูง",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "4022",
+    "province": "ขอนแก่น",
+    "district": "โคกโพธิ์ไชย",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "4023",
+    "province": "ขอนแก่น",
+    "district": "หนองนาคำ",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "4024",
+    "province": "ขอนแก่น",
+    "district": "บ้านแฮด",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "4025",
+    "province": "ขอนแก่น",
+    "district": "โนนศิลา",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "4029",
+    "province": "ขอนแก่น",
+    "district": "เวียงเก่า",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "4101",
+    "province": "อุดรธานี",
+    "district": "เมืองอุดรธานี",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "4102",
+    "province": "อุดรธานี",
+    "district": "กุดจับ",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "4103",
+    "province": "อุดรธานี",
+    "district": "หนองวัวซอ",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "4104",
+    "province": "อุดรธานี",
+    "district": "กุมภวาปี",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "4105",
+    "province": "อุดรธานี",
+    "district": "โนนสะอาด",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "4106",
+    "province": "อุดรธานี",
+    "district": "หนองหาน",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "4107",
+    "province": "อุดรธานี",
+    "district": "ทุ่งฝน",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "4108",
+    "province": "อุดรธานี",
+    "district": "ไชยวาน",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "4109",
+    "province": "อุดรธานี",
+    "district": "ศรีธาตุ",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "4110",
+    "province": "อุดรธานี",
+    "district": "วังสามหมอ",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "4111",
+    "province": "อุดรธานี",
+    "district": "บ้านดุง",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "4117",
+    "province": "อุดรธานี",
+    "district": "บ้านผือ",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "4118",
+    "province": "อุดรธานี",
+    "district": "น้ำโสม",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "4119",
+    "province": "อุดรธานี",
+    "district": "เพ็ญ",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "4120",
+    "province": "อุดรธานี",
+    "district": "สร้างคอม",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "4121",
+    "province": "อุดรธานี",
+    "district": "หนองแสง",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "4122",
+    "province": "อุดรธานี",
+    "district": "นายูง",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "4123",
+    "province": "อุดรธานี",
+    "district": "พิบูลย์รักษ์",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "4124",
+    "province": "อุดรธานี",
+    "district": "กู่แก้ว",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "4125",
+    "province": "อุดรธานี",
+    "district": "ประจักษ์ศิลปาคม",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "4201",
+    "province": "เลย",
+    "district": "เมืองเลย",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "4202",
+    "province": "เลย",
+    "district": "นาด้วง",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "4203",
+    "province": "เลย",
+    "district": "เชียงคาน",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "4204",
+    "province": "เลย",
+    "district": "ปากชม",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "4205",
+    "province": "เลย",
+    "district": "ด่านซ้าย",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "4206",
+    "province": "เลย",
+    "district": "นาแห้ว",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "4207",
+    "province": "เลย",
+    "district": "ภูเรือ",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "4208",
+    "province": "เลย",
+    "district": "ท่าลี่",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "4209",
+    "province": "เลย",
+    "district": "วังสะพุง",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "4210",
+    "province": "เลย",
+    "district": "ภูกระดึง",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "4211",
+    "province": "เลย",
+    "district": "ภูหลวง",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "4212",
+    "province": "เลย",
+    "district": "ผาขาว",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "4213",
+    "province": "เลย",
+    "district": "เอราวัณ",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "4214",
+    "province": "เลย",
+    "district": "หนองหิน",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "4301",
+    "province": "หนองคาย",
+    "district": "เมืองหนองคาย",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "4302",
+    "province": "หนองคาย",
+    "district": "ท่าบ่อ",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "4305",
+    "province": "หนองคาย",
+    "district": "โพนพิสัย",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "4307",
+    "province": "หนองคาย",
+    "district": "ศรีเชียงใหม่",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "4308",
+    "province": "หนองคาย",
+    "district": "สังคม",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "4314",
+    "province": "หนองคาย",
+    "district": "สระใคร",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "4315",
+    "province": "หนองคาย",
+    "district": "เฝ้าไร่",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "4316",
+    "province": "หนองคาย",
+    "district": "รัตนวาปี",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "4317",
+    "province": "หนองคาย",
+    "district": "โพธิ์ตาก",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "4401",
+    "province": "มหาสารคาม",
+    "district": "เมืองมหาสารคาม",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "4402",
+    "province": "มหาสารคาม",
+    "district": "แกดำ",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "4403",
+    "province": "มหาสารคาม",
+    "district": "โกสุมพิสัย",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "4404",
+    "province": "มหาสารคาม",
+    "district": "กันทรวิชัย",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "4405",
+    "province": "มหาสารคาม",
+    "district": "เชียงยืน",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "4406",
+    "province": "มหาสารคาม",
+    "district": "บรบือ",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "4407",
+    "province": "มหาสารคาม",
+    "district": "นาเชือก",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "4408",
+    "province": "มหาสารคาม",
+    "district": "พยัคฆภูมิพิสัย",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "4409",
+    "province": "มหาสารคาม",
+    "district": "วาปีปทุม",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "4410",
+    "province": "มหาสารคาม",
+    "district": "นาดูน",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "4411",
+    "province": "มหาสารคาม",
+    "district": "ยางสีสุราช",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "4412",
+    "province": "มหาสารคาม",
+    "district": "กุดรัง",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "4413",
+    "province": "มหาสารคาม",
+    "district": "ชื่นชม",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "4501",
+    "province": "ร้อยเอ็ด",
+    "district": "เมืองร้อยเอ็ด",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "4502",
+    "province": "ร้อยเอ็ด",
+    "district": "เกษตรวิสัย",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "4503",
+    "province": "ร้อยเอ็ด",
+    "district": "ปทุมรัตต์",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "4504",
+    "province": "ร้อยเอ็ด",
+    "district": "จตุรพักตรพิมาน",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "4505",
+    "province": "ร้อยเอ็ด",
+    "district": "ธวัชบุรี",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "4506",
+    "province": "ร้อยเอ็ด",
+    "district": "พนมไพร",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "4507",
+    "province": "ร้อยเอ็ด",
+    "district": "โพนทอง",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "4508",
+    "province": "ร้อยเอ็ด",
+    "district": "โพธิ์ชัย",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "4509",
+    "province": "ร้อยเอ็ด",
+    "district": "หนองพอก",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "4510",
+    "province": "ร้อยเอ็ด",
+    "district": "เสลภูมิ",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "4511",
+    "province": "ร้อยเอ็ด",
+    "district": "สุวรรณภูมิ",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "4512",
+    "province": "ร้อยเอ็ด",
+    "district": "เมืองสรวง",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "4513",
+    "province": "ร้อยเอ็ด",
+    "district": "โพนทราย",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "4514",
+    "province": "ร้อยเอ็ด",
+    "district": "อาจสามารถ",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "4515",
+    "province": "ร้อยเอ็ด",
+    "district": "เมยวดี",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "4516",
+    "province": "ร้อยเอ็ด",
+    "district": "ศรีสมเด็จ",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "4517",
+    "province": "ร้อยเอ็ด",
+    "district": "จังหาร",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "4518",
+    "province": "ร้อยเอ็ด",
+    "district": "เชียงขวัญ",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "4519",
+    "province": "ร้อยเอ็ด",
+    "district": "หนองฮี",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "4520",
+    "province": "ร้อยเอ็ด",
+    "district": "ทุ่งเขาหลวง",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "4601",
+    "province": "กาฬสินธุ์",
+    "district": "เมืองกาฬสินธุ์",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "4602",
+    "province": "กาฬสินธุ์",
+    "district": "นามน",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "4603",
+    "province": "กาฬสินธุ์",
+    "district": "กมลาไสย",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "4604",
+    "province": "กาฬสินธุ์",
+    "district": "ร่องคำ",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "4605",
+    "province": "กาฬสินธุ์",
+    "district": "กุฉินารายณ์",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "4606",
+    "province": "กาฬสินธุ์",
+    "district": "เขาวง",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "4607",
+    "province": "กาฬสินธุ์",
+    "district": "ยางตลาด",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "4608",
+    "province": "กาฬสินธุ์",
+    "district": "ห้วยเม็ก",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "4609",
+    "province": "กาฬสินธุ์",
+    "district": "สหัสขันธ์",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "4610",
+    "province": "กาฬสินธุ์",
+    "district": "คำม่วง",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "4611",
+    "province": "กาฬสินธุ์",
+    "district": "ท่าคันโท",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "4612",
+    "province": "กาฬสินธุ์",
+    "district": "หนองกุงศรี",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "4613",
+    "province": "กาฬสินธุ์",
+    "district": "สมเด็จ",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "4614",
+    "province": "กาฬสินธุ์",
+    "district": "ห้วยผึ้ง",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "4615",
+    "province": "กาฬสินธุ์",
+    "district": "สามชัย",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "4616",
+    "province": "กาฬสินธุ์",
+    "district": "นาคู",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "4617",
+    "province": "กาฬสินธุ์",
+    "district": "ดอนจาน",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "4618",
+    "province": "กาฬสินธุ์",
+    "district": "ฆ้องชัย",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "4701",
+    "province": "สกลนคร",
+    "district": "เมืองสกลนคร",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "4702",
+    "province": "สกลนคร",
+    "district": "กุสุมาลย์",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "4703",
+    "province": "สกลนคร",
+    "district": "กุดบาก",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "4704",
+    "province": "สกลนคร",
+    "district": "พรรณานิคม",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "4705",
+    "province": "สกลนคร",
+    "district": "พังโคน",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "4706",
+    "province": "สกลนคร",
+    "district": "วาริชภูมิ",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "4707",
+    "province": "สกลนคร",
+    "district": "นิคมน้ำอูน",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "4708",
+    "province": "สกลนคร",
+    "district": "วานรนิวาส",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "4709",
+    "province": "สกลนคร",
+    "district": "คำตากล้า",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "4710",
+    "province": "สกลนคร",
+    "district": "บ้านม่วง",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "4711",
+    "province": "สกลนคร",
+    "district": "อากาศอำนวย",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "4712",
+    "province": "สกลนคร",
+    "district": "สว่างแดนดิน",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "4713",
+    "province": "สกลนคร",
+    "district": "ส่องดาว",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "4714",
+    "province": "สกลนคร",
+    "district": "เต่างอย",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "4715",
+    "province": "สกลนคร",
+    "district": "โคกศรีสุพรรณ",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "4716",
+    "province": "สกลนคร",
+    "district": "เจริญศิลป์",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "4717",
+    "province": "สกลนคร",
+    "district": "โพนนาแก้ว",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "4718",
+    "province": "สกลนคร",
+    "district": "ภูพาน",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "4801",
+    "province": "นครพนม",
+    "district": "เมืองนครพนม",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "4802",
+    "province": "นครพนม",
+    "district": "ปลาปาก",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "4803",
+    "province": "นครพนม",
+    "district": "ท่าอุเทน",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "4804",
+    "province": "นครพนม",
+    "district": "บ้านแพง",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "4805",
+    "province": "นครพนม",
+    "district": "ธาตุพนม",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "4806",
+    "province": "นครพนม",
+    "district": "เรณูนคร",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "4807",
+    "province": "นครพนม",
+    "district": "นาแก",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "4808",
+    "province": "นครพนม",
+    "district": "ศรีสงคราม",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "4809",
+    "province": "นครพนม",
+    "district": "นาหว้า",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "4810",
+    "province": "นครพนม",
+    "district": "โพนสวรรค์",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "4811",
+    "province": "นครพนม",
+    "district": "นาทม",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "4812",
+    "province": "นครพนม",
+    "district": "วังยาง",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "4901",
+    "province": "มุกดาหาร",
+    "district": "เมืองมุกดาหาร",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "4902",
+    "province": "มุกดาหาร",
+    "district": "นิคมคำสร้อย",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "4903",
+    "province": "มุกดาหาร",
+    "district": "ดอนตาล",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "4904",
+    "province": "มุกดาหาร",
+    "district": "ดงหลวง",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "4905",
+    "province": "มุกดาหาร",
+    "district": "คำชะอี",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "4906",
+    "province": "มุกดาหาร",
+    "district": "หว้านใหญ่",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "4907",
+    "province": "มุกดาหาร",
+    "district": "หนองสูง",
+    "region": "ภาคตะวันออกเฉียงเหนือ"
+  },
+  {
+    "addressCode": "5001",
+    "province": "เชียงใหม่",
+    "district": "เมืองเชียงใหม่",
+    "region": "ภาคเหนือ"
+  },
+  {
+    "addressCode": "5002",
+    "province": "เชียงใหม่",
+    "district": "จอมทอง",
+    "region": "ภาคเหนือ"
+  },
+  {
+    "addressCode": "5003",
+    "province": "เชียงใหม่",
+    "district": "แม่แจ่ม",
+    "region": "ภาคเหนือ"
+  },
+  {
+    "addressCode": "5004",
+    "province": "เชียงใหม่",
+    "district": "เชียงดาว",
+    "region": "ภาคเหนือ"
+  },
+  {
+    "addressCode": "5005",
+    "province": "เชียงใหม่",
+    "district": "ดอยสะเก็ด",
+    "region": "ภาคเหนือ"
+  },
+  {
+    "addressCode": "5006",
+    "province": "เชียงใหม่",
+    "district": "แม่แตง",
+    "region": "ภาคเหนือ"
+  },
+  {
+    "addressCode": "5007",
+    "province": "เชียงใหม่",
+    "district": "แม่ริม",
+    "region": "ภาคเหนือ"
+  },
+  {
+    "addressCode": "5008",
+    "province": "เชียงใหม่",
+    "district": "สะเมิง",
+    "region": "ภาคเหนือ"
+  },
+  {
+    "addressCode": "5009",
+    "province": "เชียงใหม่",
+    "district": "ฝาง",
+    "region": "ภาคเหนือ"
+  },
+  {
+    "addressCode": "5010",
+    "province": "เชียงใหม่",
+    "district": "แม่อาย",
+    "region": "ภาคเหนือ"
+  },
+  {
+    "addressCode": "5011",
+    "province": "เชียงใหม่",
+    "district": "พร้าว",
+    "region": "ภาคเหนือ"
+  },
+  {
+    "addressCode": "5012",
+    "province": "เชียงใหม่",
+    "district": "สันป่าตอง",
+    "region": "ภาคเหนือ"
+  },
+  {
+    "addressCode": "5013",
+    "province": "เชียงใหม่",
+    "district": "สันกำแพง",
+    "region": "ภาคเหนือ"
+  },
+  {
+    "addressCode": "5014",
+    "province": "เชียงใหม่",
+    "district": "สันทราย",
+    "region": "ภาคเหนือ"
+  },
+  {
+    "addressCode": "5015",
+    "province": "เชียงใหม่",
+    "district": "หางดง",
+    "region": "ภาคเหนือ"
+  },
+  {
+    "addressCode": "5016",
+    "province": "เชียงใหม่",
+    "district": "ฮอด",
+    "region": "ภาคเหนือ"
+  },
+  {
+    "addressCode": "5017",
+    "province": "เชียงใหม่",
+    "district": "ดอยเต่า",
+    "region": "ภาคเหนือ"
+  },
+  {
+    "addressCode": "5018",
+    "province": "เชียงใหม่",
+    "district": "อมก๋อย",
+    "region": "ภาคเหนือ"
+  },
+  {
+    "addressCode": "5019",
+    "province": "เชียงใหม่",
+    "district": "สารภี",
+    "region": "ภาคเหนือ"
+  },
+  {
+    "addressCode": "5020",
+    "province": "เชียงใหม่",
+    "district": "เวียงแหง",
+    "region": "ภาคเหนือ"
+  },
+  {
+    "addressCode": "5021",
+    "province": "เชียงใหม่",
+    "district": "ไชยปราการ",
+    "region": "ภาคเหนือ"
+  },
+  {
+    "addressCode": "5022",
+    "province": "เชียงใหม่",
+    "district": "แม่วาง",
+    "region": "ภาคเหนือ"
+  },
+  {
+    "addressCode": "5023",
+    "province": "เชียงใหม่",
+    "district": "แม่ออน",
+    "region": "ภาคเหนือ"
+  },
+  {
+    "addressCode": "5024",
+    "province": "เชียงใหม่",
+    "district": "ดอยหล่อ",
+    "region": "ภาคเหนือ"
+  },
+  {
+    "addressCode": "5025",
+    "province": "เชียงใหม่",
+    "district": "กัลยาณิวัฒนา",
+    "region": "ภาคเหนือ"
+  },
+  {
+    "addressCode": "5101",
+    "province": "ลำพูน",
+    "district": "เมืองลำพูน",
+    "region": "ภาคเหนือ"
+  },
+  {
+    "addressCode": "5102",
+    "province": "ลำพูน",
+    "district": "แม่ทา",
+    "region": "ภาคเหนือ"
+  },
+  {
+    "addressCode": "5103",
+    "province": "ลำพูน",
+    "district": "บ้านโฮ่ง",
+    "region": "ภาคเหนือ"
+  },
+  {
+    "addressCode": "5104",
+    "province": "ลำพูน",
+    "district": "ลี้",
+    "region": "ภาคเหนือ"
+  },
+  {
+    "addressCode": "5105",
+    "province": "ลำพูน",
+    "district": "ทุ่งหัวช้าง",
+    "region": "ภาคเหนือ"
+  },
+  {
+    "addressCode": "5106",
+    "province": "ลำพูน",
+    "district": "ป่าซาง",
+    "region": "ภาคเหนือ"
+  },
+  {
+    "addressCode": "5107",
+    "province": "ลำพูน",
+    "district": "บ้านธิ",
+    "region": "ภาคเหนือ"
+  },
+  {
+    "addressCode": "5108",
+    "province": "ลำพูน",
+    "district": "เวียงหนองล่อง",
+    "region": "ภาคเหนือ"
+  },
+  {
+    "addressCode": "5201",
+    "province": "ลำปาง",
+    "district": "เมืองลำปาง",
+    "region": "ภาคเหนือ"
+  },
+  {
+    "addressCode": "5202",
+    "province": "ลำปาง",
+    "district": "แม่เมาะ",
+    "region": "ภาคเหนือ"
+  },
+  {
+    "addressCode": "5203",
+    "province": "ลำปาง",
+    "district": "เกาะคา",
+    "region": "ภาคเหนือ"
+  },
+  {
+    "addressCode": "5204",
+    "province": "ลำปาง",
+    "district": "เสริมงาม",
+    "region": "ภาคเหนือ"
+  },
+  {
+    "addressCode": "5205",
+    "province": "ลำปาง",
+    "district": "งาว",
+    "region": "ภาคเหนือ"
+  },
+  {
+    "addressCode": "5206",
+    "province": "ลำปาง",
+    "district": "แจ้ห่ม",
+    "region": "ภาคเหนือ"
+  },
+  {
+    "addressCode": "5207",
+    "province": "ลำปาง",
+    "district": "วังเหนือ",
+    "region": "ภาคเหนือ"
+  },
+  {
+    "addressCode": "5208",
+    "province": "ลำปาง",
+    "district": "เถิน",
+    "region": "ภาคเหนือ"
+  },
+  {
+    "addressCode": "5209",
+    "province": "ลำปาง",
+    "district": "แม่พริก",
+    "region": "ภาคเหนือ"
+  },
+  {
+    "addressCode": "5210",
+    "province": "ลำปาง",
+    "district": "แม่ทะ",
+    "region": "ภาคเหนือ"
+  },
+  {
+    "addressCode": "5211",
+    "province": "ลำปาง",
+    "district": "สบปราบ",
+    "region": "ภาคเหนือ"
+  },
+  {
+    "addressCode": "5212",
+    "province": "ลำปาง",
+    "district": "ห้างฉัตร",
+    "region": "ภาคเหนือ"
+  },
+  {
+    "addressCode": "5213",
+    "province": "ลำปาง",
+    "district": "เมืองปาน",
+    "region": "ภาคเหนือ"
+  },
+  {
+    "addressCode": "5301",
+    "province": "อุตรดิตถ์",
+    "district": "เมืองอุตรดิตถ์",
+    "region": "ภาคเหนือ"
+  },
+  {
+    "addressCode": "5302",
+    "province": "อุตรดิตถ์",
+    "district": "ตรอน",
+    "region": "ภาคเหนือ"
+  },
+  {
+    "addressCode": "5303",
+    "province": "อุตรดิตถ์",
+    "district": "ท่าปลา",
+    "region": "ภาคเหนือ"
+  },
+  {
+    "addressCode": "5304",
+    "province": "อุตรดิตถ์",
+    "district": "น้ำปาด",
+    "region": "ภาคเหนือ"
+  },
+  {
+    "addressCode": "5305",
+    "province": "อุตรดิตถ์",
+    "district": "ฟากท่า",
+    "region": "ภาคเหนือ"
+  },
+  {
+    "addressCode": "5306",
+    "province": "อุตรดิตถ์",
+    "district": "บ้านโคก",
+    "region": "ภาคเหนือ"
+  },
+  {
+    "addressCode": "5307",
+    "province": "อุตรดิตถ์",
+    "district": "พิชัย",
+    "region": "ภาคเหนือ"
+  },
+  {
+    "addressCode": "5308",
+    "province": "อุตรดิตถ์",
+    "district": "ลับแล",
+    "region": "ภาคเหนือ"
+  },
+  {
+    "addressCode": "5309",
+    "province": "อุตรดิตถ์",
+    "district": "ทองแสนขัน",
+    "region": "ภาคเหนือ"
+  },
+  {
+    "addressCode": "5401",
+    "province": "แพร่",
+    "district": "เมืองแพร่",
+    "region": "ภาคเหนือ"
+  },
+  {
+    "addressCode": "5402",
+    "province": "แพร่",
+    "district": "ร้องกวาง",
+    "region": "ภาคเหนือ"
+  },
+  {
+    "addressCode": "5403",
+    "province": "แพร่",
+    "district": "ลอง",
+    "region": "ภาคเหนือ"
+  },
+  {
+    "addressCode": "5404",
+    "province": "แพร่",
+    "district": "สูงเม่น",
+    "region": "ภาคเหนือ"
+  },
+  {
+    "addressCode": "5405",
+    "province": "แพร่",
+    "district": "เด่นชัย",
+    "region": "ภาคเหนือ"
+  },
+  {
+    "addressCode": "5406",
+    "province": "แพร่",
+    "district": "สอง",
+    "region": "ภาคเหนือ"
+  },
+  {
+    "addressCode": "5407",
+    "province": "แพร่",
+    "district": "วังชิ้น",
+    "region": "ภาคเหนือ"
+  },
+  {
+    "addressCode": "5408",
+    "province": "แพร่",
+    "district": "หนองม่วงไข่",
+    "region": "ภาคเหนือ"
+  },
+  {
+    "addressCode": "5501",
+    "province": "น่าน",
+    "district": "เมืองน่าน",
+    "region": "ภาคเหนือ"
+  },
+  {
+    "addressCode": "5502",
+    "province": "น่าน",
+    "district": "แม่จริม",
+    "region": "ภาคเหนือ"
+  },
+  {
+    "addressCode": "5503",
+    "province": "น่าน",
+    "district": "บ้านหลวง",
+    "region": "ภาคเหนือ"
+  },
+  {
+    "addressCode": "5504",
+    "province": "น่าน",
+    "district": "นาน้อย",
+    "region": "ภาคเหนือ"
+  },
+  {
+    "addressCode": "5505",
+    "province": "น่าน",
+    "district": "ปัว",
+    "region": "ภาคเหนือ"
+  },
+  {
+    "addressCode": "5506",
+    "province": "น่าน",
+    "district": "ท่าวังผา",
+    "region": "ภาคเหนือ"
+  },
+  {
+    "addressCode": "5507",
+    "province": "น่าน",
+    "district": "เวียงสา",
+    "region": "ภาคเหนือ"
+  },
+  {
+    "addressCode": "5508",
+    "province": "น่าน",
+    "district": "ทุ่งช้าง",
+    "region": "ภาคเหนือ"
+  },
+  {
+    "addressCode": "5509",
+    "province": "น่าน",
+    "district": "เชียงกลาง",
+    "region": "ภาคเหนือ"
+  },
+  {
+    "addressCode": "5510",
+    "province": "น่าน",
+    "district": "นาหมื่น",
+    "region": "ภาคเหนือ"
+  },
+  {
+    "addressCode": "5511",
+    "province": "น่าน",
+    "district": "สันติสุข",
+    "region": "ภาคเหนือ"
+  },
+  {
+    "addressCode": "5512",
+    "province": "น่าน",
+    "district": "บ่อเกลือ",
+    "region": "ภาคเหนือ"
+  },
+  {
+    "addressCode": "5513",
+    "province": "น่าน",
+    "district": "สองแคว",
+    "region": "ภาคเหนือ"
+  },
+  {
+    "addressCode": "5514",
+    "province": "น่าน",
+    "district": "ภูเพียง",
+    "region": "ภาคเหนือ"
+  },
+  {
+    "addressCode": "5515",
+    "province": "น่าน",
+    "district": "เฉลิมพระเกียรติ",
+    "region": "ภาคเหนือ"
+  },
+  {
+    "addressCode": "5601",
+    "province": "พะเยา",
+    "district": "เมืองพะเยา",
+    "region": "ภาคเหนือ"
+  },
+  {
+    "addressCode": "5602",
+    "province": "พะเยา",
+    "district": "จุน",
+    "region": "ภาคเหนือ"
+  },
+  {
+    "addressCode": "5603",
+    "province": "พะเยา",
+    "district": "เชียงคำ",
+    "region": "ภาคเหนือ"
+  },
+  {
+    "addressCode": "5604",
+    "province": "พะเยา",
+    "district": "เชียงม่วน",
+    "region": "ภาคเหนือ"
+  },
+  {
+    "addressCode": "5605",
+    "province": "พะเยา",
+    "district": "ดอกคำใต้",
+    "region": "ภาคเหนือ"
+  },
+  {
+    "addressCode": "5606",
+    "province": "พะเยา",
+    "district": "ปง",
+    "region": "ภาคเหนือ"
+  },
+  {
+    "addressCode": "5607",
+    "province": "พะเยา",
+    "district": "แม่ใจ",
+    "region": "ภาคเหนือ"
+  },
+  {
+    "addressCode": "5608",
+    "province": "พะเยา",
+    "district": "ภูซาง",
+    "region": "ภาคเหนือ"
+  },
+  {
+    "addressCode": "5609",
+    "province": "พะเยา",
+    "district": "ภูกามยาว",
+    "region": "ภาคเหนือ"
+  },
+  {
+    "addressCode": "5701",
+    "province": "เชียงราย",
+    "district": "เมืองเชียงราย",
+    "region": "ภาคเหนือ"
+  },
+  {
+    "addressCode": "5702",
+    "province": "เชียงราย",
+    "district": "เวียงชัย",
+    "region": "ภาคเหนือ"
+  },
+  {
+    "addressCode": "5703",
+    "province": "เชียงราย",
+    "district": "เชียงของ",
+    "region": "ภาคเหนือ"
+  },
+  {
+    "addressCode": "5704",
+    "province": "เชียงราย",
+    "district": "เทิง",
+    "region": "ภาคเหนือ"
+  },
+  {
+    "addressCode": "5705",
+    "province": "เชียงราย",
+    "district": "พาน",
+    "region": "ภาคเหนือ"
+  },
+  {
+    "addressCode": "5706",
+    "province": "เชียงราย",
+    "district": "ป่าแดด",
+    "region": "ภาคเหนือ"
+  },
+  {
+    "addressCode": "5707",
+    "province": "เชียงราย",
+    "district": "แม่จัน",
+    "region": "ภาคเหนือ"
+  },
+  {
+    "addressCode": "5708",
+    "province": "เชียงราย",
+    "district": "เชียงแสน",
+    "region": "ภาคเหนือ"
+  },
+  {
+    "addressCode": "5709",
+    "province": "เชียงราย",
+    "district": "แม่สาย",
+    "region": "ภาคเหนือ"
+  },
+  {
+    "addressCode": "5710",
+    "province": "เชียงราย",
+    "district": "แม่สรวย",
+    "region": "ภาคเหนือ"
+  },
+  {
+    "addressCode": "5711",
+    "province": "เชียงราย",
+    "district": "เวียงป่าเป้า",
+    "region": "ภาคเหนือ"
+  },
+  {
+    "addressCode": "5712",
+    "province": "เชียงราย",
+    "district": "พญาเม็งราย",
+    "region": "ภาคเหนือ"
+  },
+  {
+    "addressCode": "5713",
+    "province": "เชียงราย",
+    "district": "เวียงแก่น",
+    "region": "ภาคเหนือ"
+  },
+  {
+    "addressCode": "5714",
+    "province": "เชียงราย",
+    "district": "ขุนตาล",
+    "region": "ภาคเหนือ"
+  },
+  {
+    "addressCode": "5715",
+    "province": "เชียงราย",
+    "district": "แม่ฟ้าหลวง",
+    "region": "ภาคเหนือ"
+  },
+  {
+    "addressCode": "5716",
+    "province": "เชียงราย",
+    "district": "แม่ลาว",
+    "region": "ภาคเหนือ"
+  },
+  {
+    "addressCode": "5717",
+    "province": "เชียงราย",
+    "district": "เวียงเชียงรุ้ง",
+    "region": "ภาคเหนือ"
+  },
+  {
+    "addressCode": "5718",
+    "province": "เชียงราย",
+    "district": "ดอยหลวง",
+    "region": "ภาคเหนือ"
+  },
+  {
+    "addressCode": "5801",
+    "province": "แม่ฮ่องสอน",
+    "district": "เมืองแม่ฮ่องสอน",
+    "region": "ภาคเหนือ"
+  },
+  {
+    "addressCode": "5802",
+    "province": "แม่ฮ่องสอน",
+    "district": "ขุนยวม",
+    "region": "ภาคเหนือ"
+  },
+  {
+    "addressCode": "5803",
+    "province": "แม่ฮ่องสอน",
+    "district": "ปาย",
+    "region": "ภาคเหนือ"
+  },
+  {
+    "addressCode": "5804",
+    "province": "แม่ฮ่องสอน",
+    "district": "แม่สะเรียง",
+    "region": "ภาคเหนือ"
+  },
+  {
+    "addressCode": "5805",
+    "province": "แม่ฮ่องสอน",
+    "district": "แม่ลาน้อย",
+    "region": "ภาคเหนือ"
+  },
+  {
+    "addressCode": "5806",
+    "province": "แม่ฮ่องสอน",
+    "district": "สบเมย",
+    "region": "ภาคเหนือ"
+  },
+  {
+    "addressCode": "5807",
+    "province": "แม่ฮ่องสอน",
+    "district": "ปางมะผ้า",
+    "region": "ภาคเหนือ"
+  },
+  {
+    "addressCode": "6001",
+    "province": "นครสวรรค์",
+    "district": "เมืองนครสวรรค์",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "6002",
+    "province": "นครสวรรค์",
+    "district": "โกรกพระ",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "6003",
+    "province": "นครสวรรค์",
+    "district": "ชุมแสง",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "6004",
+    "province": "นครสวรรค์",
+    "district": "หนองบัว",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "6005",
+    "province": "นครสวรรค์",
+    "district": "บรรพตพิสัย",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "6006",
+    "province": "นครสวรรค์",
+    "district": "เก้าเลี้ยว",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "6007",
+    "province": "นครสวรรค์",
+    "district": "ตาคลี",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "6008",
+    "province": "นครสวรรค์",
+    "district": "ท่าตะโก",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "6009",
+    "province": "นครสวรรค์",
+    "district": "ไพศาลี",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "6010",
+    "province": "นครสวรรค์",
+    "district": "พยุหะคีรี",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "6011",
+    "province": "นครสวรรค์",
+    "district": "ลาดยาว",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "6012",
+    "province": "นครสวรรค์",
+    "district": "ตากฟ้า",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "6013",
+    "province": "นครสวรรค์",
+    "district": "แม่วงก์",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "6014",
+    "province": "นครสวรรค์",
+    "district": "แม่เปิน",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "6015",
+    "province": "นครสวรรค์",
+    "district": "ชุมตาบง",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "6101",
+    "province": "อุทัยธานี",
+    "district": "เมืองอุทัยธานี",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "6102",
+    "province": "อุทัยธานี",
+    "district": "ทัพทัน",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "6103",
+    "province": "อุทัยธานี",
+    "district": "สว่างอารมณ์",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "6104",
+    "province": "อุทัยธานี",
+    "district": "หนองฉาง",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "6105",
+    "province": "อุทัยธานี",
+    "district": "หนองขาหย่าง",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "6106",
+    "province": "อุทัยธานี",
+    "district": "บ้านไร่",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "6107",
+    "province": "อุทัยธานี",
+    "district": "ลานสัก",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "6108",
+    "province": "อุทัยธานี",
+    "district": "ห้วยคต",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "6201",
+    "province": "กำแพงเพชร",
+    "district": "เมืองกำแพงเพชร",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "6202",
+    "province": "กำแพงเพชร",
+    "district": "ไทรงาม",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "6203",
+    "province": "กำแพงเพชร",
+    "district": "คลองลาน",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "6204",
+    "province": "กำแพงเพชร",
+    "district": "ขาณุวรลักษบุรี",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "6205",
+    "province": "กำแพงเพชร",
+    "district": "คลองขลุง",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "6206",
+    "province": "กำแพงเพชร",
+    "district": "พรานกระต่าย",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "6207",
+    "province": "กำแพงเพชร",
+    "district": "ลานกระบือ",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "6208",
+    "province": "กำแพงเพชร",
+    "district": "ทรายทองวัฒนา",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "6209",
+    "province": "กำแพงเพชร",
+    "district": "ปางศิลาทอง",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "6210",
+    "province": "กำแพงเพชร",
+    "district": "บึงสามัคคี",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "6211",
+    "province": "กำแพงเพชร",
+    "district": "โกสัมพีนคร",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "6301",
+    "province": "ตาก",
+    "district": "เมืองตาก",
+    "region": "ภาคตะวันตก"
+  },
+  {
+    "addressCode": "6302",
+    "province": "ตาก",
+    "district": "บ้านตาก",
+    "region": "ภาคตะวันตก"
+  },
+  {
+    "addressCode": "6303",
+    "province": "ตาก",
+    "district": "สามเงา",
+    "region": "ภาคตะวันตก"
+  },
+  {
+    "addressCode": "6304",
+    "province": "ตาก",
+    "district": "แม่ระมาด",
+    "region": "ภาคตะวันตก"
+  },
+  {
+    "addressCode": "6305",
+    "province": "ตาก",
+    "district": "ท่าสองยาง",
+    "region": "ภาคตะวันตก"
+  },
+  {
+    "addressCode": "6306",
+    "province": "ตาก",
+    "district": "แม่สอด",
+    "region": "ภาคตะวันตก"
+  },
+  {
+    "addressCode": "6307",
+    "province": "ตาก",
+    "district": "พบพระ",
+    "region": "ภาคตะวันตก"
+  },
+  {
+    "addressCode": "6308",
+    "province": "ตาก",
+    "district": "อุ้มผาง",
+    "region": "ภาคตะวันตก"
+  },
+  {
+    "addressCode": "6309",
+    "province": "ตาก",
+    "district": "วังเจ้า",
+    "region": "ภาคตะวันตก"
+  },
+  {
+    "addressCode": "6401",
+    "province": "สุโขทัย",
+    "district": "เมืองสุโขทัย",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "6402",
+    "province": "สุโขทัย",
+    "district": "บ้านด่านลานหอย",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "6403",
+    "province": "สุโขทัย",
+    "district": "คีรีมาศ",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "6404",
+    "province": "สุโขทัย",
+    "district": "กงไกรลาศ",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "6405",
+    "province": "สุโขทัย",
+    "district": "ศรีสัชนาลัย",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "6406",
+    "province": "สุโขทัย",
+    "district": "ศรีสำโรง",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "6407",
+    "province": "สุโขทัย",
+    "district": "สวรรคโลก",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "6408",
+    "province": "สุโขทัย",
+    "district": "ศรีนคร",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "6409",
+    "province": "สุโขทัย",
+    "district": "ทุ่งเสลี่ยม",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "6501",
+    "province": "พิษณุโลก",
+    "district": "เมืองพิษณุโลก",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "6502",
+    "province": "พิษณุโลก",
+    "district": "นครไทย",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "6503",
+    "province": "พิษณุโลก",
+    "district": "ชาติตระการ",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "6504",
+    "province": "พิษณุโลก",
+    "district": "บางระกำ",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "6505",
+    "province": "พิษณุโลก",
+    "district": "บางกระทุ่ม",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "6506",
+    "province": "พิษณุโลก",
+    "district": "พรหมพิราม",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "6507",
+    "province": "พิษณุโลก",
+    "district": "วัดโบสถ์",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "6508",
+    "province": "พิษณุโลก",
+    "district": "วังทอง",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "6509",
+    "province": "พิษณุโลก",
+    "district": "เนินมะปราง",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "6601",
+    "province": "พิจิตร",
+    "district": "เมืองพิจิตร",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "6602",
+    "province": "พิจิตร",
+    "district": "วังทรายพูน",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "6603",
+    "province": "พิจิตร",
+    "district": "โพธิ์ประทับช้าง",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "6604",
+    "province": "พิจิตร",
+    "district": "ตะพานหิน",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "6605",
+    "province": "พิจิตร",
+    "district": "บางมูลนาก",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "6606",
+    "province": "พิจิตร",
+    "district": "โพทะเล",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "6607",
+    "province": "พิจิตร",
+    "district": "สามง่าม",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "6608",
+    "province": "พิจิตร",
+    "district": "ทับคล้อ",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "6609",
+    "province": "พิจิตร",
+    "district": "สากเหล็ก",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "6610",
+    "province": "พิจิตร",
+    "district": "บึงนาราง",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "6611",
+    "province": "พิจิตร",
+    "district": "ดงเจริญ",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "6612",
+    "province": "พิจิตร",
+    "district": "วชิรบารมี",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "6701",
+    "province": "เพชรบูรณ์",
+    "district": "เมืองเพชรบูรณ์",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "6702",
+    "province": "เพชรบูรณ์",
+    "district": "ชนแดน",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "6703",
+    "province": "เพชรบูรณ์",
+    "district": "หล่มสัก",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "6704",
+    "province": "เพชรบูรณ์",
+    "district": "หล่มเก่า",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "6705",
+    "province": "เพชรบูรณ์",
+    "district": "วิเชียรบุรี",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "6706",
+    "province": "เพชรบูรณ์",
+    "district": "ศรีเทพ",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "6707",
+    "province": "เพชรบูรณ์",
+    "district": "หนองไผ่",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "6708",
+    "province": "เพชรบูรณ์",
+    "district": "บึงสามพัน",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "6709",
+    "province": "เพชรบูรณ์",
+    "district": "น้ำหนาว",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "6710",
+    "province": "เพชรบูรณ์",
+    "district": "วังโป่ง",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "6711",
+    "province": "เพชรบูรณ์",
+    "district": "เขาค้อ",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "7001",
+    "province": "ราชบุรี",
+    "district": "เมืองราชบุรี",
+    "region": "ภาคตะวันตก"
+  },
+  {
+    "addressCode": "7002",
+    "province": "ราชบุรี",
+    "district": "จอมบึง",
+    "region": "ภาคตะวันตก"
+  },
+  {
+    "addressCode": "7003",
+    "province": "ราชบุรี",
+    "district": "สวนผึ้ง",
+    "region": "ภาคตะวันตก"
+  },
+  {
+    "addressCode": "7004",
+    "province": "ราชบุรี",
+    "district": "ดำเนินสะดวก",
+    "region": "ภาคตะวันตก"
+  },
+  {
+    "addressCode": "7005",
+    "province": "ราชบุรี",
+    "district": "บ้านโป่ง",
+    "region": "ภาคตะวันตก"
+  },
+  {
+    "addressCode": "7006",
+    "province": "ราชบุรี",
+    "district": "บางแพ",
+    "region": "ภาคตะวันตก"
+  },
+  {
+    "addressCode": "7007",
+    "province": "ราชบุรี",
+    "district": "โพธาราม",
+    "region": "ภาคตะวันตก"
+  },
+  {
+    "addressCode": "7008",
+    "province": "ราชบุรี",
+    "district": "ปากท่อ",
+    "region": "ภาคตะวันตก"
+  },
+  {
+    "addressCode": "7009",
+    "province": "ราชบุรี",
+    "district": "วัดเพลง",
+    "region": "ภาคตะวันตก"
+  },
+  {
+    "addressCode": "7010",
+    "province": "ราชบุรี",
+    "district": "บ้านคา",
+    "region": "ภาคตะวันตก"
+  },
+  {
+    "addressCode": "7101",
+    "province": "กาญจนบุรี",
+    "district": "เมืองกาญจนบุรี",
+    "region": "ภาคตะวันตก"
+  },
+  {
+    "addressCode": "7102",
+    "province": "กาญจนบุรี",
+    "district": "ไทรโยค",
+    "region": "ภาคตะวันตก"
+  },
+  {
+    "addressCode": "7103",
+    "province": "กาญจนบุรี",
+    "district": "บ่อพลอย",
+    "region": "ภาคตะวันตก"
+  },
+  {
+    "addressCode": "7104",
+    "province": "กาญจนบุรี",
+    "district": "ศรีสวัสดิ์",
+    "region": "ภาคตะวันตก"
+  },
+  {
+    "addressCode": "7105",
+    "province": "กาญจนบุรี",
+    "district": "ท่ามะกา",
+    "region": "ภาคตะวันตก"
+  },
+  {
+    "addressCode": "7106",
+    "province": "กาญจนบุรี",
+    "district": "ท่าม่วง",
+    "region": "ภาคตะวันตก"
+  },
+  {
+    "addressCode": "7107",
+    "province": "กาญจนบุรี",
+    "district": "ทองผาภูมิ",
+    "region": "ภาคตะวันตก"
+  },
+  {
+    "addressCode": "7108",
+    "province": "กาญจนบุรี",
+    "district": "สังขละบุรี",
+    "region": "ภาคตะวันตก"
+  },
+  {
+    "addressCode": "7109",
+    "province": "กาญจนบุรี",
+    "district": "พนมทวน",
+    "region": "ภาคตะวันตก"
+  },
+  {
+    "addressCode": "7110",
+    "province": "กาญจนบุรี",
+    "district": "เลาขวัญ",
+    "region": "ภาคตะวันตก"
+  },
+  {
+    "addressCode": "7111",
+    "province": "กาญจนบุรี",
+    "district": "ด่านมะขามเตี้ย",
+    "region": "ภาคตะวันตก"
+  },
+  {
+    "addressCode": "7112",
+    "province": "กาญจนบุรี",
+    "district": "หนองปรือ",
+    "region": "ภาคตะวันตก"
+  },
+  {
+    "addressCode": "7113",
+    "province": "กาญจนบุรี",
+    "district": "ห้วยกระเจา",
+    "region": "ภาคตะวันตก"
+  },
+  {
+    "addressCode": "7201",
+    "province": "สุพรรณบุรี",
+    "district": "เมืองสุพรรณบุรี",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "7202",
+    "province": "สุพรรณบุรี",
+    "district": "เดิมบางนางบวช",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "7203",
+    "province": "สุพรรณบุรี",
+    "district": "ด่านช้าง",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "7204",
+    "province": "สุพรรณบุรี",
+    "district": "บางปลาม้า",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "7205",
+    "province": "สุพรรณบุรี",
+    "district": "ศรีประจันต์",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "7206",
+    "province": "สุพรรณบุรี",
+    "district": "ดอนเจดีย์",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "7207",
+    "province": "สุพรรณบุรี",
+    "district": "สองพี่น้อง",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "7208",
+    "province": "สุพรรณบุรี",
+    "district": "สามชุก",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "7209",
+    "province": "สุพรรณบุรี",
+    "district": "อู่ทอง",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "7210",
+    "province": "สุพรรณบุรี",
+    "district": "หนองหญ้าไซ",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "7301",
+    "province": "นครปฐม",
+    "district": "เมืองนครปฐม",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "7302",
+    "province": "นครปฐม",
+    "district": "กำแพงแสน",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "7303",
+    "province": "นครปฐม",
+    "district": "นครชัยศรี",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "7304",
+    "province": "นครปฐม",
+    "district": "ดอนตูม",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "7305",
+    "province": "นครปฐม",
+    "district": "บางเลน",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "7306",
+    "province": "นครปฐม",
+    "district": "สามพราน",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "7307",
+    "province": "นครปฐม",
+    "district": "พุทธมณฑล",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "7401",
+    "province": "สมุทรสาคร",
+    "district": "เมืองสมุทรสาคร",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "7402",
+    "province": "สมุทรสาคร",
+    "district": "กระทุ่มแบน",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "7403",
+    "province": "สมุทรสาคร",
+    "district": "บ้านแพ้ว",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "7501",
+    "province": "สมุทรสงคราม",
+    "district": "เมืองสมุทรสงคราม",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "7502",
+    "province": "สมุทรสงคราม",
+    "district": "บางคนที",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "7503",
+    "province": "สมุทรสงคราม",
+    "district": "อัมพวา",
+    "region": "ภาคกลาง"
+  },
+  {
+    "addressCode": "7601",
+    "province": "เพชรบุรี",
+    "district": "เมืองเพชรบุรี",
+    "region": "ภาคตะวันตก"
+  },
+  {
+    "addressCode": "7602",
+    "province": "เพชรบุรี",
+    "district": "เขาย้อย",
+    "region": "ภาคตะวันตก"
+  },
+  {
+    "addressCode": "7603",
+    "province": "เพชรบุรี",
+    "district": "หนองหญ้าปล้อง",
+    "region": "ภาคตะวันตก"
+  },
+  {
+    "addressCode": "7604",
+    "province": "เพชรบุรี",
+    "district": "ชะอำ",
+    "region": "ภาคตะวันตก"
+  },
+  {
+    "addressCode": "7605",
+    "province": "เพชรบุรี",
+    "district": "ท่ายาง",
+    "region": "ภาคตะวันตก"
+  },
+  {
+    "addressCode": "7606",
+    "province": "เพชรบุรี",
+    "district": "บ้านลาด",
+    "region": "ภาคตะวันตก"
+  },
+  {
+    "addressCode": "7607",
+    "province": "เพชรบุรี",
+    "district": "บ้านแหลม",
+    "region": "ภาคตะวันตก"
+  },
+  {
+    "addressCode": "7608",
+    "province": "เพชรบุรี",
+    "district": "แก่งกระจาน",
+    "region": "ภาคตะวันตก"
+  },
+  {
+    "addressCode": "7701",
+    "province": "ประจวบคีรีขันธ์",
+    "district": "เมืองประจวบคีรีขันธ์",
+    "region": "ภาคตะวันตก"
+  },
+  {
+    "addressCode": "7702",
+    "province": "ประจวบคีรีขันธ์",
+    "district": "กุยบุรี",
+    "region": "ภาคตะวันตก"
+  },
+  {
+    "addressCode": "7703",
+    "province": "ประจวบคีรีขันธ์",
+    "district": "ทับสะแก",
+    "region": "ภาคตะวันตก"
+  },
+  {
+    "addressCode": "7704",
+    "province": "ประจวบคีรีขันธ์",
+    "district": "บางสะพาน",
+    "region": "ภาคตะวันตก"
+  },
+  {
+    "addressCode": "7705",
+    "province": "ประจวบคีรีขันธ์",
+    "district": "บางสะพานน้อย",
+    "region": "ภาคตะวันตก"
+  },
+  {
+    "addressCode": "7706",
+    "province": "ประจวบคีรีขันธ์",
+    "district": "ปราณบุรี",
+    "region": "ภาคตะวันตก"
+  },
+  {
+    "addressCode": "7707",
+    "province": "ประจวบคีรีขันธ์",
+    "district": "หัวหิน",
+    "region": "ภาคตะวันตก"
+  },
+  {
+    "addressCode": "7708",
+    "province": "ประจวบคีรีขันธ์",
+    "district": "สามร้อยยอด",
+    "region": "ภาคตะวันตก"
+  },
+  {
+    "addressCode": "8001",
+    "province": "นครศรีธรรมราช",
+    "district": "เมืองนครศรีธรรมราช",
+    "region": "ภาคใต้"
+  },
+  {
+    "addressCode": "8002",
+    "province": "นครศรีธรรมราช",
+    "district": "พรหมคีรี",
+    "region": "ภาคใต้"
+  },
+  {
+    "addressCode": "8003",
+    "province": "นครศรีธรรมราช",
+    "district": "ลานสกา",
+    "region": "ภาคใต้"
+  },
+  {
+    "addressCode": "8004",
+    "province": "นครศรีธรรมราช",
+    "district": "ฉวาง",
+    "region": "ภาคใต้"
+  },
+  {
+    "addressCode": "8005",
+    "province": "นครศรีธรรมราช",
+    "district": "พิปูน",
+    "region": "ภาคใต้"
+  },
+  {
+    "addressCode": "8006",
+    "province": "นครศรีธรรมราช",
+    "district": "เชียรใหญ่",
+    "region": "ภาคใต้"
+  },
+  {
+    "addressCode": "8007",
+    "province": "นครศรีธรรมราช",
+    "district": "ชะอวด",
+    "region": "ภาคใต้"
+  },
+  {
+    "addressCode": "8008",
+    "province": "นครศรีธรรมราช",
+    "district": "ท่าศาลา",
+    "region": "ภาคใต้"
+  },
+  {
+    "addressCode": "8009",
+    "province": "นครศรีธรรมราช",
+    "district": "ทุ่งสง",
+    "region": "ภาคใต้"
+  },
+  {
+    "addressCode": "8010",
+    "province": "นครศรีธรรมราช",
+    "district": "นาบอน",
+    "region": "ภาคใต้"
+  },
+  {
+    "addressCode": "8011",
+    "province": "นครศรีธรรมราช",
+    "district": "ทุ่งใหญ่",
+    "region": "ภาคใต้"
+  },
+  {
+    "addressCode": "8012",
+    "province": "นครศรีธรรมราช",
+    "district": "ปากพนัง",
+    "region": "ภาคใต้"
+  },
+  {
+    "addressCode": "8013",
+    "province": "นครศรีธรรมราช",
+    "district": "ร่อนพิบูลย์",
+    "region": "ภาคใต้"
+  },
+  {
+    "addressCode": "8014",
+    "province": "นครศรีธรรมราช",
+    "district": "สิชล",
+    "region": "ภาคใต้"
+  },
+  {
+    "addressCode": "8015",
+    "province": "นครศรีธรรมราช",
+    "district": "ขนอม",
+    "region": "ภาคใต้"
+  },
+  {
+    "addressCode": "8016",
+    "province": "นครศรีธรรมราช",
+    "district": "หัวไทร",
+    "region": "ภาคใต้"
+  },
+  {
+    "addressCode": "8017",
+    "province": "นครศรีธรรมราช",
+    "district": "บางขัน",
+    "region": "ภาคใต้"
+  },
+  {
+    "addressCode": "8018",
+    "province": "นครศรีธรรมราช",
+    "district": "ถ้ำพรรณรา",
+    "region": "ภาคใต้"
+  },
+  {
+    "addressCode": "8019",
+    "province": "นครศรีธรรมราช",
+    "district": "จุฬาภรณ์",
+    "region": "ภาคใต้"
+  },
+  {
+    "addressCode": "8020",
+    "province": "นครศรีธรรมราช",
+    "district": "พระพรหม",
+    "region": "ภาคใต้"
+  },
+  {
+    "addressCode": "8021",
+    "province": "นครศรีธรรมราช",
+    "district": "นบพิตำ",
+    "region": "ภาคใต้"
+  },
+  {
+    "addressCode": "8022",
+    "province": "นครศรีธรรมราช",
+    "district": "ช้างกลาง",
+    "region": "ภาคใต้"
+  },
+  {
+    "addressCode": "8023",
+    "province": "นครศรีธรรมราช",
+    "district": "เฉลิมพระเกียรติ",
+    "region": "ภาคใต้"
+  },
+  {
+    "addressCode": "8101",
+    "province": "กระบี่",
+    "district": "เมืองกระบี่",
+    "region": "ภาคใต้"
+  },
+  {
+    "addressCode": "8102",
+    "province": "กระบี่",
+    "district": "เขาพนม",
+    "region": "ภาคใต้"
+  },
+  {
+    "addressCode": "8103",
+    "province": "กระบี่",
+    "district": "เกาะลันตา",
+    "region": "ภาคใต้"
+  },
+  {
+    "addressCode": "8104",
+    "province": "กระบี่",
+    "district": "คลองท่อม",
+    "region": "ภาคใต้"
+  },
+  {
+    "addressCode": "8105",
+    "province": "กระบี่",
+    "district": "อ่าวลึก",
+    "region": "ภาคใต้"
+  },
+  {
+    "addressCode": "8106",
+    "province": "กระบี่",
+    "district": "ปลายพระยา",
+    "region": "ภาคใต้"
+  },
+  {
+    "addressCode": "8107",
+    "province": "กระบี่",
+    "district": "ลำทับ",
+    "region": "ภาคใต้"
+  },
+  {
+    "addressCode": "8108",
+    "province": "กระบี่",
+    "district": "เหนือคลอง",
+    "region": "ภาคใต้"
+  },
+  {
+    "addressCode": "8201",
+    "province": "พังงา",
+    "district": "เมืองพังงา",
+    "region": "ภาคใต้"
+  },
+  {
+    "addressCode": "8202",
+    "province": "พังงา",
+    "district": "เกาะยาว",
+    "region": "ภาคใต้"
+  },
+  {
+    "addressCode": "8203",
+    "province": "พังงา",
+    "district": "กะปง",
+    "region": "ภาคใต้"
+  },
+  {
+    "addressCode": "8204",
+    "province": "พังงา",
+    "district": "ตะกั่วทุ่ง",
+    "region": "ภาคใต้"
+  },
+  {
+    "addressCode": "8205",
+    "province": "พังงา",
+    "district": "ตะกั่วป่า",
+    "region": "ภาคใต้"
+  },
+  {
+    "addressCode": "8206",
+    "province": "พังงา",
+    "district": "คุระบุรี",
+    "region": "ภาคใต้"
+  },
+  {
+    "addressCode": "8207",
+    "province": "พังงา",
+    "district": "ทับปุด",
+    "region": "ภาคใต้"
+  },
+  {
+    "addressCode": "8208",
+    "province": "พังงา",
+    "district": "ท้ายเหมือง",
+    "region": "ภาคใต้"
+  },
+  {
+    "addressCode": "8301",
+    "province": "ภูเก็ต",
+    "district": "เมืองภูเก็ต",
+    "region": "ภาคใต้"
+  },
+  {
+    "addressCode": "8302",
+    "province": "ภูเก็ต",
+    "district": "กะทู้",
+    "region": "ภาคใต้"
+  },
+  {
+    "addressCode": "8303",
+    "province": "ภูเก็ต",
+    "district": "ถลาง",
+    "region": "ภาคใต้"
+  },
+  {
+    "addressCode": "8401",
+    "province": "สุราษฎร์ธานี",
+    "district": "เมืองสุราษฎร์ธานี",
+    "region": "ภาคใต้"
+  },
+  {
+    "addressCode": "8402",
+    "province": "สุราษฎร์ธานี",
+    "district": "กาญจนดิษฐ์",
+    "region": "ภาคใต้"
+  },
+  {
+    "addressCode": "8403",
+    "province": "สุราษฎร์ธานี",
+    "district": "ดอนสัก",
+    "region": "ภาคใต้"
+  },
+  {
+    "addressCode": "8404",
+    "province": "สุราษฎร์ธานี",
+    "district": "เกาะสมุย",
+    "region": "ภาคใต้"
+  },
+  {
+    "addressCode": "8405",
+    "province": "สุราษฎร์ธานี",
+    "district": "เกาะพะงัน",
+    "region": "ภาคใต้"
+  },
+  {
+    "addressCode": "8406",
+    "province": "สุราษฎร์ธานี",
+    "district": "ไชยา",
+    "region": "ภาคใต้"
+  },
+  {
+    "addressCode": "8407",
+    "province": "สุราษฎร์ธานี",
+    "district": "ท่าชนะ",
+    "region": "ภาคใต้"
+  },
+  {
+    "addressCode": "8408",
+    "province": "สุราษฎร์ธานี",
+    "district": "คีรีรัฐนิคม",
+    "region": "ภาคใต้"
+  },
+  {
+    "addressCode": "8409",
+    "province": "สุราษฎร์ธานี",
+    "district": "บ้านตาขุน",
+    "region": "ภาคใต้"
+  },
+  {
+    "addressCode": "8410",
+    "province": "สุราษฎร์ธานี",
+    "district": "พนม",
+    "region": "ภาคใต้"
+  },
+  {
+    "addressCode": "8411",
+    "province": "สุราษฎร์ธานี",
+    "district": "ท่าฉาง",
+    "region": "ภาคใต้"
+  },
+  {
+    "addressCode": "8412",
+    "province": "สุราษฎร์ธานี",
+    "district": "บ้านนาสาร",
+    "region": "ภาคใต้"
+  },
+  {
+    "addressCode": "8413",
+    "province": "สุราษฎร์ธานี",
+    "district": "บ้านนาเดิม",
+    "region": "ภาคใต้"
+  },
+  {
+    "addressCode": "8414",
+    "province": "สุราษฎร์ธานี",
+    "district": "เคียนซา",
+    "region": "ภาคใต้"
+  },
+  {
+    "addressCode": "8415",
+    "province": "สุราษฎร์ธานี",
+    "district": "เวียงสระ",
+    "region": "ภาคใต้"
+  },
+  {
+    "addressCode": "8416",
+    "province": "สุราษฎร์ธานี",
+    "district": "พระแสง",
+    "region": "ภาคใต้"
+  },
+  {
+    "addressCode": "8417",
+    "province": "สุราษฎร์ธานี",
+    "district": "พุนพิน",
+    "region": "ภาคใต้"
+  },
+  {
+    "addressCode": "8418",
+    "province": "สุราษฎร์ธานี",
+    "district": "ชัยบุรี",
+    "region": "ภาคใต้"
+  },
+  {
+    "addressCode": "8419",
+    "province": "สุราษฎร์ธานี",
+    "district": "วิภาวดี",
+    "region": "ภาคใต้"
+  },
+  {
+    "addressCode": "8501",
+    "province": "ระนอง",
+    "district": "เมืองระนอง",
+    "region": "ภาคใต้"
+  },
+  {
+    "addressCode": "8502",
+    "province": "ระนอง",
+    "district": "ละอุ่น",
+    "region": "ภาคใต้"
+  },
+  {
+    "addressCode": "8503",
+    "province": "ระนอง",
+    "district": "กะเปอร์",
+    "region": "ภาคใต้"
+  },
+  {
+    "addressCode": "8504",
+    "province": "ระนอง",
+    "district": "กระบุรี",
+    "region": "ภาคใต้"
+  },
+  {
+    "addressCode": "8505",
+    "province": "ระนอง",
+    "district": "สุขสำราญ",
+    "region": "ภาคใต้"
+  },
+  {
+    "addressCode": "8601",
+    "province": "ชุมพร",
+    "district": "เมืองชุมพร",
+    "region": "ภาคใต้"
+  },
+  {
+    "addressCode": "8602",
+    "province": "ชุมพร",
+    "district": "ท่าแซะ",
+    "region": "ภาคใต้"
+  },
+  {
+    "addressCode": "8603",
+    "province": "ชุมพร",
+    "district": "ปะทิว",
+    "region": "ภาคใต้"
+  },
+  {
+    "addressCode": "8604",
+    "province": "ชุมพร",
+    "district": "หลังสวน",
+    "region": "ภาคใต้"
+  },
+  {
+    "addressCode": "8605",
+    "province": "ชุมพร",
+    "district": "ละแม",
+    "region": "ภาคใต้"
+  },
+  {
+    "addressCode": "8606",
+    "province": "ชุมพร",
+    "district": "พะโต๊ะ",
+    "region": "ภาคใต้"
+  },
+  {
+    "addressCode": "8607",
+    "province": "ชุมพร",
+    "district": "สวี",
+    "region": "ภาคใต้"
+  },
+  {
+    "addressCode": "8608",
+    "province": "ชุมพร",
+    "district": "ทุ่งตะโก",
+    "region": "ภาคใต้"
+  },
+  {
+    "addressCode": "9001",
+    "province": "สงขลา",
+    "district": "เมืองสงขลา",
+    "region": "ภาคใต้"
+  },
+  {
+    "addressCode": "9002",
+    "province": "สงขลา",
+    "district": "สทิงพระ",
+    "region": "ภาคใต้"
+  },
+  {
+    "addressCode": "9003",
+    "province": "สงขลา",
+    "district": "จะนะ",
+    "region": "ภาคใต้"
+  },
+  {
+    "addressCode": "9004",
+    "province": "สงขลา",
+    "district": "นาทวี",
+    "region": "ภาคใต้"
+  },
+  {
+    "addressCode": "9005",
+    "province": "สงขลา",
+    "district": "เทพา",
+    "region": "ภาคใต้"
+  },
+  {
+    "addressCode": "9006",
+    "province": "สงขลา",
+    "district": "สะบ้าย้อย",
+    "region": "ภาคใต้"
+  },
+  {
+    "addressCode": "9007",
+    "province": "สงขลา",
+    "district": "ระโนด",
+    "region": "ภาคใต้"
+  },
+  {
+    "addressCode": "9008",
+    "province": "สงขลา",
+    "district": "กระแสสินธุ์",
+    "region": "ภาคใต้"
+  },
+  {
+    "addressCode": "9009",
+    "province": "สงขลา",
+    "district": "รัตภูมิ",
+    "region": "ภาคใต้"
+  },
+  {
+    "addressCode": "9010",
+    "province": "สงขลา",
+    "district": "สะเดา",
+    "region": "ภาคใต้"
+  },
+  {
+    "addressCode": "9011",
+    "province": "สงขลา",
+    "district": "หาดใหญ่",
+    "region": "ภาคใต้"
+  },
+  {
+    "addressCode": "9012",
+    "province": "สงขลา",
+    "district": "นาหม่อม",
+    "region": "ภาคใต้"
+  },
+  {
+    "addressCode": "9013",
+    "province": "สงขลา",
+    "district": "ควนเนียง",
+    "region": "ภาคใต้"
+  },
+  {
+    "addressCode": "9014",
+    "province": "สงขลา",
+    "district": "บางกล่ำ",
+    "region": "ภาคใต้"
+  },
+  {
+    "addressCode": "9015",
+    "province": "สงขลา",
+    "district": "สิงหนคร",
+    "region": "ภาคใต้"
+  },
+  {
+    "addressCode": "9016",
+    "province": "สงขลา",
+    "district": "คลองหอยโข่ง",
+    "region": "ภาคใต้"
+  },
+  {
+    "addressCode": "9101",
+    "province": "สตูล",
+    "district": "เมืองสตูล",
+    "region": "ภาคใต้"
+  },
+  {
+    "addressCode": "9102",
+    "province": "สตูล",
+    "district": "ควนโดน",
+    "region": "ภาคใต้"
+  },
+  {
+    "addressCode": "9103",
+    "province": "สตูล",
+    "district": "ควนกาหลง",
+    "region": "ภาคใต้"
+  },
+  {
+    "addressCode": "9104",
+    "province": "สตูล",
+    "district": "ท่าแพ",
+    "region": "ภาคใต้"
+  },
+  {
+    "addressCode": "9105",
+    "province": "สตูล",
+    "district": "ละงู",
+    "region": "ภาคใต้"
+  },
+  {
+    "addressCode": "9106",
+    "province": "สตูล",
+    "district": "ทุ่งหว้า",
+    "region": "ภาคใต้"
+  },
+  {
+    "addressCode": "9107",
+    "province": "สตูล",
+    "district": "มะนัง",
+    "region": "ภาคใต้"
+  },
+  {
+    "addressCode": "9201",
+    "province": "ตรัง",
+    "district": "เมืองตรัง",
+    "region": "ภาคใต้"
+  },
+  {
+    "addressCode": "9202",
+    "province": "ตรัง",
+    "district": "กันตัง",
+    "region": "ภาคใต้"
+  },
+  {
+    "addressCode": "9203",
+    "province": "ตรัง",
+    "district": "ย่านตาขาว",
+    "region": "ภาคใต้"
+  },
+  {
+    "addressCode": "9204",
+    "province": "ตรัง",
+    "district": "ปะเหลียน",
+    "region": "ภาคใต้"
+  },
+  {
+    "addressCode": "9205",
+    "province": "ตรัง",
+    "district": "สิเกา",
+    "region": "ภาคใต้"
+  },
+  {
+    "addressCode": "9206",
+    "province": "ตรัง",
+    "district": "ห้วยยอด",
+    "region": "ภาคใต้"
+  },
+  {
+    "addressCode": "9207",
+    "province": "ตรัง",
+    "district": "วังวิเศษ",
+    "region": "ภาคใต้"
+  },
+  {
+    "addressCode": "9208",
+    "province": "ตรัง",
+    "district": "นาโยง",
+    "region": "ภาคใต้"
+  },
+  {
+    "addressCode": "9209",
+    "province": "ตรัง",
+    "district": "รัษฎา",
+    "region": "ภาคใต้"
+  },
+  {
+    "addressCode": "9210",
+    "province": "ตรัง",
+    "district": "หาดสำราญ",
+    "region": "ภาคใต้"
+  },
+  {
+    "addressCode": "9301",
+    "province": "พัทลุง",
+    "district": "เมืองพัทลุง",
+    "region": "ภาคใต้"
+  },
+  {
+    "addressCode": "9302",
+    "province": "พัทลุง",
+    "district": "กงหรา",
+    "region": "ภาคใต้"
+  },
+  {
+    "addressCode": "9303",
+    "province": "พัทลุง",
+    "district": "เขาชัยสน",
+    "region": "ภาคใต้"
+  },
+  {
+    "addressCode": "9304",
+    "province": "พัทลุง",
+    "district": "ตะโหมด",
+    "region": "ภาคใต้"
+  },
+  {
+    "addressCode": "9305",
+    "province": "พัทลุง",
+    "district": "ควนขนุน",
+    "region": "ภาคใต้"
+  },
+  {
+    "addressCode": "9306",
+    "province": "พัทลุง",
+    "district": "ปากพะยูน",
+    "region": "ภาคใต้"
+  },
+  {
+    "addressCode": "9307",
+    "province": "พัทลุง",
+    "district": "ศรีบรรพต",
+    "region": "ภาคใต้"
+  },
+  {
+    "addressCode": "9308",
+    "province": "พัทลุง",
+    "district": "ป่าบอน",
+    "region": "ภาคใต้"
+  },
+  {
+    "addressCode": "9309",
+    "province": "พัทลุง",
+    "district": "บางแก้ว",
+    "region": "ภาคใต้"
+  },
+  {
+    "addressCode": "9310",
+    "province": "พัทลุง",
+    "district": "ป่าพะยอม",
+    "region": "ภาคใต้"
+  },
+  {
+    "addressCode": "9311",
+    "province": "พัทลุง",
+    "district": "ศรีนครินทร์",
+    "region": "ภาคใต้"
+  },
+  {
+    "addressCode": "9401",
+    "province": "ปัตตานี",
+    "district": "เมืองปัตตานี",
+    "region": "ภาคใต้"
+  },
+  {
+    "addressCode": "9402",
+    "province": "ปัตตานี",
+    "district": "โคกโพธิ์",
+    "region": "ภาคใต้"
+  },
+  {
+    "addressCode": "9403",
+    "province": "ปัตตานี",
+    "district": "หนองจิก",
+    "region": "ภาคใต้"
+  },
+  {
+    "addressCode": "9404",
+    "province": "ปัตตานี",
+    "district": "ปะนาเระ",
+    "region": "ภาคใต้"
+  },
+  {
+    "addressCode": "9405",
+    "province": "ปัตตานี",
+    "district": "มายอ",
+    "region": "ภาคใต้"
+  },
+  {
+    "addressCode": "9406",
+    "province": "ปัตตานี",
+    "district": "ทุ่งยางแดง",
+    "region": "ภาคใต้"
+  },
+  {
+    "addressCode": "9407",
+    "province": "ปัตตานี",
+    "district": "สายบุรี",
+    "region": "ภาคใต้"
+  },
+  {
+    "addressCode": "9408",
+    "province": "ปัตตานี",
+    "district": "ไม้แก่น",
+    "region": "ภาคใต้"
+  },
+  {
+    "addressCode": "9409",
+    "province": "ปัตตานี",
+    "district": "ยะหริ่ง",
+    "region": "ภาคใต้"
+  },
+  {
+    "addressCode": "9410",
+    "province": "ปัตตานี",
+    "district": "ยะรัง",
+    "region": "ภาคใต้"
+  },
+  {
+    "addressCode": "9411",
+    "province": "ปัตตานี",
+    "district": "กะพ้อ",
+    "region": "ภาคใต้"
+  },
+  {
+    "addressCode": "9412",
+    "province": "ปัตตานี",
+    "district": "แม่ลาน",
+    "region": "ภาคใต้"
+  },
+  {
+    "addressCode": "9501",
+    "province": "ยะลา",
+    "district": "เมืองยะลา",
+    "region": "ภาคใต้"
+  },
+  {
+    "addressCode": "9502",
+    "province": "ยะลา",
+    "district": "เบตง",
+    "region": "ภาคใต้"
+  },
+  {
+    "addressCode": "9503",
+    "province": "ยะลา",
+    "district": "บันนังสตา",
+    "region": "ภาคใต้"
+  },
+  {
+    "addressCode": "9504",
+    "province": "ยะลา",
+    "district": "ธารโต",
+    "region": "ภาคใต้"
+  },
+  {
+    "addressCode": "9505",
+    "province": "ยะลา",
+    "district": "ยะหา",
+    "region": "ภาคใต้"
+  },
+  {
+    "addressCode": "9506",
+    "province": "ยะลา",
+    "district": "รามัน",
+    "region": "ภาคใต้"
+  },
+  {
+    "addressCode": "9507",
+    "province": "ยะลา",
+    "district": "กาบัง",
+    "region": "ภาคใต้"
+  },
+  {
+    "addressCode": "9508",
+    "province": "ยะลา",
+    "district": "กรงปินัง",
+    "region": "ภาคใต้"
+  },
+  {
+    "addressCode": "9601",
+    "province": "นราธิวาส",
+    "district": "เมืองนราธิวาส",
+    "region": "ภาคใต้"
+  },
+  {
+    "addressCode": "9602",
+    "province": "นราธิวาส",
+    "district": "ตากใบ",
+    "region": "ภาคใต้"
+  },
+  {
+    "addressCode": "9603",
+    "province": "นราธิวาส",
+    "district": "บาเจาะ",
+    "region": "ภาคใต้"
+  },
+  {
+    "addressCode": "9604",
+    "province": "นราธิวาส",
+    "district": "ยี่งอ",
+    "region": "ภาคใต้"
+  },
+  {
+    "addressCode": "9605",
+    "province": "นราธิวาส",
+    "district": "ระแงะ",
+    "region": "ภาคใต้"
+  },
+  {
+    "addressCode": "9606",
+    "province": "นราธิวาส",
+    "district": "รือเสาะ",
+    "region": "ภาคใต้"
+  },
+  {
+    "addressCode": "9607",
+    "province": "นราธิวาส",
+    "district": "ศรีสาคร",
+    "region": "ภาคใต้"
+  },
+  {
+    "addressCode": "9608",
+    "province": "นราธิวาส",
+    "district": "แว้ง",
+    "region": "ภาคใต้"
+  },
+  {
+    "addressCode": "9609",
+    "province": "นราธิวาส",
+    "district": "สุคิริน",
+    "region": "ภาคใต้"
+  },
+  {
+    "addressCode": "9610",
+    "province": "นราธิวาส",
+    "district": "สุไหงโก-ลก",
+    "region": "ภาคใต้"
+  },
+  {
+    "addressCode": "9611",
+    "province": "นราธิวาส",
+    "district": "สุไหงปาดี",
+    "region": "ภาคใต้"
+  },
+  {
+    "addressCode": "9612",
+    "province": "นราธิวาส",
+    "district": "จะแนะ",
+    "region": "ภาคใต้"
+  },
+  {
+    "addressCode": "9613",
+    "province": "นราธิวาส",
+    "district": "เจาะไอร้อง",
+    "region": "ภาคใต้"
+  }
+]

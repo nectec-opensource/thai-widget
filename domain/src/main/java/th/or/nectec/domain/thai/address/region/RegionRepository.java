@@ -15,16 +15,12 @@
  * limitations under the License.
  */
 
+package th.or.nectec.domain.thai.address.region;
 
-apply plugin: 'java'
+import th.or.nectec.entity.thai.Region;
 
-//noinspection GroovyUnusedAssignment
-sourceCompatibility = rootProject.ext.javaSourceCompatibility
-//noinspection GroovyUnusedAssignment
-targetCompatibility = rootProject.ext.javaTargetCompatibility
+import java.util.List;
 
-dependencies {
-    compile 'com.google.code.gson:gson:' + rootProject.ext.gsonVersion
-
-    testCompile 'junit:junit:' + rootProject.ext.junitVersion
+public interface RegionRepository {
+    List<Region> find();
 }
