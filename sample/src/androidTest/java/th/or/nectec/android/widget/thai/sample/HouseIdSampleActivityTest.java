@@ -29,8 +29,9 @@ import th.or.nectec.domain.thai.HouseId;
 import static android.support.test.espresso.Espresso.onView;
 import static android.support.test.espresso.assertion.ViewAssertions.matches;
 import static android.support.test.espresso.matcher.ViewMatchers.*;
-import static th.or.nectec.android.widget.thai.sample.EditTextMatcher.withError;
-import static th.or.nectec.android.widget.thai.sample.IdentityViewMatcher.withIdentity;
+import static th.or.nectec.android.widget.thai.sample.matcher.EditTextMatcher.withError;
+import static th.or.nectec.android.widget.thai.sample.matcher.EditTextMatcher.withoutError;
+import static th.or.nectec.android.widget.thai.sample.matcher.IdentityViewMatcher.withIdentity;
 
 public class HouseIdSampleActivityTest {
 
@@ -58,7 +59,7 @@ public class HouseIdSampleActivityTest {
     public void typeValidId() {
         onView(withId(R.id.house_id))
                 .perform(ViewActions.typeText(VALID_ID))
-                .check(matches(withError(null)));
+                .check(matches(withoutError()));
     }
 
 

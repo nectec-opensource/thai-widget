@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package th.or.nectec.android.widget.thai.sample;
+package th.or.nectec.android.widget.thai.sample.matcher;
 
 import android.support.test.espresso.matcher.BoundedMatcher;
 import android.view.View;

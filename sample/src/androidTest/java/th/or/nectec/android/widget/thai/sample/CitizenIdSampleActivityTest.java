@@ -29,8 +29,9 @@ import static android.support.test.espresso.Espresso.onView;
 import static android.support.test.espresso.action.ViewActions.typeText;
 import static android.support.test.espresso.assertion.ViewAssertions.matches;
 import static android.support.test.espresso.matcher.ViewMatchers.*;
-import static th.or.nectec.android.widget.thai.sample.EditTextMatcher.withError;
-import static th.or.nectec.android.widget.thai.sample.IdentityViewMatcher.withIdentity;
+import static th.or.nectec.android.widget.thai.sample.matcher.EditTextMatcher.withError;
+import static th.or.nectec.android.widget.thai.sample.matcher.EditTextMatcher.withoutError;
+import static th.or.nectec.android.widget.thai.sample.matcher.IdentityViewMatcher.withIdentity;
 
 @RunWith(AndroidJUnit4.class)
 public class CitizenIdSampleActivityTest {
@@ -58,7 +59,7 @@ public class CitizenIdSampleActivityTest {
     public void typeValidId() {
         onView(withId(R.id.citizen_id))
                 .perform(typeText(VALID_ID))
-                .check(matches(withError(null)));
+                .check(matches(withoutError()));
     }
 
     @Test

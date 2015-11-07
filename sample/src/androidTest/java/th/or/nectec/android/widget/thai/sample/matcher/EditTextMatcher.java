@@ -17,7 +17,7 @@
  *
  */
 
-package th.or.nectec.android.widget.thai.sample;
+package th.or.nectec.android.widget.thai.sample.matcher;
 
 import android.support.test.espresso.matcher.BoundedMatcher;
 import android.view.View;
@@ -37,6 +37,21 @@ public class EditTextMatcher {
             @Override
             protected boolean matchesSafely(EditText editText) {
                 return stringMatcher.equals(editText.getError());
+            }
+        };
+    }
+
+    public static Matcher<View> withoutError(){
+        return new BoundedMatcher<View, EditText>(EditText.class) {
+
+            @Override
+            public void describeTo(Description description) {
+                description.appendText("without error");
+            }
+
+            @Override
+            protected boolean matchesSafely(EditText editText) {
+                return editText.getError() == null;
             }
         };
     }
