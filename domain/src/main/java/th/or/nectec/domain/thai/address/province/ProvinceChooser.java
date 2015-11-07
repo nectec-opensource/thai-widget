@@ -18,6 +18,7 @@
 package th.or.nectec.domain.thai.address.province;
 
 import th.or.nectec.entity.thai.Province;
+import th.or.nectec.entity.thai.Region;
 
 import java.util.List;
 
@@ -33,7 +34,7 @@ public class ProvinceChooser {
         this.provincePresenter = regionPresenter;
     }
 
-    public void showProvinceListByRegion(String region) {
+    public void showProvinceListByRegion(Region region) {
         List<Province> provinces = provinceRepository.findByRegion(region);
         if (provinces != null) {
             provincePresenter.showProvinceList(provinces);

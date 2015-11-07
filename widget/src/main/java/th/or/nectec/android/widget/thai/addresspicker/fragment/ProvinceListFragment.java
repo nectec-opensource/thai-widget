@@ -26,11 +26,12 @@ import android.widget.ListView;
 import android.widget.Toast;
 import th.or.nectec.android.widget.thai.R;
 import th.or.nectec.android.widget.thai.addresspicker.adapter.ProvinceAdapter;
-import th.or.nectec.android.widget.thai.addresspicker.repository.StubProvinceRepository;
+import th.or.nectec.android.widget.thai.addresspicker.repository.JsonProvinceRepository;
 import th.or.nectec.domain.thai.address.province.ProvinceChooser;
 import th.or.nectec.domain.thai.address.province.ProvincePresenter;
 import th.or.nectec.entity.thai.Address;
 import th.or.nectec.entity.thai.Province;
+import th.or.nectec.entity.thai.Region;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -43,8 +44,6 @@ public class ProvinceListFragment extends Fragment {
     private static final String REGION = "region";
     ListView listView;
     ProvinceAdapter provinceAdapter;
-
-    String region;
 
     ProvinceChooser provinceChooser;
     ProvincePresenter provincePresenter = new ProvincePresenter() {
@@ -92,12 +91,16 @@ public class ProvinceListFragment extends Fragment {
     }
 
     private void initInstances(View view) {
-        region = getArguments().getString(REGION);
-
         listView = (ListView) view.findViewById(R.id.picker_list);
-        provinceChooser = new ProvinceChooser(new StubProvinceRepository(getActivity()), provincePresenter);
-        provinceChooser.showProvinceListByRegion(region);
+        provinceChooser = new ProvinceChooser(new JsonProvinceRepository(getActivity()), provincePresenter);
+        provinceChooser.showProvinceListByRegion(getRegionFromArguments());
         listView.setAdapter(provinceAdapter);
+    }
+
+    private Region getRegionFromArguments() {
+        String regionName = getArguments().getString(REGION);
+        Region region = Region.fromName(regionName);
+        return region;
     }
 
     @Override

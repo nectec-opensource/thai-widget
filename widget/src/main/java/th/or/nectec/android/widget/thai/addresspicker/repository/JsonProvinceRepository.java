@@ -34,11 +34,11 @@ import java.util.List;
 /**
  * Created by N. Choatravee on 5/11/2558.
  */
-public class StubProvinceRepository implements ProvinceRepository {
+public class JsonProvinceRepository implements ProvinceRepository {
 
     ArrayList<Province> allProvince = new ArrayList<>();
 
-    public StubProvinceRepository(Context context) {
+    public JsonProvinceRepository(Context context) {
         try {
             InputStream inputStream = context.getAssets().open("province.json");
             JsonReader reader = new JsonReader(new InputStreamReader(inputStream, "UTF-8"));
@@ -57,12 +57,11 @@ public class StubProvinceRepository implements ProvinceRepository {
     }
 
     @Override
-    public List<Province> findByRegion(String region) {
-        Region targetRegion = Region.fromName(region);
+    public List<Province> findByRegion(Region targetRegion) {
         List<Province> queryProvince = new ArrayList<>();
         for (Province eachProvince : allProvince) {
-            Region queryRegion = eachProvince.getRegion();
-            if (queryRegion.equals(targetRegion)) {
+
+            if (eachProvince.getRegion().equals(targetRegion)) {
                 queryProvince.add(eachProvince);
             }
         }

@@ -24,11 +24,11 @@ import android.widget.TextView;
 import java.util.List;
 
 import th.or.nectec.android.widget.thai.addresspicker.AddressPicker;
-import th.or.nectec.android.widget.thai.addresspicker.repository.StubProvinceRepository;
-import th.or.nectec.domain.thai.ThaiAddressPrinter;
+import th.or.nectec.android.widget.thai.addresspicker.repository.JsonProvinceRepository;
 import th.or.nectec.domain.thai.address.province.ProvinceChooser;
 import th.or.nectec.domain.thai.address.province.ProvincePresenter;
 import th.or.nectec.entity.thai.Province;
+import th.or.nectec.entity.thai.Region;
 
 public class RegionPickerSampleActivity extends AppCompatActivity {
 
@@ -62,8 +62,8 @@ public class RegionPickerSampleActivity extends AppCompatActivity {
         textView = (TextView) findViewById(R.id.text_debug);
         addressPicker = (AddressPicker) findViewById(R.id.address_view);
 
-        provinceChooser = new ProvinceChooser(new StubProvinceRepository(RegionPickerSampleActivity.this), provincePresenter);
-        provinceChooser.showProvinceListByRegion("ภาคกลาง");
+        provinceChooser = new ProvinceChooser(new JsonProvinceRepository(RegionPickerSampleActivity.this), provincePresenter);
+        provinceChooser.showProvinceListByRegion(Region.fromName("ภาคกลาง"));
     }
 
 }
