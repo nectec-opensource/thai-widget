@@ -17,13 +17,15 @@
 
 package th.or.nectec.domain.thai.address.subdistrict;
 
-import th.or.nectec.entity.thai.Address;
-
 import java.util.List;
 
-/**
- * Created by N. Choatravee on 5/11/2558.
- */
+import th.or.nectec.entity.thai.Address;
+
 public interface SubdistrictRepository {
     List<Address> findByDistrictCode(String districtCode);
+
+    Address findByAddressCode(String addressCode);
+
+    Address findByAddressInfo(String subdistrict, String district, String province);
+
 }

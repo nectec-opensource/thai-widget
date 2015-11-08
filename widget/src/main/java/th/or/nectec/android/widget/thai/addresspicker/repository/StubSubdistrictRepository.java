@@ -18,10 +18,9 @@
 package th.or.nectec.android.widget.thai.addresspicker.repository;
 
 import android.content.Context;
+
 import com.google.gson.Gson;
 import com.google.gson.stream.JsonReader;
-import th.or.nectec.domain.thai.address.subdistrict.SubdistrictRepository;
-import th.or.nectec.entity.thai.Address;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -29,9 +28,9 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by N. Choatravee on 5/11/2558.
- */
+import th.or.nectec.domain.thai.address.subdistrict.SubdistrictRepository;
+import th.or.nectec.entity.thai.Address;
+
 public class StubSubdistrictRepository implements SubdistrictRepository {
 
     ArrayList<Address> allSubdistrict = new ArrayList<>();
@@ -56,14 +55,40 @@ public class StubSubdistrictRepository implements SubdistrictRepository {
 
     @Override
     public List<Address> findByDistrictCode(String districtCode) {
+        String formattedDistrictCode = districtCode.length() == 6
+                ? districtCode.substring(0, 4) : districtCode;
         List<Address> querySubdistrict = new ArrayList<>();
         for (Address eachSubdistrict : allSubdistrict) {
             String queryAddressCode = eachSubdistrict.getAddressCode();
-            if (queryAddressCode.startsWith(districtCode)) {
+            if (queryAddressCode.startsWith(formattedDistrictCode)) {
                 querySubdistrict.add(eachSubdistrict);
             }
         }
         return querySubdistrict.isEmpty() ? null : querySubdistrict;
+    }
+
+    @Override
+    public Address findByAddressCode(String addressCode) {
+        for (Address eachSubdistrict : allSubdistrict) {
+            String queryAddressCode = eachSubdistrict.getAddressCode();
+            if (queryAddressCode.equals(addressCode)) {
+                return eachSubdistrict;
+            }
+        }
+        return null;
+    }
+
+    @Override
+    public Address findByAddressInfo(String subdistrict, String district, String province) {
+        for (Address eachSubdistrict : allSubdistrict) {
+            String querySubdistrict = eachSubdistrict.getSubdistrict();
+            String queryDistrict = eachSubdistrict.getDistrict();
+            String queryProvince = eachSubdistrict.getProvince();
+            if (querySubdistrict.equals(subdistrict) && queryDistrict.equals(district) && queryProvince.equals(province)) {
+                return eachSubdistrict;
+            }
+        }
+        return null;
     }
 
 

@@ -21,15 +21,8 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
 
-import java.util.List;
-
 import th.or.nectec.android.widget.thai.addresspicker.AddressPicker;
 import th.or.nectec.android.widget.thai.addresspicker.AppCompatAddressPicker;
-import th.or.nectec.android.widget.thai.addresspicker.repository.StubProvinceRepository;
-import th.or.nectec.domain.thai.ThaiAddressPrinter;
-import th.or.nectec.domain.thai.address.province.ProvinceChooser;
-import th.or.nectec.domain.thai.address.province.ProvincePresenter;
-import th.or.nectec.entity.thai.Address;
 
 public class RegionPickerSampleActivity extends AppCompatActivity {
 
@@ -37,26 +30,6 @@ public class RegionPickerSampleActivity extends AppCompatActivity {
     AppCompatAddressPicker appCompatAddressPicker;
     AddressPicker addressPicker;
 
-
-    ProvinceChooser provinceChooser;
-    ProvincePresenter provincePresenter = new ProvincePresenter() {
-        @Override
-        public void showProvinceList(List<Address> provinces) {
-            StringBuilder stringBuilder = new StringBuilder();
-            for (Address eachSubdistrict : provinces) {
-                stringBuilder.append(
-                        ThaiAddressPrinter.buildShortAddress(
-                                eachSubdistrict.getSubdistrict(), eachSubdistrict.getDistrict(), eachSubdistrict.getProvince()));
-                stringBuilder.append("\n");
-            }
-            textView.setText(stringBuilder);
-        }
-
-        @Override
-        public void showNotFoundProvince() {
-            textView.setText("ไม่เจอจังหวัด");
-        }
-    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,9 +40,8 @@ public class RegionPickerSampleActivity extends AppCompatActivity {
         appCompatAddressPicker = (AppCompatAddressPicker) findViewById(R.id.address_view);
 
         addressPicker = (AddressPicker) findViewById(R.id.address_view_2);
+        addressPicker.setAddressCode("141604");
 
-        provinceChooser = new ProvinceChooser(new StubProvinceRepository(RegionPickerSampleActivity.this), provincePresenter);
-        provinceChooser.showProvinceListByRegion("ภาคกลาง");
     }
 
 }

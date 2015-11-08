@@ -24,14 +24,15 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
 import android.widget.Toast;
+
+import java.util.List;
+
 import th.or.nectec.android.widget.thai.R;
 import th.or.nectec.android.widget.thai.addresspicker.adapter.SubdistrictAdapter;
 import th.or.nectec.android.widget.thai.addresspicker.repository.StubSubdistrictRepository;
 import th.or.nectec.domain.thai.address.subdistrict.SubdistrictChooser;
 import th.or.nectec.domain.thai.address.subdistrict.SubdistrictPresenter;
 import th.or.nectec.entity.thai.Address;
-
-import java.util.List;
 
 
 public class SubdistrictListFragment extends Fragment {
@@ -49,6 +50,11 @@ public class SubdistrictListFragment extends Fragment {
         @Override
         public void showSubdistrictList(List<Address> districts) {
             provinceAdapter = new SubdistrictAdapter(getActivity(), districts);
+        }
+
+        @Override
+        public void showSubdistrictInfo(Address subdistrict) {
+
         }
 
         @Override

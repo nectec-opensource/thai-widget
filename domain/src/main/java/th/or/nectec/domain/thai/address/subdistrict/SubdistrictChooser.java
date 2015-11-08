@@ -17,26 +17,41 @@
 
 package th.or.nectec.domain.thai.address.subdistrict;
 
-import th.or.nectec.entity.thai.Address;
-
 import java.util.List;
 
-/**
- * Created by N. Choatravee on 5/11/2558.
- */
+import th.or.nectec.entity.thai.Address;
+
 public class SubdistrictChooser {
     private final SubdistrictRepository subdistrictRepository;
     private final SubdistrictPresenter subdistrictPresenter;
 
-    public SubdistrictChooser(SubdistrictRepository regionRepository, SubdistrictPresenter regionPresenter) {
-        this.subdistrictRepository = regionRepository;
-        this.subdistrictPresenter = regionPresenter;
+    public SubdistrictChooser(SubdistrictRepository subdistrictRepository, SubdistrictPresenter subdistrictPresenter) {
+        this.subdistrictRepository = subdistrictRepository;
+        this.subdistrictPresenter = subdistrictPresenter;
     }
 
     public void showSubdistrictListByDistrictCode(String districtCode) {
         List<Address> subdistricts = subdistrictRepository.findByDistrictCode(districtCode);
         if (subdistricts != null) {
             subdistrictPresenter.showSubdistrictList(subdistricts);
+        } else {
+            subdistrictPresenter.showNotFoundSubdistrict();
+        }
+    }
+
+    public void showSubDistrictInfoByAddressCode(String addressCode) {
+        Address addressInfo = subdistrictRepository.findByAddressCode(addressCode);
+        if (addressInfo != null) {
+            subdistrictPresenter.showSubdistrictInfo(addressInfo);
+        } else {
+            subdistrictPresenter.showNotFoundSubdistrict();
+        }
+    }
+
+    public void showSubDistrictInfoByAddressData(String subdistrict, String district, String province) {
+        Address addressInfo = subdistrictRepository.findByAddressInfo(subdistrict, district, province);
+        if (addressInfo != null) {
+            subdistrictPresenter.showSubdistrictInfo(addressInfo);
         } else {
             subdistrictPresenter.showNotFoundSubdistrict();
         }

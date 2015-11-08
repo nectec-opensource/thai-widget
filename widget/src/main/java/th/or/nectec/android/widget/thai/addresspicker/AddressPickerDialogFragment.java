@@ -21,7 +21,6 @@ import android.app.Dialog;
 import android.app.DialogFragment;
 import android.os.Bundle;
 import android.os.Handler;
-import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -59,18 +58,20 @@ public class AddressPickerDialogFragment extends DialogFragment implements Addre
 
     public static final String FRAGMENT_TAG = "address_dialog";
 
-    public static final String ADDRESS_CODE_ARG = "address_code_arg";
     private static final int SELECT_REGION = 0;
     private static final int SELECT_PROVINCE = 1;
     private static final int SELECT_DISTRICT = 2;
     private static final int SELECT_SUBDISTRICT = 3;
     OnAddressChangedListener addressChangedListener;
     ListView listView;
-    String addressCode;
+
     int selectedRegionPosition = -1;
     int selectedProvincePosition = -1;
     int selectedDistrictPosition = -1;
     int selectedSubdistrictPosition = -1;
+
+    Address addressData;
+
     ArrayAdapter<String> regionAdapter;
     RegionChooser regionChooser;
     RegionPresenter regionPresenter = new RegionPresenter() {
@@ -128,6 +129,11 @@ public class AddressPickerDialogFragment extends DialogFragment implements Addre
         }
 
         @Override
+        public void showSubdistrictInfo(Address subdistrict) {
+
+        }
+
+        @Override
         public void showNotFoundSubdistrict() {
             Toast.makeText(getActivity(), "ไม่พบตำบล", Toast.LENGTH_LONG).show();
         }
@@ -147,13 +153,7 @@ public class AddressPickerDialogFragment extends DialogFragment implements Addre
         listView = (ListView) view.findViewById(R.id.picker_list);
         listView.setOnItemClickListener(this);
 
-        if (TextUtils.isEmpty(addressCode)) {
-            bringToRegionList();
-        } else {
-            bringToDistrictList(addressCode.substring(0, 2));
-            bringToSubdistrictList(addressCode.substring(0, 4));
-        }
-
+        bringToRegionList();
     }
 
     @Override
@@ -203,7 +203,7 @@ public class AddressPickerDialogFragment extends DialogFragment implements Addre
         if (addressChangedListener != null) {
             addressChangedListener.onAddressChanged(addressData);
         }
-        listView.clearChoices();
+        //listView.clearChoices();
         dismiss();
     }
 
@@ -212,11 +212,12 @@ public class AddressPickerDialogFragment extends DialogFragment implements Addre
     }
 
     @Override
-    public void restoreAddressField(final String addressCode) {
+    public void restoreAddressField(final Address address) {
         new Handler().post(new Runnable() {
             @Override
             public void run() {
-                bringToSubdistrictList(addressCode.substring(0, 4));
+                addressData = address;
+                bringToSubdistrictList(address.getAddressCode().substring(0, 4));
             }
         });
     }
@@ -228,13 +229,16 @@ public class AddressPickerDialogFragment extends DialogFragment implements Addre
             bringToProvinceList(regionAdapter.getItem(position));
         } else if (currentState == SELECT_PROVINCE) {
             selectedProvincePosition = position;
-            bringToDistrictList(provinceAdapter.getItem(position).getAddressCode());
+            addressData = provinceAdapter.getItem(position);
+            bringToDistrictList(addressData.getAddressCode());
         } else if (currentState == SELECT_DISTRICT) {
             selectedDistrictPosition = position;
-            bringToSubdistrictList(districtAdapter.getItem(position).getAddressCode());
+            addressData = districtAdapter.getItem(position);
+            bringToSubdistrictList(addressData.getAddressCode());
         } else if (currentState == SELECT_SUBDISTRICT) {
             selectedSubdistrictPosition = position;
-            bringAddressValueToAddressView(subdistrictAdapter.getItem(position));
+            addressData = subdistrictAdapter.getItem(position);
+            bringAddressValueToAddressView(addressData);
         }
     }
 
@@ -248,9 +252,9 @@ public class AddressPickerDialogFragment extends DialogFragment implements Addre
                 } else if (currentState == SELECT_PROVINCE) {
                     bringToRegionList();
                 } else if (currentState == SELECT_DISTRICT) {
-                    bringToProvinceList(regionAdapter.getItem(selectedRegionPosition));
+                    bringToProvinceList(addressData.getRegion().toString());
                 } else if (currentState == SELECT_SUBDISTRICT) {
-                    bringToDistrictList(provinceAdapter.getItem(selectedProvincePosition).getAddressCode());
+                    bringToDistrictList(addressData.getAddressCode());
                 }
             }
         };
