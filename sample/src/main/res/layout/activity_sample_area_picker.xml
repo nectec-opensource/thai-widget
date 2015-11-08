@@ -28,7 +28,7 @@
             android:text="@string/area_picker"/>
 
     <th.or.nectec.android.widget.thai.AreaPicker
-            android:id="@+id/picker"
+            android:id="@+id/area_picker"
             android:minHeight="@dimen/interactive_view_min_height"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>

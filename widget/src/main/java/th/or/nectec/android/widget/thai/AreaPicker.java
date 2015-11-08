@@ -24,8 +24,11 @@ import android.view.View;
 import android.widget.TextView;
 import th.or.nectec.domain.thai.Area;
 
-public class AreaPicker extends TextView implements AreaView {
 
+/**
+ * A view to display Area's size in thai unit of measurement. can edit value by AreaPickerDialog
+ */
+public class AreaPicker extends TextView implements AreaView {
 
     public static final String DEFAULT_MESSAGE = "ระบุขนาดพื้นที่";
     AreaPickerDialog pickerDialog;

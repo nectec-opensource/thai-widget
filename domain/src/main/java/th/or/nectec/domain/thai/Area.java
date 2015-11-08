@@ -17,11 +17,18 @@
 
 package th.or.nectec.domain.thai;
 
+/**
+ * Class to represent size of area in Thai unit of measurement called as
+ * Rai(ไร่) Ngan(งาน) Wa<sup>2</sup>(ตารางวา)
+ */
 public class Area {
 
     public static final int SQUARE_METER_PER_RAI = 1600;
     public static final int SQUARE_METER_PER_NGAN = 400;
     public static final float SQUARE_METER_PER_SQUARE_WA = 4;
+    public static final String ตารางวา = "ตารางวา";
+    public static final String งาน = "งาน";
+    public static final String ไร่ = "ไร่";
 
     private int sizeSquareMeter;
 
@@ -37,61 +44,12 @@ public class Area {
         roundRaiNganSqaureWa();
     }
 
-    private void extractToRaiNganSquareWa() {
-        rai = squareMeterToRai(sizeSquareMeter);
-        ngan = squareMeterToNgan(sizeSquareMeter);
-        squareWa = squareMeterToSquareWa(sizeSquareMeter);
-    }
-
-    private void roundRaiNganSqaureWa() {
-        if(squareWa == 100) {
-            ngan++;
-            squareWa = 0;
-        }
-        if(ngan == 4) {
-            rai++;
-            ngan = 0;
-        }
-    }
-
-    public int getSquareMeter(){
-        return sizeSquareMeter;
-    }
-
-    public int getRai(){
-        return rai;
-    }
-
-    public int getNgan(){
-        return ngan;
-    }
-
-    public int getSquareWa(){
-        return squareWa;
-    }
-
-    public String prettyPrint(){
-       return new PrettyPrinter().print();
-    }
-
-    public static Area fromSquareMeter(int sqaureMeter){
+    public static Area fromSquareMeter(int sqaureMeter) {
         return new Area(sqaureMeter);
     }
 
-    public static Area fromRaiNganSqaureWa(int rai, int ngan,int  squareWa){
-        Area area = new Area(RaiToSqMeter(rai, ngan, squareWa));
-        return area;
-    }
-
-    @Override
-    public String toString() {
-        StringBuilder builder = new StringBuilder();
-        builder.append(getRai());
-        builder.append("-");
-        builder.append(getNgan());
-        builder.append("-");
-        builder.append(getSquareWa());
-        return builder.toString();
+    public static Area fromRaiNganSqaureWa(int rai, int ngan, int squareWa) {
+        return new Area(RaiToSqMeter(rai, ngan, squareWa));
     }
 
     public static int RaiToSqMeter(int rai, int ngan, int tarangwa) {
@@ -100,13 +58,11 @@ public class Area {
     }
 
     public static int squareMeterToRai(int squareMeter) {
-        int rai = squareMeter / SQUARE_METER_PER_RAI;
-        return rai;
+        return squareMeter / SQUARE_METER_PER_RAI;
     }
 
     public static int squareMeterToNgan(int squareMeter) {
-        int ngan = (squareMeter % SQUARE_METER_PER_RAI) / SQUARE_METER_PER_NGAN;
-        return ngan;
+        return (squareMeter % SQUARE_METER_PER_RAI) / SQUARE_METER_PER_NGAN;
     }
 
     public static int squareMeterToSquareWa(int squareMeter) {
@@ -114,25 +70,77 @@ public class Area {
         return Math.round(squareWa);
     }
 
-    private  class PrettyPrinter{
+    private void extractToRaiNganSquareWa() {
+        rai = squareMeterToRai(sizeSquareMeter);
+        ngan = squareMeterToNgan(sizeSquareMeter);
+        squareWa = squareMeterToSquareWa(sizeSquareMeter);
+    }
 
-        public String print(){
-            StringBuilder builder = new StringBuilder();
-            if(rai > 0){
-                builder.append(rai);
-                builder.append(" "+ "ไร่");
+    private void roundRaiNganSqaureWa() {
+        if (squareWa == 100) {
+            ngan++;
+            squareWa = 0;
+        }
+        if (ngan == 4) {
+            rai++;
+            ngan = 0;
+        }
+    }
+
+    public int getSquareMeter() {
+        return sizeSquareMeter;
+    }
+
+    public int getRai() {
+        return rai;
+    }
+
+    public int getNgan() {
+        return ngan;
+    }
+
+    public int getSquareWa() {
+        return squareWa;
+    }
+
+    public String prettyPrint() {
+        return new PrettyPrinter().print();
+    }
+
+    @Override
+    public String toString() {
+        return String.valueOf(getRai()) + "-" + getNgan() + "-" + getSquareWa();
+    }
+
+    private class PrettyPrinter {
+
+        public static final String SPACE = " ";
+        private StringBuilder stringBuilder;
+
+        public String print() {
+            stringBuilder = new StringBuilder();
+            appendRai();
+            appendNgan();
+            appendSquareWa();
+            return stringBuilder.toString().trim();
+        }
+
+        private void appendSquareWa() {
+            if (squareWa > 0) {
+                stringBuilder.append(SPACE).append(squareWa).append(SPACE).append(ตารางวา);
             }
-            if(ngan > 0){
-                builder.append(" ");
-                builder.append(ngan);
-                builder.append(" "+ "งาน");
+        }
+
+        private void appendNgan() {
+            if (ngan > 0) {
+                stringBuilder.append(SPACE).append(ngan).append(SPACE).append(งาน);
             }
-            if(squareWa > 0){
-                builder.append(" ");
-                builder.append(squareWa);
-                builder.append(" " + "ตารางวา");
+        }
+
+        private void appendRai() {
+            if (rai > 0) {
+                stringBuilder.append(rai).append(SPACE).append(ไร่);
             }
-            return builder.toString().trim();
         }
     }
 }

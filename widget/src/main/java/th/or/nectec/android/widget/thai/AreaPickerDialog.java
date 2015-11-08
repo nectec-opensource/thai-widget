@@ -28,6 +28,10 @@ import android.widget.NumberPicker;
 import android.widget.NumberPicker.OnValueChangeListener;
 import th.or.nectec.domain.thai.Area;
 
+
+/**
+ * Dialog for select area's size in Thai Unit of measurement
+ */
 public class AreaPickerDialog extends AlertDialog {
 
     public static final String TITLE = "ระบุขนาดพื้นที่";
