@@ -34,6 +34,6 @@ public interface AddressPickerInterface {
 
     void setOnAddressChangedListener(OnAddressChangedListener addressChangedListener);
 
-    void restoreAddressField(String addressCode);
+    void restoreAddressField(Address address);
 
 }
