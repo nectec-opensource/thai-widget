@@ -1,0 +1,64 @@
+/*
+ * Copyright © 2015 NECTEC
+ *   National Electronics and Computer Technology Center, Thailand
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *    http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+package th.or.nectec.android.widget.thai.sample;
+
+import android.app.Activity;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Toast;
+import th.or.nectec.android.widget.thai.AreaPickerDialog;
+import th.or.nectec.domain.thai.Area;
+
+
+public class AreaPickerSampleActivity extends Activity {
+
+    private AreaPickerDialog areaPickerDialog;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        setContentView(R.layout.activity_sample_area_picker);
+
+        View viewById = findViewById(R.id.button);
+        viewById.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+
+                areaPickerDialog = new AreaPickerDialog(AreaPickerSampleActivity.this, new AreaPickerDialog.OnAreaPickListener() {
+
+                    @Override
+                    public void onAreaPick(Area area) {
+                        Toast.makeText(getBaseContext(), area.prettyPrint(), Toast.LENGTH_LONG).show();
+                    }
+
+                    @Override
+                    public void onCancel() {
+                        Toast.makeText(getBaseContext(), "cancel", Toast.LENGTH_SHORT).show();
+                    }
+                });
+                areaPickerDialog.show();
+
+
+            }
+        });
+
+
+    }
+}

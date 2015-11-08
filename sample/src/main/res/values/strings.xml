@@ -20,4 +20,5 @@
     <string name="lable_house_id">House ID :</string>
 
     <string name="hello_world">Hello world!</string>
+    <string name="show_dialog">Show Dialog</string>
 </resources>
