@@ -25,16 +25,17 @@ import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.NumberPicker;
+import android.widget.NumberPicker.OnValueChangeListener;
 import th.or.nectec.domain.thai.Area;
 
 public class AreaPickerDialog extends AlertDialog {
 
     public static final String TITLE = "ระบุขนาดพื้นที่";
+    public static final String TITLE_SEPARATOR = " - ";
     private NumberPicker rai;
     private NumberPicker ngan;
     private NumberPicker squareWa;
     private OnAreaPickListener onAreaPickListener;
-    ˚
     private OnClickListener onPositiveButtonClick = new OnClickListener() {
         @Override
         public void onClick(DialogInterface dialogInterface, int i) {
@@ -52,7 +53,7 @@ public class AreaPickerDialog extends AlertDialog {
         }
     };
 
-    private NumberPicker.OnValueChangeListener raiNganSquareWaChangeListener = new NumberPicker.OnValueChangeListener() {
+    private OnValueChangeListener raiNganSquareWaChangeListener = new OnValueChangeListener() {
         @Override
         public void onValueChange(NumberPicker numberPicker, int i, int i1) {
             Area area = Area.fromRaiNganSqaureWa(rai.getValue(), ngan.getValue(), squareWa.getValue());
@@ -129,7 +130,7 @@ public class AreaPickerDialog extends AlertDialog {
         StringBuilder builder = new StringBuilder(TITLE);
         String detail = area.prettyPrint();
         if (!TextUtils.isEmpty(detail))
-            builder.append(" - " + detail);
+            builder.append(TITLE_SEPARATOR).append(detail);
         setTitle(builder);
     }
 

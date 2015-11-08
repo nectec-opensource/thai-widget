@@ -19,12 +19,30 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:orientation="vertical"
               android:layout_width="match_parent"
-              android:layout_height="match_parent">
+              android:layout_height="match_parent"
+              android:padding="16dp">
 
-    <Button
-
+    <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="@string/area_picker"/>
+
+    <th.or.nectec.android.widget.thai.AreaPicker
+            android:id="@+id/picker"
+            android:minHeight="@dimen/interactive_view_min_height"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/area_picker_dialog"/>
+
+    <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minHeight="@dimen/interactive_view_min_height"
             android:text="@string/show_dialog"
-            android:id="@+id/button" android:layout_gravity="center_horizontal"/>
+            android:id="@+id/button"/>
 </LinearLayout>

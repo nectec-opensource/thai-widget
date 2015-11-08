@@ -21,4 +21,6 @@
 
     <string name="hello_world">Hello world!</string>
     <string name="show_dialog">Show Dialog</string>
+    <string name="area_picker">Area Picker</string>
+    <string name="area_picker_dialog">Area Picker Dialog</string>
 </resources>
