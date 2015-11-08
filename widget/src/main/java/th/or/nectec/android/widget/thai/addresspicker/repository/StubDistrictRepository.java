@@ -18,16 +18,18 @@
 package th.or.nectec.android.widget.thai.addresspicker.repository;
 
 import android.content.Context;
+
 import com.google.gson.Gson;
 import com.google.gson.stream.JsonReader;
-import th.or.nectec.domain.thai.address.district.DistrictRepository;
-import th.or.nectec.entity.thai.Address;
 
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
+
+import th.or.nectec.domain.thai.address.district.DistrictRepository;
+import th.or.nectec.entity.thai.Address;
 
 /**
  * Created by N. Choatravee on 5/11/2558.
@@ -56,10 +58,14 @@ public class StubDistrictRepository implements DistrictRepository {
 
     @Override
     public List<Address> findByProvinceCode(String provinceCode) {
+        String formattedProvinceCode = provinceCode.length() >= 4
+                ? provinceCode.substring(0,2)
+                : provinceCode;
         List<Address> queryProvince = new ArrayList<>();
         for (Address eachProvince : allDistrict) {
             String queryAddressCode = eachProvince.getAddressCode();
-            if (queryAddressCode.startsWith(provinceCode)) {
+
+            if (queryAddressCode.startsWith(formattedProvinceCode)) {
                 queryProvince.add(eachProvince);
             }
         }
