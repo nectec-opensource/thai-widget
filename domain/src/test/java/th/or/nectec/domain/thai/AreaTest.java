@@ -19,7 +19,7 @@ package th.or.nectec.domain.thai;
 
 import org.junit.Test;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 
 public class AreaTest {
@@ -36,6 +36,13 @@ public class AreaTest {
     public void testToString() throws Exception {
         Area rai = Area.fromSquareMeter(1600);
         assertEquals("1-0-0", rai.toString());
+    }
+
+    @Test
+    public void testEqual() throws Exception {
+        Area area1 = Area.fromSquareMeter(1600);
+        Area area2 = Area.fromRaiNganSqaureWa(1, 0, 0);
+        assertEquals(area1, area2);
     }
 
     @Test

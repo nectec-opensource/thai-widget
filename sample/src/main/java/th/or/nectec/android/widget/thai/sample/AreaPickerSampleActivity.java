@@ -34,31 +34,32 @@ public class AreaPickerSampleActivity extends Activity {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_sample_area_picker);
+        setupDialog();
+        setupButton();
+    }
 
+    private void setupButton() {
         View viewById = findViewById(R.id.button);
         viewById.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View view) {
-
-                areaPickerDialog = new AreaPickerDialog(AreaPickerSampleActivity.this, new AreaPickerDialog.OnAreaPickListener() {
-
-                    @Override
-                    public void onAreaPick(Area area) {
-                        Toast.makeText(getBaseContext(), area.prettyPrint(), Toast.LENGTH_LONG).show();
-                    }
-
-                    @Override
-                    public void onCancel() {
-                        Toast.makeText(getBaseContext(), "cancel", Toast.LENGTH_SHORT).show();
-                    }
-                });
                 areaPickerDialog.show();
-
-
             }
         });
+    }
 
+    private void setupDialog() {
+        areaPickerDialog = new AreaPickerDialog(AreaPickerSampleActivity.this, new AreaPickerDialog.OnAreaPickListener() {
+            @Override
+            public void onAreaPick(Area area) {
+                Toast.makeText(getBaseContext(), area.prettyPrint(), Toast.LENGTH_LONG).show();
+            }
 
+            @Override
+            public void onCancel() {
+                Toast.makeText(getBaseContext(), "cancel", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 }

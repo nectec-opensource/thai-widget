@@ -70,6 +70,23 @@ public class Area {
         return Math.round(squareWa);
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Area area = (Area) o;
+        return rai == area.rai && ngan == area.ngan && squareWa == area.squareWa;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = rai;
+        result = 31 * result + ngan;
+        result = 31 * result + squareWa;
+        return result;
+    }
+
     private void extractToRaiNganSquareWa() {
         rai = squareMeterToRai(sizeSquareMeter);
         ngan = squareMeterToNgan(sizeSquareMeter);
