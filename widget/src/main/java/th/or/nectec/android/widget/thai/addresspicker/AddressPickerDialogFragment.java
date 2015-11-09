@@ -65,11 +65,6 @@ public class AddressPickerDialogFragment extends DialogFragment implements Addre
     OnAddressChangedListener addressChangedListener;
     ListView listView;
 
-    int selectedRegionPosition = -1;
-    int selectedProvincePosition = -1;
-    int selectedDistrictPosition = -1;
-    int selectedSubdistrictPosition = -1;
-
     Address addressData;
 
     ArrayAdapter<String> regionAdapter;
@@ -157,12 +152,6 @@ public class AddressPickerDialogFragment extends DialogFragment implements Addre
     }
 
     @Override
-    public void onActivityCreated(Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
-        getDialog().setTitle(R.string.choose_region);
-    }
-
-    @Override
     public void bringToRegionList() {
         getDialog().setTitle(R.string.choose_region);
         regionChooser = new RegionChooser(new EnumRegionRepository(), regionPresenter);
@@ -225,18 +214,14 @@ public class AddressPickerDialogFragment extends DialogFragment implements Addre
     @Override
     public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
         if (currentState == SELECT_REGION) {
-            selectedRegionPosition = position;
             bringToProvinceList(regionAdapter.getItem(position));
         } else if (currentState == SELECT_PROVINCE) {
-            selectedProvincePosition = position;
             addressData = provinceAdapter.getItem(position);
             bringToDistrictList(addressData.getAddressCode());
         } else if (currentState == SELECT_DISTRICT) {
-            selectedDistrictPosition = position;
             addressData = districtAdapter.getItem(position);
             bringToSubdistrictList(addressData.getAddressCode());
         } else if (currentState == SELECT_SUBDISTRICT) {
-            selectedSubdistrictPosition = position;
             addressData = subdistrictAdapter.getItem(position);
             bringAddressValueToAddressView(addressData);
         }
