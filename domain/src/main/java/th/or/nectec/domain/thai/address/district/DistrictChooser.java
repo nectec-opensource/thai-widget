@@ -17,9 +17,9 @@
 
 package th.or.nectec.domain.thai.address.district;
 
-import th.or.nectec.entity.thai.Address;
-
 import java.util.List;
+
+import th.or.nectec.entity.thai.Address;
 
 /**
  * Created by N. Choatravee on 5/11/2558.
@@ -28,9 +28,9 @@ public class DistrictChooser {
     private final DistrictRepository districtRepository;
     private final DistrictPresenter districtPresenter;
 
-    public DistrictChooser(DistrictRepository regionRepository, DistrictPresenter regionPresenter) {
-        this.districtRepository = regionRepository;
-        this.districtPresenter = regionPresenter;
+    public DistrictChooser(DistrictRepository districtRepository, DistrictPresenter districtPresenter) {
+        this.districtRepository = districtRepository;
+        this.districtPresenter = districtPresenter;
     }
 
     public void showDistrictListByProvinceCode(String provinceCode) {
