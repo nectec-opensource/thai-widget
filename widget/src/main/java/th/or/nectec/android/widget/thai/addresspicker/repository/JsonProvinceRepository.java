@@ -28,26 +28,27 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
-import th.or.nectec.domain.thai.address.district.DistrictRepository;
+import th.or.nectec.domain.thai.address.province.ProvinceRepository;
 import th.or.nectec.entity.thai.Address;
+import th.or.nectec.entity.thai.Region;
 
 /**
  * Created by N. Choatravee on 5/11/2558.
  */
-public class StubDistrictRepository implements DistrictRepository {
+public class JsonProvinceRepository implements ProvinceRepository {
 
-    ArrayList<Address> allDistrict = new ArrayList<>();
+    ArrayList<Address> allProvince = new ArrayList<>();
 
-    public StubDistrictRepository(Context context) {
+    public JsonProvinceRepository(Context context) {
         try {
-            InputStream inputStream = context.getAssets().open("district.json");
+            InputStream inputStream = context.getAssets().open("province.json");
             JsonReader reader = new JsonReader(new InputStreamReader(inputStream, "UTF-8"));
             Gson gson = new Gson();
 
             reader.beginArray();
             while (reader.hasNext()) {
                 Address message = gson.fromJson(reader, Address.class);
-                allDistrict.add(message);
+                allProvince.add(message);
             }
             reader.endArray();
             reader.close();
@@ -57,15 +58,12 @@ public class StubDistrictRepository implements DistrictRepository {
     }
 
     @Override
-    public List<Address> findByProvinceCode(String provinceCode) {
-        String formattedProvinceCode = provinceCode.length() >= 4
-                ? provinceCode.substring(0,2)
-                : provinceCode;
+    public List<Address> findByRegion(String region) {
+        Region targetRegion = Region.fromName(region);
         List<Address> queryProvince = new ArrayList<>();
-        for (Address eachProvince : allDistrict) {
-            String queryAddressCode = eachProvince.getAddressCode();
-
-            if (queryAddressCode.startsWith(formattedProvinceCode)) {
+        for (Address eachProvince : allProvince) {
+            Region queryRegion = eachProvince.getRegion();
+            if (queryRegion.equals(targetRegion)) {
                 queryProvince.add(eachProvince);
             }
         }

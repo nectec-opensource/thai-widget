@@ -31,11 +31,11 @@ import java.util.List;
 import th.or.nectec.domain.thai.address.subdistrict.SubdistrictRepository;
 import th.or.nectec.entity.thai.Address;
 
-public class StubSubdistrictRepository implements SubdistrictRepository {
+public class JsonSubdistrictRepository implements SubdistrictRepository {
 
     ArrayList<Address> allSubdistrict = new ArrayList<>();
 
-    public StubSubdistrictRepository(Context context) {
+    public JsonSubdistrictRepository(Context context) {
         try {
             InputStream inputStream = context.getAssets().open("subdistrict.json");
             JsonReader reader = new JsonReader(new InputStreamReader(inputStream, "UTF-8"));

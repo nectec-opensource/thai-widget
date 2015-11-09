@@ -39,9 +39,9 @@ import th.or.nectec.android.widget.thai.addresspicker.adapter.ProvinceAdapter;
 import th.or.nectec.android.widget.thai.addresspicker.adapter.SubdistrictAdapter;
 import th.or.nectec.android.widget.thai.addresspicker.handler.AddressPickerInterface;
 import th.or.nectec.android.widget.thai.addresspicker.repository.EnumRegionRepository;
-import th.or.nectec.android.widget.thai.addresspicker.repository.StubDistrictRepository;
-import th.or.nectec.android.widget.thai.addresspicker.repository.StubProvinceRepository;
-import th.or.nectec.android.widget.thai.addresspicker.repository.StubSubdistrictRepository;
+import th.or.nectec.android.widget.thai.addresspicker.repository.JsonDistrictRepository;
+import th.or.nectec.android.widget.thai.addresspicker.repository.JsonProvinceRepository;
+import th.or.nectec.android.widget.thai.addresspicker.repository.JsonSubdistrictRepository;
 import th.or.nectec.domain.thai.address.district.DistrictChooser;
 import th.or.nectec.domain.thai.address.district.DistrictPresenter;
 import th.or.nectec.domain.thai.address.province.ProvinceChooser;
@@ -174,7 +174,7 @@ public class AddressPickerDialogFragment extends DialogFragment implements Addre
     @Override
     public void bringToProvinceList(String region) {
         getDialog().setTitle(R.string.choose_province);
-        provinceChooser = new ProvinceChooser(new StubProvinceRepository(getActivity()), provincePresenter);
+        provinceChooser = new ProvinceChooser(new JsonProvinceRepository(getActivity()), provincePresenter);
         provinceChooser.showProvinceListByRegion(region);
         listView.setAdapter(provinceAdapter);
         currentState = SELECT_PROVINCE;
@@ -183,7 +183,7 @@ public class AddressPickerDialogFragment extends DialogFragment implements Addre
     @Override
     public void bringToDistrictList(String provinceCode) {
         getDialog().setTitle(R.string.choose_district);
-        districtChooser = new DistrictChooser(new StubDistrictRepository(getActivity()), districtPresenter);
+        districtChooser = new DistrictChooser(new JsonDistrictRepository(getActivity()), districtPresenter);
         districtChooser.showDistrictListByProvinceCode(provinceCode);
         listView.setAdapter(districtAdapter);
         currentState = SELECT_DISTRICT;
@@ -192,7 +192,7 @@ public class AddressPickerDialogFragment extends DialogFragment implements Addre
     @Override
     public void bringToSubdistrictList(String districtCode) {
         getDialog().setTitle(R.string.choose_subdistrict);
-        subdistrictChooser = new SubdistrictChooser(new StubSubdistrictRepository(getActivity()), subdistrictPresenter);
+        subdistrictChooser = new SubdistrictChooser(new JsonSubdistrictRepository(getActivity()), subdistrictPresenter);
         subdistrictChooser.showSubdistrictListByDistrictCode(districtCode);
         listView.setAdapter(subdistrictAdapter);
         currentState = SELECT_SUBDISTRICT;

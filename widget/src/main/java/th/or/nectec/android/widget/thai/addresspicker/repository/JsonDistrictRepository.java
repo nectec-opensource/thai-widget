@@ -1,6 +1,6 @@
 /*
- * Copyright (c) 2015 NECTEC
- *   National Electronics and Computer Technology Center, Thailand
+ * Copyright 2015 NECTEC
+ * National Electronics and Computer Technology Center, Thailand
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -18,11 +18,9 @@
 package th.or.nectec.android.widget.thai.addresspicker.repository;
 
 import android.content.Context;
+
 import com.google.gson.Gson;
 import com.google.gson.stream.JsonReader;
-import th.or.nectec.domain.thai.address.province.ProvinceRepository;
-import th.or.nectec.entity.thai.Address;
-import th.or.nectec.entity.thai.Region;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -30,23 +28,26 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
+import th.or.nectec.domain.thai.address.district.DistrictRepository;
+import th.or.nectec.entity.thai.Address;
+
 /**
  * Created by N. Choatravee on 5/11/2558.
  */
-public class StubProvinceRepository implements ProvinceRepository {
+public class JsonDistrictRepository implements DistrictRepository {
 
-    ArrayList<Address> allProvince = new ArrayList<>();
+    ArrayList<Address> allDistrict = new ArrayList<>();
 
-    public StubProvinceRepository(Context context) {
+    public JsonDistrictRepository(Context context) {
         try {
-            InputStream inputStream = context.getAssets().open("province.json");
+            InputStream inputStream = context.getAssets().open("district.json");
             JsonReader reader = new JsonReader(new InputStreamReader(inputStream, "UTF-8"));
             Gson gson = new Gson();
 
             reader.beginArray();
             while (reader.hasNext()) {
                 Address message = gson.fromJson(reader, Address.class);
-                allProvince.add(message);
+                allDistrict.add(message);
             }
             reader.endArray();
             reader.close();
@@ -56,12 +57,15 @@ public class StubProvinceRepository implements ProvinceRepository {
     }
 
     @Override
-    public List<Address> findByRegion(String region) {
-        Region targetRegion = Region.fromName(region);
+    public List<Address> findByProvinceCode(String provinceCode) {
+        String formattedProvinceCode = provinceCode.length() >= 4
+                ? provinceCode.substring(0,2)
+                : provinceCode;
         List<Address> queryProvince = new ArrayList<>();
-        for (Address eachProvince : allProvince) {
-            Region queryRegion = eachProvince.getRegion();
-            if (queryRegion.equals(targetRegion)) {
+        for (Address eachProvince : allDistrict) {
+            String queryAddressCode = eachProvince.getAddressCode();
+
+            if (queryAddressCode.startsWith(formattedProvinceCode)) {
                 queryProvince.add(eachProvince);
             }
         }

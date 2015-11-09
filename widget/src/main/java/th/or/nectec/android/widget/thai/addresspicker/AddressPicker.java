@@ -28,7 +28,7 @@ import java.util.List;
 import th.or.nectec.android.widget.thai.AddressView;
 import th.or.nectec.android.widget.thai.OnAddressChangedListener;
 import th.or.nectec.android.widget.thai.R;
-import th.or.nectec.android.widget.thai.addresspicker.repository.StubSubdistrictRepository;
+import th.or.nectec.android.widget.thai.addresspicker.repository.JsonSubdistrictRepository;
 import th.or.nectec.domain.thai.ThaiAddressPrinter;
 import th.or.nectec.domain.thai.address.subdistrict.SubdistrictChooser;
 import th.or.nectec.domain.thai.address.subdistrict.SubdistrictPresenter;
@@ -95,7 +95,7 @@ public class AddressPicker extends Button implements AddressView, OnAddressChang
 
         this.addressPickerDialogFragment.setOnAddressChangedListener(this);
 
-        subdistrictChooser = new SubdistrictChooser(new StubSubdistrictRepository(getContext()), subdistrictPresenter);
+        subdistrictChooser = new SubdistrictChooser(new JsonSubdistrictRepository(getContext()), subdistrictPresenter);
 
         setText("กรุณาระบุ ตำบล อำเภอ จังหวัด");
 
