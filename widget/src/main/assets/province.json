@@ -1,387 +1,387 @@
 [
   {
-    "addressCode": "10",
-    "province": "กรุงเทพมหานคร",
+    "code": "10",
+    "name": "กรุงเทพมหานคร",
     "region": "ภาคกลาง"
   },
   {
-    "addressCode": "11",
-    "province": "สมุทรปราการ",
+    "code": "11",
+    "name": "สมุทรปราการ",
     "region": "ภาคกลาง"
   },
   {
-    "addressCode": "12",
-    "province": "นนทบุรี",
+    "code": "12",
+    "name": "นนทบุรี",
     "region": "ภาคกลาง"
   },
   {
-    "addressCode": "13",
-    "province": "ปทุมธานี",
+    "code": "13",
+    "name": "ปทุมธานี",
     "region": "ภาคกลาง"
   },
   {
-    "addressCode": "14",
-    "province": "พระนครศรีอยุธยา",
+    "code": "14",
+    "name": "พระนครศรีอยุธยา",
     "region": "ภาคกลาง"
   },
   {
-    "addressCode": "15",
-    "province": "อ่างทอง",
+    "code": "15",
+    "name": "อ่างทอง",
     "region": "ภาคกลาง"
   },
   {
-    "addressCode": "16",
-    "province": "ลพบุรี",
+    "code": "16",
+    "name": "ลพบุรี",
     "region": "ภาคกลาง"
   },
   {
-    "addressCode": "17",
-    "province": "สิงห์บุรี",
+    "code": "17",
+    "name": "สิงห์บุรี",
     "region": "ภาคกลาง"
   },
   {
-    "addressCode": "18",
-    "province": "ชัยนาท",
+    "code": "18",
+    "name": "ชัยนาท",
     "region": "ภาคกลาง"
   },
   {
-    "addressCode": "19",
-    "province": "สระบุรี",
+    "code": "19",
+    "name": "สระบุรี",
     "region": "ภาคกลาง"
   },
   {
-    "addressCode": "20",
-    "province": "ชลบุรี",
+    "code": "20",
+    "name": "ชลบุรี",
     "region": "ภาคตะวันออก"
   },
   {
-    "addressCode": "21",
-    "province": "ระยอง",
+    "code": "21",
+    "name": "ระยอง",
     "region": "ภาคตะวันออก"
   },
   {
-    "addressCode": "22",
-    "province": "จันทบุรี",
+    "code": "22",
+    "name": "จันทบุรี",
     "region": "ภาคตะวันออก"
   },
   {
-    "addressCode": "23",
-    "province": "ตราด",
+    "code": "23",
+    "name": "ตราด",
     "region": "ภาคตะวันออก"
   },
   {
-    "addressCode": "24",
-    "province": "ฉะเชิงเทรา",
+    "code": "24",
+    "name": "ฉะเชิงเทรา",
     "region": "ภาคตะวันออก"
   },
   {
-    "addressCode": "25",
-    "province": "ปราจีนบุรี",
+    "code": "25",
+    "name": "ปราจีนบุรี",
     "region": "ภาคตะวันออก"
   },
   {
-    "addressCode": "26",
-    "province": "นครนายก",
+    "code": "26",
+    "name": "นครนายก",
     "region": "ภาคกลาง"
   },
   {
-    "addressCode": "27",
-    "province": "สระแก้ว",
+    "code": "27",
+    "name": "สระแก้ว",
     "region": "ภาคตะวันออก"
   },
   {
-    "addressCode": "30",
-    "province": "นครราชสีมา",
+    "code": "30",
+    "name": "นครราชสีมา",
     "region": "ภาคตะวันออกเฉียงเหนือ"
   },
   {
-    "addressCode": "31",
-    "province": "บุรีรัมย์",
+    "code": "31",
+    "name": "บุรีรัมย์",
     "region": "ภาคตะวันออกเฉียงเหนือ"
   },
   {
-    "addressCode": "32",
-    "province": "สุรินทร์",
+    "code": "32",
+    "name": "สุรินทร์",
     "region": "ภาคตะวันออกเฉียงเหนือ"
   },
   {
-    "addressCode": "33",
-    "province": "ศรีสะเกษ",
+    "code": "33",
+    "name": "ศรีสะเกษ",
     "region": "ภาคตะวันออกเฉียงเหนือ"
   },
   {
-    "addressCode": "34",
-    "province": "อุบลราชธานี",
+    "code": "34",
+    "name": "อุบลราชธานี",
     "region": "ภาคตะวันออกเฉียงเหนือ"
   },
   {
-    "addressCode": "35",
-    "province": "ยโสธร",
+    "code": "35",
+    "name": "ยโสธร",
     "region": "ภาคตะวันออกเฉียงเหนือ"
   },
   {
-    "addressCode": "36",
-    "province": "ชัยภูมิ",
+    "code": "36",
+    "name": "ชัยภูมิ",
     "region": "ภาคตะวันออกเฉียงเหนือ"
   },
   {
-    "addressCode": "37",
-    "province": "อำนาจเจริญ",
+    "code": "37",
+    "name": "อำนาจเจริญ",
     "region": "ภาคตะวันออกเฉียงเหนือ"
   },
   {
-    "addressCode": "38",
-    "province": "บึงกาฬ",
+    "code": "38",
+    "name": "บึงกาฬ",
     "region": "ภาคตะวันออกเฉียงเหนือ"
   },
   {
-    "addressCode": "39",
-    "province": "หนองบัวลำภู",
+    "code": "39",
+    "name": "หนองบัวลำภู",
     "region": "ภาคตะวันออกเฉียงเหนือ"
   },
   {
-    "addressCode": "40",
-    "province": "ขอนแก่น",
+    "code": "40",
+    "name": "ขอนแก่น",
     "region": "ภาคตะวันออกเฉียงเหนือ"
   },
   {
-    "addressCode": "41",
-    "province": "อุดรธานี",
+    "code": "41",
+    "name": "อุดรธานี",
     "region": "ภาคตะวันออกเฉียงเหนือ"
   },
   {
-    "addressCode": "42",
-    "province": "เลย",
+    "code": "42",
+    "name": "เลย",
     "region": "ภาคตะวันออกเฉียงเหนือ"
   },
   {
-    "addressCode": "43",
-    "province": "หนองคาย",
+    "code": "43",
+    "name": "หนองคาย",
     "region": "ภาคตะวันออกเฉียงเหนือ"
   },
   {
-    "addressCode": "44",
-    "province": "มหาสารคาม",
+    "code": "44",
+    "name": "มหาสารคาม",
     "region": "ภาคตะวันออกเฉียงเหนือ"
   },
   {
-    "addressCode": "45",
-    "province": "ร้อยเอ็ด",
+    "code": "45",
+    "name": "ร้อยเอ็ด",
     "region": "ภาคตะวันออกเฉียงเหนือ"
   },
   {
-    "addressCode": "46",
-    "province": "กาฬสินธุ์",
+    "code": "46",
+    "name": "กาฬสินธุ์",
     "region": "ภาคตะวันออกเฉียงเหนือ"
   },
   {
-    "addressCode": "47",
-    "province": "สกลนคร",
+    "code": "47",
+    "name": "สกลนคร",
     "region": "ภาคตะวันออกเฉียงเหนือ"
   },
   {
-    "addressCode": "48",
-    "province": "นครพนม",
+    "code": "48",
+    "name": "นครพนม",
     "region": "ภาคตะวันออกเฉียงเหนือ"
   },
   {
-    "addressCode": "49",
-    "province": "มุกดาหาร",
+    "code": "49",
+    "name": "มุกดาหาร",
     "region": "ภาคตะวันออกเฉียงเหนือ"
   },
   {
-    "addressCode": "50",
-    "province": "เชียงใหม่",
+    "code": "50",
+    "name": "เชียงใหม่",
     "region": "ภาคเหนือ"
   },
   {
-    "addressCode": "51",
-    "province": "ลำพูน",
+    "code": "51",
+    "name": "ลำพูน",
     "region": "ภาคเหนือ"
   },
   {
-    "addressCode": "52",
-    "province": "ลำปาง",
+    "code": "52",
+    "name": "ลำปาง",
     "region": "ภาคเหนือ"
   },
   {
-    "addressCode": "53",
-    "province": "อุตรดิตถ์",
+    "code": "53",
+    "name": "อุตรดิตถ์",
     "region": "ภาคเหนือ"
   },
   {
-    "addressCode": "54",
-    "province": "แพร่",
+    "code": "54",
+    "name": "แพร่",
     "region": "ภาคเหนือ"
   },
   {
-    "addressCode": "55",
-    "province": "น่าน",
+    "code": "55",
+    "name": "น่าน",
     "region": "ภาคเหนือ"
   },
   {
-    "addressCode": "56",
-    "province": "พะเยา",
+    "code": "56",
+    "name": "พะเยา",
     "region": "ภาคเหนือ"
   },
   {
-    "addressCode": "57",
-    "province": "เชียงราย",
+    "code": "57",
+    "name": "เชียงราย",
     "region": "ภาคเหนือ"
   },
   {
-    "addressCode": "58",
-    "province": "แม่ฮ่องสอน",
+    "code": "58",
+    "name": "แม่ฮ่องสอน",
     "region": "ภาคเหนือ"
   },
   {
-    "addressCode": "60",
-    "province": "นครสวรรค์",
+    "code": "60",
+    "name": "นครสวรรค์",
     "region": "ภาคกลาง"
   },
   {
-    "addressCode": "61",
-    "province": "อุทัยธานี",
+    "code": "61",
+    "name": "อุทัยธานี",
     "region": "ภาคกลาง"
   },
   {
-    "addressCode": "62",
-    "province": "กำแพงเพชร",
+    "code": "62",
+    "name": "กำแพงเพชร",
     "region": "ภาคกลาง"
   },
   {
-    "addressCode": "63",
-    "province": "ตาก",
+    "code": "63",
+    "name": "ตาก",
     "region": "ภาคตะวันตก"
   },
   {
-    "addressCode": "64",
-    "province": "สุโขทัย",
+    "code": "64",
+    "name": "สุโขทัย",
     "region": "ภาคกลาง"
   },
   {
-    "addressCode": "65",
-    "province": "พิษณุโลก",
+    "code": "65",
+    "name": "พิษณุโลก",
     "region": "ภาคกลาง"
   },
   {
-    "addressCode": "66",
-    "province": "พิจิตร",
+    "code": "66",
+    "name": "พิจิตร",
     "region": "ภาคกลาง"
   },
   {
-    "addressCode": "67",
-    "province": "เพชรบูรณ์",
+    "code": "67",
+    "name": "เพชรบูรณ์",
     "region": "ภาคกลาง"
   },
   {
-    "addressCode": "70",
-    "province": "ราชบุรี",
+    "code": "70",
+    "name": "ราชบุรี",
     "region": "ภาคตะวันตก"
   },
   {
-    "addressCode": "71",
-    "province": "กาญจนบุรี",
+    "code": "71",
+    "name": "กาญจนบุรี",
     "region": "ภาคตะวันตก"
   },
   {
-    "addressCode": "72",
-    "province": "สุพรรณบุรี",
+    "code": "72",
+    "name": "สุพรรณบุรี",
     "region": "ภาคกลาง"
   },
   {
-    "addressCode": "73",
-    "province": "นครปฐม",
+    "code": "73",
+    "name": "นครปฐม",
     "region": "ภาคกลาง"
   },
   {
-    "addressCode": "74",
-    "province": "สมุทรสาคร",
+    "code": "74",
+    "name": "สมุทรสาคร",
     "region": "ภาคกลาง"
   },
   {
-    "addressCode": "75",
-    "province": "สมุทรสงคราม",
+    "code": "75",
+    "name": "สมุทรสงคราม",
     "region": "ภาคกลาง"
   },
   {
-    "addressCode": "76",
-    "province": "เพชรบุรี",
+    "code": "76",
+    "name": "เพชรบุรี",
     "region": "ภาคตะวันตก"
   },
   {
-    "addressCode": "77",
-    "province": "ประจวบคีรีขันธ์",
+    "code": "77",
+    "name": "ประจวบคีรีขันธ์",
     "region": "ภาคตะวันตก"
   },
   {
-    "addressCode": "80",
-    "province": "นครศรีธรรมราช",
+    "code": "80",
+    "name": "นครศรีธรรมราช",
     "region": "ภาคใต้"
   },
   {
-    "addressCode": "81",
-    "province": "กระบี่",
+    "code": "81",
+    "name": "กระบี่",
     "region": "ภาคใต้"
   },
   {
-    "addressCode": "82",
-    "province": "พังงา",
+    "code": "82",
+    "name": "พังงา",
     "region": "ภาคใต้"
   },
   {
-    "addressCode": "83",
-    "province": "ภูเก็ต",
+    "code": "83",
+    "name": "ภูเก็ต",
     "region": "ภาคใต้"
   },
   {
-    "addressCode": "84",
-    "province": "สุราษฎร์ธานี",
+    "code": "84",
+    "name": "สุราษฎร์ธานี",
     "region": "ภาคใต้"
   },
   {
-    "addressCode": "85",
-    "province": "ระนอง",
+    "code": "85",
+    "name": "ระนอง",
     "region": "ภาคใต้"
   },
   {
-    "addressCode": "86",
-    "province": "ชุมพร",
+    "code": "86",
+    "name": "ชุมพร",
     "region": "ภาคใต้"
   },
   {
-    "addressCode": "90",
-    "province": "สงขลา",
+    "code": "90",
+    "name": "สงขลา",
     "region": "ภาคใต้"
   },
   {
-    "addressCode": "91",
-    "province": "สตูล",
+    "code": "91",
+    "name": "สตูล",
     "region": "ภาคใต้"
   },
   {
-    "addressCode": "92",
-    "province": "ตรัง",
+    "code": "92",
+    "name": "ตรัง",
     "region": "ภาคใต้"
   },
   {
-    "addressCode": "93",
-    "province": "พัทลุง",
+    "code": "93",
+    "name": "พัทลุง",
     "region": "ภาคใต้"
   },
   {
-    "addressCode": "94",
-    "province": "ปัตตานี",
+    "code": "94",
+    "name": "ปัตตานี",
     "region": "ภาคใต้"
   },
   {
-    "addressCode": "95",
-    "province": "ยะลา",
+    "code": "95",
+    "name": "ยะลา",
     "region": "ภาคใต้"
   },
   {
-    "addressCode": "96",
-    "province": "นราธิวาส",
+    "code": "96",
+    "name": "นราธิวาส",
     "region": "ภาคใต้"
   }
 ]

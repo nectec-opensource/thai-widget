@@ -32,7 +32,8 @@ import th.or.nectec.android.widget.thai.addresspicker.adapter.ProvinceAdapter;
 import th.or.nectec.android.widget.thai.addresspicker.repository.JsonProvinceRepository;
 import th.or.nectec.domain.thai.address.province.ProvinceChooser;
 import th.or.nectec.domain.thai.address.province.ProvincePresenter;
-import th.or.nectec.entity.thai.Address;
+import th.or.nectec.entity.thai.Province;
+import th.or.nectec.entity.thai.Region;
 
 
 public class ProvinceListFragment extends Fragment {
@@ -43,12 +44,10 @@ public class ProvinceListFragment extends Fragment {
     ListView listView;
     ProvinceAdapter provinceAdapter;
 
-    String region;
-
     ProvinceChooser provinceChooser;
     ProvincePresenter provincePresenter = new ProvincePresenter() {
         @Override
-        public void showProvinceList(List<Address> provinces) {
+        public void showProvinceList(List<Province> provinces) {
             provinceAdapter = new ProvinceAdapter(getActivity(), provinces);
         }
 
@@ -80,12 +79,16 @@ public class ProvinceListFragment extends Fragment {
     }
 
     private void initInstances(View view) {
-        region = getArguments().getString(REGION);
-
         listView = (ListView) view.findViewById(R.id.picker_list);
         provinceChooser = new ProvinceChooser(new JsonProvinceRepository(getActivity()), provincePresenter);
-        provinceChooser.showProvinceListByRegion(region);
+        provinceChooser.showProvinceListByRegion(getRegionFromArguments());
         listView.setAdapter(provinceAdapter);
+    }
+
+    private Region getRegionFromArguments() {
+        String regionName = getArguments().getString(REGION);
+        Region region = Region.fromName(regionName);
+        return region;
     }
 
     @Override
@@ -93,7 +96,7 @@ public class ProvinceListFragment extends Fragment {
         super.onActivityCreated(savedInstanceState);
     }
 
-    public Address getData() {
+    public Province getData() {
         return listView.getCheckedItemPosition() == -1 ? null : provinceAdapter.getItem(listView.getCheckedItemPosition());
     }
 }

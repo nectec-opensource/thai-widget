@@ -17,7 +17,7 @@
 
 package th.or.nectec.domain.thai.address.province;
 
-import th.or.nectec.entity.thai.Address;
+import th.or.nectec.entity.thai.Province;
 
 import java.util.List;
 
@@ -25,7 +25,7 @@ import java.util.List;
  * Created by N. Choatravee on 5/11/2558.
  */
 public interface ProvincePresenter {
-    void showProvinceList(List<Address> province);
+    void showProvinceList(List<Province> province);
 
     void showNotFoundProvince();
 }

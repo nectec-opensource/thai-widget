@@ -26,10 +26,7 @@ import th.or.nectec.entity.thai.Address;
 
 import java.util.List;
 
-/**
- * Created by N. Choatravee on 20/4/2558.
- */
-public class DistrictAdapter extends ThaiAddressAdapter {
+public class DistrictAdapter extends ThaiAddressAdapter<Address> {
 
     public DistrictAdapter(Context context, List<Address> addressList) {
         super(context, addressList);

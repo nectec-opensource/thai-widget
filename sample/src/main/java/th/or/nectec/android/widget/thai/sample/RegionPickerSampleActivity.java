@@ -23,7 +23,6 @@ import android.widget.TextView;
 
 import th.or.nectec.android.widget.thai.addresspicker.AddressPicker;
 import th.or.nectec.android.widget.thai.addresspicker.AppCompatAddressPicker;
-
 public class RegionPickerSampleActivity extends AppCompatActivity {
 
     TextView textView;
@@ -41,7 +40,6 @@ public class RegionPickerSampleActivity extends AppCompatActivity {
 
         addressPicker = (AddressPicker) findViewById(R.id.address_view_2);
         addressPicker.setAddressCode("141604");
-
     }
 
 }

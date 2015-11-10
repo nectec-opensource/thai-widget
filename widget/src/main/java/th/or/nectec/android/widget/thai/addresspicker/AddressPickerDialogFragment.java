@@ -51,12 +51,14 @@ import th.or.nectec.domain.thai.address.region.RegionPresenter;
 import th.or.nectec.domain.thai.address.subdistrict.SubdistrictChooser;
 import th.or.nectec.domain.thai.address.subdistrict.SubdistrictPresenter;
 import th.or.nectec.entity.thai.Address;
+import th.or.nectec.entity.thai.Province;
 import th.or.nectec.entity.thai.Region;
 
 
 public class AddressPickerDialogFragment extends DialogFragment implements AddressPickerInterface, AdapterView.OnItemClickListener {
 
     public static final String FRAGMENT_TAG = "address_dialog";
+
 
     private static final int SELECT_REGION = 0;
     private static final int SELECT_PROVINCE = 1;
@@ -65,6 +67,8 @@ public class AddressPickerDialogFragment extends DialogFragment implements Addre
     OnAddressChangedListener addressChangedListener;
     ListView listView;
 
+
+    Province provinceData;
     Address addressData;
 
     ArrayAdapter<String> regionAdapter;
@@ -106,7 +110,7 @@ public class AddressPickerDialogFragment extends DialogFragment implements Addre
     ProvinceChooser provinceChooser;
     ProvincePresenter provincePresenter = new ProvincePresenter() {
         @Override
-        public void showProvinceList(List<Address> provinces) {
+        public void showProvinceList(List<Province> provinces) {
             provinceAdapter = new ProvinceAdapter(getActivity(), provinces);
         }
 
@@ -164,7 +168,7 @@ public class AddressPickerDialogFragment extends DialogFragment implements Addre
     public void bringToProvinceList(String region) {
         getDialog().setTitle(R.string.choose_province);
         provinceChooser = new ProvinceChooser(new JsonProvinceRepository(getActivity()), provincePresenter);
-        provinceChooser.showProvinceListByRegion(region);
+        provinceChooser.showProvinceListByRegion(Region.fromName(region));
         listView.setAdapter(provinceAdapter);
         currentState = SELECT_PROVINCE;
     }
@@ -191,8 +195,8 @@ public class AddressPickerDialogFragment extends DialogFragment implements Addre
     public void bringAddressValueToAddressView(Address addressData) {
         if (addressChangedListener != null) {
             addressChangedListener.onAddressChanged(addressData);
+
         }
-        //listView.clearChoices();
         dismiss();
     }
 
@@ -216,8 +220,8 @@ public class AddressPickerDialogFragment extends DialogFragment implements Addre
         if (currentState == SELECT_REGION) {
             bringToProvinceList(regionAdapter.getItem(position));
         } else if (currentState == SELECT_PROVINCE) {
-            addressData = provinceAdapter.getItem(position);
-            bringToDistrictList(addressData.getAddressCode());
+            provinceData = provinceAdapter.getItem(position);
+            bringToDistrictList(provinceData.getCode());
         } else if (currentState == SELECT_DISTRICT) {
             addressData = districtAdapter.getItem(position);
             bringToSubdistrictList(addressData.getAddressCode());

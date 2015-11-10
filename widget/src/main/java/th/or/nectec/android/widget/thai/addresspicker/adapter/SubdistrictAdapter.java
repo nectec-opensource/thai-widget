@@ -29,7 +29,7 @@ import java.util.List;
 /**
  * Created by N. Choatravee on 20/4/2558.
  */
-public class SubdistrictAdapter extends ThaiAddressAdapter {
+public class SubdistrictAdapter extends ThaiAddressAdapter<Address> {
 
     public SubdistrictAdapter(Context context, List<Address> addressList) {
         super(context, addressList);

@@ -133,7 +133,7 @@ public class AppCompatAddressPickerDialogFragment extends DialogFragment impleme
             if (provinceListFragment.getData() == null) {
                 Toast.makeText(getActivity(), "ไปเลือกจังหวัดก่อนเลย", Toast.LENGTH_LONG).show();
             } else {
-                districtListFragment = DistrictListFragment.newInstance(provinceListFragment.getData().getAddressCode());
+                districtListFragment = DistrictListFragment.newInstance(provinceListFragment.getData().getCode());
                 fragmentManager.beginTransaction()
                         .replace(R.id.container, districtListFragment, DistrictListFragment.FRAGMENT_TAG)
                         .addToBackStack(null)

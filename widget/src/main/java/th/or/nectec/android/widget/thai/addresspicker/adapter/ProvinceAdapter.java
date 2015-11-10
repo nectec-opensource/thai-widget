@@ -23,16 +23,17 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import th.or.nectec.android.widget.thai.R;
 import th.or.nectec.entity.thai.Address;
+import th.or.nectec.entity.thai.Province;
 
 import java.util.List;
 
 /**
  * Created by N. Choatravee on 20/4/2558.
  */
-public class ProvinceAdapter extends ThaiAddressAdapter {
+public class ProvinceAdapter extends ThaiAddressAdapter<Province> {
 
-    public ProvinceAdapter(Context context, List<Address> addressList) {
-        super(context, addressList);
+    public ProvinceAdapter(Context context, List<Province> provinces) {
+        super(context, provinces);
     }
 
     @Override
@@ -43,7 +44,7 @@ public class ProvinceAdapter extends ThaiAddressAdapter {
 
         TextView text = (TextView) convertView;
 
-        text.setText(getItem(position).getProvince());
+        text.setText(getItem(position).getName());
         return text;
     }
 }

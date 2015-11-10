@@ -30,20 +30,17 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-/**
- * Created by N. Choatravee on 20/4/2558.
- */
-public class ThaiAddressAdapter extends BaseAdapter {
+public abstract class ThaiAddressAdapter<T> extends BaseAdapter {
 
-    ArrayList<Address> addressList;
+    ArrayList<T> addressList;
     LayoutInflater mInflater;
 
-    public ThaiAddressAdapter(Context context, List<Address> addressList) {
+    public ThaiAddressAdapter(Context context, List<T> addressList) {
         mInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         addAll(addressList);
     }
 
-    public void addAll(Collection<? extends Address> collection) {
+    public void addAll(Collection<? extends T> collection) {
         addressList = new ArrayList<>();
         addressList.addAll(collection);
         notifyDataSetChanged();
@@ -59,16 +56,7 @@ public class ThaiAddressAdapter extends BaseAdapter {
         return createViewFromResources(position, convertView, parent);
     }
 
-    public View createViewFromResources(int position, View convertView, ViewGroup parent) {
-        if (convertView == null) {
-            convertView = mInflater.inflate(R.layout.address_picker_list_item, parent, false);
-        }
-
-        TextView text = (TextView) convertView;
-
-        text.setText(getItem(position).getProvince());
-        return text;
-    }
+    public abstract View createViewFromResources(int position, View convertView, ViewGroup parent);
 
 
     @Override
@@ -82,7 +70,7 @@ public class ThaiAddressAdapter extends BaseAdapter {
     }
 
     @Override
-    public Address getItem(int position) {
+    public T getItem(int position) {
         return addressList.get(position);
     }
 }
