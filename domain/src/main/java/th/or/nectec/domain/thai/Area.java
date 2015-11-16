@@ -1,5 +1,5 @@
 /*
- * Copyright © 2015 NECTEC
+ * Copyright (c) 2015 NECTEC
  *   National Electronics and Computer Technology Center, Thailand
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -19,16 +19,16 @@ package th.or.nectec.domain.thai;
 
 /**
  * Class to represent size of area in Thai unit of measurement called as
- * Rai(ไร่) Ngan(งาน) Wa<sup>2</sup>(ตารางวา)
+ * Rai, Ngan and Wa<sup>2</sup>
  */
 public class Area {
 
     public static final int SQUARE_METER_PER_RAI = 1600;
     public static final int SQUARE_METER_PER_NGAN = 400;
     public static final float SQUARE_METER_PER_SQUARE_WA = 4;
-    public static final String ตารางวา = "ตารางวา";
-    public static final String งาน = "งาน";
-    public static final String ไร่ = "ไร่";
+    public static final String RAI = "ไร่";
+    public static final String NGAN = "งาน";
+    public static final String SQUARE_WA = "ตารางวา";
 
     private int sizeSquareMeter;
 
@@ -144,19 +144,19 @@ public class Area {
 
         private void appendSquareWa() {
             if (squareWa > 0) {
-                stringBuilder.append(SPACE).append(squareWa).append(SPACE).append(ตารางวา);
+                stringBuilder.append(SPACE).append(squareWa).append(SPACE).append(SQUARE_WA);
             }
         }
 
         private void appendNgan() {
             if (ngan > 0) {
-                stringBuilder.append(SPACE).append(ngan).append(SPACE).append(งาน);
+                stringBuilder.append(SPACE).append(ngan).append(SPACE).append(NGAN);
             }
         }
 
         private void appendRai() {
             if (rai > 0) {
-                stringBuilder.append(rai).append(SPACE).append(ไร่);
+                stringBuilder.append(rai).append(SPACE).append(RAI);
             }
         }
     }
