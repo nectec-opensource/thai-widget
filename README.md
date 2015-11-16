@@ -31,3 +31,20 @@ License
 
 [![NECTEC](http://www.nectec.or.th/themes/nectec/img/logo.png)](https://www.nectec.or.th)
 
+Publishing to JCenter
+---------
+The follow instructions only for Project Administrator
+
+1. Configure gradle.properties with:
+    
+        bintrayKey = <YOUR API KEY>
+        bintrayUser = <YOUR BINTRAY USERNAME>
+
+2. Upload with command :
+
+        ./gradlew bintrayUpload
+    
+3. Log in to Bintray to publish
+
+    
+
