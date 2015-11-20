@@ -1,5 +1,5 @@
 /*
- * Copyright © 2015 NECTEC
+ * Copyright (c) 2015 NECTEC
  *   National Electronics and Computer Technology Center, Thailand
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -70,31 +70,29 @@ public class AreaPickerDialog extends AlertDialog {
         this.onAreaPickListener = listener;
 
         setTitle(TITLE);
+        setupView(context);
+    }
+
+    private void setupView(Context context) {
         View view = InflateView(context);
         setView(view);
         findView(view);
         initRai();
         initNgan();
         initSquareWa();
-
         initButton();
-    }
-
-    private void initButton() {
-        setButton(BUTTON_POSITIVE, "ok", onPositiveButtonClick);
-        setButton(BUTTON_NEGATIVE, "cancel", onNegativeButtonClick);
-    }
-
-    private void findView(View view) {
-        rai = (NumberPicker) view.findViewById(R.id.rai);
-        ngan = (NumberPicker) view.findViewById(R.id.ngan);
-        squareWa = (NumberPicker) view.findViewById(R.id.squareWa);
     }
 
     @SuppressLint("InflateParams")
     private View InflateView(Context context) {
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         return inflater.inflate(R.layout.area_picker_dialog, null, false);
+    }
+
+    private void findView(View view) {
+        rai = (NumberPicker) view.findViewById(R.id.rai);
+        ngan = (NumberPicker) view.findViewById(R.id.ngan);
+        squareWa = (NumberPicker) view.findViewById(R.id.squareWa);
     }
 
     private void initSquareWa() {
@@ -117,6 +115,11 @@ public class AreaPickerDialog extends AlertDialog {
         rai.setValue(0);
         rai.setOnValueChangedListener(raiNganSquareWaChangeListener);
 
+    }
+
+    private void initButton() {
+        setButton(BUTTON_POSITIVE, "ok", onPositiveButtonClick);
+        setButton(BUTTON_NEGATIVE, "cancel", onNegativeButtonClick);
     }
 
     public void show(Area area) {

@@ -1,5 +1,5 @@
 /*
- * Copyright © 2015 NECTEC
+ * Copyright (c) 2015 NECTEC
  *   National Electronics and Computer Technology Center, Thailand
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -36,7 +36,6 @@ public class AreaPicker extends TextView implements AreaView {
     private AreaPickerDialog.OnAreaPickListener onDialogPickListener = new AreaPickerDialog.OnAreaPickListener() {
         @Override
         public void onAreaPick(Area area) {
-            setText(area.prettyPrint());
             setArea(area);
         }
 
@@ -90,6 +89,6 @@ public class AreaPicker extends TextView implements AreaView {
         if (area == null)
             throw new NullPointerException("area must not be null");
         this.area = area;
+        setText(area.prettyPrint());
     }
-
 }
