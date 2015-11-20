@@ -1,5 +1,5 @@
 /*
- * Copyright © 2015 NECTEC
+ * Copyright (c) 2015 NECTEC
  *   National Electronics and Computer Technology Center, Thailand
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -21,6 +21,7 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
+import th.or.nectec.android.widget.thai.AreaPicker;
 import th.or.nectec.android.widget.thai.AreaPickerDialog;
 import th.or.nectec.domain.thai.Area;
 
@@ -45,6 +46,13 @@ public class AreaPickerSampleActivity extends Activity {
             @Override
             public void onClick(View view) {
                 areaPickerDialog.show();
+            }
+        });
+        findViewById(R.id.update_area).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                AreaPicker areaPicker = (AreaPicker) findViewById(R.id.area_picker);
+                areaPicker.setArea(new Area(1600));
             }
         });
     }

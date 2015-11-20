@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-  ~ Copyright © 2015 NECTEC
+  ~ Copyright (c) 2015 NECTEC
   ~   National Electronics and Computer Technology Center, Thailand
   ~
   ~ Licensed under the Apache License, Version 2.0 (the "License");
@@ -45,4 +45,17 @@
             android:minHeight="@dimen/interactive_view_min_height"
             android:text="@string/show_dialog"
             android:id="@+id/button"/>
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/update_area_value"/>
+
+    <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minHeight="@dimen/interactive_view_min_height"
+            android:text="@string/update"
+            android:id="@+id/update_area"/>
 </LinearLayout>
