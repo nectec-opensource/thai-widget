@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2015 NECTEC
+ * Copyright © 2015 NECTEC
  *   National Electronics and Computer Technology Center, Thailand
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -26,13 +26,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.NumberPicker;
 import android.widget.NumberPicker.OnValueChangeListener;
+import th.or.nectec.android.widget.thai.AreaPicker.AreaPopup;
 import th.or.nectec.domain.thai.Area;
 
 
 /**
  * Dialog for select area's size in Thai Unit of measurement
  */
-public class AreaPickerDialog extends AlertDialog {
+public class AreaPickerDialog extends AlertDialog implements AreaPopup {
 
     public static final String TITLE = "ระบุขนาดพื้นที่";
     public static final String TITLE_SEPARATOR = " - ";
@@ -122,6 +123,7 @@ public class AreaPickerDialog extends AlertDialog {
         setButton(BUTTON_NEGATIVE, "cancel", onNegativeButtonClick);
     }
 
+    @Override
     public void show(Area area) {
         updateValue(area);
         this.show();

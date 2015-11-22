@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2015 NECTEC
+ * Copyright © 2015 NECTEC
  *   National Electronics and Computer Technology Center, Thailand
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -21,32 +21,15 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.Gravity;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.TextView;
 import th.or.nectec.domain.thai.Area;
 
-public class AreaPicker extends TextView implements AreaView {
+public class AreaPicker extends TextView implements AreaView, OnClickListener {
 
-    public static final String DEFAULT_MESSAGE = "ระบุขนาดพื้นที่";
-    AreaPickerDialog pickerDialog;
+    private static final String DEFAULT_MESSAGE = "ระบุขนาดพื้นที่";
+    private AreaPopup pickerDialog;
     private Area area = new Area(0);
-    private AreaPickerDialog.OnAreaPickListener onDialogPickListener = new AreaPickerDialog.OnAreaPickListener() {
-        @Override
-        public void onAreaPick(Area area) {
-            setArea(area);
-        }
-
-        @Override
-        public void onCancel() {
-            setText(DEFAULT_MESSAGE);
-            setArea(Area.fromSquareMeter(0));
-        }
-    };
-    private OnClickListener onViewClick = new OnClickListener() {
-        @Override
-        public void onClick(View view) {
-            pickerDialog.show(area);
-        }
-    };
 
     public AreaPicker(Context context) {
         this(context, null);
@@ -71,8 +54,19 @@ public class AreaPicker extends TextView implements AreaView {
     }
 
     private void setupPickerDialog() {
-        pickerDialog = new AreaPickerDialog(getContext(), onDialogPickListener);
-        setOnClickListener(onViewClick);
+        pickerDialog = new AreaPickerDialog(getContext(), new AreaPickerDialog.OnAreaPickListener() {
+            @Override
+            public void onAreaPick(Area area) {
+                setArea(area);
+            }
+
+            @Override
+            public void onCancel() {
+                setText(DEFAULT_MESSAGE);
+                setArea(Area.fromSquareMeter(0));
+            }
+        });
+        setOnClickListener(this);
     }
 
     @Override
@@ -86,5 +80,14 @@ public class AreaPicker extends TextView implements AreaView {
             throw new NullPointerException("area must not be null");
         this.area = area;
         setText(area.prettyPrint());
+    }
+
+    @Override
+    public void onClick(View view) {
+        pickerDialog.show(area);
+    }
+
+    interface AreaPopup {
+        void show(Area area);
     }
 }
