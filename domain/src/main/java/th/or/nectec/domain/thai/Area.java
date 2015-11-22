@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2015 NECTEC
+ * Copyright © 2015 NECTEC
  *   National Electronics and Computer Technology Center, Thailand
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -17,25 +17,21 @@
 
 package th.or.nectec.domain.thai;
 
+import th.or.nectec.util.AreaConverter;
+
 /**
  * Class to represent size of area in Thai unit of measurement called as
  * Rai, Ngan and Wa<sup>2</sup>
  */
 public class Area {
-
-    public static final int SQUARE_METER_PER_RAI = 1600;
-    public static final int SQUARE_METER_PER_NGAN = 400;
-    public static final float SQUARE_METER_PER_SQUARE_WA = 4;
-    public static final String RAI = "ไร่";
-    public static final String NGAN = "งาน";
-    public static final String SQUARE_WA = "ตารางวา";
+    private static final String RAI = "ไร่";
+    private static final String NGAN = "งาน";
+    private static final String SQUARE_WA = "ตารางวา";
 
     private int sizeSquareMeter;
-
     private int rai;
     private int ngan;
     private int squareWa;
-
 
     public Area(int size) {
         this.sizeSquareMeter = size;
@@ -44,53 +40,10 @@ public class Area {
         roundRaiNganSqaureWa();
     }
 
-    public static Area fromSquareMeter(int sqaureMeter) {
-        return new Area(sqaureMeter);
-    }
-
-    public static Area fromRaiNganSqaureWa(int rai, int ngan, int squareWa) {
-        return new Area(RaiToSqMeter(rai, ngan, squareWa));
-    }
-
-    public static int RaiToSqMeter(int rai, int ngan, int tarangwa) {
-        float sqMeter = (rai * SQUARE_METER_PER_RAI) + (ngan * SQUARE_METER_PER_NGAN) + (tarangwa * SQUARE_METER_PER_SQUARE_WA);
-        return Math.round(sqMeter);
-    }
-
-    public static int squareMeterToRai(int squareMeter) {
-        return squareMeter / SQUARE_METER_PER_RAI;
-    }
-
-    public static int squareMeterToNgan(int squareMeter) {
-        return (squareMeter % SQUARE_METER_PER_RAI) / SQUARE_METER_PER_NGAN;
-    }
-
-    public static int squareMeterToSquareWa(int squareMeter) {
-        float squareWa = (squareMeter % SQUARE_METER_PER_NGAN) / SQUARE_METER_PER_SQUARE_WA;
-        return Math.round(squareWa);
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        Area area = (Area) o;
-        return rai == area.rai && ngan == area.ngan && squareWa == area.squareWa;
-    }
-
-    @Override
-    public int hashCode() {
-        int result = rai;
-        result = 31 * result + ngan;
-        result = 31 * result + squareWa;
-        return result;
-    }
-
     private void extractToRaiNganSquareWa() {
-        rai = squareMeterToRai(sizeSquareMeter);
-        ngan = squareMeterToNgan(sizeSquareMeter);
-        squareWa = squareMeterToSquareWa(sizeSquareMeter);
+        rai = AreaConverter.squareMeterToRai(sizeSquareMeter);
+        ngan = AreaConverter.squareMeterToNgan(sizeSquareMeter);
+        squareWa = AreaConverter.squareMeterToSquareWa(sizeSquareMeter);
     }
 
     private void roundRaiNganSqaureWa() {
@@ -104,8 +57,34 @@ public class Area {
         }
     }
 
-    public int getSquareMeter() {
-        return sizeSquareMeter;
+    public static Area fromSquareMeter(int sqaureMeter) {
+        return new Area(sqaureMeter);
+    }
+
+    public static Area fromRaiNganSqaureWa(int rai, int ngan, int squareWa) {
+        return new Area(AreaConverter.RaiToSqMeter(rai, ngan, squareWa));
+    }
+
+    @Override
+    public int hashCode() {
+        int result = rai;
+        result = 31 * result + ngan;
+        result = 31 * result + squareWa;
+        return result;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Area area = (Area) o;
+        return rai == area.rai && ngan == area.ngan && squareWa == area.squareWa;
+    }
+
+    @Override
+    public String toString() {
+        return String.valueOf(getRai()) + "-" + getNgan() + "-" + getSquareWa();
     }
 
     public int getRai() {
@@ -120,13 +99,12 @@ public class Area {
         return squareWa;
     }
 
-    public String prettyPrint() {
-        return new PrettyPrinter().print();
+    public int getSquareMeter() {
+        return sizeSquareMeter;
     }
 
-    @Override
-    public String toString() {
-        return String.valueOf(getRai()) + "-" + getNgan() + "-" + getSquareWa();
+    public String prettyPrint() {
+        return new PrettyPrinter().print();
     }
 
     private class PrettyPrinter {
