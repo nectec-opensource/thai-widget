@@ -27,7 +27,7 @@ import th.or.nectec.domain.thai.Area;
 
 public class AreaPicker extends TextView implements AreaView, OnClickListener {
 
-    private static final String DEFAULT_MESSAGE = "ระบุขนาดพื้นที่";
+    protected static final String DEFAULT_MESSAGE = "ระบุขนาดพื้นที่";
     private AreaPopup pickerDialog;
     private Area area = new Area(0);
 
