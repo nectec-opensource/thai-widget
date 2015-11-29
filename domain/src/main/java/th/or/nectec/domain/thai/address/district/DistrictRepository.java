@@ -23,4 +23,5 @@ import th.or.nectec.entity.thai.District;
 
 public interface DistrictRepository {
     List<District> findByProvinceCode(String provinceCode);
+    District findByDistrictCode(String districtCode);
 }

@@ -68,4 +68,18 @@ public class JsonDistrictRepository implements DistrictRepository {
         }
         return queryDistrict.isEmpty() ? null : queryDistrict;
     }
+
+    @Override
+    public District findByDistrictCode(String districtCode) {
+        if (districtCode.length() != 4)
+            throw new InvalidCodeFormatException();
+
+        for (District eachDistrict : allDistrict) {
+            String queryDistrictCode = eachDistrict.getCode();
+            if (queryDistrictCode.startsWith(districtCode)) {
+                return eachDistrict;
+            }
+        }
+        return null;
+    }
 }
