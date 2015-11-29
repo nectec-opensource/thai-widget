@@ -17,9 +17,10 @@
 
 package th.or.nectec.domain.thai.address.subdistrict;
 
-import th.or.nectec.entity.thai.Address;
+import th.or.nectec.entity.thai.Subdistrict;
 
 public interface SubdistrictPresenter {
-    void showSubdistrictInfo(Address subdistrict);
+    void showSubdistrictInfo(Subdistrict subdistrict);
+
     void showNotFoundSubdistrict();
 }

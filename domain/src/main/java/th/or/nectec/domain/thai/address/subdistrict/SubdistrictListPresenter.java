@@ -19,9 +19,9 @@ package th.or.nectec.domain.thai.address.subdistrict;
 
 import java.util.List;
 
-import th.or.nectec.entity.thai.Address;
+import th.or.nectec.entity.thai.Subdistrict;
 
 public interface SubdistrictListPresenter {
-    void showSubdistrictList(List<Address> subdistricts);
+    void showSubdistrictList(List<Subdistrict> subdistricts);
     void showNotFoundSubdistrict();
 }

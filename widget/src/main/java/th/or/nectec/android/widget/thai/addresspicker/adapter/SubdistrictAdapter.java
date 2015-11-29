@@ -21,17 +21,18 @@ import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import th.or.nectec.android.widget.thai.R;
-import th.or.nectec.entity.thai.Address;
 
 import java.util.List;
+
+import th.or.nectec.android.widget.thai.R;
+import th.or.nectec.entity.thai.Subdistrict;
 
 /**
  * Created by N. Choatravee on 20/4/2558.
  */
-public class SubdistrictAdapter extends ThaiAddressAdapter<Address> {
+public class SubdistrictAdapter extends ThaiAddressAdapter<Subdistrict> {
 
-    public SubdistrictAdapter(Context context, List<Address> addressList) {
+    public SubdistrictAdapter(Context context, List<Subdistrict> addressList) {
         super(context, addressList);
     }
 
@@ -43,7 +44,7 @@ public class SubdistrictAdapter extends ThaiAddressAdapter<Address> {
 
         TextView text = (TextView) convertView;
 
-        text.setText(getItem(position).getSubdistrict());
+        text.setText(getItem(position).getName());
         return text;
     }
 }

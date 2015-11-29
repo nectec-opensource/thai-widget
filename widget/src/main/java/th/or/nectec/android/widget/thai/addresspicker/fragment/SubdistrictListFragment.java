@@ -29,27 +29,32 @@ import java.util.List;
 
 import th.or.nectec.android.widget.thai.R;
 import th.or.nectec.android.widget.thai.addresspicker.adapter.SubdistrictAdapter;
+import th.or.nectec.android.widget.thai.addresspicker.repository.JsonDistrictRepository;
+import th.or.nectec.android.widget.thai.addresspicker.repository.JsonProvinceRepository;
 import th.or.nectec.android.widget.thai.addresspicker.repository.JsonSubdistrictRepository;
+import th.or.nectec.domain.thai.address.AddressController;
+import th.or.nectec.domain.thai.address.AddressPresenter;
 import th.or.nectec.domain.thai.address.subdistrict.SubdistrictChooser;
 import th.or.nectec.domain.thai.address.subdistrict.SubdistrictListPresenter;
 import th.or.nectec.entity.thai.Address;
+import th.or.nectec.entity.thai.Subdistrict;
 
 
-public class SubdistrictListFragment extends Fragment {
+public class SubdistrictListFragment extends Fragment implements AddressPresenter {
 
     public static final String FRAGMENT_TAG = "subdistrict_list";
 
     private static final String DISTRICT_CODE = "district_code";
     ListView listView;
-    SubdistrictAdapter provinceAdapter;
+    SubdistrictAdapter subdistrictAdapter;
 
     String districtCode;
 
     SubdistrictChooser subdistrictChooser;
     SubdistrictListPresenter subdistrictListPresenter = new SubdistrictListPresenter() {
         @Override
-        public void showSubdistrictList(List<Address> districts) {
-            provinceAdapter = new SubdistrictAdapter(getActivity(), districts);
+        public void showSubdistrictList(List<Subdistrict> districts) {
+            subdistrictAdapter = new SubdistrictAdapter(getActivity(), districts);
         }
 
         @Override
@@ -57,6 +62,7 @@ public class SubdistrictListFragment extends Fragment {
             Toast.makeText(getActivity(), "ไม่พบตำบล", Toast.LENGTH_LONG).show();
         }
     };
+    private Address address;
 
     public SubdistrictListFragment() {
         // Required empty public constructor
@@ -85,7 +91,7 @@ public class SubdistrictListFragment extends Fragment {
         listView = (ListView) view.findViewById(R.id.picker_list);
         subdistrictChooser = new SubdistrictChooser(new JsonSubdistrictRepository(getActivity()), subdistrictListPresenter);
         subdistrictChooser.showSubdistrictListByDistrictCode(districtCode);
-        listView.setAdapter(provinceAdapter);
+        listView.setAdapter(subdistrictAdapter);
     }
 
     @Override
@@ -94,6 +100,23 @@ public class SubdistrictListFragment extends Fragment {
     }
 
     public Address getData() {
-        return listView.getCheckedItemPosition() == -1 ? null : provinceAdapter.getItem(listView.getCheckedItemPosition());
+        int checkedItemPosition = listView.getCheckedItemPosition();
+        if (listView.getCheckedItemPosition() == -1) {
+            return null;
+        } else {
+            AddressController addressController = new AddressController(new JsonSubdistrictRepository(getActivity()), new JsonDistrictRepository(getActivity()), new JsonProvinceRepository(getActivity()), this);
+            addressController.showByAddressCode(subdistrictAdapter.getItem(checkedItemPosition).getCode());
+            return address;
+        }
+    }
+
+    @Override
+    public void displayAddressInfo(Address address) {
+        this.address = address;
+    }
+
+    @Override
+    public void alertAddressNotFound() {
+
     }
 }

@@ -19,7 +19,7 @@ package th.or.nectec.domain.thai.address.subdistrict;
 
 import java.util.List;
 
-import th.or.nectec.entity.thai.Address;
+import th.or.nectec.entity.thai.Subdistrict;
 
 public class SubdistrictChooser {
     private final SubdistrictRepository subdistrictRepository;
@@ -31,7 +31,7 @@ public class SubdistrictChooser {
     }
 
     public void showSubdistrictListByDistrictCode(String districtCode) {
-        List<Address> subdistricts = subdistrictRepository.findByDistrictCode(districtCode);
+        List<Subdistrict> subdistricts = subdistrictRepository.findByDistrictCode(districtCode);
         if (subdistricts != null) {
             subdistrictListPresenter.showSubdistrictList(subdistricts);
         } else {

@@ -29,11 +29,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 import th.or.nectec.domain.thai.address.subdistrict.SubdistrictRepository;
-import th.or.nectec.entity.thai.Address;
+import th.or.nectec.entity.thai.InvalidCodeFormatException;
+import th.or.nectec.entity.thai.Subdistrict;
 
 public class JsonSubdistrictRepository implements SubdistrictRepository {
 
-    ArrayList<Address> allSubdistrict = new ArrayList<>();
+    ArrayList<Subdistrict> allSubdistrict = new ArrayList<>();
 
     public JsonSubdistrictRepository(Context context) {
         try {
@@ -43,8 +44,8 @@ public class JsonSubdistrictRepository implements SubdistrictRepository {
 
             reader.beginArray();
             while (reader.hasNext()) {
-                Address message = gson.fromJson(reader, Address.class);
-                allSubdistrict.add(message);
+                Subdistrict subdistrict = gson.fromJson(reader, Subdistrict.class);
+                allSubdistrict.add(subdistrict);
             }
             reader.endArray();
             reader.close();
@@ -54,13 +55,13 @@ public class JsonSubdistrictRepository implements SubdistrictRepository {
     }
 
     @Override
-    public List<Address> findByDistrictCode(String districtCode) {
-        String formattedDistrictCode = districtCode.length() == 6
-                ? districtCode.substring(0, 4) : districtCode;
-        List<Address> querySubdistrict = new ArrayList<>();
-        for (Address eachSubdistrict : allSubdistrict) {
-            String queryAddressCode = eachSubdistrict.getAddressCode();
-            if (queryAddressCode.startsWith(formattedDistrictCode)) {
+    public List<Subdistrict> findByDistrictCode(String districtCode) {
+        if (districtCode.length() != 4)
+            throw new InvalidCodeFormatException();
+        List<Subdistrict> querySubdistrict = new ArrayList<>();
+        for (Subdistrict eachSubdistrict : allSubdistrict) {
+            String queryAddressCode = eachSubdistrict.getDistrictCode();
+            if (queryAddressCode.equals(districtCode)) {
                 querySubdistrict.add(eachSubdistrict);
             }
         }
@@ -68,9 +69,9 @@ public class JsonSubdistrictRepository implements SubdistrictRepository {
     }
 
     @Override
-    public Address findByAddressCode(String addressCode) {
-        for (Address eachSubdistrict : allSubdistrict) {
-            String queryAddressCode = eachSubdistrict.getAddressCode();
+    public Subdistrict findByAddressCode(String addressCode) {
+        for (Subdistrict eachSubdistrict : allSubdistrict) {
+            String queryAddressCode = eachSubdistrict.getCode();
             if (queryAddressCode.equals(addressCode)) {
                 return eachSubdistrict;
             }
@@ -79,17 +80,13 @@ public class JsonSubdistrictRepository implements SubdistrictRepository {
     }
 
     @Override
-    public Address findByAddressInfo(String subdistrict, String district, String province) {
-        for (Address eachSubdistrict : allSubdistrict) {
-            String querySubdistrict = eachSubdistrict.getSubdistrict();
-            String queryDistrict = eachSubdistrict.getDistrict();
-            String queryProvince = eachSubdistrict.getProvince();
-            if (querySubdistrict.equals(subdistrict) && queryDistrict.equals(district) && queryProvince.equals(province)) {
-                return eachSubdistrict;
+    public ArrayList<Subdistrict> findByName(String subdistrict) {
+        ArrayList<Subdistrict> subdistricts = new ArrayList<>();
+        for (Subdistrict eachSubdistrict : allSubdistrict) {
+            if (eachSubdistrict.getName().equals(subdistrict)) {
+                subdistricts.add(eachSubdistrict);
             }
         }
-        return null;
+        return subdistricts.isEmpty() ? null : subdistricts;
     }
-
-
 }
