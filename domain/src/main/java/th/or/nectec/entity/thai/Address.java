@@ -90,13 +90,17 @@ public class Address {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        Address that = (Address) o;
+        Address address = (Address) o;
 
-        if (!addressCode.equals(that.addressCode)) return false;
-        if (!subdistrict.equals(that.subdistrict)) return false;
-        if (!district.equals(that.district)) return false;
-        if (!province.equals(that.province)) return false;
-        return postcode.equals(that.postcode);
+        if (!addressCode.equals(address.addressCode)) return false;
+        if (!subdistrict.equals(address.subdistrict)) return false;
+        if (!district.equals(address.district)) return false;
+        if (!province.equals(address.province)) return false;
+        if (postcode != null ? !postcode.equals(address.postcode) : address.postcode != null)
+            return false;
+        if (region != address.region) return false;
+
+        return true;
     }
 
     @Override
@@ -105,7 +109,8 @@ public class Address {
         result = 31 * result + subdistrict.hashCode();
         result = 31 * result + district.hashCode();
         result = 31 * result + province.hashCode();
-        result = 31 * result + postcode.hashCode();
+        result = 31 * result + (postcode != null ? postcode.hashCode() : 0);
+        result = 31 * result + region.hashCode();
         return result;
     }
 }
