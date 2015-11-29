@@ -22,35 +22,27 @@ import android.app.FragmentManager;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.Button;
+import android.widget.Toast;
 
 import th.or.nectec.android.widget.thai.AddressView;
 import th.or.nectec.android.widget.thai.OnAddressChangedListener;
 import th.or.nectec.android.widget.thai.R;
+import th.or.nectec.android.widget.thai.addresspicker.repository.JsonDistrictRepository;
+import th.or.nectec.android.widget.thai.addresspicker.repository.JsonProvinceRepository;
 import th.or.nectec.android.widget.thai.addresspicker.repository.JsonSubdistrictRepository;
 import th.or.nectec.domain.thai.ThaiAddressPrinter;
-import th.or.nectec.domain.thai.address.subdistrict.SubdistrictController;
-import th.or.nectec.domain.thai.address.subdistrict.SubdistrictPresenter;
+import th.or.nectec.domain.thai.address.AddressController;
+import th.or.nectec.domain.thai.address.AddressPresenter;
 import th.or.nectec.entity.thai.Address;
 
-public class AddressPicker extends Button implements AddressView, OnAddressChangedListener {
+public class AddressPicker extends Button implements AddressView, OnAddressChangedListener, AddressPresenter {
 
     Address address;
     Context context;
     Activity activity;
     AddressPickerDialogFragment addressPickerDialogFragment;
 
-    SubdistrictController subdistrictController;
-    SubdistrictPresenter subdistrictPresenter = new SubdistrictPresenter() {
-        @Override
-        public void showSubdistrictInfo(Address subdistrict) {
-            address = subdistrict;
-            setText(ThaiAddressPrinter.buildShortAddress(subdistrict.getSubdistrict(), subdistrict.getDistrict(), subdistrict.getProvince()));
-        }
-        @Override
-        public void showNotFoundSubdistrict() {
-
-        }
-    };
+    AddressController addressController;
 
     public AddressPicker(Context context) {
         super(context);
@@ -87,8 +79,7 @@ public class AddressPicker extends Button implements AddressView, OnAddressChang
 
         this.addressPickerDialogFragment.setOnAddressChangedListener(this);
 
-        subdistrictController = new SubdistrictController(new JsonSubdistrictRepository(getContext()), subdistrictPresenter);
-
+        addressController = new AddressController(new JsonSubdistrictRepository(context), new JsonDistrictRepository(context), new JsonProvinceRepository(context), this);
         setText("กรุณาระบุ ตำบล อำเภอ จังหวัด");
 
     }
@@ -114,12 +105,23 @@ public class AddressPicker extends Button implements AddressView, OnAddressChang
 
     @Override
     public void setAddressCode(String addressCode) {
-        subdistrictController.showSubDistrictInfoByAddressCode(addressCode);
+        addressController.showByAddressCode(addressCode);
     }
 
     @Override
     public void setAddress(String subdistrict, String district, String province) {
-        subdistrictController.showSubDistrictInfoByAddressData(subdistrict, district, province);
+        addressController.showByAddressInfo(subdistrict, district, province);
+    }
+
+    @Override
+    public void displayAddressInfo(Address address) {
+        this.address = address;
+        setText(ThaiAddressPrinter.buildShortAddress(address.getSubdistrict(), address.getDistrict(), address.getProvince()));
+    }
+
+    @Override
+    public void alertAddressNotFound() {
+        Toast.makeText(getContext(), "ไม่พบข้อมูลของที่อยู่", Toast.LENGTH_LONG).show();
     }
 
     @Override

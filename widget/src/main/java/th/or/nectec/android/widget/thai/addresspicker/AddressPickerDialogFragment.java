@@ -42,6 +42,8 @@ import th.or.nectec.android.widget.thai.addresspicker.repository.EnumRegionRepos
 import th.or.nectec.android.widget.thai.addresspicker.repository.JsonDistrictRepository;
 import th.or.nectec.android.widget.thai.addresspicker.repository.JsonProvinceRepository;
 import th.or.nectec.android.widget.thai.addresspicker.repository.JsonSubdistrictRepository;
+import th.or.nectec.domain.thai.address.AddressController;
+import th.or.nectec.domain.thai.address.AddressPresenter;
 import th.or.nectec.domain.thai.address.district.DistrictChooser;
 import th.or.nectec.domain.thai.address.district.DistrictPresenter;
 import th.or.nectec.domain.thai.address.province.ProvinceChooser;
@@ -54,12 +56,14 @@ import th.or.nectec.entity.thai.Address;
 import th.or.nectec.entity.thai.District;
 import th.or.nectec.entity.thai.Province;
 import th.or.nectec.entity.thai.Region;
+import th.or.nectec.entity.thai.Subdistrict;
 
 
-public class AddressPickerDialogFragment extends DialogFragment implements AddressPickerInterface, AdapterView.OnItemClickListener {
+public class AddressPickerDialogFragment extends DialogFragment
+        implements AddressPickerInterface, AdapterView.OnItemClickListener,
+        RegionPresenter, ProvincePresenter, DistrictPresenter, SubdistrictListPresenter, AddressPresenter {
 
     public static final String FRAGMENT_TAG = "address_dialog";
-
 
     private static final int SELECT_REGION = 0;
     private static final int SELECT_PROVINCE = 1;
@@ -67,72 +71,24 @@ public class AddressPickerDialogFragment extends DialogFragment implements Addre
     private static final int SELECT_SUBDISTRICT = 3;
     OnAddressChangedListener addressChangedListener;
     ListView listView;
-
-
-    private Address addressData;
-
     ArrayAdapter<String> regionAdapter;
-    RegionChooser regionChooser;
-    RegionPresenter regionPresenter = new RegionPresenter() {
-        @Override
-        public void showRegionList(List<Region> regions) {
-            List<String> regionStringList = mapToListOfString(regions);
-            regionAdapter = new ArrayAdapter<>(getActivity(), R.layout.address_picker_list_item, regionStringList);
-        }
-
-        @Override
-        public void showNotFoundRegion() {
-            Toast.makeText(getActivity(), "ไม่พบภูมิภาค", Toast.LENGTH_LONG).show();
-        }
-
-        public List<String> mapToListOfString(List<Region> regions) {
-            List<String> stringList = new ArrayList<>();
-            for (Region region : regions) {
-                stringList.add(region.toString());
-            }
-            return stringList;
-        }
-    };
+    RegionChooser regionChooser = new RegionChooser(new EnumRegionRepository(), this);
     DistrictAdapter districtAdapter;
     DistrictChooser districtChooser;
-    DistrictPresenter districtPresenter = new DistrictPresenter() {
-        @Override
-        public void showDistrictList(List<District> districts) {
-            districtAdapter = new DistrictAdapter(getActivity(), districts);
-        }
-
-        @Override
-        public void showNotFoundDistrict() {
-            Toast.makeText(getActivity(), "ไม่พบอำเภอ", Toast.LENGTH_LONG).show();
-        }
-    };
     ProvinceAdapter provinceAdapter;
     ProvinceChooser provinceChooser;
-    ProvincePresenter provincePresenter = new ProvincePresenter() {
-        @Override
-        public void showProvinceList(List<Province> provinces) {
-            provinceAdapter = new ProvinceAdapter(getActivity(), provinces);
-        }
-
-        @Override
-        public void showNotFoundProvince() {
-            Toast.makeText(getActivity(), "ไม่พบจังหวัด", Toast.LENGTH_LONG).show();
-        }
-    };
     SubdistrictAdapter subdistrictAdapter;
     SubdistrictChooser subdistrictChooser;
-    SubdistrictListPresenter subdistrictListPresenter = new SubdistrictListPresenter() {
-        @Override
-        public void showSubdistrictList(List<Address> districts) {
-            subdistrictAdapter = new SubdistrictAdapter(getActivity(), districts);
-        }
+    private Address addressData;
+    private JsonProvinceRepository jsonProvinceRepository;
+    private JsonDistrictRepository jsonDistrictRepository;
+    private JsonSubdistrictRepository jsonSubdistrictRepository;
+    private Subdistrict subdistrictData;
+    private District districtData;
+    private Province provinceData;
 
-        @Override
-        public void showNotFoundSubdistrict() {
-            Toast.makeText(getActivity(), "ไม่พบตำบล", Toast.LENGTH_LONG).show();
-        }
-    };
     private int currentState = SELECT_REGION;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -146,50 +102,105 @@ public class AddressPickerDialogFragment extends DialogFragment implements Addre
         listView = (ListView) view.findViewById(R.id.picker_list);
         listView.setOnItemClickListener(this);
 
+        setupRepository();
         bringToRegionList();
+    }
+
+    private void setupRepository() {
+        jsonProvinceRepository = new JsonProvinceRepository(getActivity());
+        jsonDistrictRepository = new JsonDistrictRepository(getActivity());
+        jsonSubdistrictRepository = new JsonSubdistrictRepository(getActivity());
     }
 
     @Override
     public void bringToRegionList() {
         getDialog().setTitle(R.string.choose_region);
-        regionChooser = new RegionChooser(new EnumRegionRepository(), regionPresenter);
         regionChooser.showRegionList();
         listView.setAdapter(regionAdapter);
         currentState = SELECT_REGION;
     }
 
     @Override
+    public void showRegionList(List<Region> regions) {
+        List<String> regionStringList = mapToListOfString(regions);
+        regionAdapter = new ArrayAdapter<>(getActivity(), R.layout.address_picker_list_item, regionStringList);
+    }
+
+    @Override
+    public void showNotFoundRegion() {
+        Toast.makeText(getActivity(), "ไม่พบภูมิภาค", Toast.LENGTH_LONG).show();
+    }
+
+    public List<String> mapToListOfString(List<Region> regions) {
+        List<String> stringList = new ArrayList<>();
+        for (Region region : regions) {
+            stringList.add(region.toString());
+        }
+        return stringList;
+    }
+
+
+    @Override
     public void bringToProvinceList(String region) {
+        provinceChooser = new ProvinceChooser(jsonProvinceRepository, this);
         getDialog().setTitle(R.string.choose_province);
-        provinceChooser = new ProvinceChooser(new JsonProvinceRepository(getActivity()), provincePresenter);
         provinceChooser.showProvinceListByRegion(Region.fromName(region));
         listView.setAdapter(provinceAdapter);
         currentState = SELECT_PROVINCE;
     }
 
     @Override
+    public void showProvinceList(List<Province> provinces) {
+        provinceAdapter = new ProvinceAdapter(getActivity(), provinces);
+    }
+
+    @Override
+    public void showNotFoundProvince() {
+        Toast.makeText(getActivity(), "ไม่พบจังหวัด", Toast.LENGTH_LONG).show();
+    }
+
+    @Override
     public void bringToDistrictList(String provinceCode) {
+        districtChooser = new DistrictChooser(jsonDistrictRepository, this);
         getDialog().setTitle(R.string.choose_district);
-        districtChooser = new DistrictChooser(new JsonDistrictRepository(getActivity()), districtPresenter);
         districtChooser.showDistrictListByProvinceCode(provinceCode);
         listView.setAdapter(districtAdapter);
         currentState = SELECT_DISTRICT;
     }
 
     @Override
+    public void showDistrictList(List<District> districts) {
+        districtAdapter = new DistrictAdapter(getActivity(), districts);
+    }
+
+    @Override
+    public void showNotFoundDistrict() {
+        Toast.makeText(getActivity(), "ไม่พบอำเภอ", Toast.LENGTH_LONG).show();
+    }
+
+    @Override
     public void bringToSubdistrictList(String districtCode) {
+        subdistrictChooser = new SubdistrictChooser(jsonSubdistrictRepository, this);
         getDialog().setTitle(R.string.choose_subdistrict);
-        subdistrictChooser = new SubdistrictChooser(new JsonSubdistrictRepository(getActivity()), subdistrictListPresenter);
         subdistrictChooser.showSubdistrictListByDistrictCode(districtCode);
         listView.setAdapter(subdistrictAdapter);
         currentState = SELECT_SUBDISTRICT;
     }
 
     @Override
+    public void showSubdistrictList(List<Subdistrict> subdistricts) {
+        subdistrictAdapter = new SubdistrictAdapter(getActivity(), subdistricts);
+    }
+
+    @Override
+    public void showNotFoundSubdistrict() {
+        Toast.makeText(getActivity(), "ไม่พบตำบล", Toast.LENGTH_LONG).show();
+    }
+
+    @Override
     public void bringAddressValueToAddressView(Address addressData) {
         if (addressChangedListener != null) {
             addressChangedListener.onAddressChanged(addressData);
-
         }
         dismiss();
     }
@@ -204,7 +215,10 @@ public class AddressPickerDialogFragment extends DialogFragment implements Addre
             @Override
             public void run() {
                 addressData = address;
-                bringToSubdistrictList(address.getAddressCode().substring(0, 4));
+                subdistrictData = new Subdistrict(address.getAddressCode(), address.getSubdistrict());
+                districtData = new District(address.getDistrictCode(), address.getDistrict());
+                provinceData = new Province(address.getProvinceCode(), address.getProvince(), address.getRegion());
+                bringToSubdistrictList(address.getDistrictCode());
             }
         });
     }
@@ -214,15 +228,26 @@ public class AddressPickerDialogFragment extends DialogFragment implements Addre
         if (currentState == SELECT_REGION) {
             bringToProvinceList(regionAdapter.getItem(position));
         } else if (currentState == SELECT_PROVINCE) {
-            Province provinceData = provinceAdapter.getItem(position);
+            provinceData = provinceAdapter.getItem(position);
             bringToDistrictList(provinceData.getCode());
         } else if (currentState == SELECT_DISTRICT) {
-            District districtData = districtAdapter.getItem(position);
+            districtData = districtAdapter.getItem(position);
             bringToSubdistrictList(districtData.getCode());
         } else if (currentState == SELECT_SUBDISTRICT) {
-            addressData = subdistrictAdapter.getItem(position);
-            bringAddressValueToAddressView(addressData);
+            subdistrictData = subdistrictAdapter.getItem(position);
+            AddressController addressController = new AddressController(jsonSubdistrictRepository, jsonDistrictRepository, jsonProvinceRepository, this);
+            addressController.showByAddressCode(subdistrictData.getCode());
         }
+    }
+
+    @Override
+    public void displayAddressInfo(Address address) {
+        bringAddressValueToAddressView(address);
+    }
+
+    @Override
+    public void alertAddressNotFound() {
+        Toast.makeText(getActivity(), "ไม่พบข้อมูลที่อยู่", Toast.LENGTH_LONG).show();
     }
 
     @Override
@@ -235,9 +260,9 @@ public class AddressPickerDialogFragment extends DialogFragment implements Addre
                 } else if (currentState == SELECT_PROVINCE) {
                     bringToRegionList();
                 } else if (currentState == SELECT_DISTRICT) {
-                    bringToProvinceList(addressData.getRegion().toString());
+                    bringToProvinceList(provinceData.getRegion().toString());
                 } else if (currentState == SELECT_SUBDISTRICT) {
-                    bringToDistrictList(addressData.getAddressCode().substring(0,2));
+                    bringToDistrictList(districtData.getProvinceCode());
                 }
             }
         };
