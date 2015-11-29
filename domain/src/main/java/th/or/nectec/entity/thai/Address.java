@@ -53,6 +53,14 @@ public class Address {
         this.addressCode = addressCode;
     }
 
+    public String getDistrictCode() {
+        return addressCode.substring(0, 4);
+    }
+
+    public String getProvinceCode() {
+        return addressCode.substring(0, 2);
+    }
+
     public String getSubdistrict() {
         return subdistrict;
     }
