@@ -23,37 +23,19 @@ import th.or.nectec.entity.thai.Address;
 
 public class SubdistrictChooser {
     private final SubdistrictRepository subdistrictRepository;
-    private final SubdistrictPresenter subdistrictPresenter;
+    private final SubdistrictListPresenter subdistrictListPresenter;
 
-    public SubdistrictChooser(SubdistrictRepository subdistrictRepository, SubdistrictPresenter subdistrictPresenter) {
+    public SubdistrictChooser(SubdistrictRepository subdistrictRepository, SubdistrictListPresenter subdistrictListPresenter) {
         this.subdistrictRepository = subdistrictRepository;
-        this.subdistrictPresenter = subdistrictPresenter;
+        this.subdistrictListPresenter = subdistrictListPresenter;
     }
 
     public void showSubdistrictListByDistrictCode(String districtCode) {
         List<Address> subdistricts = subdistrictRepository.findByDistrictCode(districtCode);
         if (subdistricts != null) {
-            subdistrictPresenter.showSubdistrictList(subdistricts);
+            subdistrictListPresenter.showSubdistrictList(subdistricts);
         } else {
-            subdistrictPresenter.showNotFoundSubdistrict();
-        }
-    }
-
-    public void showSubDistrictInfoByAddressCode(String addressCode) {
-        Address addressInfo = subdistrictRepository.findByAddressCode(addressCode);
-        if (addressInfo != null) {
-            subdistrictPresenter.showSubdistrictInfo(addressInfo);
-        } else {
-            subdistrictPresenter.showNotFoundSubdistrict();
-        }
-    }
-
-    public void showSubDistrictInfoByAddressData(String subdistrict, String district, String province) {
-        Address addressInfo = subdistrictRepository.findByAddressInfo(subdistrict, district, province);
-        if (addressInfo != null) {
-            subdistrictPresenter.showSubdistrictInfo(addressInfo);
-        } else {
-            subdistrictPresenter.showNotFoundSubdistrict();
+            subdistrictListPresenter.showNotFoundSubdistrict();
         }
     }
 }
