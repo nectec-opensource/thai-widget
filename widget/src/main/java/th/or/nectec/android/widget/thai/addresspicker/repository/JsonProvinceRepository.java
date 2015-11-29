@@ -18,18 +18,19 @@
 package th.or.nectec.android.widget.thai.addresspicker.repository;
 
 import android.content.Context;
+
 import com.google.gson.Gson;
 import com.google.gson.stream.JsonReader;
-import th.or.nectec.domain.thai.address.province.ProvinceRepository;
-import th.or.nectec.entity.thai.Address;
-import th.or.nectec.entity.thai.Province;
-import th.or.nectec.entity.thai.Region;
 
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
+
+import th.or.nectec.domain.thai.address.province.ProvinceRepository;
+import th.or.nectec.entity.thai.Province;
+import th.or.nectec.entity.thai.Region;
 
 /**
  * Created by N. Choatravee on 5/11/2558.
@@ -60,11 +61,20 @@ public class JsonProvinceRepository implements ProvinceRepository {
     public List<Province> findByRegion(Region targetRegion) {
         List<Province> queryProvince = new ArrayList<>();
         for (Province eachProvince : allProvince) {
-
             if (eachProvince.getRegion().equals(targetRegion)) {
                 queryProvince.add(eachProvince);
             }
         }
         return queryProvince.isEmpty() ? null : queryProvince;
+    }
+
+    @Override
+    public Province findByProvinceCode(String provinceCode) {
+        for (Province eachProvince : allProvince) {
+            if (eachProvince.getCode().equals(provinceCode)) {
+                return eachProvince;
+            }
+        }
+        return null;
     }
 }

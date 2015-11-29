@@ -17,12 +17,13 @@
 
 package th.or.nectec.domain.thai.address.province;
 
+import java.util.List;
+
 import th.or.nectec.entity.thai.Province;
 import th.or.nectec.entity.thai.Region;
-
-import java.util.List;
 
 
 public interface ProvinceRepository {
     List<Province> findByRegion(Region region);
+    Province findByProvinceCode(String provinceCode);
 }
