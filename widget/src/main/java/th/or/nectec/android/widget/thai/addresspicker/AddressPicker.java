@@ -23,14 +23,12 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.Button;
 
-import java.util.List;
-
 import th.or.nectec.android.widget.thai.AddressView;
 import th.or.nectec.android.widget.thai.OnAddressChangedListener;
 import th.or.nectec.android.widget.thai.R;
 import th.or.nectec.android.widget.thai.addresspicker.repository.JsonSubdistrictRepository;
 import th.or.nectec.domain.thai.ThaiAddressPrinter;
-import th.or.nectec.domain.thai.address.subdistrict.SubdistrictChooser;
+import th.or.nectec.domain.thai.address.subdistrict.SubdistrictController;
 import th.or.nectec.domain.thai.address.subdistrict.SubdistrictPresenter;
 import th.or.nectec.entity.thai.Address;
 
@@ -41,19 +39,13 @@ public class AddressPicker extends Button implements AddressView, OnAddressChang
     Activity activity;
     AddressPickerDialogFragment addressPickerDialogFragment;
 
-    SubdistrictChooser subdistrictChooser;
+    SubdistrictController subdistrictController;
     SubdistrictPresenter subdistrictPresenter = new SubdistrictPresenter() {
-        @Override
-        public void showSubdistrictList(List<Address> subdistrict) {
-
-        }
-
         @Override
         public void showSubdistrictInfo(Address subdistrict) {
             address = subdistrict;
             setText(ThaiAddressPrinter.buildShortAddress(subdistrict.getSubdistrict(), subdistrict.getDistrict(), subdistrict.getProvince()));
         }
-
         @Override
         public void showNotFoundSubdistrict() {
 
@@ -95,7 +87,7 @@ public class AddressPicker extends Button implements AddressView, OnAddressChang
 
         this.addressPickerDialogFragment.setOnAddressChangedListener(this);
 
-        subdistrictChooser = new SubdistrictChooser(new JsonSubdistrictRepository(getContext()), subdistrictPresenter);
+        subdistrictController = new SubdistrictController(new JsonSubdistrictRepository(getContext()), subdistrictPresenter);
 
         setText("กรุณาระบุ ตำบล อำเภอ จังหวัด");
 
@@ -122,12 +114,12 @@ public class AddressPicker extends Button implements AddressView, OnAddressChang
 
     @Override
     public void setAddressCode(String addressCode) {
-        subdistrictChooser.showSubDistrictInfoByAddressCode(addressCode);
+        subdistrictController.showSubDistrictInfoByAddressCode(addressCode);
     }
 
     @Override
     public void setAddress(String subdistrict, String district, String province) {
-        subdistrictChooser.showSubDistrictInfoByAddressData(subdistrict, district, province);
+        subdistrictController.showSubDistrictInfoByAddressData(subdistrict, district, province);
     }
 
     @Override

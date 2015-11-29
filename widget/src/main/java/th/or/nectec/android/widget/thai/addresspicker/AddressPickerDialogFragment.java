@@ -49,7 +49,7 @@ import th.or.nectec.domain.thai.address.province.ProvincePresenter;
 import th.or.nectec.domain.thai.address.region.RegionChooser;
 import th.or.nectec.domain.thai.address.region.RegionPresenter;
 import th.or.nectec.domain.thai.address.subdistrict.SubdistrictChooser;
-import th.or.nectec.domain.thai.address.subdistrict.SubdistrictPresenter;
+import th.or.nectec.domain.thai.address.subdistrict.SubdistrictListPresenter;
 import th.or.nectec.entity.thai.Address;
 import th.or.nectec.entity.thai.Province;
 import th.or.nectec.entity.thai.Region;
@@ -77,7 +77,7 @@ public class AddressPickerDialogFragment extends DialogFragment implements Addre
         @Override
         public void showRegionList(List<Region> regions) {
             List<String> regionStringList = mapToListOfString(regions);
-            regionAdapter = new ArrayAdapter(getActivity(), R.layout.address_picker_list_item, regionStringList);
+            regionAdapter = new ArrayAdapter<>(getActivity(), R.layout.address_picker_list_item, regionStringList);
         }
 
         @Override
@@ -121,15 +121,10 @@ public class AddressPickerDialogFragment extends DialogFragment implements Addre
     };
     SubdistrictAdapter subdistrictAdapter;
     SubdistrictChooser subdistrictChooser;
-    SubdistrictPresenter subdistrictPresenter = new SubdistrictPresenter() {
+    SubdistrictListPresenter subdistrictListPresenter = new SubdistrictListPresenter() {
         @Override
         public void showSubdistrictList(List<Address> districts) {
             subdistrictAdapter = new SubdistrictAdapter(getActivity(), districts);
-        }
-
-        @Override
-        public void showSubdistrictInfo(Address subdistrict) {
-
         }
 
         @Override
@@ -185,7 +180,7 @@ public class AddressPickerDialogFragment extends DialogFragment implements Addre
     @Override
     public void bringToSubdistrictList(String districtCode) {
         getDialog().setTitle(R.string.choose_subdistrict);
-        subdistrictChooser = new SubdistrictChooser(new JsonSubdistrictRepository(getActivity()), subdistrictPresenter);
+        subdistrictChooser = new SubdistrictChooser(new JsonSubdistrictRepository(getActivity()), subdistrictListPresenter);
         subdistrictChooser.showSubdistrictListByDistrictCode(districtCode);
         listView.setAdapter(subdistrictAdapter);
         currentState = SELECT_SUBDISTRICT;
