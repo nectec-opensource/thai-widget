@@ -58,7 +58,4 @@ public class Province {
     public void setRegion(Region region) {
         this.region = region;
     }
-
-    public class InvalidCodeFormatException extends RuntimeException {
-    }
 }

@@ -34,7 +34,7 @@ public class ProvinceTest {
     }
 
 
-    @Test(expected = Province.InvalidCodeFormatException.class)
+    @Test(expected = InvalidCodeFormatException.class)
     public void setInvalidProvinceCode() {
         Province bangkok = new Province("10", "กรุงเทพมหานคร", Region.CENTER);
         bangkok.setCode("102");
