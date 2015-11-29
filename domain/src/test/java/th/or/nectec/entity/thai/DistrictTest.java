@@ -25,7 +25,6 @@ import static org.junit.Assert.assertEquals;
 
 public class DistrictTest {
 
-
     private District bangkok;
 
     @Before
@@ -44,5 +43,10 @@ public class DistrictTest {
     public void getField() throws Exception {
         assertEquals("1001", bangkok.getCode());
         assertEquals("พระนคร", bangkok.getName());
+    }
+
+    @Test
+    public void getProvinceCode() throws Exception {
+        assertEquals("10", bangkok.getProvinceCode());
     }
 }

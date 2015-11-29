@@ -71,4 +71,8 @@ public class District {
         result = 31 * result + name.hashCode();
         return result;
     }
+
+    public String getProvinceCode() {
+        return code.substring(0,2);
+    }
 }
