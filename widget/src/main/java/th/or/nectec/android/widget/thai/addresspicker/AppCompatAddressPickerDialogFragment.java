@@ -146,8 +146,8 @@ public class AppCompatAddressPickerDialogFragment extends DialogFragment impleme
             if (districtListFragment.getData() == null) {
                 Toast.makeText(getActivity(), "ไปเลือกอำเภอก่อนเลย", Toast.LENGTH_LONG).show();
             } else {
-                Toast.makeText(getActivity(), districtListFragment.getData().getDistrict(), Toast.LENGTH_LONG).show();
-                subdistrictListFragment = SubdistrictListFragment.newInstance(districtListFragment.getData().getAddressCode());
+                Toast.makeText(getActivity(), districtListFragment.getData().getName(), Toast.LENGTH_LONG).show();
+                subdistrictListFragment = SubdistrictListFragment.newInstance(districtListFragment.getData().getCode());
                 fragmentManager.beginTransaction()
                         .replace(R.id.container, subdistrictListFragment, SubdistrictListFragment.FRAGMENT_TAG)
                         .addToBackStack(null)

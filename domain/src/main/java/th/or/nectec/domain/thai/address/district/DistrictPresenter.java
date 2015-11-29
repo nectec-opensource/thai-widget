@@ -17,15 +17,12 @@
 
 package th.or.nectec.domain.thai.address.district;
 
-import th.or.nectec.entity.thai.Address;
-
 import java.util.List;
 
-/**
- * Created by N. Choatravee on 5/11/2558.
- */
+import th.or.nectec.entity.thai.District;
+
 public interface DistrictPresenter {
-    void showDistrictList(List<Address> province);
+    void showDistrictList(List<District> province);
 
     void showNotFoundDistrict();
 }

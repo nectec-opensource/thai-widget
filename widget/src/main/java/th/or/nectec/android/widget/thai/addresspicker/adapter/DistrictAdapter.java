@@ -23,12 +23,13 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import th.or.nectec.android.widget.thai.R;
 import th.or.nectec.entity.thai.Address;
+import th.or.nectec.entity.thai.District;
 
 import java.util.List;
 
-public class DistrictAdapter extends ThaiAddressAdapter<Address> {
+public class DistrictAdapter extends ThaiAddressAdapter<District> {
 
-    public DistrictAdapter(Context context, List<Address> addressList) {
+    public DistrictAdapter(Context context, List<District> addressList) {
         super(context, addressList);
     }
 
@@ -40,7 +41,7 @@ public class DistrictAdapter extends ThaiAddressAdapter<Address> {
 
         TextView text = (TextView) convertView;
 
-        text.setText(getItem(position).getDistrict());
+        text.setText(getItem(position).getName());
         return text;
     }
 }

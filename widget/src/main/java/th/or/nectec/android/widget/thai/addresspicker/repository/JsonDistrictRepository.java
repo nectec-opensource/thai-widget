@@ -29,14 +29,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 import th.or.nectec.domain.thai.address.district.DistrictRepository;
-import th.or.nectec.entity.thai.Address;
+import th.or.nectec.entity.thai.District;
+import th.or.nectec.entity.thai.InvalidCodeFormatException;
 
-/**
- * Created by N. Choatravee on 5/11/2558.
- */
 public class JsonDistrictRepository implements DistrictRepository {
 
-    ArrayList<Address> allDistrict = new ArrayList<>();
+    ArrayList<District> allDistrict = new ArrayList<>();
 
     public JsonDistrictRepository(Context context) {
         try {
@@ -46,7 +44,7 @@ public class JsonDistrictRepository implements DistrictRepository {
 
             reader.beginArray();
             while (reader.hasNext()) {
-                Address message = gson.fromJson(reader, Address.class);
+                District message = gson.fromJson(reader, District.class);
                 allDistrict.add(message);
             }
             reader.endArray();
@@ -57,18 +55,17 @@ public class JsonDistrictRepository implements DistrictRepository {
     }
 
     @Override
-    public List<Address> findByProvinceCode(String provinceCode) {
-        String formattedProvinceCode = provinceCode.length() >= 4
-                ? provinceCode.substring(0,2)
-                : provinceCode;
-        List<Address> queryProvince = new ArrayList<>();
-        for (Address eachProvince : allDistrict) {
-            String queryAddressCode = eachProvince.getAddressCode();
+    public List<District> findByProvinceCode(String provinceCode) {
+        if (provinceCode.length() != 2)
+            throw new InvalidCodeFormatException();
 
-            if (queryAddressCode.startsWith(formattedProvinceCode)) {
-                queryProvince.add(eachProvince);
+        List<District> queryDistrict = new ArrayList<>();
+        for (District eachDistrict : allDistrict) {
+            String queryDistrictCode = eachDistrict.getCode();
+            if (queryDistrictCode.startsWith(provinceCode)) {
+                queryDistrict.add(eachDistrict);
             }
         }
-        return queryProvince.isEmpty() ? null : queryProvince;
+        return queryDistrict.isEmpty() ? null : queryDistrict;
     }
 }

@@ -33,6 +33,7 @@ import th.or.nectec.android.widget.thai.addresspicker.repository.JsonDistrictRep
 import th.or.nectec.domain.thai.address.district.DistrictChooser;
 import th.or.nectec.domain.thai.address.district.DistrictPresenter;
 import th.or.nectec.entity.thai.Address;
+import th.or.nectec.entity.thai.District;
 
 
 public class DistrictListFragment extends Fragment {
@@ -48,7 +49,7 @@ public class DistrictListFragment extends Fragment {
     DistrictChooser districtChooser;
     DistrictPresenter districtPresenter = new DistrictPresenter() {
         @Override
-        public void showDistrictList(List<Address> districts) {
+        public void showDistrictList(List<District> districts) {
             provinceAdapter = new DistrictAdapter(getActivity(), districts);
         }
 
@@ -93,7 +94,7 @@ public class DistrictListFragment extends Fragment {
         super.onActivityCreated(savedInstanceState);
     }
 
-    public Address getData() {
+    public District getData() {
         return listView.getCheckedItemPosition() == -1 ? null : provinceAdapter.getItem(listView.getCheckedItemPosition());
     }
 }

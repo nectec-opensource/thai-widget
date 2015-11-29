@@ -51,6 +51,7 @@ import th.or.nectec.domain.thai.address.region.RegionPresenter;
 import th.or.nectec.domain.thai.address.subdistrict.SubdistrictChooser;
 import th.or.nectec.domain.thai.address.subdistrict.SubdistrictListPresenter;
 import th.or.nectec.entity.thai.Address;
+import th.or.nectec.entity.thai.District;
 import th.or.nectec.entity.thai.Province;
 import th.or.nectec.entity.thai.Region;
 
@@ -68,8 +69,7 @@ public class AddressPickerDialogFragment extends DialogFragment implements Addre
     ListView listView;
 
 
-    Province provinceData;
-    Address addressData;
+    private Address addressData;
 
     ArrayAdapter<String> regionAdapter;
     RegionChooser regionChooser;
@@ -97,7 +97,7 @@ public class AddressPickerDialogFragment extends DialogFragment implements Addre
     DistrictChooser districtChooser;
     DistrictPresenter districtPresenter = new DistrictPresenter() {
         @Override
-        public void showDistrictList(List<Address> districts) {
+        public void showDistrictList(List<District> districts) {
             districtAdapter = new DistrictAdapter(getActivity(), districts);
         }
 
@@ -133,7 +133,6 @@ public class AddressPickerDialogFragment extends DialogFragment implements Addre
         }
     };
     private int currentState = SELECT_REGION;
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -215,11 +214,11 @@ public class AddressPickerDialogFragment extends DialogFragment implements Addre
         if (currentState == SELECT_REGION) {
             bringToProvinceList(regionAdapter.getItem(position));
         } else if (currentState == SELECT_PROVINCE) {
-            provinceData = provinceAdapter.getItem(position);
+            Province provinceData = provinceAdapter.getItem(position);
             bringToDistrictList(provinceData.getCode());
         } else if (currentState == SELECT_DISTRICT) {
-            addressData = districtAdapter.getItem(position);
-            bringToSubdistrictList(addressData.getAddressCode());
+            District districtData = districtAdapter.getItem(position);
+            bringToSubdistrictList(districtData.getCode());
         } else if (currentState == SELECT_SUBDISTRICT) {
             addressData = subdistrictAdapter.getItem(position);
             bringAddressValueToAddressView(addressData);
@@ -238,7 +237,7 @@ public class AddressPickerDialogFragment extends DialogFragment implements Addre
                 } else if (currentState == SELECT_DISTRICT) {
                     bringToProvinceList(addressData.getRegion().toString());
                 } else if (currentState == SELECT_SUBDISTRICT) {
-                    bringToDistrictList(addressData.getAddressCode());
+                    bringToDistrictList(addressData.getAddressCode().substring(0,2));
                 }
             }
         };
