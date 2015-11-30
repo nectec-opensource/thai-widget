@@ -87,8 +87,7 @@ public class ProvinceListFragment extends Fragment {
 
     private Region getRegionFromArguments() {
         String regionName = getArguments().getString(REGION);
-        Region region = Region.fromName(regionName);
-        return region;
+        return Region.fromName(regionName);
     }
 
     @Override

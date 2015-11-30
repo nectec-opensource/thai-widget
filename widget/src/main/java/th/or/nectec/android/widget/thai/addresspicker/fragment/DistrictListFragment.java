@@ -32,7 +32,6 @@ import th.or.nectec.android.widget.thai.addresspicker.adapter.DistrictAdapter;
 import th.or.nectec.android.widget.thai.addresspicker.repository.JsonDistrictRepository;
 import th.or.nectec.domain.thai.address.district.DistrictChooser;
 import th.or.nectec.domain.thai.address.district.DistrictPresenter;
-import th.or.nectec.entity.thai.Address;
 import th.or.nectec.entity.thai.District;
 
 
@@ -82,7 +81,6 @@ public class DistrictListFragment extends Fragment {
 
     private void initInstances(View view) {
         provinceCode = getArguments().getString(PROVINCE_CODE);
-
         listView = (ListView) view.findViewById(R.id.picker_list);
         districtChooser = new DistrictChooser(new JsonDistrictRepository(getActivity()), districtPresenter);
         districtChooser.showDistrictListByProvinceCode(provinceCode);
