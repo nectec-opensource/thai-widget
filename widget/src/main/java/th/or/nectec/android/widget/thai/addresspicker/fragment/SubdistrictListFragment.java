@@ -23,16 +23,19 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.List;
 
 import th.or.nectec.android.widget.thai.R;
 import th.or.nectec.android.widget.thai.addresspicker.adapter.SubdistrictAdapter;
+import th.or.nectec.android.widget.thai.addresspicker.repository.JsonDistrictRepository;
+import th.or.nectec.android.widget.thai.addresspicker.repository.JsonProvinceRepository;
 import th.or.nectec.android.widget.thai.addresspicker.repository.JsonSubdistrictRepository;
 import th.or.nectec.domain.thai.address.subdistrict.SubdistrictChooser;
 import th.or.nectec.domain.thai.address.subdistrict.SubdistrictListPresenter;
-import th.or.nectec.entity.thai.Address;
+import th.or.nectec.entity.thai.District;
 import th.or.nectec.entity.thai.Subdistrict;
 
 
@@ -41,13 +44,12 @@ public class SubdistrictListFragment extends Fragment {
     public static final String FRAGMENT_TAG = "subdistrict_list";
 
     private static final String DISTRICT_CODE = "district_code";
-    ListView listView;
-    SubdistrictAdapter subdistrictAdapter;
+    private ListView listView;
+    private TextView addressInfo;
+    private SubdistrictAdapter subdistrictAdapter;
 
-    String districtCode;
-
-    SubdistrictChooser subdistrictChooser;
-    SubdistrictListPresenter subdistrictListPresenter = new SubdistrictListPresenter() {
+    private SubdistrictChooser subdistrictChooser;
+    private SubdistrictListPresenter subdistrictListPresenter = new SubdistrictListPresenter() {
         @Override
         public void showSubdistrictList(List<Subdistrict> districts) {
             subdistrictAdapter = new SubdistrictAdapter(getActivity(), districts);
@@ -58,11 +60,6 @@ public class SubdistrictListFragment extends Fragment {
             Toast.makeText(getActivity(), "ไม่พบตำบล", Toast.LENGTH_LONG).show();
         }
     };
-    private Address address;
-
-    public SubdistrictListFragment() {
-        // Required empty public constructor
-    }
 
     public static SubdistrictListFragment newInstance(String provinceCode) {
         SubdistrictListFragment fragment = new SubdistrictListFragment();
@@ -77,17 +74,26 @@ public class SubdistrictListFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_address_list_picker, container, false);
         initInstances(view);
-
+        setupStageHeader();
         return view;
     }
 
     private void initInstances(View view) {
-        districtCode = getArguments().getString(DISTRICT_CODE);
-
+        addressInfo = (TextView) view.findViewById(R.id.address_info);
         listView = (ListView) view.findViewById(R.id.picker_list);
         subdistrictChooser = new SubdistrictChooser(new JsonSubdistrictRepository(getActivity()), subdistrictListPresenter);
-        subdistrictChooser.showSubdistrictListByDistrictCode(districtCode);
+        subdistrictChooser.showSubdistrictListByDistrictCode(getDistrictCode());
         listView.setAdapter(subdistrictAdapter);
+    }
+
+    private String getDistrictCode() {
+        return getArguments().getString(DISTRICT_CODE);
+    }
+
+    private void setupStageHeader() {
+        District district = new JsonDistrictRepository(getActivity()).findByDistrictCode(getDistrictCode());
+        String province = new JsonProvinceRepository(getActivity()).findByProvinceCode(district.getProvinceCode()).getName();
+        addressInfo.setText(String.format(getResources().getString(R.string.breadcrumb_text), province, district.getName()));
     }
 
     @Override

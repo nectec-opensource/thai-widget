@@ -24,15 +24,17 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
+
+import java.util.ArrayList;
+import java.util.List;
+
 import th.or.nectec.android.widget.thai.R;
 import th.or.nectec.android.widget.thai.addresspicker.repository.EnumRegionRepository;
 import th.or.nectec.domain.thai.address.region.RegionChooser;
 import th.or.nectec.domain.thai.address.region.RegionPresenter;
 import th.or.nectec.entity.thai.Region;
-
-import java.util.ArrayList;
-import java.util.List;
 
 
 public class RegionListFragment extends Fragment {
@@ -48,7 +50,7 @@ public class RegionListFragment extends Fragment {
         @Override
         public void showRegionList(List<Region> regions) {
             List<String> regionStringList = mapToListOfString(regions);
-            regionAdapter = new ArrayAdapter(getActivity(), R.layout.address_picker_list_item, regionStringList);
+            regionAdapter = new ArrayAdapter<>(getActivity(), R.layout.address_picker_list_item, regionStringList);
         }
 
         @Override
@@ -64,10 +66,6 @@ public class RegionListFragment extends Fragment {
             return stringList;
         }
     };
-
-    public RegionListFragment() {
-        // Required empty public constructor
-    }
 
     public static RegionListFragment newInstance(String addressCode) {
         RegionListFragment fragment = new RegionListFragment();
@@ -87,6 +85,8 @@ public class RegionListFragment extends Fragment {
     }
 
     private void initInstances(View view) {
+        TextView addressInfo = (TextView) view.findViewById(R.id.address_info);
+        addressInfo.setVisibility(View.GONE);
         regionList = (ListView) view.findViewById(R.id.picker_list);
         regionChooser = new RegionChooser(new EnumRegionRepository(), regionPresenter);
         regionChooser.showRegionList();

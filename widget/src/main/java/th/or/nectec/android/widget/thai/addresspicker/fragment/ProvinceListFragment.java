@@ -23,6 +23,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.List;
@@ -41,11 +42,11 @@ public class ProvinceListFragment extends Fragment {
     public static final String FRAGMENT_TAG = "province_list";
 
     private static final String REGION = "region";
-    ListView listView;
-    ProvinceAdapter provinceAdapter;
+    private ListView listView;
+    private ProvinceAdapter provinceAdapter;
 
-    ProvinceChooser provinceChooser;
-    ProvincePresenter provincePresenter = new ProvincePresenter() {
+    private ProvinceChooser provinceChooser;
+    private ProvincePresenter provincePresenter = new ProvincePresenter() {
         @Override
         public void showProvinceList(List<Province> provinces) {
             provinceAdapter = new ProvinceAdapter(getActivity(), provinces);
@@ -56,10 +57,7 @@ public class ProvinceListFragment extends Fragment {
             Toast.makeText(getActivity(), "ไม่พบจังหวัด", Toast.LENGTH_LONG).show();
         }
     };
-
-    public ProvinceListFragment() {
-        // Required empty public constructor
-    }
+    private TextView addressInfo;
 
     public static ProvinceListFragment newInstance(String region) {
         ProvinceListFragment fragment = new ProvinceListFragment();
@@ -79,6 +77,7 @@ public class ProvinceListFragment extends Fragment {
     }
 
     private void initInstances(View view) {
+        addressInfo = (TextView) view.findViewById(R.id.address_info);
         listView = (ListView) view.findViewById(R.id.picker_list);
         provinceChooser = new ProvinceChooser(new JsonProvinceRepository(getActivity()), provincePresenter);
         provinceChooser.showProvinceListByRegion(getRegionFromArguments());
@@ -87,6 +86,7 @@ public class ProvinceListFragment extends Fragment {
 
     private Region getRegionFromArguments() {
         String regionName = getArguments().getString(REGION);
+        addressInfo.setText(regionName);
         return Region.fromName(regionName);
     }
 
