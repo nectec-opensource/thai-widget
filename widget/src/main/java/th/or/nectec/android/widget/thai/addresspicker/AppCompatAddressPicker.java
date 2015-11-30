@@ -26,17 +26,20 @@ import android.support.v7.internal.widget.TintManager;
 import android.support.v7.internal.widget.TintTypedArray;
 import android.support.v7.widget.AppCompatButton;
 import android.util.AttributeSet;
+import android.widget.Toast;
 
 import th.or.nectec.android.widget.thai.AddressView;
 import th.or.nectec.android.widget.thai.OnAddressChangedListener;
 import th.or.nectec.android.widget.thai.R;
+import th.or.nectec.android.widget.thai.addresspicker.repository.JsonDistrictRepository;
+import th.or.nectec.android.widget.thai.addresspicker.repository.JsonProvinceRepository;
+import th.or.nectec.android.widget.thai.addresspicker.repository.JsonSubdistrictRepository;
 import th.or.nectec.domain.thai.ThaiAddressPrinter;
+import th.or.nectec.domain.thai.address.AddressController;
+import th.or.nectec.domain.thai.address.AddressPresenter;
 import th.or.nectec.entity.thai.Address;
 
-/**
- * Created by N. Choatravee on 5/11/2558.
- */
-public class AppCompatAddressPicker extends AppCompatButton implements AddressView, OnAddressChangedListener {
+public class AppCompatAddressPicker extends AppCompatButton implements AddressView, OnAddressChangedListener, AddressPresenter {
 
     public static final int[] TINT_ATTRS = {android.R.attr.background};
 
@@ -44,6 +47,7 @@ public class AppCompatAddressPicker extends AppCompatButton implements AddressVi
     Context context;
     AppCompatActivity activity;
     AppCompatAddressPickerDialogFragment addressPickerDialogFragment;
+    private AddressController addressController;
 
     public AppCompatAddressPicker(Context context) {
         super(context);
@@ -91,9 +95,9 @@ public class AppCompatAddressPicker extends AppCompatButton implements AddressVi
         } else {
             this.addressPickerDialogFragment = new AppCompatAddressPickerDialogFragment();
         }
-
         this.addressPickerDialogFragment.setOnAddressChangedListener(this);
 
+        addressController = new AddressController(new JsonSubdistrictRepository(context), new JsonDistrictRepository(context), new JsonProvinceRepository(context), this);
         setText("กรุณาระบุ ตำบล อำเภอ จังหวัด");
 
     }
@@ -107,9 +111,8 @@ public class AppCompatAddressPicker extends AppCompatButton implements AddressVi
             if (!this.addressPickerDialogFragment.isAdded()) {
                 this.addressPickerDialogFragment.show(fm, "dialog");
                 handle = true;
-
                 if (address != null) {
-
+                    this.addressPickerDialogFragment.restoreAddressField(address);
                 }
             }
         }
@@ -118,12 +121,23 @@ public class AppCompatAddressPicker extends AppCompatButton implements AddressVi
 
     @Override
     public void setAddressCode(String addressCode) {
-
+        addressController.showByAddressCode(addressCode);
     }
 
     @Override
     public void setAddress(String subdistrict, String district, String province) {
-        setText(ThaiAddressPrinter.buildShortAddress(subdistrict, district, province));
+        addressController.showByAddressInfo(subdistrict, district, province);
+    }
+
+    @Override
+    public void displayAddressInfo(Address address) {
+        this.address = address;
+        setText(ThaiAddressPrinter.buildShortAddress(address.getSubdistrict(), address.getDistrict(), address.getProvince()));
+    }
+
+    @Override
+    public void alertAddressNotFound() {
+        Toast.makeText(getContext(), "ไม่พบข้อมูลของที่อยู่", Toast.LENGTH_LONG).show();
     }
 
     @Override

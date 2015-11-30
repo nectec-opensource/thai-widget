@@ -19,6 +19,7 @@ package th.or.nectec.android.widget.thai.addresspicker;
 
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.FragmentManager;
 import android.text.TextUtils;
@@ -34,13 +35,21 @@ import th.or.nectec.android.widget.thai.addresspicker.fragment.DistrictListFragm
 import th.or.nectec.android.widget.thai.addresspicker.fragment.ProvinceListFragment;
 import th.or.nectec.android.widget.thai.addresspicker.fragment.RegionListFragment;
 import th.or.nectec.android.widget.thai.addresspicker.fragment.SubdistrictListFragment;
+import th.or.nectec.android.widget.thai.addresspicker.handler.AddressPickerInterface;
+import th.or.nectec.android.widget.thai.addresspicker.repository.JsonDistrictRepository;
+import th.or.nectec.android.widget.thai.addresspicker.repository.JsonProvinceRepository;
+import th.or.nectec.android.widget.thai.addresspicker.repository.JsonSubdistrictRepository;
+import th.or.nectec.domain.thai.address.AddressController;
+import th.or.nectec.domain.thai.address.AddressPresenter;
+import th.or.nectec.entity.thai.Address;
+import th.or.nectec.entity.thai.District;
+import th.or.nectec.entity.thai.Province;
+import th.or.nectec.entity.thai.Subdistrict;
 
 
-public class AppCompatAddressPickerDialogFragment extends DialogFragment implements View.OnClickListener {
+public class AppCompatAddressPickerDialogFragment extends DialogFragment implements AddressPickerInterface, View.OnClickListener, AddressPresenter {
 
     public static final String FRAGMENT_TAG = "address_dialog";
-
-    private static final String ADDRESS_CODE = "address_code";
     private static final int SELECT_REGION = 0;
     private static final int SELECT_PROVINCE = 1;
     private static final int SELECT_DISTRICT = 2;
@@ -54,29 +63,15 @@ public class AppCompatAddressPickerDialogFragment extends DialogFragment impleme
     SubdistrictListFragment subdistrictListFragment;
     OnAddressChangedListener addressChangedListener;
 
-
-    private String addressCode;
     private int currentState = SELECT_REGION;
-
-    public AppCompatAddressPickerDialogFragment() {
-        // Required empty public constructor
-    }
-
-    public static AppCompatAddressPickerDialogFragment newInstance(String addressCode) {
-        AppCompatAddressPickerDialogFragment fragment = new AppCompatAddressPickerDialogFragment();
-        Bundle args = new Bundle();
-        args.putString(ADDRESS_CODE, addressCode);
-        fragment.setArguments(args);
-        return fragment;
-    }
+    private Province province;
+    private District district;
+    private Subdistrict subdistrict;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         fragmentManager = getChildFragmentManager();
-        if (getArguments() != null) {
-            addressCode = getArguments().getString(ADDRESS_CODE);
-        }
     }
 
     @Override
@@ -99,10 +94,7 @@ public class AppCompatAddressPickerDialogFragment extends DialogFragment impleme
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        getDialog().setTitle(R.string.choose_region);
-        regionListFragment = new RegionListFragment();
-        fragmentManager.beginTransaction().replace(R.id.container, regionListFragment, RegionListFragment.FRAGMENT_TAG).commit();
-        backButton.setEnabled(false);
+        bringToRegionList();
     }
 
     @Override
@@ -117,66 +109,47 @@ public class AppCompatAddressPickerDialogFragment extends DialogFragment impleme
 
     public void nextStep() {
         if (currentState == SELECT_REGION) {
-            if (TextUtils.isEmpty(regionListFragment.getRegion())) {
+            String region = regionListFragment.getRegion();
+            if (TextUtils.isEmpty(region)) {
                 Toast.makeText(getActivity(), "ไปเลือกภูมิภาคก่อนเลย", Toast.LENGTH_LONG).show();
             } else {
-                provinceListFragment = ProvinceListFragment.newInstance(regionListFragment.getRegion());
-                fragmentManager.beginTransaction()
-                        .replace(R.id.container, provinceListFragment, ProvinceListFragment.FRAGMENT_TAG)
-                        .addToBackStack(null)
-                        .commit();
-                currentState = SELECT_PROVINCE;
-                getDialog().setTitle(R.string.choose_province);
-                backButton.setEnabled(true);
+                bringToProvinceList(region);
             }
         } else if (currentState == SELECT_PROVINCE) {
-            if (provinceListFragment.getData() == null) {
+            province = provinceListFragment.getData();
+            if (province == null) {
                 Toast.makeText(getActivity(), "ไปเลือกจังหวัดก่อนเลย", Toast.LENGTH_LONG).show();
             } else {
-                districtListFragment = DistrictListFragment.newInstance(provinceListFragment.getData().getCode());
-                fragmentManager.beginTransaction()
-                        .replace(R.id.container, districtListFragment, DistrictListFragment.FRAGMENT_TAG)
-                        .addToBackStack(null)
-                        .commit();
-                getDialog().setTitle(R.string.choose_district);
-                currentState = SELECT_DISTRICT;
+                bringToDistrictList(province.getCode());
             }
 
         } else if (currentState == SELECT_DISTRICT) {
-            if (districtListFragment.getData() == null) {
+            district = districtListFragment.getData();
+            if (district == null) {
                 Toast.makeText(getActivity(), "ไปเลือกอำเภอก่อนเลย", Toast.LENGTH_LONG).show();
             } else {
-                Toast.makeText(getActivity(), districtListFragment.getData().getName(), Toast.LENGTH_LONG).show();
-                subdistrictListFragment = SubdistrictListFragment.newInstance(districtListFragment.getData().getCode());
-                fragmentManager.beginTransaction()
-                        .replace(R.id.container, subdistrictListFragment, SubdistrictListFragment.FRAGMENT_TAG)
-                        .addToBackStack(null)
-                        .commit();
-                getDialog().setTitle(R.string.choose_subdistrict);
-                currentState = SELECT_SUBDISTRICT;
-                nextButton.setText(R.string.finish);
+                bringToSubdistrictList(district.getCode());
             }
 
         } else if (currentState == SELECT_SUBDISTRICT) {
-            if (subdistrictListFragment.getData() == null) {
+            subdistrict = subdistrictListFragment.getData();
+            if (subdistrict == null) {
                 Toast.makeText(getActivity(), "ไปเลือกตำบลก่อนเลย", Toast.LENGTH_LONG).show();
             } else {
-                this.addressChangedListener.onAddressChanged(subdistrictListFragment.getData());
+                AddressController addressController = new AddressController(new JsonSubdistrictRepository(getActivity()), new JsonDistrictRepository(getActivity()), new JsonProvinceRepository(getActivity()), this);
+                addressController.showByAddressCode(subdistrict.getCode());
                 dismiss();
             }
         }
     }
 
     public void backStep() {
-        fragmentManager.popBackStack();
         if (currentState == SELECT_PROVINCE) {
-            currentState = SELECT_REGION;
-            backButton.setEnabled(false);
+            bringToRegionList();
         } else if (currentState == SELECT_DISTRICT) {
-            currentState = SELECT_PROVINCE;
+            bringToProvinceList(province.getRegion().toString());
         } else if (currentState == SELECT_SUBDISTRICT) {
-            currentState = SELECT_DISTRICT;
-            nextButton.setText(R.string.back);
+            bringToDistrictList(district.getProvinceCode());
         }
     }
 
@@ -186,7 +159,85 @@ public class AppCompatAddressPickerDialogFragment extends DialogFragment impleme
         currentState = SELECT_REGION;
     }
 
+    @Override
+    public void bringToRegionList() {
+        getDialog().setTitle(R.string.choose_region);
+        regionListFragment = new RegionListFragment();
+        fragmentManager.beginTransaction().replace(R.id.container, regionListFragment, RegionListFragment.FRAGMENT_TAG).commit();
+        backButton.setEnabled(false);
+        currentState = SELECT_REGION;
+    }
+
+    @Override
+    public void bringToProvinceList(String region) {
+        getDialog().setTitle(R.string.choose_province);
+        provinceListFragment = ProvinceListFragment.newInstance(region);
+        fragmentManager.beginTransaction()
+                .replace(R.id.container, provinceListFragment, ProvinceListFragment.FRAGMENT_TAG)
+                .addToBackStack(null)
+                .commit();
+        currentState = SELECT_PROVINCE;
+        getDialog().setTitle(R.string.choose_province);
+        backButton.setEnabled(true);
+    }
+
+    @Override
+    public void bringToDistrictList(String provinceCode) {
+        getDialog().setTitle(R.string.choose_district);
+        districtListFragment = DistrictListFragment.newInstance(provinceCode);
+        fragmentManager.beginTransaction()
+                .replace(R.id.container, districtListFragment, DistrictListFragment.FRAGMENT_TAG)
+                .addToBackStack(null)
+                .commit();
+        getDialog().setTitle(R.string.choose_district);
+        nextButton.setText(R.string.next);
+        currentState = SELECT_DISTRICT;
+    }
+
+    @Override
+    public void bringToSubdistrictList(String districtCode) {
+        getDialog().setTitle(R.string.choose_subdistrict);
+        subdistrictListFragment = SubdistrictListFragment.newInstance(districtCode);
+        fragmentManager.beginTransaction()
+                .replace(R.id.container, subdistrictListFragment, SubdistrictListFragment.FRAGMENT_TAG)
+                .addToBackStack(null)
+                .commit();
+        getDialog().setTitle(R.string.choose_subdistrict);
+        currentState = SELECT_SUBDISTRICT;
+        nextButton.setText(R.string.finish);
+    }
+
+    @Override
+    public void bringAddressValueToAddressView(Address addressData) {
+        if (addressChangedListener != null) {
+            addressChangedListener.onAddressChanged(addressData);
+        }
+        dismiss();
+    }
+
+    @Override
+    public void displayAddressInfo(Address address) {
+        bringAddressValueToAddressView(address);
+    }
+
+    @Override
+    public void alertAddressNotFound() {
+        Toast.makeText(getActivity(), "ไม่พบข้อมูลที่อยู่", Toast.LENGTH_LONG).show();
+    }
+
     public void setOnAddressChangedListener(OnAddressChangedListener addressChangedListener) {
         this.addressChangedListener = addressChangedListener;
+    }
+
+    @Override
+    public void restoreAddressField(final Address address) {
+        new Handler().post(new Runnable() {
+            @Override
+            public void run() {
+                bringToProvinceList(address.getRegion().toString());
+                bringToDistrictList(address.getProvinceCode());
+                bringToSubdistrictList(address.getDistrictCode());
+            }
+        });
     }
 }
