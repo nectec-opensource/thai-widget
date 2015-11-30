@@ -17,9 +17,10 @@
 
 package th.or.nectec.android.widget.thai.addresspicker;
 
-import android.content.DialogInterface;
+import android.app.Dialog;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.annotation.NonNull;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.FragmentManager;
 import android.text.TextUtils;
@@ -144,7 +145,9 @@ public class AppCompatAddressPickerDialogFragment extends DialogFragment impleme
     }
 
     public void backStep() {
-        if (currentState == SELECT_PROVINCE) {
+        if (currentState == SELECT_REGION) {
+            dismiss();
+        } else if (currentState == SELECT_PROVINCE) {
             bringToRegionList();
         } else if (currentState == SELECT_DISTRICT) {
             bringToProvinceList(province.getRegion().toString());
@@ -153,10 +156,15 @@ public class AppCompatAddressPickerDialogFragment extends DialogFragment impleme
         }
     }
 
+    @NonNull
     @Override
-    public void onDismiss(DialogInterface dialog) {
-        super.onDismiss(dialog);
-        currentState = SELECT_REGION;
+    public Dialog onCreateDialog(Bundle savedInstanceState) {
+        return new Dialog(getActivity(), getTheme()) {
+            @Override
+            public void onBackPressed() {
+                backStep();
+            }
+        };
     }
 
     @Override
@@ -234,9 +242,12 @@ public class AppCompatAddressPickerDialogFragment extends DialogFragment impleme
         new Handler().post(new Runnable() {
             @Override
             public void run() {
-                bringToProvinceList(address.getRegion().toString());
-                bringToDistrictList(address.getProvinceCode());
-                bringToSubdistrictList(address.getDistrictCode());
+                subdistrict = new Subdistrict(address.getAddressCode(), address.getSubdistrict());
+                district = new District(address.getDistrictCode(), address.getDistrict());
+                province = new Province(address.getProvinceCode(), address.getProvince(), address.getRegion());
+                bringToProvinceList(province.getRegion().toString());
+                bringToDistrictList(district.getProvinceCode());
+                bringToSubdistrictList(subdistrict.getDistrictCode());
             }
         });
     }

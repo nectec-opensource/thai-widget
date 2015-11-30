@@ -48,6 +48,7 @@ public class AppCompatAddressPicker extends AppCompatButton implements AddressVi
     AppCompatActivity activity;
     AppCompatAddressPickerDialogFragment addressPickerDialogFragment;
     private AddressController addressController;
+    private OnAddressChangedListener onAddressChangedListener;
 
     public AppCompatAddressPicker(Context context) {
         super(context);
@@ -131,8 +132,7 @@ public class AppCompatAddressPicker extends AppCompatButton implements AddressVi
 
     @Override
     public void displayAddressInfo(Address address) {
-        this.address = address;
-        setText(ThaiAddressPrinter.buildShortAddress(address.getSubdistrict(), address.getDistrict(), address.getProvince()));
+        retrieveAddress(address);
     }
 
     @Override
@@ -142,7 +142,7 @@ public class AppCompatAddressPicker extends AppCompatButton implements AddressVi
 
     @Override
     public void setOnAddressChangedListener(OnAddressChangedListener onAddressChangedListener) {
-
+        this.onAddressChangedListener = onAddressChangedListener;
     }
 
     @Override
@@ -152,12 +152,19 @@ public class AppCompatAddressPicker extends AppCompatButton implements AddressVi
 
     @Override
     public void onAddressChanged(Address address) {
+        retrieveAddress(address);
+    }
+
+    private void retrieveAddress(Address address) {
         this.address = address;
-        setAddress(address.getSubdistrict(), address.getDistrict(), address.getProvince());
+        setText(ThaiAddressPrinter.buildShortAddress(address.getSubdistrict(), address.getDistrict(), address.getProvince()));
+        if (onAddressChangedListener != null)
+            onAddressChangedListener.onAddressChanged(address);
     }
 
     @Override
     public void onAddressCanceled() {
-
+        if (onAddressChangedListener != null)
+            onAddressChangedListener.onAddressCanceled();
     }
 }
