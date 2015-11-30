@@ -20,9 +20,13 @@ package th.or.nectec.android.widget.thai.sample;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import th.or.nectec.android.widget.thai.OnAddressChangedListener;
 import th.or.nectec.android.widget.thai.addresspicker.AddressPicker;
 import th.or.nectec.android.widget.thai.addresspicker.AppCompatAddressPicker;
+import th.or.nectec.entity.thai.Address;
+
 public class RegionPickerSampleActivity extends AppCompatActivity {
 
     TextView textView;
@@ -39,6 +43,17 @@ public class RegionPickerSampleActivity extends AppCompatActivity {
         appCompatAddressPicker = (AppCompatAddressPicker) findViewById(R.id.address_view);
 
         addressPicker = (AddressPicker) findViewById(R.id.address_view_2);
+        addressPicker.setOnAddressChangedListener(new OnAddressChangedListener() {
+            @Override
+            public void onAddressChanged(Address address) {
+                Toast.makeText(RegionPickerSampleActivity.this, address.toString(), Toast.LENGTH_LONG).show();
+            }
+
+            @Override
+            public void onAddressCanceled() {
+                Toast.makeText(RegionPickerSampleActivity.this, "address canceled", Toast.LENGTH_LONG).show();
+            }
+        });
         addressPicker.setAddressCode("141604");
     }
 

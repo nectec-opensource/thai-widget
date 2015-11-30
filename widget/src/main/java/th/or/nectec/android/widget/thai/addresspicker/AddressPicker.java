@@ -43,6 +43,7 @@ public class AddressPicker extends Button implements AddressView, OnAddressChang
     AddressPickerDialogFragment addressPickerDialogFragment;
 
     AddressController addressController;
+    private OnAddressChangedListener onAddressChangedListener;
 
     public AddressPicker(Context context) {
         super(context);
@@ -115,8 +116,7 @@ public class AddressPicker extends Button implements AddressView, OnAddressChang
 
     @Override
     public void displayAddressInfo(Address address) {
-        this.address = address;
-        setText(ThaiAddressPrinter.buildShortAddress(address.getSubdistrict(), address.getDistrict(), address.getProvince()));
+        retriveAddress(address);
     }
 
     @Override
@@ -126,7 +126,7 @@ public class AddressPicker extends Button implements AddressView, OnAddressChang
 
     @Override
     public void setOnAddressChangedListener(OnAddressChangedListener onAddressChangedListener) {
-
+        this.onAddressChangedListener = onAddressChangedListener;
     }
 
 
@@ -137,12 +137,19 @@ public class AddressPicker extends Button implements AddressView, OnAddressChang
 
     @Override
     public void onAddressChanged(Address address) {
-        this.address = address;
-        setText(ThaiAddressPrinter.buildShortAddress(address.getSubdistrict(), address.getDistrict(), address.getProvince()));
+        retriveAddress(address);
     }
 
     @Override
     public void onAddressCanceled() {
+        if (onAddressChangedListener != null)
+            onAddressChangedListener.onAddressCanceled();
+    }
 
+    private void retriveAddress(Address address) {
+        this.address = address;
+        setText(ThaiAddressPrinter.buildShortAddress(address.getSubdistrict(), address.getDistrict(), address.getProvince()));
+        if (onAddressChangedListener != null)
+            onAddressChangedListener.onAddressChanged(address);
     }
 }

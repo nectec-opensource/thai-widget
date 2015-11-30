@@ -199,9 +199,8 @@ public class AddressPickerDialogFragment extends DialogFragment
 
     @Override
     public void bringAddressValueToAddressView(Address addressData) {
-        if (addressChangedListener != null) {
+        if (addressChangedListener != null)
             addressChangedListener.onAddressChanged(addressData);
-        }
         dismiss();
     }
 
@@ -256,6 +255,8 @@ public class AddressPickerDialogFragment extends DialogFragment
             @Override
             public void onBackPressed() {
                 if (currentState == SELECT_REGION) {
+                    if (addressChangedListener != null)
+                        addressChangedListener.onAddressCanceled();
                     dismiss();
                 } else if (currentState == SELECT_PROVINCE) {
                     bringToRegionList();
