@@ -27,6 +27,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -79,7 +80,6 @@ public class AddressPickerDialogFragment extends DialogFragment
     ProvinceChooser provinceChooser;
     SubdistrictAdapter subdistrictAdapter;
     SubdistrictChooser subdistrictChooser;
-    private Address addressData;
     private JsonProvinceRepository jsonProvinceRepository;
     private JsonDistrictRepository jsonDistrictRepository;
     private JsonSubdistrictRepository jsonSubdistrictRepository;
@@ -88,6 +88,8 @@ public class AddressPickerDialogFragment extends DialogFragment
     private Province provinceData;
 
     private int currentState = SELECT_REGION;
+    private TextView addressInfoView;
+    private String regionString;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -99,6 +101,7 @@ public class AddressPickerDialogFragment extends DialogFragment
     }
 
     private void initInstances(View view) {
+        addressInfoView = (TextView) view.findViewById(R.id.address_info);
         listView = (ListView) view.findViewById(R.id.picker_list);
         listView.setOnItemClickListener(this);
 
@@ -122,6 +125,7 @@ public class AddressPickerDialogFragment extends DialogFragment
 
     @Override
     public void showRegionList(List<Region> regions) {
+        addressInfoView.setVisibility(View.GONE);
         List<String> regionStringList = mapToListOfString(regions);
         regionAdapter = new ArrayAdapter<>(getActivity(), R.layout.address_picker_list_item, regionStringList);
     }
@@ -142,11 +146,13 @@ public class AddressPickerDialogFragment extends DialogFragment
 
     @Override
     public void bringToProvinceList(String region) {
-        provinceChooser = new ProvinceChooser(jsonProvinceRepository, this);
+        addressInfoView.setText(regionString);
         getDialog().setTitle(R.string.choose_province);
+        provinceChooser = new ProvinceChooser(jsonProvinceRepository, this);
         provinceChooser.showProvinceListByRegion(Region.fromName(region));
         listView.setAdapter(provinceAdapter);
         currentState = SELECT_PROVINCE;
+        addressInfoView.setVisibility(View.VISIBLE);
     }
 
     @Override
@@ -161,11 +167,13 @@ public class AddressPickerDialogFragment extends DialogFragment
 
     @Override
     public void bringToDistrictList(String provinceCode) {
-        districtChooser = new DistrictChooser(jsonDistrictRepository, this);
+        addressInfoView.setText(regionString.concat(" > ").concat(provinceData.getName()));
         getDialog().setTitle(R.string.choose_district);
+        districtChooser = new DistrictChooser(jsonDistrictRepository, this);
         districtChooser.showDistrictListByProvinceCode(provinceCode);
         listView.setAdapter(districtAdapter);
         currentState = SELECT_DISTRICT;
+        addressInfoView.setVisibility(View.VISIBLE);
     }
 
     @Override
@@ -180,11 +188,13 @@ public class AddressPickerDialogFragment extends DialogFragment
 
     @Override
     public void bringToSubdistrictList(String districtCode) {
-        subdistrictChooser = new SubdistrictChooser(jsonSubdistrictRepository, this);
+        addressInfoView.setText(String.format(getString(R.string.breadcrumb_text), provinceData.getName(), districtData.getName()));
         getDialog().setTitle(R.string.choose_subdistrict);
+        subdistrictChooser = new SubdistrictChooser(jsonSubdistrictRepository, this);
         subdistrictChooser.showSubdistrictListByDistrictCode(districtCode);
         listView.setAdapter(subdistrictAdapter);
         currentState = SELECT_SUBDISTRICT;
+        addressInfoView.setVisibility(View.VISIBLE);
     }
 
     @Override
@@ -213,10 +223,10 @@ public class AddressPickerDialogFragment extends DialogFragment
         new Handler().post(new Runnable() {
             @Override
             public void run() {
-                addressData = address;
+                regionString = address.getRegion().toString();
+                provinceData = new Province(address.getProvinceCode(), address.getProvince(), address.getRegion());
                 subdistrictData = new Subdistrict(address.getAddressCode(), address.getSubdistrict());
                 districtData = new District(address.getDistrictCode(), address.getDistrict());
-                provinceData = new Province(address.getProvinceCode(), address.getProvince(), address.getRegion());
                 bringToSubdistrictList(address.getDistrictCode());
             }
         });
@@ -225,7 +235,8 @@ public class AddressPickerDialogFragment extends DialogFragment
     @Override
     public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
         if (currentState == SELECT_REGION) {
-            bringToProvinceList(regionAdapter.getItem(position));
+            regionString = regionAdapter.getItem(position);
+            bringToProvinceList(regionString);
         } else if (currentState == SELECT_PROVINCE) {
             provinceData = provinceAdapter.getItem(position);
             bringToDistrictList(provinceData.getCode());

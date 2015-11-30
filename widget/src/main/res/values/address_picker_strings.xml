@@ -21,7 +21,7 @@
     <string name="finish">สิ้นสุด</string>
 
     <string name="choose_region">เลือกภูมิภาค</string>
-    <string name="choose_subdistrict">เลือกตำบล</string>
-    <string name="choose_district">เลือกอำเภอ</string>
+    <string name="choose_subdistrict">เลือกแขวง/ตำบล</string>
+    <string name="choose_district">เลือกเขต/อำเภอ</string>
     <string name="choose_province">เลือกจังหวัด</string>
 </resources>
