@@ -1,4 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="breadcrumb_text" formatted="false">%s ">" %s</string>
+    <string name="breadcrumb_text" formatted="false">%s &gt; %s</string>
 </resources>
