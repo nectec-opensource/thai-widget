@@ -29,18 +29,14 @@ import java.util.List;
 
 import th.or.nectec.android.widget.thai.R;
 import th.or.nectec.android.widget.thai.addresspicker.adapter.SubdistrictAdapter;
-import th.or.nectec.android.widget.thai.addresspicker.repository.JsonDistrictRepository;
-import th.or.nectec.android.widget.thai.addresspicker.repository.JsonProvinceRepository;
 import th.or.nectec.android.widget.thai.addresspicker.repository.JsonSubdistrictRepository;
-import th.or.nectec.domain.thai.address.AddressController;
-import th.or.nectec.domain.thai.address.AddressPresenter;
 import th.or.nectec.domain.thai.address.subdistrict.SubdistrictChooser;
 import th.or.nectec.domain.thai.address.subdistrict.SubdistrictListPresenter;
 import th.or.nectec.entity.thai.Address;
 import th.or.nectec.entity.thai.Subdistrict;
 
 
-public class SubdistrictListFragment extends Fragment implements AddressPresenter {
+public class SubdistrictListFragment extends Fragment {
 
     public static final String FRAGMENT_TAG = "subdistrict_list";
 
@@ -99,24 +95,12 @@ public class SubdistrictListFragment extends Fragment implements AddressPresente
         super.onActivityCreated(savedInstanceState);
     }
 
-    public Address getData() {
+    public Subdistrict getData() {
         int checkedItemPosition = listView.getCheckedItemPosition();
         if (listView.getCheckedItemPosition() == -1) {
             return null;
         } else {
-            AddressController addressController = new AddressController(new JsonSubdistrictRepository(getActivity()), new JsonDistrictRepository(getActivity()), new JsonProvinceRepository(getActivity()), this);
-            addressController.showByAddressCode(subdistrictAdapter.getItem(checkedItemPosition).getCode());
-            return address;
+            return subdistrictAdapter.getItem(checkedItemPosition);
         }
-    }
-
-    @Override
-    public void displayAddressInfo(Address address) {
-        this.address = address;
-    }
-
-    @Override
-    public void alertAddressNotFound() {
-
     }
 }
