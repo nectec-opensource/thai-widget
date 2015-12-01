@@ -30,9 +30,9 @@ import java.util.List;
 
 import th.or.nectec.android.widget.thai.R;
 import th.or.nectec.android.widget.thai.addresspicker.adapter.SubdistrictAdapter;
+import th.or.nectec.android.widget.thai.addresspicker.repository.InMemoryJsonSubdistrictRepository;
 import th.or.nectec.android.widget.thai.addresspicker.repository.JsonDistrictRepository;
 import th.or.nectec.android.widget.thai.addresspicker.repository.JsonProvinceRepository;
-import th.or.nectec.android.widget.thai.addresspicker.repository.JsonSubdistrictRepository;
 import th.or.nectec.domain.thai.address.subdistrict.SubdistrictChooser;
 import th.or.nectec.domain.thai.address.subdistrict.SubdistrictListPresenter;
 import th.or.nectec.entity.thai.District;
@@ -81,7 +81,7 @@ public class SubdistrictListFragment extends Fragment {
     private void initInstances(View view) {
         addressInfo = (TextView) view.findViewById(R.id.address_info);
         listView = (ListView) view.findViewById(R.id.picker_list);
-        subdistrictChooser = new SubdistrictChooser(new JsonSubdistrictRepository(getActivity()), subdistrictListPresenter);
+        subdistrictChooser = new SubdistrictChooser(new InMemoryJsonSubdistrictRepository(getActivity()), subdistrictListPresenter);
         subdistrictChooser.showSubdistrictListByDistrictCode(getDistrictCode());
         listView.setAdapter(subdistrictAdapter);
     }

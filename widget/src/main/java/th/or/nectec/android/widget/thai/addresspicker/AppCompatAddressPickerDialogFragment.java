@@ -37,9 +37,9 @@ import th.or.nectec.android.widget.thai.addresspicker.fragment.ProvinceListFragm
 import th.or.nectec.android.widget.thai.addresspicker.fragment.RegionListFragment;
 import th.or.nectec.android.widget.thai.addresspicker.fragment.SubdistrictListFragment;
 import th.or.nectec.android.widget.thai.addresspicker.handler.AddressPickerInterface;
+import th.or.nectec.android.widget.thai.addresspicker.repository.InMemoryJsonSubdistrictRepository;
 import th.or.nectec.android.widget.thai.addresspicker.repository.JsonDistrictRepository;
 import th.or.nectec.android.widget.thai.addresspicker.repository.JsonProvinceRepository;
-import th.or.nectec.android.widget.thai.addresspicker.repository.JsonSubdistrictRepository;
 import th.or.nectec.domain.thai.address.AddressController;
 import th.or.nectec.domain.thai.address.AddressPresenter;
 import th.or.nectec.entity.thai.Address;
@@ -137,7 +137,7 @@ public class AppCompatAddressPickerDialogFragment extends DialogFragment impleme
             if (subdistrict == null) {
                 Toast.makeText(getActivity(), "ไปเลือกตำบลก่อนเลย", Toast.LENGTH_LONG).show();
             } else {
-                AddressController addressController = new AddressController(new JsonSubdistrictRepository(getActivity()), new JsonDistrictRepository(getActivity()), new JsonProvinceRepository(getActivity()), this);
+                AddressController addressController = new AddressController(InMemoryJsonSubdistrictRepository.getInstance(getActivity()), new JsonDistrictRepository(getActivity()), new JsonProvinceRepository(getActivity()), this);
                 addressController.showByAddressCode(subdistrict.getCode());
                 dismiss();
             }

@@ -32,11 +32,12 @@ import th.or.nectec.domain.thai.address.subdistrict.SubdistrictRepository;
 import th.or.nectec.entity.thai.InvalidCodeFormatException;
 import th.or.nectec.entity.thai.Subdistrict;
 
-public class JsonSubdistrictRepository implements SubdistrictRepository {
+public class InMemoryJsonSubdistrictRepository implements SubdistrictRepository {
 
+    static InMemoryJsonSubdistrictRepository instance;
     ArrayList<Subdistrict> allSubdistrict = new ArrayList<>();
 
-    public JsonSubdistrictRepository(Context context) {
+    public InMemoryJsonSubdistrictRepository(Context context) {
         try {
             InputStream inputStream = context.getAssets().open("subdistrict.json");
             JsonReader reader = new JsonReader(new InputStreamReader(inputStream, "UTF-8"));
@@ -52,6 +53,13 @@ public class JsonSubdistrictRepository implements SubdistrictRepository {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public static InMemoryJsonSubdistrictRepository getInstance(Context context) {
+        if (instance == null) {
+            instance = new InMemoryJsonSubdistrictRepository(context);
+        }
+        return instance;
     }
 
     @Override
