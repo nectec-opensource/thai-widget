@@ -27,19 +27,25 @@ import th.or.nectec.android.widget.thai.OnAddressChangedListener;
 import th.or.nectec.entity.thai.Address;
 
 public class AddressPicker extends Button implements AddressView {
-    AddressPickerHandler addressPickerHandler = new AddressPickerHandler(this);
+    AddressPickerHandler addressPickerHandler;
 
     public AddressPicker(Context context) {
         super(context);
+        initHandler(context);
     }
 
     public AddressPicker(Context context, AttributeSet attrs) {
         this(context, attrs, android.R.attr.spinnerStyle);
+        initHandler(context);
     }
 
     public AddressPicker(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        addressPickerHandler = new AddressPickerHandler(this);
+        initHandler(context);
+    }
+
+    private void initHandler(Context context) {
+        addressPickerHandler = new AddressPickerHandler(this, context);
     }
 
     @Override

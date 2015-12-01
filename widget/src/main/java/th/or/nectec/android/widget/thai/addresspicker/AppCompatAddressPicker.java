@@ -19,49 +19,41 @@ package th.or.nectec.android.widget.thai.addresspicker;
 
 import android.content.Context;
 import android.content.res.ColorStateList;
-import android.support.v4.app.FragmentManager;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.internal.widget.TintContextWrapper;
 import android.support.v7.internal.widget.TintManager;
 import android.support.v7.internal.widget.TintTypedArray;
 import android.support.v7.widget.AppCompatButton;
 import android.util.AttributeSet;
-import android.widget.Toast;
 
+import th.or.nectec.android.widget.thai.AddressPickerHandler;
 import th.or.nectec.android.widget.thai.AddressView;
 import th.or.nectec.android.widget.thai.OnAddressChangedListener;
 import th.or.nectec.android.widget.thai.R;
-import th.or.nectec.android.widget.thai.addresspicker.repository.JsonDistrictRepository;
-import th.or.nectec.android.widget.thai.addresspicker.repository.JsonProvinceRepository;
-import th.or.nectec.android.widget.thai.addresspicker.repository.JsonSubdistrictRepository;
-import th.or.nectec.domain.thai.ThaiAddressPrinter;
-import th.or.nectec.domain.thai.address.AddressController;
-import th.or.nectec.domain.thai.address.AddressPresenter;
 import th.or.nectec.entity.thai.Address;
 
-public class AppCompatAddressPicker extends AppCompatButton implements AddressView, OnAddressChangedListener, AddressPresenter {
+public class AppCompatAddressPicker extends AppCompatButton implements AddressView {
 
     public static final int[] TINT_ATTRS = {android.R.attr.background};
-
-    Address address;
-    Context context;
-    AppCompatActivity activity;
-    AppCompatAddressPickerDialogFragment addressPickerDialogFragment;
-    private AddressController addressController;
-    private OnAddressChangedListener onAddressChangedListener;
+    private AddressPickerHandler addressPickerHandler;
 
     public AppCompatAddressPicker(Context context) {
         super(context);
+        initHandler(context);
     }
 
     public AppCompatAddressPicker(Context context, AttributeSet attrs) {
         this(context, attrs, R.attr.spinnerStyle);
+        initHandler(context);
     }
 
     public AppCompatAddressPicker(Context context, AttributeSet attrs, int defStyleAttr) {
         super(TintContextWrapper.wrap(context), attrs, defStyleAttr);
         initTintManager(attrs, defStyleAttr);
-        init(context);
+        initHandler(context);
+    }
+
+    private void initHandler(Context context) {
+        addressPickerHandler = new AddressPickerHandler(this, context);
     }
 
     private void initTintManager(AttributeSet attrs, int defStyleAttr) {
@@ -78,93 +70,28 @@ public class AppCompatAddressPicker extends AppCompatButton implements AddressVi
         }
     }
 
-    public void init(Context context) {
-        this.context = context;
-
-        if (context instanceof AppCompatActivity) {
-            activity = (AppCompatActivity) context;
-        }
-
-        if (activity == null) {
-            return;
-        }
-        FragmentManager fragmentManager = activity.getSupportFragmentManager();
-        AppCompatAddressPickerDialogFragment addressPickerDialogFragment = (AppCompatAddressPickerDialogFragment) fragmentManager.findFragmentByTag(AppCompatAddressPickerDialogFragment.FRAGMENT_TAG);
-
-        if (addressPickerDialogFragment != null) {
-            this.addressPickerDialogFragment = addressPickerDialogFragment;
-        } else {
-            this.addressPickerDialogFragment = new AppCompatAddressPickerDialogFragment();
-        }
-        this.addressPickerDialogFragment.setOnAddressChangedListener(this);
-
-        addressController = new AddressController(new JsonSubdistrictRepository(context), new JsonDistrictRepository(context), new JsonProvinceRepository(context), this);
-        setText("กรุณาระบุ ตำบล อำเภอ จังหวัด");
-
-    }
-
     @Override
     public boolean performClick() {
-        boolean handle = false;
-        if (this.addressPickerDialogFragment != null) {
-            FragmentManager fm = activity.getSupportFragmentManager();
-
-            if (!this.addressPickerDialogFragment.isAdded()) {
-                this.addressPickerDialogFragment.show(fm, "dialog");
-                handle = true;
-                if (address != null) {
-                    this.addressPickerDialogFragment.restoreAddressField(address);
-                }
-            }
-        }
-        return handle;
+        return addressPickerHandler.performClick();
     }
 
     @Override
     public void setAddressCode(String addressCode) {
-        addressController.showByAddressCode(addressCode);
+        addressPickerHandler.setAddressCode(addressCode);
     }
 
     @Override
     public void setAddress(String subdistrict, String district, String province) {
-        addressController.showByAddressInfo(subdistrict, district, province);
-    }
-
-    @Override
-    public void displayAddressInfo(Address address) {
-        retrieveAddress(address);
-    }
-
-    @Override
-    public void alertAddressNotFound() {
-        Toast.makeText(getContext(), "ไม่พบข้อมูลของที่อยู่", Toast.LENGTH_LONG).show();
+        addressPickerHandler.setAddress(subdistrict, district, province);
     }
 
     @Override
     public void setOnAddressChangedListener(OnAddressChangedListener onAddressChangedListener) {
-        this.onAddressChangedListener = onAddressChangedListener;
+        addressPickerHandler.setOnAddressChangedListener(onAddressChangedListener);
     }
 
     @Override
     public Address getAddress() {
-        return address;
-    }
-
-    @Override
-    public void onAddressChanged(Address address) {
-        retrieveAddress(address);
-    }
-
-    private void retrieveAddress(Address address) {
-        this.address = address;
-        setText(ThaiAddressPrinter.buildShortAddress(address.getSubdistrict(), address.getDistrict(), address.getProvince()));
-        if (onAddressChangedListener != null)
-            onAddressChangedListener.onAddressChanged(address);
-    }
-
-    @Override
-    public void onAddressCanceled() {
-        if (onAddressChangedListener != null)
-            onAddressChangedListener.onAddressCanceled();
+        return addressPickerHandler.getAddress();
     }
 }

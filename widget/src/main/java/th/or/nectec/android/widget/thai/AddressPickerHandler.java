@@ -25,21 +25,20 @@ public class AddressPickerHandler implements OnAddressChangedListener, AddressPr
     private Button button;
     private Address address;
 
-    public AddressPickerHandler(Button button) {
+    public AddressPickerHandler(Button button, Context context) {
         this.button = button;
-        init(button.getContext());
+        this.context = context;
+        init();
     }
 
-    public void init(Context context) {
-        this.context = context;
-
-        if (context instanceof Activity) {
-            activity = (Activity) context;
+    public void init() {
+        if (this.context instanceof Activity) {
+            activity = (Activity) this.context;
         }
 
-        if (activity == null) {
+        if (activity == null)
             return;
-        }
+
         FragmentManager fragmentManager = activity.getFragmentManager();
         AddressPickerDialogFragment addressPickerDialogFragment = (AddressPickerDialogFragment) fragmentManager.findFragmentByTag(AppCompatAddressPickerDialogFragment.FRAGMENT_TAG);
 
