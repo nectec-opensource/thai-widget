@@ -1,4 +1,4 @@
-package th.or.nectec.android.widget.thai;
+package th.or.nectec.android.widget.thai.addresspicker.handler;
 
 import android.app.Activity;
 import android.app.FragmentManager;
@@ -6,6 +6,7 @@ import android.content.Context;
 import android.widget.Button;
 import android.widget.Toast;
 
+import th.or.nectec.android.widget.thai.OnAddressChangedListener;
 import th.or.nectec.android.widget.thai.addresspicker.AddressPickerDialogFragment;
 import th.or.nectec.android.widget.thai.addresspicker.AppCompatAddressPickerDialogFragment;
 import th.or.nectec.android.widget.thai.addresspicker.repository.JsonDistrictRepository;

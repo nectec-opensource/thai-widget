@@ -25,10 +25,10 @@ import android.support.v7.internal.widget.TintTypedArray;
 import android.support.v7.widget.AppCompatButton;
 import android.util.AttributeSet;
 
-import th.or.nectec.android.widget.thai.AddressPickerHandler;
 import th.or.nectec.android.widget.thai.AddressView;
 import th.or.nectec.android.widget.thai.OnAddressChangedListener;
 import th.or.nectec.android.widget.thai.R;
+import th.or.nectec.android.widget.thai.addresspicker.handler.AddressPickerHandler;
 import th.or.nectec.entity.thai.Address;
 
 public class AppCompatAddressPicker extends AppCompatButton implements AddressView {

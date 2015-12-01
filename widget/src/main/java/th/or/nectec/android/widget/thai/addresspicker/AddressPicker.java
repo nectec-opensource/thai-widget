@@ -21,9 +21,9 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.Button;
 
-import th.or.nectec.android.widget.thai.AddressPickerHandler;
 import th.or.nectec.android.widget.thai.AddressView;
 import th.or.nectec.android.widget.thai.OnAddressChangedListener;
+import th.or.nectec.android.widget.thai.addresspicker.handler.AddressPickerHandler;
 import th.or.nectec.entity.thai.Address;
 
 public class AddressPicker extends Button implements AddressView {
