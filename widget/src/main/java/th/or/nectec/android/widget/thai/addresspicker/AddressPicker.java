@@ -17,32 +17,17 @@
 
 package th.or.nectec.android.widget.thai.addresspicker;
 
-import android.app.Activity;
-import android.app.FragmentManager;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.Button;
-import android.widget.Toast;
 
+import th.or.nectec.android.widget.thai.AddressPickerHandler;
 import th.or.nectec.android.widget.thai.AddressView;
 import th.or.nectec.android.widget.thai.OnAddressChangedListener;
-import th.or.nectec.android.widget.thai.addresspicker.repository.JsonDistrictRepository;
-import th.or.nectec.android.widget.thai.addresspicker.repository.JsonProvinceRepository;
-import th.or.nectec.android.widget.thai.addresspicker.repository.JsonSubdistrictRepository;
-import th.or.nectec.domain.thai.ThaiAddressPrinter;
-import th.or.nectec.domain.thai.address.AddressController;
-import th.or.nectec.domain.thai.address.AddressPresenter;
 import th.or.nectec.entity.thai.Address;
 
-public class AddressPicker extends Button implements AddressView, OnAddressChangedListener, AddressPresenter {
-
-    Address address;
-    Context context;
-    Activity activity;
-    AddressPickerDialogFragment addressPickerDialogFragment;
-
-    AddressController addressController;
-    private OnAddressChangedListener onAddressChangedListener;
+public class AddressPicker extends Button implements AddressView {
+    AddressPickerHandler addressPickerHandler = new AddressPickerHandler(this);
 
     public AddressPicker(Context context) {
         super(context);
@@ -54,101 +39,31 @@ public class AddressPicker extends Button implements AddressView, OnAddressChang
 
     public AddressPicker(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        init(context);
-    }
-
-
-    public void init(Context context) {
-        this.context = context;
-
-        if (context instanceof Activity) {
-            activity = (Activity) context;
-        }
-
-        if (activity == null) {
-            return;
-        }
-        FragmentManager fragmentManager = activity.getFragmentManager();
-        AddressPickerDialogFragment addressPickerDialogFragment = (AddressPickerDialogFragment) fragmentManager.findFragmentByTag(AppCompatAddressPickerDialogFragment.FRAGMENT_TAG);
-
-        if (addressPickerDialogFragment != null) {
-            this.addressPickerDialogFragment = addressPickerDialogFragment;
-        } else {
-            this.addressPickerDialogFragment = new AddressPickerDialogFragment();
-        }
-
-        this.addressPickerDialogFragment.setOnAddressChangedListener(this);
-
-        addressController = new AddressController(new JsonSubdistrictRepository(context), new JsonDistrictRepository(context), new JsonProvinceRepository(context), this);
-        setText("กรุณาระบุ ตำบล อำเภอ จังหวัด");
-
+        addressPickerHandler = new AddressPickerHandler(this);
     }
 
     @Override
     public boolean performClick() {
-        boolean handle = false;
-        if (this.addressPickerDialogFragment != null) {
-            FragmentManager fm = activity.getFragmentManager();
-
-            if (!this.addressPickerDialogFragment.isAdded()) {
-                this.addressPickerDialogFragment.show(fm, AddressPickerDialogFragment.FRAGMENT_TAG);
-
-                if (address != null) {
-                    this.addressPickerDialogFragment.restoreAddressField(address);
-                }
-
-                handle = true;
-            }
-        }
-        return handle;
+        return addressPickerHandler.performClick();
     }
 
     @Override
     public void setAddressCode(String addressCode) {
-        addressController.showByAddressCode(addressCode);
+        addressPickerHandler.setAddressCode(addressCode);
     }
 
     @Override
     public void setAddress(String subdistrict, String district, String province) {
-        addressController.showByAddressInfo(subdistrict, district, province);
-    }
-
-    @Override
-    public void displayAddressInfo(Address address) {
-        retriveAddress(address);
-    }
-
-    @Override
-    public void alertAddressNotFound() {
-        Toast.makeText(getContext(), "ไม่พบข้อมูลของที่อยู่", Toast.LENGTH_LONG).show();
+        addressPickerHandler.setAddress(subdistrict, district, province);
     }
 
     @Override
     public void setOnAddressChangedListener(OnAddressChangedListener onAddressChangedListener) {
-        this.onAddressChangedListener = onAddressChangedListener;
+        addressPickerHandler.setOnAddressChangedListener(onAddressChangedListener);
     }
-
 
     @Override
     public Address getAddress() {
-        return address;
-    }
-
-    @Override
-    public void onAddressChanged(Address address) {
-        retriveAddress(address);
-    }
-
-    @Override
-    public void onAddressCanceled() {
-        if (onAddressChangedListener != null)
-            onAddressChangedListener.onAddressCanceled();
-    }
-
-    private void retriveAddress(Address address) {
-        this.address = address;
-        setText(ThaiAddressPrinter.buildShortAddress(address.getSubdistrict(), address.getDistrict(), address.getProvince()));
-        if (onAddressChangedListener != null)
-            onAddressChangedListener.onAddressChanged(address);
+        return addressPickerHandler.getAddress();
     }
 }
