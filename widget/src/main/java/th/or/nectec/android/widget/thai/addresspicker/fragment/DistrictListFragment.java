@@ -30,7 +30,7 @@ import java.util.List;
 
 import th.or.nectec.android.widget.thai.R;
 import th.or.nectec.android.widget.thai.addresspicker.adapter.DistrictAdapter;
-import th.or.nectec.android.widget.thai.addresspicker.repository.JsonDistrictRepository;
+import th.or.nectec.android.widget.thai.addresspicker.repository.InMemoryJsonDistrictRepository;
 import th.or.nectec.android.widget.thai.addresspicker.repository.JsonProvinceRepository;
 import th.or.nectec.domain.thai.address.district.DistrictChooser;
 import th.or.nectec.domain.thai.address.district.DistrictPresenter;
@@ -85,7 +85,7 @@ public class DistrictListFragment extends Fragment {
     private void initInstances(View view) {
         listView = (ListView) view.findViewById(R.id.picker_list);
         addressInfo = (TextView) view.findViewById(R.id.address_info);
-        districtChooser = new DistrictChooser(new JsonDistrictRepository(getActivity()), districtPresenter);
+        districtChooser = new DistrictChooser(InMemoryJsonDistrictRepository.getInstance(getActivity()), districtPresenter);
         districtChooser.showDistrictListByProvinceCode(getProvinceCode());
         listView.setAdapter(provinceAdapter);
     }

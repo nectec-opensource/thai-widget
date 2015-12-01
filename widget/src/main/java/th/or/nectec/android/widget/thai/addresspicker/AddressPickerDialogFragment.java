@@ -40,8 +40,8 @@ import th.or.nectec.android.widget.thai.addresspicker.adapter.ProvinceAdapter;
 import th.or.nectec.android.widget.thai.addresspicker.adapter.SubdistrictAdapter;
 import th.or.nectec.android.widget.thai.addresspicker.handler.AddressPickerInterface;
 import th.or.nectec.android.widget.thai.addresspicker.repository.EnumRegionRepository;
+import th.or.nectec.android.widget.thai.addresspicker.repository.InMemoryJsonDistrictRepository;
 import th.or.nectec.android.widget.thai.addresspicker.repository.InMemoryJsonSubdistrictRepository;
-import th.or.nectec.android.widget.thai.addresspicker.repository.JsonDistrictRepository;
 import th.or.nectec.android.widget.thai.addresspicker.repository.JsonProvinceRepository;
 import th.or.nectec.domain.thai.address.AddressController;
 import th.or.nectec.domain.thai.address.AddressPresenter;
@@ -81,7 +81,7 @@ public class AddressPickerDialogFragment extends DialogFragment
     SubdistrictAdapter subdistrictAdapter;
     SubdistrictChooser subdistrictChooser;
     private JsonProvinceRepository jsonProvinceRepository;
-    private JsonDistrictRepository jsonDistrictRepository;
+    private InMemoryJsonDistrictRepository inMemoryJsonDistrictRepository;
     private InMemoryJsonSubdistrictRepository inMemoryJsonSubdistrictRepository;
     private Subdistrict subdistrictData;
     private District districtData;
@@ -111,7 +111,7 @@ public class AddressPickerDialogFragment extends DialogFragment
 
     private void setupRepository() {
         jsonProvinceRepository = new JsonProvinceRepository(getActivity());
-        jsonDistrictRepository = new JsonDistrictRepository(getActivity());
+        inMemoryJsonDistrictRepository = InMemoryJsonDistrictRepository.getInstance(getActivity());
         inMemoryJsonSubdistrictRepository = InMemoryJsonSubdistrictRepository.getInstance(getActivity());
     }
 
@@ -169,7 +169,7 @@ public class AddressPickerDialogFragment extends DialogFragment
     public void bringToDistrictList(String provinceCode) {
         addressInfoView.setText(regionString.concat(" > ").concat(provinceData.getName()));
         getDialog().setTitle(R.string.choose_district);
-        districtChooser = new DistrictChooser(jsonDistrictRepository, this);
+        districtChooser = new DistrictChooser(inMemoryJsonDistrictRepository, this);
         districtChooser.showDistrictListByProvinceCode(provinceCode);
         listView.setAdapter(districtAdapter);
         currentState = SELECT_DISTRICT;
@@ -245,7 +245,7 @@ public class AddressPickerDialogFragment extends DialogFragment
             bringToSubdistrictList(districtData.getCode());
         } else if (currentState == SELECT_SUBDISTRICT) {
             subdistrictData = subdistrictAdapter.getItem(position);
-            AddressController addressController = new AddressController(inMemoryJsonSubdistrictRepository, jsonDistrictRepository, jsonProvinceRepository, this);
+            AddressController addressController = new AddressController(inMemoryJsonSubdistrictRepository, inMemoryJsonDistrictRepository, jsonProvinceRepository, this);
             addressController.showByAddressCode(subdistrictData.getCode());
         }
     }

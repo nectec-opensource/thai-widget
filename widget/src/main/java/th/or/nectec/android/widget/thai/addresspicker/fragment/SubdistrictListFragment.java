@@ -30,8 +30,8 @@ import java.util.List;
 
 import th.or.nectec.android.widget.thai.R;
 import th.or.nectec.android.widget.thai.addresspicker.adapter.SubdistrictAdapter;
+import th.or.nectec.android.widget.thai.addresspicker.repository.InMemoryJsonDistrictRepository;
 import th.or.nectec.android.widget.thai.addresspicker.repository.InMemoryJsonSubdistrictRepository;
-import th.or.nectec.android.widget.thai.addresspicker.repository.JsonDistrictRepository;
 import th.or.nectec.android.widget.thai.addresspicker.repository.JsonProvinceRepository;
 import th.or.nectec.domain.thai.address.subdistrict.SubdistrictChooser;
 import th.or.nectec.domain.thai.address.subdistrict.SubdistrictListPresenter;
@@ -81,7 +81,7 @@ public class SubdistrictListFragment extends Fragment {
     private void initInstances(View view) {
         addressInfo = (TextView) view.findViewById(R.id.address_info);
         listView = (ListView) view.findViewById(R.id.picker_list);
-        subdistrictChooser = new SubdistrictChooser(new InMemoryJsonSubdistrictRepository(getActivity()), subdistrictListPresenter);
+        subdistrictChooser = new SubdistrictChooser(InMemoryJsonSubdistrictRepository.getInstance(getActivity()), subdistrictListPresenter);
         subdistrictChooser.showSubdistrictListByDistrictCode(getDistrictCode());
         listView.setAdapter(subdistrictAdapter);
     }
@@ -91,7 +91,7 @@ public class SubdistrictListFragment extends Fragment {
     }
 
     private void setupStageHeader() {
-        District district = new JsonDistrictRepository(getActivity()).findByDistrictCode(getDistrictCode());
+        District district = new InMemoryJsonDistrictRepository(getActivity()).findByDistrictCode(getDistrictCode());
         String province = new JsonProvinceRepository(getActivity()).findByProvinceCode(district.getProvinceCode()).getName();
         addressInfo.setText(String.format(getResources().getString(R.string.breadcrumb_text), province, district.getName()));
     }
