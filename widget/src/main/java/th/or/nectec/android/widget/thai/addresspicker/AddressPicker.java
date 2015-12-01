@@ -26,7 +26,6 @@ import android.widget.Toast;
 
 import th.or.nectec.android.widget.thai.AddressView;
 import th.or.nectec.android.widget.thai.OnAddressChangedListener;
-import th.or.nectec.android.widget.thai.R;
 import th.or.nectec.android.widget.thai.addresspicker.repository.JsonDistrictRepository;
 import th.or.nectec.android.widget.thai.addresspicker.repository.JsonProvinceRepository;
 import th.or.nectec.android.widget.thai.addresspicker.repository.JsonSubdistrictRepository;
@@ -50,7 +49,7 @@ public class AddressPicker extends Button implements AddressView, OnAddressChang
     }
 
     public AddressPicker(Context context, AttributeSet attrs) {
-        this(context, attrs, R.attr.spinnerStyle);
+        this(context, attrs, android.R.attr.spinnerStyle);
     }
 
     public AddressPicker(Context context, AttributeSet attrs, int defStyleAttr) {
