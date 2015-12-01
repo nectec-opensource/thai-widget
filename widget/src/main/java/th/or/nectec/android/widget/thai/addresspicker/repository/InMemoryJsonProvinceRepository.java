@@ -32,14 +32,12 @@ import th.or.nectec.domain.thai.address.province.ProvinceRepository;
 import th.or.nectec.entity.thai.Province;
 import th.or.nectec.entity.thai.Region;
 
-/**
- * Created by N. Choatravee on 5/11/2558.
- */
-public class JsonProvinceRepository implements ProvinceRepository {
+public class InMemoryJsonProvinceRepository implements ProvinceRepository {
 
+    public static InMemoryJsonProvinceRepository instance;
     ArrayList<Province> allProvince = new ArrayList<>();
 
-    public JsonProvinceRepository(Context context) {
+    public InMemoryJsonProvinceRepository(Context context) {
         try {
             InputStream inputStream = context.getAssets().open("province.json");
             JsonReader reader = new JsonReader(new InputStreamReader(inputStream, "UTF-8"));
@@ -55,6 +53,12 @@ public class JsonProvinceRepository implements ProvinceRepository {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public static InMemoryJsonProvinceRepository getInstance(Context context) {
+        if (instance == null)
+            instance = new InMemoryJsonProvinceRepository(context);
+        return instance;
     }
 
     @Override

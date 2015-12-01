@@ -38,8 +38,8 @@ import th.or.nectec.android.widget.thai.addresspicker.fragment.RegionListFragmen
 import th.or.nectec.android.widget.thai.addresspicker.fragment.SubdistrictListFragment;
 import th.or.nectec.android.widget.thai.addresspicker.handler.AddressPickerInterface;
 import th.or.nectec.android.widget.thai.addresspicker.repository.InMemoryJsonDistrictRepository;
+import th.or.nectec.android.widget.thai.addresspicker.repository.InMemoryJsonProvinceRepository;
 import th.or.nectec.android.widget.thai.addresspicker.repository.InMemoryJsonSubdistrictRepository;
-import th.or.nectec.android.widget.thai.addresspicker.repository.JsonProvinceRepository;
 import th.or.nectec.domain.thai.address.AddressController;
 import th.or.nectec.domain.thai.address.AddressPresenter;
 import th.or.nectec.entity.thai.Address;
@@ -140,7 +140,7 @@ public class AppCompatAddressPickerDialogFragment extends DialogFragment impleme
                 AddressController addressController = new AddressController(
                         InMemoryJsonSubdistrictRepository.getInstance(getActivity()),
                         InMemoryJsonDistrictRepository.getInstance(getActivity()),
-                        new JsonProvinceRepository(getActivity()), this);
+                        InMemoryJsonProvinceRepository.getInstance(getActivity()), this);
                 addressController.showByAddressCode(subdistrict.getCode());
                 dismiss();
             }

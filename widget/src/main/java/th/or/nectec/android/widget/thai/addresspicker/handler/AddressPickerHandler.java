@@ -10,8 +10,8 @@ import th.or.nectec.android.widget.thai.OnAddressChangedListener;
 import th.or.nectec.android.widget.thai.addresspicker.AddressPickerDialogFragment;
 import th.or.nectec.android.widget.thai.addresspicker.AppCompatAddressPickerDialogFragment;
 import th.or.nectec.android.widget.thai.addresspicker.repository.InMemoryJsonDistrictRepository;
+import th.or.nectec.android.widget.thai.addresspicker.repository.InMemoryJsonProvinceRepository;
 import th.or.nectec.android.widget.thai.addresspicker.repository.InMemoryJsonSubdistrictRepository;
-import th.or.nectec.android.widget.thai.addresspicker.repository.JsonProvinceRepository;
 import th.or.nectec.domain.thai.ThaiAddressPrinter;
 import th.or.nectec.domain.thai.address.AddressController;
 import th.or.nectec.domain.thai.address.AddressPresenter;
@@ -51,7 +51,7 @@ public class AddressPickerHandler implements OnAddressChangedListener, AddressPr
 
         this.addressPickerDialogFragment.setOnAddressChangedListener(this);
 
-        addressController = new AddressController(InMemoryJsonSubdistrictRepository.getInstance(context), new InMemoryJsonDistrictRepository(context), new JsonProvinceRepository(context), this);
+        addressController = new AddressController(InMemoryJsonSubdistrictRepository.getInstance(context), new InMemoryJsonDistrictRepository(context), new InMemoryJsonProvinceRepository(context), this);
         textView.setText("กรุณาระบุ ตำบล อำเภอ จังหวัด");
     }
 

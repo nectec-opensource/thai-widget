@@ -31,7 +31,7 @@ import java.util.List;
 import th.or.nectec.android.widget.thai.R;
 import th.or.nectec.android.widget.thai.addresspicker.adapter.DistrictAdapter;
 import th.or.nectec.android.widget.thai.addresspicker.repository.InMemoryJsonDistrictRepository;
-import th.or.nectec.android.widget.thai.addresspicker.repository.JsonProvinceRepository;
+import th.or.nectec.android.widget.thai.addresspicker.repository.InMemoryJsonProvinceRepository;
 import th.or.nectec.domain.thai.address.district.DistrictChooser;
 import th.or.nectec.domain.thai.address.district.DistrictPresenter;
 import th.or.nectec.entity.thai.District;
@@ -91,7 +91,7 @@ public class DistrictListFragment extends Fragment {
     }
 
     private void setupStageHeader() {
-        Province province = new JsonProvinceRepository(getActivity()).findByProvinceCode(getProvinceCode());
+        Province province = InMemoryJsonProvinceRepository.getInstance(getActivity()).findByProvinceCode(getProvinceCode());
         addressInfo.setText(String.format(getString(R.string.breadcrumb_text), province.getRegion().toString(), province.getName()));
     }
 

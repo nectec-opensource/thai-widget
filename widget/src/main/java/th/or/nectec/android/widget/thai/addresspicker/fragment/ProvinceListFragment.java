@@ -30,7 +30,7 @@ import java.util.List;
 
 import th.or.nectec.android.widget.thai.R;
 import th.or.nectec.android.widget.thai.addresspicker.adapter.ProvinceAdapter;
-import th.or.nectec.android.widget.thai.addresspicker.repository.JsonProvinceRepository;
+import th.or.nectec.android.widget.thai.addresspicker.repository.InMemoryJsonProvinceRepository;
 import th.or.nectec.domain.thai.address.province.ProvinceChooser;
 import th.or.nectec.domain.thai.address.province.ProvincePresenter;
 import th.or.nectec.entity.thai.Province;
@@ -79,7 +79,7 @@ public class ProvinceListFragment extends Fragment {
     private void initInstances(View view) {
         addressInfo = (TextView) view.findViewById(R.id.address_info);
         listView = (ListView) view.findViewById(R.id.picker_list);
-        provinceChooser = new ProvinceChooser(new JsonProvinceRepository(getActivity()), provincePresenter);
+        provinceChooser = new ProvinceChooser(InMemoryJsonProvinceRepository.getInstance(getActivity()), provincePresenter);
         provinceChooser.showProvinceListByRegion(getRegionFromArguments());
         listView.setAdapter(provinceAdapter);
     }
