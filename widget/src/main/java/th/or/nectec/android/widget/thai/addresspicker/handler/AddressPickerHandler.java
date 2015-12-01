@@ -3,7 +3,7 @@ package th.or.nectec.android.widget.thai.addresspicker.handler;
 import android.app.Activity;
 import android.app.FragmentManager;
 import android.content.Context;
-import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import th.or.nectec.android.widget.thai.OnAddressChangedListener;
@@ -23,11 +23,11 @@ public class AddressPickerHandler implements OnAddressChangedListener, AddressPr
     private AddressPickerDialogFragment addressPickerDialogFragment;
     private OnAddressChangedListener onAddressChangedListener;
     private AddressController addressController;
-    private Button button;
+    private TextView textView;
     private Address address;
 
-    public AddressPickerHandler(Button button, Context context) {
-        this.button = button;
+    public AddressPickerHandler(TextView view, Context context) {
+        this.textView = view;
         this.context = context;
         init();
     }
@@ -52,7 +52,7 @@ public class AddressPickerHandler implements OnAddressChangedListener, AddressPr
         this.addressPickerDialogFragment.setOnAddressChangedListener(this);
 
         addressController = new AddressController(new JsonSubdistrictRepository(context), new JsonDistrictRepository(context), new JsonProvinceRepository(context), this);
-        button.setText("กรุณาระบุ ตำบล อำเภอ จังหวัด");
+        textView.setText("กรุณาระบุ ตำบล อำเภอ จังหวัด");
     }
 
     @Override
@@ -102,7 +102,7 @@ public class AddressPickerHandler implements OnAddressChangedListener, AddressPr
 
     private void retrieveAddress(Address address) {
         this.address = address;
-        button.setText(ThaiAddressPrinter.buildShortAddress(address.getSubdistrict(), address.getDistrict(), address.getProvince()));
+        textView.setText(ThaiAddressPrinter.buildShortAddress(address.getSubdistrict(), address.getDistrict(), address.getProvince()));
         if (onAddressChangedListener != null)
             onAddressChangedListener.onAddressChanged(address);
     }
