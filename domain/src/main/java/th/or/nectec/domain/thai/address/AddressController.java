@@ -34,11 +34,9 @@ public class AddressController {
         Province province = provinceRepository.findByProvinceCode(subdistrict.getProvinceCode());
 
         Address address = new Address();
-        address.setAddressCode(addressCode);
-        address.setPostcode(subdistrict.getPostcode());
-        address.setSubdistrict(subdistrict.getName());
-        address.setDistrict(district.getName());
-        address.setProvince(province.getName());
+        address.setSubdistrict(subdistrict);
+        address.setDistrict(district);
+        address.setProvince(province);
         address.setRegion(province.getRegion());
         addressPresenter.displayAddressInfo(address);
     }
@@ -56,11 +54,9 @@ public class AddressController {
             Province provinceInfo = provinceRepository.findByProvinceCode(eachSubdistrict.getProvinceCode());
             if (provinceInfo.getName().equals(province)) {
                 Address address = new Address();
-                address.setAddressCode(eachSubdistrict.getCode());
-                address.setPostcode(eachSubdistrict.getPostcode());
-                address.setSubdistrict(eachSubdistrict.getName());
-                address.setDistrict(districtInfo.getName());
-                address.setProvince(provinceInfo.getName());
+                address.setSubdistrict(eachSubdistrict);
+                address.setDistrict(districtInfo);
+                address.setProvince(provinceInfo);
                 address.setRegion(provinceInfo.getRegion());
                 addressPresenter.displayAddressInfo(address);
                 return;

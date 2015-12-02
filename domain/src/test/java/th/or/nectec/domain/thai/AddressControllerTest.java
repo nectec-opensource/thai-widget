@@ -58,10 +58,9 @@ public class AddressControllerTest {
         province = new Province(provinceCode, provinceName, provinceRegion);
 
         address = new Address();
-        address.setAddressCode(addressCode);
-        address.setSubdistrict(subdistrictName);
-        address.setDistrict(districtName);
-        address.setProvince(provinceName);
+        address.setSubdistrict(subdistrict);
+        address.setDistrict(district);
+        address.setProvince(province);
         address.setRegion(Region.CENTER);
     }
 

@@ -18,79 +18,69 @@
 package th.or.nectec.entity.thai;
 
 public class Address {
-    String addressCode;
-    String subdistrict;
-    String district;
-    String province;
-    String postcode;
+    Subdistrict subdistrict;
+    District district;
+    Province province;
     Region region;
 
     @Override
     public String toString() {
         return "Address{" +
-                "addressCode='" + addressCode + '\'' +
-                ", subdistrict='" + subdistrict + '\'' +
-                ", district='" + district + '\'' +
-                ", province='" + province + '\'' +
-                ", postcode='" + postcode + '\'' +
-                ", region='" + region + '\'' +
+                "addressCode='" + subdistrict.getCode() + '\'' +
+                ", subdistrict='" + subdistrict.getName() + '\'' +
+                ", district='" + district.getName() + '\'' +
+                ", province='" + province.getName() + '\'' +
+                ", postcode='" + subdistrict.getPostcode() + '\'' +
+                ", region='" + region.toString() + '\'' +
                 '}';
     }
 
     public Region getRegion() {
-        return region;
+        return province.getRegion();
     }
 
     public void setRegion(Region region) {
         this.region = region;
     }
 
-    public String getAddressCode() {
-        return addressCode;
-    }
-
-    public void setAddressCode(String addressCode) {
-        this.addressCode = addressCode;
+    public String getSubdistrictCode() {
+        return subdistrict.getCode();
     }
 
     public String getDistrictCode() {
-        return addressCode.substring(0, 4);
+        return district.getCode();
     }
 
     public String getProvinceCode() {
-        return addressCode.substring(0, 2);
+        return province.getCode();
     }
 
-    public String getSubdistrict() {
+    public Subdistrict getSubdistrict() {
         return subdistrict;
     }
 
-    public void setSubdistrict(String subdistrict) {
+    public void setSubdistrict(Subdistrict subdistrict) {
         this.subdistrict = subdistrict;
     }
 
-    public String getDistrict() {
+    public District getDistrict() {
         return district;
     }
 
-    public void setDistrict(String district) {
+    public void setDistrict(District district) {
         this.district = district;
     }
 
-    public String getProvince() {
+    public Province getProvince() {
         return province;
     }
 
-    public void setProvince(String province) {
+    public void setProvince(Province province) {
         this.province = province;
     }
 
     public String getPostcode() {
-        return postcode;
-    }
-
-    public void setPostcode(String postcode) {
-        this.postcode = postcode;
+        return subdistrict.getPostcode();
     }
 
     @Override
@@ -100,24 +90,18 @@ public class Address {
 
         Address address = (Address) o;
 
-        if (!addressCode.equals(address.addressCode)) return false;
         if (!subdistrict.equals(address.subdistrict)) return false;
         if (!district.equals(address.district)) return false;
         if (!province.equals(address.province)) return false;
-        if (postcode != null ? !postcode.equals(address.postcode) : address.postcode != null)
-            return false;
-        if (region != address.region) return false;
+        return region == address.region;
 
-        return true;
     }
 
     @Override
     public int hashCode() {
-        int result = addressCode.hashCode();
-        result = 31 * result + subdistrict.hashCode();
+        int result = subdistrict.hashCode();
         result = 31 * result + district.hashCode();
         result = 31 * result + province.hashCode();
-        result = 31 * result + (postcode != null ? postcode.hashCode() : 0);
         result = 31 * result + region.hashCode();
         return result;
     }
