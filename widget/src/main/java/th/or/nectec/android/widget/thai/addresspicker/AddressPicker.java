@@ -18,10 +18,8 @@
 package th.or.nectec.android.widget.thai.addresspicker;
 
 import android.content.Context;
-import android.os.Parcel;
 import android.os.Parcelable;
 import android.util.AttributeSet;
-import android.view.View;
 import android.widget.Button;
 
 import th.or.nectec.android.widget.thai.AddressView;
@@ -86,7 +84,7 @@ public class AddressPicker extends Button implements AddressView {
 
     @Override
     public void onRestoreInstanceState(Parcelable state) {
-        if (!(state instanceof SavedState)) {
+        if (!(state instanceof AddressSavedState)) {
             super.onRestoreInstanceState(state);
             return;
         }

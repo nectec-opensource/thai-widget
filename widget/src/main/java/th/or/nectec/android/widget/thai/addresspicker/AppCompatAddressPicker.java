@@ -19,6 +19,7 @@ package th.or.nectec.android.widget.thai.addresspicker;
 
 import android.content.Context;
 import android.content.res.ColorStateList;
+import android.os.Parcelable;
 import android.support.v7.internal.widget.TintContextWrapper;
 import android.support.v7.internal.widget.TintManager;
 import android.support.v7.internal.widget.TintTypedArray;
@@ -93,5 +94,24 @@ public class AppCompatAddressPicker extends AppCompatButton implements AddressVi
     @Override
     public Address getAddress() {
         return addressPickerHandler.getAddress();
+    }
+
+    @Override
+    public Parcelable onSaveInstanceState() {
+        Parcelable parcelable = super.onSaveInstanceState();
+        AddressSavedState savedState = new AddressSavedState(parcelable);
+        savedState.addressCode = addressPickerHandler.getAddress().getAddressCode();
+        return savedState;
+    }
+
+    @Override
+    public void onRestoreInstanceState(Parcelable state) {
+        if (!(state instanceof AddressSavedState)) {
+            super.onRestoreInstanceState(state);
+            return;
+        }
+        AddressSavedState ss = (AddressSavedState) state;
+        super.onRestoreInstanceState(ss.getSuperState());
+        setAddressCode(ss.addressCode);
     }
 }
