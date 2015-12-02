@@ -8,7 +8,6 @@ import android.widget.Toast;
 
 import th.or.nectec.android.widget.thai.OnAddressChangedListener;
 import th.or.nectec.android.widget.thai.addresspicker.AddressPickerDialogFragment;
-import th.or.nectec.android.widget.thai.addresspicker.AppCompatAddressPickerDialogFragment;
 import th.or.nectec.android.widget.thai.addresspicker.repository.InMemoryJsonDistrictRepository;
 import th.or.nectec.android.widget.thai.addresspicker.repository.InMemoryJsonProvinceRepository;
 import th.or.nectec.android.widget.thai.addresspicker.repository.InMemoryJsonSubdistrictRepository;
@@ -41,7 +40,7 @@ public class AddressPickerHandler implements OnAddressChangedListener, AddressPr
             return;
 
         FragmentManager fragmentManager = activity.getFragmentManager();
-        AddressPickerDialogFragment addressPickerDialogFragment = (AddressPickerDialogFragment) fragmentManager.findFragmentByTag(AppCompatAddressPickerDialogFragment.FRAGMENT_TAG);
+        AddressPickerDialogFragment addressPickerDialogFragment = (AddressPickerDialogFragment) fragmentManager.findFragmentByTag(AddressPickerDialogFragment.FRAGMENT_TAG);
 
         if (addressPickerDialogFragment != null) {
             this.addressPickerDialogFragment = addressPickerDialogFragment;
