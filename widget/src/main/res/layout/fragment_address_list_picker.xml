@@ -19,25 +19,39 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:paddingTop="16dp">
+    android:orientation="vertical">
 
     <TextView
-        android:id="@+id/address_info"
+        android:id="@+id/title_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/blue_200"
+        android:background="@color/teal_500"
         android:gravity="center_vertical"
         android:minHeight="48dp"
         android:padding="16dp"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="@android:color/white"
+        android:textIsSelectable="false"
+        tools:text="อ.บางปะหัน > จ.พระนครศรีอยุธยา" />
+
+    <TextView
+        android:id="@+id/status_info"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/gray_300"
+        android:gravity="center_vertical"
+        android:minHeight="48dp"
+        android:padding="16dp"
+        android:textAppearance="?android:attr/textAppearance"
         android:textColor="@android:color/black"
         android:textIsSelectable="false"
-        tools:text="อ.บางปะหัน จ.พระนครศรีอยุธยา" />
+        tools:text="เลือกแขวง ตำบล" />
 
     <ListView
         android:id="@+id/picker_list"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:choiceMode="singleChoice"
-        android:listSelector="@drawable/selected_item" />
+        android:divider="@color/gray_300"
+        android:dividerHeight="1dp" />
 </LinearLayout>

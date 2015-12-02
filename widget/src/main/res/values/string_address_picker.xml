@@ -12,8 +12,4 @@
     <string name="district_not_found">ไม่พบอำเภอ</string>
     <string name="subdistrict_not_found">ไม่พบตำบล</string>
     <string name="address_not_found">ไม่พบข้อมูลที่อยู่</string>
-
-    <string name="back">ย้อนกลับ</string>
-    <string name="next">ถัดไป</string>
-    <string name="finish">สิ้นสุด</string>
 </resources>

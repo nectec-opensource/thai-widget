@@ -22,4 +22,4 @@
     android:background="@drawable/selected_item"
     android:gravity="center_vertical"
     android:minHeight="48dp"
-    android:padding="6dp" />
+    android:padding="16dp" />
