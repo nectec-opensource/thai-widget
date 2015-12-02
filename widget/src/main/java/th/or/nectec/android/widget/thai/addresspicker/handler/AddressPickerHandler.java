@@ -102,7 +102,7 @@ public class AddressPickerHandler implements OnAddressChangedListener, AddressPr
 
     private void retrieveAddress(Address address) {
         this.address = address;
-        textView.setText(ThaiAddressPrinter.buildShortAddress(address.getSubdistrict(), address.getDistrict(), address.getProvince()));
+        textView.setText(ThaiAddressPrinter.buildShortAddress(address.getSubdistrict().getName(), address.getDistrict().getName(), address.getProvince().getName()));
         if (onAddressChangedListener != null)
             onAddressChangedListener.onAddressChanged(address);
     }

@@ -224,9 +224,9 @@ public class AddressPickerDialogFragment extends DialogFragment
             @Override
             public void run() {
                 regionString = address.getRegion().toString();
-                provinceData = new Province(address.getProvinceCode(), address.getProvince(), address.getRegion());
-                subdistrictData = new Subdistrict(address.getAddressCode(), address.getSubdistrict());
-                districtData = new District(address.getDistrictCode(), address.getDistrict());
+                provinceData = address.getProvince();
+                subdistrictData = address.getSubdistrict();
+                districtData = address.getDistrict();
                 bringToSubdistrictList(address.getDistrictCode());
             }
         });

@@ -78,7 +78,7 @@ public class AddressPicker extends Button implements AddressView {
     public Parcelable onSaveInstanceState() {
         Parcelable parcelable = super.onSaveInstanceState();
         AddressSavedState savedState = new AddressSavedState(parcelable);
-        savedState.addressCode = addressPickerHandler.getAddress().getAddressCode();
+        savedState.addressCode = addressPickerHandler.getAddress().getSubdistrictCode();
         return savedState;
     }
 
