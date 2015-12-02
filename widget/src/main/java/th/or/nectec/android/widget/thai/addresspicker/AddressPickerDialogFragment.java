@@ -132,7 +132,7 @@ public class AddressPickerDialogFragment extends DialogFragment
 
     @Override
     public void showNotFoundRegion() {
-        Toast.makeText(getActivity(), "ไม่พบภูมิภาค", Toast.LENGTH_LONG).show();
+        Toast.makeText(getActivity(), R.string.region_not_found, Toast.LENGTH_LONG).show();
     }
 
     public List<String> mapToListOfString(List<Region> regions) {
@@ -162,7 +162,7 @@ public class AddressPickerDialogFragment extends DialogFragment
 
     @Override
     public void showNotFoundProvince() {
-        Toast.makeText(getActivity(), "ไม่พบจังหวัด", Toast.LENGTH_LONG).show();
+        Toast.makeText(getActivity(), R.string.province_not_found, Toast.LENGTH_LONG).show();
     }
 
     @Override
@@ -183,7 +183,7 @@ public class AddressPickerDialogFragment extends DialogFragment
 
     @Override
     public void showNotFoundDistrict() {
-        Toast.makeText(getActivity(), "ไม่พบอำเภอ", Toast.LENGTH_LONG).show();
+        Toast.makeText(getActivity(), R.string.district_not_found, Toast.LENGTH_LONG).show();
     }
 
     @Override
@@ -204,7 +204,7 @@ public class AddressPickerDialogFragment extends DialogFragment
 
     @Override
     public void showNotFoundSubdistrict() {
-        Toast.makeText(getActivity(), "ไม่พบตำบล", Toast.LENGTH_LONG).show();
+        Toast.makeText(getActivity(), R.string.subdistrict_not_found, Toast.LENGTH_LONG).show();
     }
 
     @Override
@@ -257,7 +257,7 @@ public class AddressPickerDialogFragment extends DialogFragment
 
     @Override
     public void alertAddressNotFound() {
-        Toast.makeText(getActivity(), "ไม่พบข้อมูลที่อยู่", Toast.LENGTH_LONG).show();
+        Toast.makeText(getActivity(), R.string.address_not_found, Toast.LENGTH_LONG).show();
     }
 
     @Override

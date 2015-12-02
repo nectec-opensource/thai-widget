@@ -7,6 +7,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import th.or.nectec.android.widget.thai.OnAddressChangedListener;
+import th.or.nectec.android.widget.thai.R;
 import th.or.nectec.android.widget.thai.addresspicker.AddressPickerDialogFragment;
 import th.or.nectec.android.widget.thai.addresspicker.repository.InMemoryJsonDistrictRepository;
 import th.or.nectec.android.widget.thai.addresspicker.repository.InMemoryJsonProvinceRepository;
@@ -51,7 +52,7 @@ public class AddressPickerHandler implements OnAddressChangedListener, AddressPr
         this.addressPickerDialogFragment.setOnAddressChangedListener(this);
 
         addressController = new AddressController(InMemoryJsonSubdistrictRepository.getInstance(context), new InMemoryJsonDistrictRepository(context), new InMemoryJsonProvinceRepository(context), this);
-        textView.setText("กรุณาระบุ ตำบล อำเภอ จังหวัด");
+        textView.setText(R.string.please_define_address);
     }
 
     @Override
@@ -61,7 +62,7 @@ public class AddressPickerHandler implements OnAddressChangedListener, AddressPr
 
     @Override
     public void alertAddressNotFound() {
-        Toast.makeText(context, "ไม่พบข้อมูลของที่อยู่", Toast.LENGTH_LONG).show();
+        Toast.makeText(context, R.string.address_not_found, Toast.LENGTH_LONG).show();
     }
 
     public boolean performClick() {
@@ -70,7 +71,7 @@ public class AddressPickerHandler implements OnAddressChangedListener, AddressPr
             FragmentManager fm = activity.getFragmentManager();
 
             if (!this.addressPickerDialogFragment.isAdded()) {
-                this.addressPickerDialogFragment.show(fm, "dialog");
+                this.addressPickerDialogFragment.show(fm, AddressPickerDialogFragment.FRAGMENT_TAG);
                 handle = true;
                 if (address != null) {
                     this.addressPickerDialogFragment.restoreAddressField(address);
