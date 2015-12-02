@@ -58,4 +58,25 @@ public class Province {
     public void setRegion(Region region) {
         this.region = region;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Province province = (Province) o;
+
+        if (!code.equals(province.code)) return false;
+        if (!name.equals(province.name)) return false;
+        return region == province.region;
+
+    }
+
+    @Override
+    public int hashCode() {
+        int result = code.hashCode();
+        result = 31 * result + name.hashCode();
+        result = 31 * result + region.hashCode();
+        return result;
+    }
 }
