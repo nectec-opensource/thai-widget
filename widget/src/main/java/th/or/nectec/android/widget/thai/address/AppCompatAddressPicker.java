@@ -20,11 +20,11 @@ package th.or.nectec.android.widget.thai.address;
 import android.content.Context;
 import android.content.res.ColorStateList;
 import android.os.Parcelable;
-import android.support.v7.internal.widget.TintContextWrapper;
-import android.support.v7.internal.widget.TintManager;
-import android.support.v7.internal.widget.TintTypedArray;
 import android.support.v7.widget.AppCompatButton;
+import android.support.v7.widget.TintManager;
+import android.support.v7.widget.TintTypedArray;
 import android.util.AttributeSet;
+
 import th.or.nectec.android.widget.thai.OnAddressChangedListener;
 import th.or.nectec.android.widget.thai.R;
 import th.or.nectec.entity.thai.Address;
@@ -39,19 +39,19 @@ public class AppCompatAddressPicker extends AppCompatButton implements AddressVi
         initHandler(context);
     }
 
-    private void initHandler(Context context) {
-        addressPickerHandler = new AddressPickerHandler(this, context);
-    }
-
     public AppCompatAddressPicker(Context context, AttributeSet attrs) {
         this(context, attrs, R.attr.spinnerStyle);
         initHandler(context);
     }
 
     public AppCompatAddressPicker(Context context, AttributeSet attrs, int defStyleAttr) {
-        super(TintContextWrapper.wrap(context), attrs, defStyleAttr);
+        super(context, attrs, defStyleAttr);
         initTintManager(attrs, defStyleAttr);
         initHandler(context);
+    }
+
+    private void initHandler(Context context) {
+        addressPickerHandler = new AddressPickerHandler(this, context);
     }
 
     private void initTintManager(AttributeSet attrs, int defStyleAttr) {

@@ -41,7 +41,7 @@ ext {
     compileSdkVersion = 23
     buildToolsVersion = "23.0.1"
 
-    supportLibVersion = "23.0.1"
+    supportLibVersion = "23.1.1"
     gsonVersion = "2.4"
     junitVersion = "4.12"
     jMockVersion = "2.8.1"
