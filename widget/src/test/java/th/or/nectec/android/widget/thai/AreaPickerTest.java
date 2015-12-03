@@ -19,6 +19,7 @@ package th.or.nectec.android.widget.thai;
 
 import android.app.Activity;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.robolectric.Robolectric;
@@ -28,6 +29,7 @@ import th.or.nectec.domain.thai.Area;
 
 import static org.junit.Assert.assertEquals;
 
+@Ignore
 @RunWith(RobolectricTestRunner.class)
 @Config(manifest = Config.NONE)
 public class AreaPickerTest {
