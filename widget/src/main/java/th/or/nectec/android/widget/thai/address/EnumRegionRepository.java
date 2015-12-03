@@ -17,23 +17,23 @@
 
 package th.or.nectec.android.widget.thai.address;
 
-import th.or.nectec.android.widget.thai.OnAddressChangedListener;
-import th.or.nectec.entity.thai.Address;
+import th.or.nectec.domain.thai.address.RegionRepository;
+import th.or.nectec.entity.thai.Region;
 
-public interface AddressPickerInterface {
+import java.util.ArrayList;
+import java.util.List;
 
-    void bringToRegionList();
+class EnumRegionRepository implements RegionRepository {
+    @Override
+    public List<Region> find() {
+        List<Region> regions = new ArrayList<>();
+        regions.add(Region.CENTER);
+        regions.add(Region.NORTH);
+        regions.add(Region.EAST_NORTH);
+        regions.add(Region.EAST);
+        regions.add(Region.WEST);
+        regions.add(Region.SOUTH);
 
-    void bringToProvinceList(String region);
-
-    void bringToDistrictList(String provinceCode);
-
-    void bringToSubdistrictList(String districtCode);
-
-    void bringAddressValueToAddressView(Address addressData);
-
-    void setOnAddressChangedListener(OnAddressChangedListener addressChangedListener);
-
-    void restoreAddressField(Address address);
-
+        return regions;
+    }
 }

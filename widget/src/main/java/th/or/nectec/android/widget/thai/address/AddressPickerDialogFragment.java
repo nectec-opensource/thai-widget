@@ -28,10 +28,6 @@ import android.view.Window;
 import android.widget.*;
 import th.or.nectec.android.widget.thai.OnAddressChangedListener;
 import th.or.nectec.android.widget.thai.R;
-import th.or.nectec.android.widget.thai.address.repository.EnumRegionRepository;
-import th.or.nectec.android.widget.thai.address.repository.InMemoryJsonDistrictRepository;
-import th.or.nectec.android.widget.thai.address.repository.InMemoryJsonProvinceRepository;
-import th.or.nectec.android.widget.thai.address.repository.InMemoryJsonSubdistrictRepository;
 import th.or.nectec.domain.thai.address.*;
 import th.or.nectec.entity.thai.*;
 
@@ -40,7 +36,7 @@ import java.util.List;
 
 
 public class AddressPickerDialogFragment extends DialogFragment
-        implements AddressPickerInterface, AdapterView.OnItemClickListener,
+        implements AdapterView.OnItemClickListener,
         RegionPresenter, ProvincePresenter, DistrictPresenter, SubdistrictListPresenter, AddressPresenter {
 
     public static final String FRAGMENT_TAG = "address_dialog";
@@ -50,17 +46,17 @@ public class AddressPickerDialogFragment extends DialogFragment
     private static final int SELECT_DISTRICT = 2;
     private static final int SELECT_SUBDISTRICT = 3;
 
-    OnAddressChangedListener addressChangedListener;
-    ListView listView;
+    private OnAddressChangedListener addressChangedListener;
+    private ListView listView;
 
-    ArrayAdapter<String> regionAdapter;
-    RegionChooser regionChooser = new RegionChooser(new EnumRegionRepository(), this);
-    AddressAdapter<District> districtAdapter;
-    DistrictChooser districtChooser;
-    AddressAdapter<Province> provinceAdapter;
-    ProvinceChooser provinceChooser;
-    AddressAdapter<Subdistrict> subdistrictAdapter;
-    SubdistrictChooser subdistrictChooser;
+    private ArrayAdapter<String> regionAdapter;
+    private RegionChooser regionChooser = new RegionChooser(new EnumRegionRepository(), this);
+    private AddressAdapter<District> districtAdapter;
+    private DistrictChooser districtChooser;
+    private AddressAdapter<Province> provinceAdapter;
+    private ProvinceChooser provinceChooser;
+    private AddressAdapter<Subdistrict> subdistrictAdapter;
+    private SubdistrictChooser subdistrictChooser;
 
     private InMemoryJsonProvinceRepository inMemoryJsonProvinceRepository;
     private InMemoryJsonDistrictRepository inMemoryJsonDistrictRepository;
@@ -100,71 +96,13 @@ public class AddressPickerDialogFragment extends DialogFragment
         inMemoryJsonSubdistrictRepository = InMemoryJsonSubdistrictRepository.getInstance(getActivity());
     }
 
-    @Override
-    public void bringToRegionList() {
+
+    private void bringToRegionList() {
         titleView.setVisibility(View.GONE);
         statusInfoView.setText(R.string.choose_region);
         regionChooser.showRegionList();
         listView.setAdapter(regionAdapter);
         currentState = SELECT_REGION;
-    }
-
-    @Override
-    public void bringToProvinceList(String region) {
-        titleView.setText(regionString);
-        statusInfoView.setText(R.string.choose_province);
-        titleView.setVisibility(View.VISIBLE);
-        provinceChooser = new ProvinceChooser(inMemoryJsonProvinceRepository, this);
-        provinceChooser.showProvinceListByRegion(Region.fromName(region));
-        listView.setAdapter(provinceAdapter);
-        currentState = SELECT_PROVINCE;
-    }
-
-    @Override
-    public void bringToDistrictList(String provinceCode) {
-        titleView.setText(regionString.concat(" > ").concat(provinceData.getName()));
-        statusInfoView.setText(R.string.choose_district);
-        titleView.setVisibility(View.VISIBLE);
-        districtChooser = new DistrictChooser(inMemoryJsonDistrictRepository, this);
-        districtChooser.showDistrictListByProvinceCode(provinceCode);
-        listView.setAdapter(districtAdapter);
-        currentState = SELECT_DISTRICT;
-    }
-
-    @Override
-    public void bringToSubdistrictList(String districtCode) {
-        titleView.setText(String.format(getString(R.string.breadcrumb_text), provinceData.getName(), districtData.getName()));
-        statusInfoView.setText(R.string.choose_subdistrict);
-        titleView.setVisibility(View.VISIBLE);
-        subdistrictChooser = new SubdistrictChooser(inMemoryJsonSubdistrictRepository, this);
-        subdistrictChooser.showSubdistrictListByDistrictCode(districtCode);
-        listView.setAdapter(subdistrictAdapter);
-        currentState = SELECT_SUBDISTRICT;
-    }
-
-    @Override
-    public void bringAddressValueToAddressView(Address addressData) {
-        if (addressChangedListener != null)
-            addressChangedListener.onAddressChanged(addressData);
-        dismiss();
-    }
-
-    public void setOnAddressChangedListener(OnAddressChangedListener addressChangedListener) {
-        this.addressChangedListener = addressChangedListener;
-    }
-
-    @Override
-    public void restoreAddressField(final Address address) {
-        new Handler().post(new Runnable() {
-            @Override
-            public void run() {
-                regionString = address.getRegion().toString();
-                provinceData = address.getProvince();
-                subdistrictData = address.getSubdistrict();
-                districtData = address.getDistrict();
-                bringToSubdistrictList(address.getDistrictCode());
-            }
-        });
     }
 
     @Override
@@ -234,9 +172,63 @@ public class AddressPickerDialogFragment extends DialogFragment
         }
     }
 
+    private void bringToProvinceList(String region) {
+        titleView.setText(regionString);
+        statusInfoView.setText(R.string.choose_province);
+        titleView.setVisibility(View.VISIBLE);
+        provinceChooser = new ProvinceChooser(inMemoryJsonProvinceRepository, this);
+        provinceChooser.showProvinceListByRegion(Region.fromName(region));
+        listView.setAdapter(provinceAdapter);
+        currentState = SELECT_PROVINCE;
+    }
+
+    private void bringToDistrictList(String provinceCode) {
+        titleView.setText(regionString.concat(" > ").concat(provinceData.getName()));
+        statusInfoView.setText(R.string.choose_district);
+        titleView.setVisibility(View.VISIBLE);
+        districtChooser = new DistrictChooser(inMemoryJsonDistrictRepository, this);
+        districtChooser.showDistrictListByProvinceCode(provinceCode);
+        listView.setAdapter(districtAdapter);
+        currentState = SELECT_DISTRICT;
+    }
+
+    private void bringToSubdistrictList(String districtCode) {
+        titleView.setText(String.format(getString(R.string.breadcrumb_text), provinceData.getName(), districtData.getName()));
+        statusInfoView.setText(R.string.choose_subdistrict);
+        titleView.setVisibility(View.VISIBLE);
+        subdistrictChooser = new SubdistrictChooser(inMemoryJsonSubdistrictRepository, this);
+        subdistrictChooser.showSubdistrictListByDistrictCode(districtCode);
+        listView.setAdapter(subdistrictAdapter);
+        currentState = SELECT_SUBDISTRICT;
+    }
+
+    public void setOnAddressChangedListener(OnAddressChangedListener addressChangedListener) {
+        this.addressChangedListener = addressChangedListener;
+    }
+
+    public void restoreAddressField(final Address address) {
+        new Handler().post(new Runnable() {
+            @Override
+            public void run() {
+                regionString = address.getRegion().toString();
+                provinceData = address.getProvince();
+                subdistrictData = address.getSubdistrict();
+                districtData = address.getDistrict();
+                bringToSubdistrictList(address.getDistrictCode());
+            }
+        });
+    }
+
+
     @Override
     public void displayAddressInfo(Address address) {
         bringAddressValueToAddressView(address);
+    }
+
+    private void bringAddressValueToAddressView(Address addressData) {
+        if (addressChangedListener != null)
+            addressChangedListener.onAddressChanged(addressData);
+        dismiss();
     }
 
     @Override

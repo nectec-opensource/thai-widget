@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package th.or.nectec.android.widget.thai.address.repository;/*
+package th.or.nectec.android.widget.thai.address;/*
  * Copyright © 2015 NECTEC
  * National Electronics and Computer Technology Center, Thailand
  *

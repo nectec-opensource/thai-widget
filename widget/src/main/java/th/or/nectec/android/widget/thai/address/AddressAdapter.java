@@ -29,7 +29,7 @@ import th.or.nectec.entity.thai.AddressEntity;
 import java.util.ArrayList;
 import java.util.List;
 
-public class AddressAdapter <T extends AddressEntity> extends BaseAdapter {
+class AddressAdapter <T extends AddressEntity> extends BaseAdapter {
 
     ArrayList<T> addressList;
     LayoutInflater mInflater;

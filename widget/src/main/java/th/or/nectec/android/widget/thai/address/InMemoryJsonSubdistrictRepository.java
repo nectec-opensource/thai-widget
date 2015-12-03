@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package th.or.nectec.android.widget.thai.address.repository;
+package th.or.nectec.android.widget.thai.address;
 
 import android.content.Context;
 import com.google.gson.Gson;
@@ -30,7 +30,7 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
-public class InMemoryJsonSubdistrictRepository implements SubdistrictRepository {
+class InMemoryJsonSubdistrictRepository implements SubdistrictRepository {
 
     static InMemoryJsonSubdistrictRepository instance;
     ArrayList<Subdistrict> allSubdistrict = new ArrayList<>();

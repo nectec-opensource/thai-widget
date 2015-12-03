@@ -21,7 +21,6 @@ import android.content.Context;
 import android.os.Parcelable;
 import android.util.AttributeSet;
 import android.widget.Button;
-import th.or.nectec.android.widget.thai.AddressView;
 import th.or.nectec.android.widget.thai.OnAddressChangedListener;
 import th.or.nectec.entity.thai.Address;
 

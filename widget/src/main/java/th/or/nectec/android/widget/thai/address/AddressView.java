@@ -15,25 +15,17 @@
  * limitations under the License.
  */
 
-package th.or.nectec.android.widget.thai.address.repository;
+package th.or.nectec.android.widget.thai.address;
 
-import th.or.nectec.domain.thai.address.RegionRepository;
-import th.or.nectec.entity.thai.Region;
+import th.or.nectec.android.widget.thai.OnAddressChangedListener;
+import th.or.nectec.entity.thai.Address;
 
-import java.util.ArrayList;
-import java.util.List;
+public interface AddressView {
+    void setAddressCode(String addressCode);
 
-public class EnumRegionRepository implements RegionRepository {
-    @Override
-    public List<Region> find() {
-        List<Region> regions = new ArrayList<>();
-        regions.add(Region.CENTER);
-        regions.add(Region.NORTH);
-        regions.add(Region.EAST_NORTH);
-        regions.add(Region.EAST);
-        regions.add(Region.WEST);
-        regions.add(Region.SOUTH);
+    void setAddress(String subdistrict, String district, String province);
 
-        return regions;
-    }
+    void setOnAddressChangedListener(OnAddressChangedListener onAddressChangedListener);
+
+    Address getAddress();
 }
