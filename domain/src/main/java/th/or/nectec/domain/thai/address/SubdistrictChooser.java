@@ -1,6 +1,6 @@
 /*
- * Copyright 2015 NECTEC
- * National Electronics and Computer Technology Center, Thailand
+ * Copyright © 2015 NECTEC
+ *   National Electronics and Computer Technology Center, Thailand
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,23 +15,25 @@
  * limitations under the License.
  */
 
-package th.or.nectec.domain.thai.address.subdistrict;
+package th.or.nectec.domain.thai.address;
 
 import th.or.nectec.entity.thai.Subdistrict;
 
-public class SubdistrictController {
-    private final SubdistrictRepository subdistrictRepository;
-    private final SubdistrictPresenter subdistrictListPresenter;
+import java.util.List;
 
-    public SubdistrictController(SubdistrictRepository subdistrictRepository, SubdistrictPresenter subdistrictPresenter) {
+public class SubdistrictChooser {
+    private final SubdistrictRepository subdistrictRepository;
+    private final SubdistrictListPresenter subdistrictListPresenter;
+
+    public SubdistrictChooser(SubdistrictRepository subdistrictRepository, SubdistrictListPresenter subdistrictListPresenter) {
         this.subdistrictRepository = subdistrictRepository;
-        this.subdistrictListPresenter = subdistrictPresenter;
+        this.subdistrictListPresenter = subdistrictListPresenter;
     }
 
-    public void showSubDistrictInfoByAddressCode(String addressCode) {
-        Subdistrict addressInfo = subdistrictRepository.findByAddressCode(addressCode);
-        if (addressInfo != null) {
-            subdistrictListPresenter.showSubdistrictInfo(addressInfo);
+    public void showSubdistrictListByDistrictCode(String districtCode) {
+        List<Subdistrict> subdistricts = subdistrictRepository.findByDistrictCode(districtCode);
+        if (subdistricts != null) {
+            subdistrictListPresenter.showSubdistrictList(subdistricts);
         } else {
             subdistrictListPresenter.showNotFoundSubdistrict();
         }

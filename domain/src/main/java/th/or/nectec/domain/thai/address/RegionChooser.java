@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2015 NECTEC
+ * Copyright © 2015 NECTEC
  *   National Electronics and Computer Technology Center, Thailand
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -15,14 +15,27 @@
  * limitations under the License.
  */
 
-package th.or.nectec.domain.thai.address.region;
+package th.or.nectec.domain.thai.address;
 
 import th.or.nectec.entity.thai.Region;
 
 import java.util.List;
 
-public interface RegionPresenter {
-    void showRegionList(List<Region> regions);
+public class RegionChooser {
+    private final RegionRepository regionRepository;
+    private final RegionPresenter regionPresenter;
 
-    void showNotFoundRegion();
+    public RegionChooser(RegionRepository regionRepository, RegionPresenter regionPresenter) {
+        this.regionRepository = regionRepository;
+        this.regionPresenter = regionPresenter;
+    }
+
+    public void showRegionList() {
+        List<Region> regions = regionRepository.find();
+        if (regions != null) {
+            regionPresenter.showRegionList(regions);
+        } else {
+            regionPresenter.showNotFoundRegion();
+        }
+    }
 }

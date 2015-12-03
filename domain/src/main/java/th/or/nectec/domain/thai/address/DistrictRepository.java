@@ -1,6 +1,6 @@
 /*
- * Copyright 2015 NECTEC
- * National Electronics and Computer Technology Center, Thailand
+ * Copyright © 2015 NECTEC
+ *   National Electronics and Computer Technology Center, Thailand
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,12 +15,13 @@
  * limitations under the License.
  */
 
-package th.or.nectec.domain.thai.address.subdistrict;
+package th.or.nectec.domain.thai.address;
 
-import th.or.nectec.entity.thai.Subdistrict;
+import th.or.nectec.entity.thai.District;
 
-public interface SubdistrictPresenter {
-    void showSubdistrictInfo(Subdistrict subdistrict);
+import java.util.List;
 
-    void showNotFoundSubdistrict();
+public interface DistrictRepository {
+    List<District> findByProvinceCode(String provinceCode);
+    District findByDistrictCode(String districtCode);
 }

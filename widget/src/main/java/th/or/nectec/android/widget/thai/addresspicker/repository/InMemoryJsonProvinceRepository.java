@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2015 NECTEC
+ * Copyright © 2015 NECTEC
  *   National Electronics and Computer Technology Center, Thailand
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -18,19 +18,17 @@
 package th.or.nectec.android.widget.thai.addresspicker.repository;
 
 import android.content.Context;
-
 import com.google.gson.Gson;
 import com.google.gson.stream.JsonReader;
+import th.or.nectec.domain.thai.address.ProvinceRepository;
+import th.or.nectec.entity.thai.Province;
+import th.or.nectec.entity.thai.Region;
 
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
-
-import th.or.nectec.domain.thai.address.province.ProvinceRepository;
-import th.or.nectec.entity.thai.Province;
-import th.or.nectec.entity.thai.Region;
 
 public class InMemoryJsonProvinceRepository implements ProvinceRepository {
 

@@ -1,6 +1,6 @@
 /*
- * Copyright 2015 NECTEC
- * National Electronics and Computer Technology Center, Thailand
+ * Copyright © 2015 NECTEC
+ *   National Electronics and Computer Technology Center, Thailand
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -18,19 +18,17 @@
 package th.or.nectec.android.widget.thai.addresspicker.repository;
 
 import android.content.Context;
-
 import com.google.gson.Gson;
 import com.google.gson.stream.JsonReader;
+import th.or.nectec.domain.thai.address.SubdistrictRepository;
+import th.or.nectec.entity.thai.InvalidCodeFormatException;
+import th.or.nectec.entity.thai.Subdistrict;
 
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
-
-import th.or.nectec.domain.thai.address.subdistrict.SubdistrictRepository;
-import th.or.nectec.entity.thai.InvalidCodeFormatException;
-import th.or.nectec.entity.thai.Subdistrict;
 
 public class InMemoryJsonSubdistrictRepository implements SubdistrictRepository {
 
@@ -77,7 +75,7 @@ public class InMemoryJsonSubdistrictRepository implements SubdistrictRepository 
     }
 
     @Override
-    public Subdistrict findByAddressCode(String addressCode) {
+    public Subdistrict findBySubdistrictCode(String addressCode) {
         for (Subdistrict eachSubdistrict : allSubdistrict) {
             String queryAddressCode = eachSubdistrict.getCode();
             if (queryAddressCode.equals(addressCode)) {

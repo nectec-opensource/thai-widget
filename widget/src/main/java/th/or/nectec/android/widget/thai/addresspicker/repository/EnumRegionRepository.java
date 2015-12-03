@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2015 NECTEC
+ * Copyright © 2015 NECTEC
  *   National Electronics and Computer Technology Center, Thailand
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -17,7 +17,7 @@
 
 package th.or.nectec.android.widget.thai.addresspicker.repository;
 
-import th.or.nectec.domain.thai.address.region.RegionRepository;
+import th.or.nectec.domain.thai.address.RegionRepository;
 import th.or.nectec.entity.thai.Region;
 
 import java.util.ArrayList;
