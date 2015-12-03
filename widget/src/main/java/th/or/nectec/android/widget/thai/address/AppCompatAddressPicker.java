@@ -77,7 +77,8 @@ public class AppCompatAddressPicker extends AppCompatButton implements AddressVi
     public Parcelable onSaveInstanceState() {
         Parcelable parcelable = super.onSaveInstanceState();
         AddressSavedState savedState = new AddressSavedState(parcelable);
-        savedState.addressCode = addressPickerHandler.getAddress().getSubdistrictCode();
+        Address address = addressPickerHandler.getAddress();
+        savedState.addressCode = address == null ? null : address.getSubdistrictCode();
         return savedState;
     }
 

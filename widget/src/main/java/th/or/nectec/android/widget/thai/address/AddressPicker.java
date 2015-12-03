@@ -21,6 +21,7 @@ import android.content.Context;
 import android.os.Parcelable;
 import android.util.AttributeSet;
 import android.widget.Button;
+
 import th.or.nectec.android.widget.thai.OnAddressChangedListener;
 import th.or.nectec.entity.thai.Address;
 
@@ -30,10 +31,6 @@ public class AddressPicker extends Button implements AddressView {
     public AddressPicker(Context context) {
         super(context);
         initHandler(context);
-    }
-
-    private void initHandler(Context context) {
-        addressPickerHandler = new AddressPickerHandler(this, context);
     }
 
     public AddressPicker(Context context, AttributeSet attrs) {
@@ -46,6 +43,10 @@ public class AddressPicker extends Button implements AddressView {
         initHandler(context);
     }
 
+    private void initHandler(Context context) {
+        addressPickerHandler = new AddressPickerHandler(this, context);
+    }
+
     @Override
     public boolean performClick() {
         return addressPickerHandler.performClick();
@@ -55,7 +56,8 @@ public class AddressPicker extends Button implements AddressView {
     public Parcelable onSaveInstanceState() {
         Parcelable parcelable = super.onSaveInstanceState();
         AddressSavedState savedState = new AddressSavedState(parcelable);
-        savedState.addressCode = addressPickerHandler.getAddress().getSubdistrictCode();
+        Address address = addressPickerHandler.getAddress();
+        savedState.addressCode = address == null ? null : address.getSubdistrictCode();
         return savedState;
     }
 
