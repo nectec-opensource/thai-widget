@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2015 NECTEC
+ * Copyright © 2015 NECTEC
  *   National Electronics and Computer Technology Center, Thailand
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -15,17 +15,13 @@
  * limitations under the License.
  */
 
+package th.or.nectec.domain.thai.address;
 
-apply plugin: 'java'
+import th.or.nectec.entity.thai.Subdistrict;
 
-//noinspection GroovyUnusedAssignment
-sourceCompatibility = rootProject.ext.javaSourceCompatibility
-//noinspection GroovyUnusedAssignment
-targetCompatibility = rootProject.ext.javaTargetCompatibility
+import java.util.List;
 
-dependencies {
-    compile 'com.google.code.gson:gson:' + rootProject.ext.gsonVersion
-
-    testCompile 'junit:junit:' + rootProject.ext.junitVersion
-    testCompile 'org.jmock:jmock-junit4:' + rootProject.ext.jMockVersion
+public interface SubdistrictListPresenter {
+    void showSubdistrictList(List<Subdistrict> subdistricts);
+    void showNotFoundSubdistrict();
 }

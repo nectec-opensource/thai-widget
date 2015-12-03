@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2015 NECTEC
+ * Copyright © 2015 NECTEC
  *   National Electronics and Computer Technology Center, Thailand
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -15,17 +15,25 @@
  * limitations under the License.
  */
 
+package th.or.nectec.android.widget.thai.address;
 
-apply plugin: 'java'
+import th.or.nectec.domain.thai.address.RegionRepository;
+import th.or.nectec.entity.thai.Region;
 
-//noinspection GroovyUnusedAssignment
-sourceCompatibility = rootProject.ext.javaSourceCompatibility
-//noinspection GroovyUnusedAssignment
-targetCompatibility = rootProject.ext.javaTargetCompatibility
+import java.util.ArrayList;
+import java.util.List;
 
-dependencies {
-    compile 'com.google.code.gson:gson:' + rootProject.ext.gsonVersion
+class EnumRegionRepository implements RegionRepository {
+    @Override
+    public List<Region> find() {
+        List<Region> regions = new ArrayList<>();
+        regions.add(Region.CENTER);
+        regions.add(Region.NORTH);
+        regions.add(Region.EAST_NORTH);
+        regions.add(Region.EAST);
+        regions.add(Region.WEST);
+        regions.add(Region.SOUTH);
 
-    testCompile 'junit:junit:' + rootProject.ext.junitVersion
-    testCompile 'org.jmock:jmock-junit4:' + rootProject.ext.jMockVersion
+        return regions;
+    }
 }

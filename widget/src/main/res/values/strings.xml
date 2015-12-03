@@ -1,2 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="please_define_address">กรุณาระบุ ตำบล อำเภอ จังหวัด</string>
 </resources>

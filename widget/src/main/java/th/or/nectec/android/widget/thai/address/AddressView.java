@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2015 NECTEC
+ * Copyright © 2015 NECTEC
  *   National Electronics and Computer Technology Center, Thailand
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -15,17 +15,17 @@
  * limitations under the License.
  */
 
+package th.or.nectec.android.widget.thai.address;
 
-apply plugin: 'java'
+import th.or.nectec.android.widget.thai.OnAddressChangedListener;
+import th.or.nectec.entity.thai.Address;
 
-//noinspection GroovyUnusedAssignment
-sourceCompatibility = rootProject.ext.javaSourceCompatibility
-//noinspection GroovyUnusedAssignment
-targetCompatibility = rootProject.ext.javaTargetCompatibility
+public interface AddressView {
+    void setAddressCode(String addressCode);
 
-dependencies {
-    compile 'com.google.code.gson:gson:' + rootProject.ext.gsonVersion
+    void setAddress(String subdistrict, String district, String province);
 
-    testCompile 'junit:junit:' + rootProject.ext.junitVersion
-    testCompile 'org.jmock:jmock-junit4:' + rootProject.ext.jMockVersion
+    void setOnAddressChangedListener(OnAddressChangedListener onAddressChangedListener);
+
+    Address getAddress();
 }

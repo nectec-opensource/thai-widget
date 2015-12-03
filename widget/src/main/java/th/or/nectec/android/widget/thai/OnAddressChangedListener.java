@@ -15,26 +15,13 @@
  * limitations under the License.
  */
 
-package th.or.nectec.util;
+package th.or.nectec.android.widget.thai;
 
-public class TextUtils {
+import th.or.nectec.entity.thai.Address;
 
-    public static boolean isDigitOnly(String text) {
-        return text.matches("\\d+");
-    }
+public interface OnAddressChangedListener {
 
-    public static boolean isRepeatingNumber(String text) {
-        return text.matches("\\b(\\d)\\1+\\b");
-    }
+    void onAddressChanged(Address address);
 
-    public static boolean isRepeatPatternNumber(String text) {
-        return text.matches("\\b(\\d+)\\1+\\b");
-    }
-
-    public static boolean isEmpty(String text) {
-        return text != null && !text.isEmpty();
-    }
-
-
-
+    void onAddressCanceled();
 }
