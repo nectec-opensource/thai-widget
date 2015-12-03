@@ -1,6 +1,6 @@
 /*
- * Copyright 2015 NECTEC
- * National Electronics and Computer Technology Center, Thailand
+ * Copyright © 2015 NECTEC
+ *   National Electronics and Computer Technology Center, Thailand
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -21,10 +21,9 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import th.or.nectec.android.widget.thai.OnAddressChangedListener;
-import th.or.nectec.android.widget.thai.addresspicker.AddressPicker;
-import th.or.nectec.android.widget.thai.addresspicker.AppCompatAddressPicker;
+import th.or.nectec.android.widget.thai.address.AddressPicker;
+import th.or.nectec.android.widget.thai.address.AppCompatAddressPicker;
 import th.or.nectec.entity.thai.Address;
 
 public class RegionPickerSampleActivity extends AppCompatActivity {

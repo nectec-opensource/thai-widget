@@ -1,6 +1,6 @@
 /*
- * Copyright 2015 NECTEC
- * National Electronics and Computer Technology Center, Thailand
+ * Copyright © 2015 NECTEC
+ *   National Electronics and Computer Technology Center, Thailand
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,16 +15,14 @@
  * limitations under the License.
  */
 
-package th.or.nectec.android.widget.thai.addresspicker;
+package th.or.nectec.android.widget.thai.address;
 
 import android.content.Context;
 import android.os.Parcelable;
 import android.util.AttributeSet;
 import android.widget.Button;
-
 import th.or.nectec.android.widget.thai.AddressView;
 import th.or.nectec.android.widget.thai.OnAddressChangedListener;
-import th.or.nectec.android.widget.thai.addresspicker.handler.AddressPickerHandler;
 import th.or.nectec.entity.thai.Address;
 
 public class AddressPicker extends Button implements AddressView {
@@ -33,6 +31,10 @@ public class AddressPicker extends Button implements AddressView {
     public AddressPicker(Context context) {
         super(context);
         initHandler(context);
+    }
+
+    private void initHandler(Context context) {
+        addressPickerHandler = new AddressPickerHandler(this, context);
     }
 
     public AddressPicker(Context context, AttributeSet attrs) {
@@ -45,13 +47,28 @@ public class AddressPicker extends Button implements AddressView {
         initHandler(context);
     }
 
-    private void initHandler(Context context) {
-        addressPickerHandler = new AddressPickerHandler(this, context);
-    }
-
     @Override
     public boolean performClick() {
         return addressPickerHandler.performClick();
+    }
+
+    @Override
+    public Parcelable onSaveInstanceState() {
+        Parcelable parcelable = super.onSaveInstanceState();
+        AddressSavedState savedState = new AddressSavedState(parcelable);
+        savedState.addressCode = addressPickerHandler.getAddress().getSubdistrictCode();
+        return savedState;
+    }
+
+    @Override
+    public void onRestoreInstanceState(Parcelable state) {
+        if (!(state instanceof AddressSavedState)) {
+            super.onRestoreInstanceState(state);
+            return;
+        }
+        AddressSavedState ss = (AddressSavedState) state;
+        super.onRestoreInstanceState(ss.getSuperState());
+        setAddressCode(ss.addressCode);
     }
 
     @Override
@@ -72,24 +89,5 @@ public class AddressPicker extends Button implements AddressView {
     @Override
     public Address getAddress() {
         return addressPickerHandler.getAddress();
-    }
-
-    @Override
-    public Parcelable onSaveInstanceState() {
-        Parcelable parcelable = super.onSaveInstanceState();
-        AddressSavedState savedState = new AddressSavedState(parcelable);
-        savedState.addressCode = addressPickerHandler.getAddress().getSubdistrictCode();
-        return savedState;
-    }
-
-    @Override
-    public void onRestoreInstanceState(Parcelable state) {
-        if (!(state instanceof AddressSavedState)) {
-            super.onRestoreInstanceState(state);
-            return;
-        }
-        AddressSavedState ss = (AddressSavedState) state;
-        super.onRestoreInstanceState(ss.getSuperState());
-        setAddressCode(ss.addressCode);
     }
 }

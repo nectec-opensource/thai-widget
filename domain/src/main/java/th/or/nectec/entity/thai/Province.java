@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2015 NECTEC
+ * Copyright © 2015 NECTEC
  *   National Electronics and Computer Technology Center, Thailand
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -19,7 +19,7 @@ package th.or.nectec.entity.thai;
 
 import th.or.nectec.util.TextUtils;
 
-public class Province {
+public class Province implements AddressEntity {
 
     private String code;
     private String name;
@@ -32,6 +32,7 @@ public class Province {
         this.name = name;
     }
 
+    @Override
     public String getCode() {
         return code;
     }
@@ -60,23 +61,21 @@ public class Province {
     }
 
     @Override
+    public int hashCode() {
+        int result = code.hashCode();
+        result = 31 * result + name.hashCode();
+        result = 31 * result + region.hashCode();
+        return result;
+    }
+
+    @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
         Province province = (Province) o;
 
-        if (!code.equals(province.code)) return false;
-        if (!name.equals(province.name)) return false;
-        return region == province.region;
+        return code.equals(province.code) && name.equals(province.name) && region == province.region;
 
-    }
-
-    @Override
-    public int hashCode() {
-        int result = code.hashCode();
-        result = 31 * result + name.hashCode();
-        result = 31 * result + region.hashCode();
-        return result;
     }
 }

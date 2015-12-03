@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?><!--
-  ~ Copyright 2015 NECTEC
-  ~ National Electronics and Computer Technology Center, Thailand
+  ~ Copyright © 2015 NECTEC
+  ~   National Electronics and Computer Technology Center, Thailand
   ~
   ~ Licensed under the Apache License, Version 2.0 (the "License");
   ~ you may not use this file except in compliance with the License.
@@ -28,12 +28,12 @@
         android:layout_height="wrap_content"
         android:text="@string/hello_world" />
 
-    <th.or.nectec.android.widget.thai.addresspicker.AppCompatAddressPicker
+    <th.or.nectec.android.widget.thai.address.AppCompatAddressPicker
         android:id="@+id/address_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
-    <th.or.nectec.android.widget.thai.addresspicker.AddressPicker
+    <th.or.nectec.android.widget.thai.address.AddressPicker
         android:id="@+id/address_view_2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />

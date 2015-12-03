@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2015 NECTEC
+ * Copyright © 2015 NECTEC
  *   National Electronics and Computer Technology Center, Thailand
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -19,7 +19,7 @@ package th.or.nectec.entity.thai;
 
 import th.or.nectec.util.TextUtils;
 
-public class Subdistrict {
+public class Subdistrict implements AddressEntity {
     String code;
     String name;
     String postcode;
@@ -30,14 +30,7 @@ public class Subdistrict {
         this.name = name;
     }
 
-
     @Override
-    public String toString() {
-        return "Address{" +
-                "code='" + code + '\'' +
-                ", name='" + name;
-    }
-
     public String getCode() {
         return code;
     }
@@ -49,20 +42,21 @@ public class Subdistrict {
             throw new InvalidCodeFormatException();
     }
 
-    public String getDistrictCode() {
-        return code.substring(0, 4);
-    }
-
-    public String getProvinceCode() {
-        return code.substring(0, 2);
-    }
-
+    @Override
     public String getName() {
         return name;
     }
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getDistrictCode() {
+        return code.substring(0, 4);
+    }
+
+    public String getProvinceCode() {
+        return code.substring(0, 2);
     }
 
     public String getPostcode() {
@@ -74,21 +68,28 @@ public class Subdistrict {
     }
 
     @Override
+    public int hashCode() {
+        int result = code.hashCode();
+        result = 31 * result + name.hashCode();
+        result = 31 * result + (postcode != null ? postcode.hashCode() : 0);
+        return result;
+    }
+
+    @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
         Subdistrict that = (Subdistrict) o;
 
-        if (!code.equals(that.code)) return false;
-        return name.equals(that.name) && !(postcode != null ? !postcode.equals(that.postcode) : that.postcode != null);
+        return code.equals(that.code) && name.equals(that.name)
+                && !(postcode != null ? !postcode.equals(that.postcode) : that.postcode != null);
     }
 
     @Override
-    public int hashCode() {
-        int result = code.hashCode();
-        result = 31 * result + name.hashCode();
-        result = 31 * result + (postcode != null ? postcode.hashCode() : 0);
-        return result;
+    public String toString() {
+        return "Address{" +
+                "code='" + code + '\'' +
+                ", name='" + name;
     }
 }

@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package th.or.nectec.android.widget.thai.addresspicker;
+package th.or.nectec.android.widget.thai.address;
 
 import android.app.Dialog;
 import android.app.DialogFragment;
@@ -28,14 +28,10 @@ import android.view.Window;
 import android.widget.*;
 import th.or.nectec.android.widget.thai.OnAddressChangedListener;
 import th.or.nectec.android.widget.thai.R;
-import th.or.nectec.android.widget.thai.addresspicker.adapter.DistrictAdapter;
-import th.or.nectec.android.widget.thai.addresspicker.adapter.ProvinceAdapter;
-import th.or.nectec.android.widget.thai.addresspicker.adapter.SubdistrictAdapter;
-import th.or.nectec.android.widget.thai.addresspicker.handler.AddressPickerInterface;
-import th.or.nectec.android.widget.thai.addresspicker.repository.EnumRegionRepository;
-import th.or.nectec.android.widget.thai.addresspicker.repository.InMemoryJsonDistrictRepository;
-import th.or.nectec.android.widget.thai.addresspicker.repository.InMemoryJsonProvinceRepository;
-import th.or.nectec.android.widget.thai.addresspicker.repository.InMemoryJsonSubdistrictRepository;
+import th.or.nectec.android.widget.thai.address.repository.EnumRegionRepository;
+import th.or.nectec.android.widget.thai.address.repository.InMemoryJsonDistrictRepository;
+import th.or.nectec.android.widget.thai.address.repository.InMemoryJsonProvinceRepository;
+import th.or.nectec.android.widget.thai.address.repository.InMemoryJsonSubdistrictRepository;
 import th.or.nectec.domain.thai.address.*;
 import th.or.nectec.entity.thai.*;
 
@@ -59,11 +55,11 @@ public class AddressPickerDialogFragment extends DialogFragment
 
     ArrayAdapter<String> regionAdapter;
     RegionChooser regionChooser = new RegionChooser(new EnumRegionRepository(), this);
-    DistrictAdapter districtAdapter;
+    AddressAdapter<District> districtAdapter;
     DistrictChooser districtChooser;
-    ProvinceAdapter provinceAdapter;
+    AddressAdapter<Province> provinceAdapter;
     ProvinceChooser provinceChooser;
-    SubdistrictAdapter subdistrictAdapter;
+    AddressAdapter<Subdistrict> subdistrictAdapter;
     SubdistrictChooser subdistrictChooser;
 
     private InMemoryJsonProvinceRepository inMemoryJsonProvinceRepository;
@@ -192,7 +188,7 @@ public class AddressPickerDialogFragment extends DialogFragment
 
     @Override
     public void showProvinceList(List<Province> provinces) {
-        provinceAdapter = new ProvinceAdapter(getActivity(), provinces);
+        provinceAdapter = new AddressAdapter<Province>(getActivity(), provinces);
     }
 
     @Override
@@ -202,7 +198,7 @@ public class AddressPickerDialogFragment extends DialogFragment
 
     @Override
     public void showDistrictList(List<District> districts) {
-        districtAdapter = new DistrictAdapter(getActivity(), districts);
+        districtAdapter = new AddressAdapter<District>(getActivity(), districts);
     }
 
     @Override
@@ -212,7 +208,7 @@ public class AddressPickerDialogFragment extends DialogFragment
 
     @Override
     public void showSubdistrictList(List<Subdistrict> subdistricts) {
-        subdistrictAdapter = new SubdistrictAdapter(getActivity(), subdistricts);
+        subdistrictAdapter = new AddressAdapter<Subdistrict>(getActivity(), subdistricts);
     }
 
     @Override

@@ -1,6 +1,6 @@
 /*
- * Copyright 2015 NECTEC
- * National Electronics and Computer Technology Center, Thailand
+ * Copyright © 2015 NECTEC
+ *   National Electronics and Computer Technology Center, Thailand
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package th.or.nectec.android.widget.thai.addresspicker.adapter;
+package th.or.nectec.android.widget.thai.address;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -24,31 +24,26 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 import th.or.nectec.android.widget.thai.R;
-import th.or.nectec.entity.thai.Address;
+import th.or.nectec.entity.thai.AddressEntity;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 
-public abstract class ThaiAddressAdapter<T> extends BaseAdapter {
+public class AddressAdapter <T extends AddressEntity> extends BaseAdapter {
 
     ArrayList<T> addressList;
     LayoutInflater mInflater;
 
-    public ThaiAddressAdapter(Context context, List<T> addressList) {
+    public AddressAdapter(Context context, List<T> addressList) {
         mInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         addAll(addressList);
     }
 
-    public void addAll(Collection<? extends T> collection) {
+
+    public void addAll(List<T> collection) {
         addressList = new ArrayList<>();
         addressList.addAll(collection);
         notifyDataSetChanged();
-    }
-
-    @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
-        return createViewFromResources(position, convertView, parent);
     }
 
     @Override
@@ -56,12 +51,16 @@ public abstract class ThaiAddressAdapter<T> extends BaseAdapter {
         return createViewFromResources(position, convertView, parent);
     }
 
-    public abstract View createViewFromResources(int position, View convertView, ViewGroup parent);
+    public View createViewFromResources(int position, View convertView, ViewGroup parent) {
+        if (convertView == null) {
+            convertView = mInflater.inflate(R.layout.address_picker_list_item, parent, false);
+        }
 
+        TextView text = (TextView) convertView;
 
-    @Override
-    public long getItemId(int position) {
-        return position;
+        AddressEntity entity = getItem(position);
+        text.setText(entity.getName());
+        return text;
     }
 
     @Override
@@ -72,5 +71,15 @@ public abstract class ThaiAddressAdapter<T> extends BaseAdapter {
     @Override
     public T getItem(int position) {
         return addressList.get(position);
+    }
+
+    @Override
+    public long getItemId(int position) {
+        return position;
+    }
+
+    @Override
+    public View getView(int position, View convertView, ViewGroup parent) {
+        return createViewFromResources(position, convertView, parent);
     }
 }

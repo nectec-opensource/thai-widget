@@ -1,6 +1,6 @@
 /*
- * Copyright 2015 NECTEC
- * National Electronics and Computer Technology Center, Thailand
+ * Copyright © 2015 NECTEC
+ *   National Electronics and Computer Technology Center, Thailand
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package th.or.nectec.android.widget.thai.addresspicker;
+package th.or.nectec.android.widget.thai.address;
 
 import android.content.Context;
 import android.content.res.ColorStateList;
@@ -25,11 +25,9 @@ import android.support.v7.internal.widget.TintManager;
 import android.support.v7.internal.widget.TintTypedArray;
 import android.support.v7.widget.AppCompatButton;
 import android.util.AttributeSet;
-
 import th.or.nectec.android.widget.thai.AddressView;
 import th.or.nectec.android.widget.thai.OnAddressChangedListener;
 import th.or.nectec.android.widget.thai.R;
-import th.or.nectec.android.widget.thai.addresspicker.handler.AddressPickerHandler;
 import th.or.nectec.entity.thai.Address;
 
 public class AppCompatAddressPicker extends AppCompatButton implements AddressView {
@@ -42,6 +40,10 @@ public class AppCompatAddressPicker extends AppCompatButton implements AddressVi
         initHandler(context);
     }
 
+    private void initHandler(Context context) {
+        addressPickerHandler = new AddressPickerHandler(this, context);
+    }
+
     public AppCompatAddressPicker(Context context, AttributeSet attrs) {
         this(context, attrs, R.attr.spinnerStyle);
         initHandler(context);
@@ -51,10 +53,6 @@ public class AppCompatAddressPicker extends AppCompatButton implements AddressVi
         super(TintContextWrapper.wrap(context), attrs, defStyleAttr);
         initTintManager(attrs, defStyleAttr);
         initHandler(context);
-    }
-
-    private void initHandler(Context context) {
-        addressPickerHandler = new AddressPickerHandler(this, context);
     }
 
     private void initTintManager(AttributeSet attrs, int defStyleAttr) {
@@ -77,6 +75,25 @@ public class AppCompatAddressPicker extends AppCompatButton implements AddressVi
     }
 
     @Override
+    public Parcelable onSaveInstanceState() {
+        Parcelable parcelable = super.onSaveInstanceState();
+        AddressSavedState savedState = new AddressSavedState(parcelable);
+        savedState.addressCode = addressPickerHandler.getAddress().getSubdistrictCode();
+        return savedState;
+    }
+
+    @Override
+    public void onRestoreInstanceState(Parcelable state) {
+        if (!(state instanceof AddressSavedState)) {
+            super.onRestoreInstanceState(state);
+            return;
+        }
+        AddressSavedState ss = (AddressSavedState) state;
+        super.onRestoreInstanceState(ss.getSuperState());
+        setAddressCode(ss.addressCode);
+    }
+
+    @Override
     public void setAddressCode(String addressCode) {
         addressPickerHandler.setAddressCode(addressCode);
     }
@@ -94,24 +111,5 @@ public class AppCompatAddressPicker extends AppCompatButton implements AddressVi
     @Override
     public Address getAddress() {
         return addressPickerHandler.getAddress();
-    }
-
-    @Override
-    public Parcelable onSaveInstanceState() {
-        Parcelable parcelable = super.onSaveInstanceState();
-        AddressSavedState savedState = new AddressSavedState(parcelable);
-        savedState.addressCode = addressPickerHandler.getAddress().getSubdistrictCode();
-        return savedState;
-    }
-
-    @Override
-    public void onRestoreInstanceState(Parcelable state) {
-        if (!(state instanceof AddressSavedState)) {
-            super.onRestoreInstanceState(state);
-            return;
-        }
-        AddressSavedState ss = (AddressSavedState) state;
-        super.onRestoreInstanceState(ss.getSuperState());
-        setAddressCode(ss.addressCode);
     }
 }

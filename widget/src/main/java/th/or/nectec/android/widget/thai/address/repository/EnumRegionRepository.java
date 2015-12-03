@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package th.or.nectec.android.widget.thai.addresspicker.repository;
+package th.or.nectec.android.widget.thai.address.repository;
 
 import th.or.nectec.domain.thai.address.RegionRepository;
 import th.or.nectec.entity.thai.Region;

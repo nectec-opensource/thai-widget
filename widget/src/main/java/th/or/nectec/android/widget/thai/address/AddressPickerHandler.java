@@ -1,17 +1,32 @@
-package th.or.nectec.android.widget.thai.addresspicker.handler;
+/*
+ * Copyright © 2015 NECTEC
+ *   National Electronics and Computer Technology Center, Thailand
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *    http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+package th.or.nectec.android.widget.thai.address;
 
 import android.app.Activity;
 import android.app.FragmentManager;
 import android.content.Context;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import th.or.nectec.android.widget.thai.OnAddressChangedListener;
 import th.or.nectec.android.widget.thai.R;
-import th.or.nectec.android.widget.thai.addresspicker.AddressPickerDialogFragment;
-import th.or.nectec.android.widget.thai.addresspicker.repository.InMemoryJsonDistrictRepository;
-import th.or.nectec.android.widget.thai.addresspicker.repository.InMemoryJsonProvinceRepository;
-import th.or.nectec.android.widget.thai.addresspicker.repository.InMemoryJsonSubdistrictRepository;
+import th.or.nectec.android.widget.thai.address.repository.InMemoryJsonDistrictRepository;
+import th.or.nectec.android.widget.thai.address.repository.InMemoryJsonProvinceRepository;
+import th.or.nectec.android.widget.thai.address.repository.InMemoryJsonSubdistrictRepository;
 import th.or.nectec.domain.thai.ThaiAddressPrinter;
 import th.or.nectec.domain.thai.address.AddressController;
 import th.or.nectec.domain.thai.address.AddressPresenter;
@@ -65,6 +80,13 @@ public class AddressPickerHandler implements OnAddressChangedListener, AddressPr
         Toast.makeText(context, R.string.address_not_found, Toast.LENGTH_LONG).show();
     }
 
+    private void retrieveAddress(Address address) {
+        this.address = address;
+        textView.setText(ThaiAddressPrinter.buildShortAddress(address.getSubdistrict().getName(), address.getDistrict().getName(), address.getProvince().getName()));
+        if (onAddressChangedListener != null)
+            onAddressChangedListener.onAddressChanged(address);
+    }
+
     public boolean performClick() {
         boolean handle = false;
         if (this.addressPickerDialogFragment != null) {
@@ -98,13 +120,6 @@ public class AddressPickerHandler implements OnAddressChangedListener, AddressPr
     public void onAddressCanceled() {
         if (onAddressChangedListener != null)
             onAddressChangedListener.onAddressCanceled();
-    }
-
-    private void retrieveAddress(Address address) {
-        this.address = address;
-        textView.setText(ThaiAddressPrinter.buildShortAddress(address.getSubdistrict().getName(), address.getDistrict().getName(), address.getProvince().getName()));
-        if (onAddressChangedListener != null)
-            onAddressChangedListener.onAddressChanged(address);
     }
 
     public void setOnAddressChangedListener(OnAddressChangedListener onAddressChangedListener) {

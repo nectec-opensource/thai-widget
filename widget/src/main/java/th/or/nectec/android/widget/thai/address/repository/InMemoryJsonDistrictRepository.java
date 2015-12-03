@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package th.or.nectec.android.widget.thai.addresspicker.repository;
+package th.or.nectec.android.widget.thai.address.repository;
 
 import android.content.Context;
 import com.google.gson.Gson;

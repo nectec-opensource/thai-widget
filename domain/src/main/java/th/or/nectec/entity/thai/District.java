@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2015 NECTEC
+ * Copyright © 2015 NECTEC
  *   National Electronics and Computer Technology Center, Thailand
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -19,7 +19,7 @@ package th.or.nectec.entity.thai;
 
 import th.or.nectec.util.TextUtils;
 
-public class District {
+public class District implements AddressEntity {
     String code;
     String name;
 
@@ -28,14 +28,7 @@ public class District {
         this.name = name;
     }
 
-
     @Override
-    public String toString() {
-        return "Address{" +
-                "code='" + code + '\'' +
-                ", name='" + name;
-    }
-
     public String getCode() {
         return code;
     }
@@ -47,12 +40,20 @@ public class District {
             throw new InvalidCodeFormatException();
     }
 
+    @Override
     public String getName() {
         return name;
     }
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = code.hashCode();
+        result = 31 * result + name.hashCode();
+        return result;
     }
 
     @Override
@@ -66,10 +67,10 @@ public class District {
     }
 
     @Override
-    public int hashCode() {
-        int result = code.hashCode();
-        result = 31 * result + name.hashCode();
-        return result;
+    public String toString() {
+        return "Address{" +
+                "code='" + code + '\'' +
+                ", name='" + name;
     }
 
     public String getProvinceCode() {
