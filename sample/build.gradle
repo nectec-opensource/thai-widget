@@ -63,7 +63,7 @@ android {
 }
 
 dependencies {
-    compile project(':domain')
+    compile project(':thai-widget-domain')
     compile project(':thai-widget')
     compile 'com.android.support:appcompat-v7:' + rootProject.ext.supportLibVersion
 

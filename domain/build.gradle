@@ -17,8 +17,9 @@
 
 
 apply plugin: 'java'
+apply plugin: 'maven'
 apply plugin: 'maven-publish'
-apply from: '../gradle/bintray.gradle'
+
 
 //noinspection GroovyUnusedAssignment
 sourceCompatibility = rootProject.ext.javaSourceCompatibility
@@ -60,12 +61,11 @@ group = publishedGroupId
 
 publishing {
     publications {
-        mavenJava(MavenPublication) {
-            if (plugins.hasPlugin('war')) {
-                from components.web
-            } else {
-                from components.java
-            }
+        MyPublication(MavenPublication) {
+            from components.java
+            groupId 'th.or.nectec.android'
+            artifactId project.name
+            version libraryVersion
 
             artifact sourcesJar
             artifact javadocJar
@@ -73,3 +73,4 @@ publishing {
     }
 }
 
+apply from: '../gradle/bintray.gradle'
