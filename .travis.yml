@@ -14,6 +14,4 @@ android:
 before_script:
   - chmod +x gradlew
 script:
-  - ./gradlew clean
-  - ./gradlew :domain:test --continue
-  - ./gradlew build
+  - ./gradlew clean test build
