@@ -55,3 +55,11 @@ task wrapper(type: Wrapper) {
     description 'Creates the gradle wrapper.'
     gradleVersion '2.4'
 }
+
+task bintray {
+    group 'Publishing'
+    description 'Publish all artifcats to bintray'
+
+    dependsOn(":domain:bintrayUpload")
+    dependsOn(":thai-widget:bintrayUpload")
+}
