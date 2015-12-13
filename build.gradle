@@ -30,6 +30,7 @@ allprojects {
     repositories {
         jcenter()
     }
+    apply plugin: 'idea'
 }
 
 ext {
