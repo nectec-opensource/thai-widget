@@ -46,8 +46,15 @@ public class JsonParser {
             reader.endArray();
             reader.close();
         } catch (IOException e) {
-            e.printStackTrace();
+            throw new JsonParserException(e);
         }
         return list;
+    }
+
+    public static class JsonParserException extends RuntimeException {
+
+        public JsonParserException(IOException ioException) {
+            super(ioException);
+        }
     }
 }
