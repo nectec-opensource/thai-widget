@@ -1,5 +1,5 @@
 /*
- * Copyright © 2015 NECTEC
+ * Copyright (c) 2015 NECTEC
  *   National Electronics and Computer Technology Center, Thailand
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -21,16 +21,19 @@ import android.content.Context;
 import android.os.Parcelable;
 import android.util.AttributeSet;
 import android.widget.Button;
-
 import th.or.nectec.android.widget.thai.OnAddressChangedListener;
 import th.or.nectec.entity.thai.Address;
 
 public class AddressPicker extends Button implements AddressView {
-    AddressPickerHandler addressPickerHandler;
+    AddressPickerHandler handler;
 
     public AddressPicker(Context context) {
         super(context);
         initHandler(context);
+    }
+
+    private void initHandler(Context context) {
+        handler = new AddressPickerHandler(this, context);
     }
 
     public AddressPicker(Context context, AttributeSet attrs) {
@@ -43,22 +46,14 @@ public class AddressPicker extends Button implements AddressView {
         initHandler(context);
     }
 
-    private void initHandler(Context context) {
-        addressPickerHandler = new AddressPickerHandler(this, context);
-    }
-
     @Override
     public boolean performClick() {
-        return addressPickerHandler.performClick();
+        return handler.onClick();
     }
 
     @Override
     public Parcelable onSaveInstanceState() {
-        Parcelable parcelable = super.onSaveInstanceState();
-        AddressSavedState savedState = new AddressSavedState(parcelable);
-        Address address = addressPickerHandler.getAddress();
-        savedState.addressCode = address == null ? null : address.getSubdistrictCode();
-        return savedState;
+        return handler.buildSaveState(super.onSaveInstanceState());
     }
 
     @Override
@@ -74,21 +69,21 @@ public class AddressPicker extends Button implements AddressView {
 
     @Override
     public void setAddressCode(String addressCode) {
-        addressPickerHandler.setAddressCode(addressCode);
+        handler.setAddressCode(addressCode);
     }
 
     @Override
     public void setAddress(String subdistrict, String district, String province) {
-        addressPickerHandler.setAddress(subdistrict, district, province);
+        handler.setAddress(subdistrict, district, province);
     }
 
     @Override
     public void setOnAddressChangedListener(OnAddressChangedListener onAddressChangedListener) {
-        addressPickerHandler.setOnAddressChangedListener(onAddressChangedListener);
+        handler.setOnAddressChangedListener(onAddressChangedListener);
     }
 
     @Override
     public Address getAddress() {
-        return addressPickerHandler.getAddress();
+        return handler.getAddress();
     }
 }
