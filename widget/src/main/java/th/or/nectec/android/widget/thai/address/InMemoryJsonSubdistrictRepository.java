@@ -1,5 +1,5 @@
 /*
- * Copyright © 2015 NECTEC
+ * Copyright (c) 2015 NECTEC
  *   National Electronics and Computer Technology Center, Thailand
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -18,39 +18,22 @@
 package th.or.nectec.android.widget.thai.address;
 
 import android.content.Context;
-import com.google.gson.Gson;
-import com.google.gson.stream.JsonReader;
+import th.or.nectec.android.widget.thai.utils.JsonParser;
 import th.or.nectec.domain.thai.address.SubdistrictRepository;
 import th.or.nectec.entity.thai.InvalidCodeFormatException;
 import th.or.nectec.entity.thai.Subdistrict;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
 class InMemoryJsonSubdistrictRepository implements SubdistrictRepository {
 
-    static InMemoryJsonSubdistrictRepository instance;
-    ArrayList<Subdistrict> allSubdistrict = new ArrayList<>();
+    private static final String SUBDISTRICT_JSON = "subdistrict.json";
+    private static InMemoryJsonSubdistrictRepository instance;
+    private List<Subdistrict> allSubdistrict = new ArrayList<>();
 
     public InMemoryJsonSubdistrictRepository(Context context) {
-        try {
-            InputStream inputStream = context.getAssets().open("subdistrict.json");
-            JsonReader reader = new JsonReader(new InputStreamReader(inputStream, "UTF-8"));
-            Gson gson = new Gson();
-
-            reader.beginArray();
-            while (reader.hasNext()) {
-                Subdistrict subdistrict = gson.fromJson(reader, Subdistrict.class);
-                allSubdistrict.add(subdistrict);
-            }
-            reader.endArray();
-            reader.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        allSubdistrict = JsonParser.list(context, SUBDISTRICT_JSON, Subdistrict.class);
     }
 
     public static InMemoryJsonSubdistrictRepository getInstance(Context context) {

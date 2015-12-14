@@ -18,6 +18,7 @@
 package th.or.nectec.android.widget.thai.address;
 
 import android.content.Context;
+import th.or.nectec.android.widget.thai.utils.JsonParser;
 import th.or.nectec.domain.thai.address.ProvinceRepository;
 import th.or.nectec.entity.thai.Province;
 import th.or.nectec.entity.thai.Region;
@@ -27,14 +28,13 @@ import java.util.List;
 
 class InMemoryJsonProvinceRepository implements ProvinceRepository {
 
-    public static InMemoryJsonProvinceRepository instance;
-    ArrayList<Province> allProvince = new ArrayList<>();
+    private static final String PROVINCE_JSON = "province.json";
+    private static InMemoryJsonProvinceRepository instance;
+    private List<Province> allProvince = new ArrayList<>();
 
-    public InMemoryJsonProvinceRepository(Context context) {
-        ArrayList<Province> allProvince = JsonAdapter.parse(context, "province.json", Province.class);
-        this.allProvince = allProvince;
+    private InMemoryJsonProvinceRepository(Context context) {
+        this.allProvince = JsonParser.list(context, PROVINCE_JSON, Province.class);
     }
-
 
     public static InMemoryJsonProvinceRepository getInstance(Context context) {
         if (instance == null)

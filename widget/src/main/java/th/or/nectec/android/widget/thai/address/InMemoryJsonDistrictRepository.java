@@ -1,5 +1,5 @@
 /*
- * Copyright © 2015 NECTEC
+ * Copyright (c) 2015 NECTEC
  *   National Electronics and Computer Technology Center, Thailand
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -18,39 +18,22 @@
 package th.or.nectec.android.widget.thai.address;
 
 import android.content.Context;
-import com.google.gson.Gson;
-import com.google.gson.stream.JsonReader;
+import th.or.nectec.android.widget.thai.utils.JsonParser;
 import th.or.nectec.domain.thai.address.DistrictRepository;
 import th.or.nectec.entity.thai.District;
 import th.or.nectec.entity.thai.InvalidCodeFormatException;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
 class InMemoryJsonDistrictRepository implements DistrictRepository {
 
-    public static InMemoryJsonDistrictRepository instance;
-    ArrayList<District> allDistrict = new ArrayList<>();
+    private static final String DISTRICT_JSON = "district.json";
+    private static InMemoryJsonDistrictRepository instance;
+    private List<District> allDistrict = new ArrayList<>();
 
     public InMemoryJsonDistrictRepository(Context context) {
-        try {
-            InputStream inputStream = context.getAssets().open("district.json");
-            JsonReader reader = new JsonReader(new InputStreamReader(inputStream, "UTF-8"));
-            Gson gson = new Gson();
-
-            reader.beginArray();
-            while (reader.hasNext()) {
-                District message = gson.fromJson(reader, District.class);
-                allDistrict.add(message);
-            }
-            reader.endArray();
-            reader.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        allDistrict = JsonParser.list(context, DISTRICT_JSON, District.class);
     }
 
     public static InMemoryJsonDistrictRepository getInstance(Context context) {
