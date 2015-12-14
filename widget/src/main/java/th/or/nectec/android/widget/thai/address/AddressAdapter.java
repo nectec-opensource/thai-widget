@@ -1,5 +1,5 @@
 /*
- * Copyright © 2015 NECTEC
+ * Copyright (c) 2015 NECTEC
  *   National Electronics and Computer Technology Center, Thailand
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -29,18 +29,17 @@ import th.or.nectec.entity.thai.AddressEntity;
 import java.util.ArrayList;
 import java.util.List;
 
-class AddressAdapter <T extends AddressEntity> extends BaseAdapter {
+class AddressAdapter<T extends AddressEntity> extends BaseAdapter {
 
-    ArrayList<T> addressList;
+    List<T> addressList;
     LayoutInflater mInflater;
 
     public AddressAdapter(Context context, List<T> addressList) {
         mInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        addAll(addressList);
+        setList(addressList);
     }
 
-
-    public void addAll(List<T> collection) {
+    private void setList(List<T> collection) {
         addressList = new ArrayList<>();
         addressList.addAll(collection);
         notifyDataSetChanged();
@@ -48,19 +47,7 @@ class AddressAdapter <T extends AddressEntity> extends BaseAdapter {
 
     @Override
     public View getDropDownView(int position, View convertView, ViewGroup parent) {
-        return createViewFromResources(position, convertView, parent);
-    }
-
-    public View createViewFromResources(int position, View convertView, ViewGroup parent) {
-        if (convertView == null) {
-            convertView = mInflater.inflate(R.layout.address_picker_list_item, parent, false);
-        }
-
-        TextView text = (TextView) convertView;
-
-        AddressEntity entity = getItem(position);
-        text.setText(entity.getName());
-        return text;
+        return getView(position, convertView, parent);
     }
 
     @Override
@@ -80,6 +67,11 @@ class AddressAdapter <T extends AddressEntity> extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        return createViewFromResources(position, convertView, parent);
+        if (convertView == null) {
+            convertView = mInflater.inflate(R.layout.address_picker_list_item, parent, false);
+        }
+        TextView text = (TextView) convertView;
+        text.setText(getItem(position).getName());
+        return text;
     }
 }
