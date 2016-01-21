@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2015 NECTEC
+ * Copyright © 2015 NECTEC
  *   National Electronics and Computer Technology Center, Thailand
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -20,7 +20,6 @@ package th.or.nectec.android.widget.thai.address;
 import android.app.Activity;
 import android.app.FragmentManager;
 import android.content.Context;
-import android.os.Parcelable;
 import android.widget.TextView;
 import android.widget.Toast;
 import th.or.nectec.android.widget.thai.OnAddressChangedListener;
@@ -85,7 +84,7 @@ public class AddressPickerHandler implements OnAddressChangedListener, AddressPr
             onAddressChangedListener.onAddressChanged(address);
     }
 
-    public boolean onClick() {
+    public boolean performClick() {
         boolean handle = false;
         if (this.addressPickerDialogFragment != null) {
             FragmentManager fm = activity.getFragmentManager();
@@ -100,13 +99,6 @@ public class AddressPickerHandler implements OnAddressChangedListener, AddressPr
         }
         return handle;
     }
-
-    public AddressSavedState buildSaveState(Parcelable parcelable) {
-        AddressSavedState savedState = new AddressSavedState(parcelable);
-        savedState.addressCode = address == null ? null : address.getSubdistrictCode();
-        return savedState;
-    }
-
 
     public void setAddressCode(String addressCode) {
         addressController.showByAddressCode(addressCode);
