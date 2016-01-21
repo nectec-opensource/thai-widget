@@ -15,16 +15,18 @@
  * limitations under the License.
  */
 
-package th.or.nectec.domain.thai.address;
+package th.or.nectec.android.widget.thai.address;
 
-import th.or.nectec.entity.thai.Province;
-import th.or.nectec.entity.thai.Region;
+import th.or.nectec.android.widget.thai.OnAddressChangedListener;
+import th.or.nectec.entity.thai.Address;
 
-import java.util.List;
+public interface AddressPopup {
 
+    void show(Address area);
 
-public interface ProvinceRepository {
-    List<Province> find();
-    List<Province> findByRegion(Region region);
-    Province findByProvinceCode(String provinceCode);
+    void show(String areaCode);
+
+    void setOnAddressChangedListener(OnAddressChangedListener onAddressChangedListener);
+
+    void dismiss();
 }

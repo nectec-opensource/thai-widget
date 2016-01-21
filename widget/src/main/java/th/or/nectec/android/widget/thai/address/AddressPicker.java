@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2015 NECTEC
+ * Copyright © 2016 NECTEC
  *   National Electronics and Computer Technology Center, Thailand
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -28,7 +28,7 @@ public class AddressPicker extends Button implements AddressView {
     AddressPickerHandler handler;
 
     public AddressPicker(Context context) {
-        super(context);
+        this(context, null);
     }
 
     public AddressPicker(Context context, AttributeSet attrs) {

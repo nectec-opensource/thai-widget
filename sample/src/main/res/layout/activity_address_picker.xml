@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?><!--
-  ~ Copyright © 2015 NECTEC
+  ~ Copyright © 2016 NECTEC
   ~   National Electronics and Computer Technology Center, Thailand
   ~
   ~ Licensed under the Apache License, Version 2.0 (the "License");
@@ -37,5 +37,10 @@
         android:id="@+id/address_view_2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
+    <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/open_dialog"
+            android:id="@+id/address_dialog"/>
 
 </LinearLayout>

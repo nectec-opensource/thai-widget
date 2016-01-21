@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-  ~ Copyright (c) 2015 NECTEC
+  ~ Copyright © 2016 NECTEC
   ~   National Electronics and Computer Technology Center, Thailand
   ~
   ~ Licensed under the Apache License, Version 2.0 (the "License");
@@ -28,4 +28,5 @@
     <string name="area_picker_dialog">Area Picker Dialog</string>
     <string name="update_area_value">update area value</string>
     <string name="update">update!</string>
+    <string name="open_dialog">Address Dialog</string>
 </resources>
