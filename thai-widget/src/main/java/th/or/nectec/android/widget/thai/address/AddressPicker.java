@@ -29,21 +29,15 @@ public class AddressPicker extends Button implements AddressView {
     AddressPickerHandler addressPickerHandler;
 
     public AddressPicker(Context context) {
-        super(context);
-        initHandler(context);
+        this(context, null);
     }
 
     public AddressPicker(Context context, AttributeSet attrs) {
         this(context, attrs, android.R.attr.spinnerStyle);
-        initHandler(context);
     }
 
     public AddressPicker(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        initHandler(context);
-    }
-
-    private void initHandler(Context context) {
         addressPickerHandler = new AddressPickerHandler(this, context);
     }
 

@@ -32,25 +32,11 @@ import java.util.List;
 
 class InMemoryJsonProvinceRepository implements ProvinceRepository {
 
-    public static InMemoryJsonProvinceRepository instance;
+    private static InMemoryJsonProvinceRepository instance;
     ArrayList<Province> allProvince = new ArrayList<>();
 
-    public InMemoryJsonProvinceRepository(Context context) {
-        try {
-            InputStream inputStream = context.getAssets().open("province.json");
-            JsonReader reader = new JsonReader(new InputStreamReader(inputStream, "UTF-8"));
-            Gson gson = new Gson();
-
-            reader.beginArray();
-            while (reader.hasNext()) {
-                Province message = gson.fromJson(reader, Province.class);
-                allProvince.add(message);
-            }
-            reader.endArray();
-            reader.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+    private InMemoryJsonProvinceRepository(Context context) {
+        allProvince = JsonAdapter.parse(context, "province.json", Province.class);
     }
 
     public static InMemoryJsonProvinceRepository getInstance(Context context) {
@@ -78,5 +64,10 @@ class InMemoryJsonProvinceRepository implements ProvinceRepository {
             }
         }
         return null;
+    }
+
+    @Override
+    public List<Province> find() {
+        return allProvince;
     }
 }

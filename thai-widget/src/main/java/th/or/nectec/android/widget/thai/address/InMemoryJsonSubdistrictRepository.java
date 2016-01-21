@@ -32,25 +32,11 @@ import java.util.List;
 
 class InMemoryJsonSubdistrictRepository implements SubdistrictRepository {
 
-    static InMemoryJsonSubdistrictRepository instance;
-    ArrayList<Subdistrict> allSubdistrict = new ArrayList<>();
+    private static InMemoryJsonSubdistrictRepository instance;
+    List<Subdistrict> allSubdistrict = new ArrayList<>();
 
-    public InMemoryJsonSubdistrictRepository(Context context) {
-        try {
-            InputStream inputStream = context.getAssets().open("subdistrict.json");
-            JsonReader reader = new JsonReader(new InputStreamReader(inputStream, "UTF-8"));
-            Gson gson = new Gson();
-
-            reader.beginArray();
-            while (reader.hasNext()) {
-                Subdistrict subdistrict = gson.fromJson(reader, Subdistrict.class);
-                allSubdistrict.add(subdistrict);
-            }
-            reader.endArray();
-            reader.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+    private InMemoryJsonSubdistrictRepository(Context context) {
+        allSubdistrict = JsonAdapter.parse(context, "subdistrict.json", Subdistrict.class);
     }
 
     public static InMemoryJsonSubdistrictRepository getInstance(Context context) {
@@ -86,7 +72,7 @@ class InMemoryJsonSubdistrictRepository implements SubdistrictRepository {
     }
 
     @Override
-    public ArrayList<Subdistrict> findByName(String subdistrict) {
+    public List<Subdistrict> findByName(String subdistrict) {
         ArrayList<Subdistrict> subdistricts = new ArrayList<>();
         for (Subdistrict eachSubdistrict : allSubdistrict) {
             if (eachSubdistrict.getName().equals(subdistrict)) {

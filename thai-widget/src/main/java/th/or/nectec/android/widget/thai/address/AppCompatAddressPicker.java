@@ -35,22 +35,17 @@ public class AppCompatAddressPicker extends AppCompatButton implements AddressVi
     private AddressPickerHandler addressPickerHandler;
 
     public AppCompatAddressPicker(Context context) {
-        super(context);
-        initHandler(context);
+        this(context, null);
+
     }
 
     public AppCompatAddressPicker(Context context, AttributeSet attrs) {
         this(context, attrs, R.attr.spinnerStyle);
-        initHandler(context);
     }
 
     public AppCompatAddressPicker(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         initTintManager(attrs, defStyleAttr);
-        initHandler(context);
-    }
-
-    private void initHandler(Context context) {
         addressPickerHandler = new AddressPickerHandler(this, context);
     }
 

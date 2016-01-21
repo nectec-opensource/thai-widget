@@ -22,7 +22,7 @@ import th.or.nectec.entity.thai.District;
 import th.or.nectec.entity.thai.Province;
 import th.or.nectec.entity.thai.Subdistrict;
 
-import java.util.ArrayList;
+import java.util.List;
 
 public class AddressController {
     private final SubdistrictRepository subdistrictRepository;
@@ -56,7 +56,7 @@ public class AddressController {
     }
 
     public void showByAddressInfo(String subdistrict, String district, String province) {
-        ArrayList<Subdistrict> subdistricts = subdistrictRepository.findByName(subdistrict);
+        List<Subdistrict> subdistricts = subdistrictRepository.findByName(subdistrict);
         if (subdistricts == null) {
             addressPresenter.alertAddressNotFound();
             return;

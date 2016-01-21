@@ -27,5 +27,5 @@ public interface SubdistrictRepository {
 
     Subdistrict findBySubdistrictCode(String addressCode);
 
-    ArrayList<Subdistrict> findByName(String subdistrict);
+    List<Subdistrict> findByName(String subdistrict);
 }

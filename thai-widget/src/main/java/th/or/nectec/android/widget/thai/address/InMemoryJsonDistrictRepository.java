@@ -32,25 +32,11 @@ import java.util.List;
 
 class InMemoryJsonDistrictRepository implements DistrictRepository {
 
-    public static InMemoryJsonDistrictRepository instance;
+    private static InMemoryJsonDistrictRepository instance;
     ArrayList<District> allDistrict = new ArrayList<>();
 
-    public InMemoryJsonDistrictRepository(Context context) {
-        try {
-            InputStream inputStream = context.getAssets().open("district.json");
-            JsonReader reader = new JsonReader(new InputStreamReader(inputStream, "UTF-8"));
-            Gson gson = new Gson();
-
-            reader.beginArray();
-            while (reader.hasNext()) {
-                District message = gson.fromJson(reader, District.class);
-                allDistrict.add(message);
-            }
-            reader.endArray();
-            reader.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+    private InMemoryJsonDistrictRepository(Context context) {
+        allDistrict = JsonAdapter.parse(context, "district.json", District.class);
     }
 
     public static InMemoryJsonDistrictRepository getInstance(Context context) {

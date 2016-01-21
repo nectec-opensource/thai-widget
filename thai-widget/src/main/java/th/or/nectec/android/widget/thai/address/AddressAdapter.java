@@ -31,7 +31,7 @@ import java.util.List;
 
 class AddressAdapter <T extends AddressEntity> extends BaseAdapter {
 
-    ArrayList<T> addressList;
+    List<T> addressList;
     LayoutInflater mInflater;
 
     public AddressAdapter(Context context, List<T> addressList) {
@@ -48,19 +48,7 @@ class AddressAdapter <T extends AddressEntity> extends BaseAdapter {
 
     @Override
     public View getDropDownView(int position, View convertView, ViewGroup parent) {
-        return createViewFromResources(position, convertView, parent);
-    }
-
-    public View createViewFromResources(int position, View convertView, ViewGroup parent) {
-        if (convertView == null) {
-            convertView = mInflater.inflate(R.layout.address_picker_list_item, parent, false);
-        }
-
-        TextView text = (TextView) convertView;
-
-        AddressEntity entity = getItem(position);
-        text.setText(entity.getName());
-        return text;
+        return getView(position, convertView, parent);
     }
 
     @Override
@@ -80,6 +68,14 @@ class AddressAdapter <T extends AddressEntity> extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        return createViewFromResources(position, convertView, parent);
+        if (convertView == null) {
+            convertView = mInflater.inflate(R.layout.address_picker_list_item, parent, false);
+        }
+
+        TextView text = (TextView) convertView;
+
+        AddressEntity entity = getItem(position);
+        text.setText(entity.getName());
+        return text;
     }
 }
