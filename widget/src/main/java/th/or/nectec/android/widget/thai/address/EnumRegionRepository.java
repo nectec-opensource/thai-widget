@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2015 NECTEC
+ * Copyright © 2015 NECTEC
  *   National Electronics and Computer Technology Center, Thailand
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -24,19 +24,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 class EnumRegionRepository implements RegionRepository {
-    private static final List<Region> REGIONS = new ArrayList<>();
-
-    static {
-        REGIONS.add(Region.CENTER);
-        REGIONS.add(Region.NORTH);
-        REGIONS.add(Region.EAST_NORTH);
-        REGIONS.add(Region.EAST);
-        REGIONS.add(Region.WEST);
-        REGIONS.add(Region.SOUTH);
-    }
-
     @Override
     public List<Region> find() {
-        return REGIONS;
+        List<Region> regions = new ArrayList<>();
+        regions.add(Region.CENTER);
+        regions.add(Region.NORTH);
+        regions.add(Region.EAST_NORTH);
+        regions.add(Region.EAST);
+        regions.add(Region.WEST);
+        regions.add(Region.SOUTH);
+
+        return regions;
     }
 }

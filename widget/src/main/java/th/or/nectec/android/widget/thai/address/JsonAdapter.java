@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package th.or.nectec.android.widget.thai.utils;
+package th.or.nectec.android.widget.thai.address;
 
 import android.content.Context;
 import com.google.gson.Gson;
@@ -24,30 +24,27 @@ import com.google.gson.stream.JsonReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.lang.reflect.Type;
 import java.util.ArrayList;
-import java.util.List;
 
-public class JsonParser {
+public class JsonAdapter {
 
-    private static final String ENCODING_UTF_8 = "UTF-8";
+    public static <T> ArrayList<T> parse(Context context, String jsonFileName, Class<T> tClass) {
 
-    public static <T> List<T> list(Context context, String jsonFileName, Type typeOfT) {
-        List<T> list = new ArrayList<>();
+        ArrayList<T> allProvince = new ArrayList<>();
         Gson gson = new Gson();
         try {
             InputStream inputStream = context.getAssets().open(jsonFileName);
-            JsonReader reader = new JsonReader(new InputStreamReader(inputStream, ENCODING_UTF_8));
+            JsonReader reader = new JsonReader(new InputStreamReader(inputStream, "UTF-8"));
             reader.beginArray();
             while (reader.hasNext()) {
-                T item = gson.fromJson(reader, typeOfT);
-                list.add(item);
+                T message = gson.fromJson(reader, tClass);
+                allProvince.add(message);
             }
             reader.endArray();
             reader.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return list;
+        return allProvince;
     }
 }

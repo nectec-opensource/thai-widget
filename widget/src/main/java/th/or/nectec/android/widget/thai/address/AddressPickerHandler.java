@@ -64,7 +64,7 @@ public class AddressPickerHandler implements OnAddressChangedListener, AddressPr
 
         this.addressPickerDialogFragment.setOnAddressChangedListener(this);
 
-        addressController = new AddressController(InMemoryJsonSubdistrictRepository.getInstance(context), InMemoryJsonDistrictRepository.getInstance(context), InMemoryJsonProvinceRepository.getInstance(context), this);
+        addressController = new AddressController(InMemoryJsonSubdistrictRepository.getInstance(context), new InMemoryJsonDistrictRepository(context), new InMemoryJsonProvinceRepository(context), this);
         textView.setText(R.string.please_define_address);
     }
 
