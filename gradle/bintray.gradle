@@ -22,12 +22,11 @@ version = libraryVersion
 bintray {
     user = project.hasProperty('bintrayUser') ? project.getProperty('bintrayUser') : System.getenv('BINTRAY_USER') ?: ''
     key = project.hasProperty('bintrayKey') ? project.getProperty('bintrayKey') : System.getenv('BINTRAY_KEY') ?: ''
-    configurations = ['archives']
-    publications = ['MyPublication']
+    configurations = ['published', 'archives']
     pkg {
         userOrg = bintrayOrg
         repo = bintrayRepo
-        name = project.name
+        name = bintrayPackageName
         websiteUrl = siteUrl
         vcsUrl = gitUrl
         licenses = ['Apache-2.0']

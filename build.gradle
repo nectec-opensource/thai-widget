@@ -61,6 +61,6 @@ task bintray {
     group 'Publishing'
     description 'Publish all artifcats to bintray'
 
-    dependsOn(":thai-widget-domain:bintrayUpload")
+    dependsOn(":domain:bintrayUpload")
     dependsOn(":thai-widget:bintrayUpload")
 }
