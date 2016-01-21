@@ -36,7 +36,7 @@ public abstract class IdentityEditTextHandler implements TextWatcher {
 
     protected void initialize() {
         editText.setInputType(InputType.TYPE_CLASS_NUMBER);
-        editText.setFilters(new InputFilter[]{new InputFilter.LengthFilter(getMaxLenght()),});
+        editText.setFilters(new InputFilter[]{new InputFilter.LengthFilter(getMaxLength()),});
         editText.setKeyListener(DigitsKeyListener.getInstance(false, true));
         editText.addTextChangedListener(this);
     }
@@ -81,7 +81,7 @@ public abstract class IdentityEditTextHandler implements TextWatcher {
         return id;
     }
 
-    protected abstract int getMaxLenght();
+    protected abstract int getMaxLength();
 
     protected abstract String getErrorMessage();
 

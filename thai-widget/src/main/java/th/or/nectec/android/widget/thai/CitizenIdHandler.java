@@ -33,7 +33,7 @@ public class CitizenIdHandler extends IdentityEditTextHandler {
     }
 
     @Override
-    protected int getMaxLenght() {
+    protected int getMaxLength() {
         return MAX_LENGTH;
     }
 
