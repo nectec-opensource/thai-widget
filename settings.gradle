@@ -17,5 +17,8 @@
 rootProject.name = 'android-thaiWidget'
 
 include ':sample'
-include ':thai-widget'
-include ':thai-widget-domain'
+include ':domain'
+include ':widget'
+
+project(':domain').setName('thai-widget-domain')
+project(':widget').setName('thai-widget')
