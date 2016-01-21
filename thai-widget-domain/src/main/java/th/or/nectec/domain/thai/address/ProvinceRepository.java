@@ -26,4 +26,5 @@ import java.util.List;
 public interface ProvinceRepository {
     List<Province> findByRegion(Region region);
     Province findByProvinceCode(String provinceCode);
+    List<Province> find();
 }
