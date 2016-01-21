@@ -1,5 +1,5 @@
 /*
- * Copyright © 2016 NECTEC
+ * Copyright (c) 2015 NECTEC
  *   National Electronics and Computer Technology Center, Thailand
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -40,11 +40,6 @@ class InMemoryJsonProvinceRepository implements ProvinceRepository {
         if (instance == null)
             instance = new InMemoryJsonProvinceRepository(context);
         return instance;
-    }
-
-    @Override
-    public List<Province> find() {
-        return allProvince;
     }
 
     @Override
