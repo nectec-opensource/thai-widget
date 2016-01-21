@@ -26,7 +26,7 @@ bintray {
     pkg {
         userOrg = bintrayOrg
         repo = bintrayRepo
-        name = bintrayPackageName
+        name = project.name
         websiteUrl = siteUrl
         vcsUrl = gitUrl
         licenses = ['Apache-2.0']

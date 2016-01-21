@@ -59,7 +59,7 @@ android {
 }
 
 dependencies {
-    compile project(':domain')
+    compile project(':thai-widget-domain')
     compile 'com.google.code.gson:gson:' + rootProject.ext.gsonVersion
     compile 'com.android.support:appcompat-v7:' + rootProject.ext.supportLibVersion
 
