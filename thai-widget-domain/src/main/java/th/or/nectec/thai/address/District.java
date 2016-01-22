@@ -67,8 +67,10 @@ public class District implements AddressEntity {
 
     @Override
     public String toString() {
-        return "Address{" +
-                "code='" + code + '\'' +
-                ", name='" + name;
+        final StringBuilder sb = new StringBuilder("District{");
+        sb.append("code='").append(code).append('\'');
+        sb.append(", name='").append(name).append('\'');
+        sb.append('}');
+        return sb.toString();
     }
 }

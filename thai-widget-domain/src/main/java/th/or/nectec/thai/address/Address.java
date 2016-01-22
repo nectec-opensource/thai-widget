@@ -51,7 +51,16 @@ public class Address implements AddressEntity {
         if (other == null || getClass() != other.getClass()) return false;
         Address otherAddress = (Address) other;
         return getCode().equals(otherAddress.getCode()) && getName().equals(otherAddress.getName());
+    }
 
+    @Override
+    public String toString() {
+        final StringBuilder sb = new StringBuilder("Address{");
+        sb.append("subDistrict=").append(subDistrict);
+        sb.append(", district=").append(district);
+        sb.append(", province=").append(province);
+        sb.append('}');
+        return sb.toString();
     }
 
     @Override

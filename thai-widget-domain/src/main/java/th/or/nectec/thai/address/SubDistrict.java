@@ -83,8 +83,11 @@ public class SubDistrict implements AddressEntity {
 
     @Override
     public String toString() {
-        return "Address{" +
-                "code='" + code + '\'' +
-                ", name='" + name;
+        final StringBuilder sb = new StringBuilder("SubDistrict{");
+        sb.append("code='").append(code).append('\'');
+        sb.append(", name='").append(name).append('\'');
+        sb.append(", postcode='").append(postcode).append('\'');
+        sb.append('}');
+        return sb.toString();
     }
 }

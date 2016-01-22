@@ -68,4 +68,14 @@ public class Province implements AddressEntity {
         Province otherProvince = (Province) other;
         return code.equals(otherProvince.code) && name.equals(otherProvince.name) && region == otherProvince.region;
     }
+
+    @Override
+    public String toString() {
+        final StringBuilder sb = new StringBuilder("Province{");
+        sb.append("code='").append(code).append('\'');
+        sb.append(", name='").append(name).append('\'');
+        sb.append(", region=").append(region);
+        sb.append('}');
+        return sb.toString();
+    }
 }

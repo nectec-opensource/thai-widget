@@ -18,8 +18,6 @@
 package th.or.nectec.thai.address;
 
 
-import th.or.nectec.util.TextUtils;
-
 public class AddressPrinter {
 
     public static String printFull(SubDistrict subDistrict, District district, Province province) {
@@ -28,24 +26,14 @@ public class AddressPrinter {
 
     public static String printFull(String subdistrict, String district, String province) {
         String address = "";
-        if (TextUtils.isEmpty(province)) {
-            if (province.equals("กรุงเทพมหานคร")) {
-                if (TextUtils.isEmpty(subdistrict)) {
-                    address += "แขวง" + subdistrict + " ";
-                }
-                if (TextUtils.isEmpty(district)) {
-                    address += "เขต" + district + " ";
-                }
-                address += province;
-            } else {
-                if (TextUtils.isEmpty(subdistrict)) {
-                    address += "ตำบล" + subdistrict + " ";
-                }
-                if (TextUtils.isEmpty(district)) {
-                    address += "อำเภอ" + district + " ";
-                }
-                address += "จังหวัด" + province;
-            }
+        if (province.equals("กรุงเทพมหานคร")) {
+            address += "แขวง" + subdistrict + " ";
+            address += "เขต" + district + " ";
+            address += province;
+        } else {
+            address += "ตำบล" + subdistrict + " ";
+            address += "อำเภอ" + district + " ";
+            address += "จังหวัด" + province;
         }
         return address;
     }
@@ -56,26 +44,16 @@ public class AddressPrinter {
 
     public static String print(String subdistrict, String district, String province) {
         String address = "";
-        if (TextUtils.isEmpty(province)) {
-            if (province.equals("กรุงเทพมหานคร")) {
-                if (TextUtils.isEmpty(subdistrict)) {
-                    address += "แขวง" + subdistrict + " ";
-                }
-                if (TextUtils.isEmpty(district)) {
-                    address += "เขต" + district + " ";
-                }
-                address += province;
-
-            } else {
-                if (TextUtils.isEmpty(subdistrict)) {
-                    address += "ต." + subdistrict + " ";
-                }
-                if (TextUtils.isEmpty(district)) {
-                    address += "อ." + district + " ";
-                }
-                address += "จ." + province;
-            }
+        if (province.equals("กรุงเทพมหานคร")) {
+            address += "แขวง" + subdistrict + " ";
+            address += "เขต" + district + " ";
+            address += province;
+        } else {
+            address += "ต." + subdistrict + " ";
+            address += "อ." + district + " ";
+            address += "จ." + province;
         }
+
         return address;
     }
 
