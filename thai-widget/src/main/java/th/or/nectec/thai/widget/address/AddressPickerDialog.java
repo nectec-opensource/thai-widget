@@ -46,7 +46,7 @@ public class AddressPickerDialog extends Dialog implements AddressPopup, Adapter
     private DistrictRepository districtRepository;
     private SubDistrictRepository subDistrictRepository;
     private AddressView.OnAddressChangedListener onAddressChangedListener;
-    private AddressAdapter addressAdapter;
+    private AddressListAdapter addressListAdapter;
 
 
     public AddressPickerDialog(Context context) {
@@ -113,7 +113,7 @@ public class AddressPickerDialog extends Dialog implements AddressPopup, Adapter
         statusInfoView.setText(R.string.choose_subdistrict);
 
         List<SubDistrict> subDistricts = subDistrictRepository.findByParentCode(code);
-        setListAdapter(new AddressAdapter<>(getContext(), subDistricts));
+        setListAdapter(new AddressListAdapter<>(getContext(), subDistricts));
     }
 
     private String makeTitle() {
@@ -130,12 +130,12 @@ public class AddressPickerDialog extends Dialog implements AddressPopup, Adapter
         statusInfoView.setText(R.string.choose_province);
 
         List<Province> provinces = provinceRepository.find();
-        setListAdapter(new AddressAdapter<>(getContext(), provinces));
+        setListAdapter(new AddressListAdapter<>(getContext(), provinces));
     }
 
-    private void setListAdapter(AddressAdapter addressAdapter) {
-        this.addressAdapter = addressAdapter;
-        listView.setAdapter(addressAdapter);
+    private void setListAdapter(AddressListAdapter addressListAdapter) {
+        this.addressListAdapter = addressListAdapter;
+        listView.setAdapter(addressListAdapter);
     }
 
     private void showDistrictList(String code) {
@@ -144,23 +144,7 @@ public class AddressPickerDialog extends Dialog implements AddressPopup, Adapter
         statusInfoView.setText(R.string.choose_district);
 
         List<District> districts = districtRepository.findByParentCode(code);
-        setListAdapter(new AddressAdapter<>(getContext(), districts));
-    }
-
-    @Override
-    public void show(Address area) {
-        addressStack.push(area.getProvince());
-        addressStack.push(area.getDistrict());
-        show();
-    }
-
-    @Override
-    public void show(String addressCode) {
-    }
-
-    @Override
-    public void setOnAddressChangedListener(AddressView.OnAddressChangedListener onAddressChangedListener) {
-        this.onAddressChangedListener = onAddressChangedListener;
+        setListAdapter(new AddressListAdapter<>(getContext(), districts));
     }
 
     public AddressPickerDialog setRepository(ProvinceRepository province) {
@@ -168,9 +152,24 @@ public class AddressPickerDialog extends Dialog implements AddressPopup, Adapter
         return this;
     }
 
+    @Override
+    public void show(Address area) {
+        addressStack = new Stack<>();
+        if (area != null) {
+            addressStack.push(area.getProvince());
+            addressStack.push(area.getDistrict());
+        }
+        show();
+    }
+
     public AddressPickerDialog setRepository(DistrictRepository districtRepository) {
         this.districtRepository = districtRepository;
         return this;
+    }
+
+    @Override
+    public void show(String addressCode) {
+        show(addressRepository.findByCode(addressCode));
     }
 
     public AddressPickerDialog setRepository(SubDistrictRepository subDistrictRepository) {
@@ -179,8 +178,13 @@ public class AddressPickerDialog extends Dialog implements AddressPopup, Adapter
     }
 
     @Override
+    public void setOnAddressChangedListener(AddressView.OnAddressChangedListener onAddressChangedListener) {
+        this.onAddressChangedListener = onAddressChangedListener;
+    }
+
+    @Override
     public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
-        AddressEntity choosedEntity = addressAdapter.getItem(position);
+        AddressEntity choosedEntity = addressListAdapter.getItem(position);
         addressStack.push(choosedEntity);
         switchPage();
     }

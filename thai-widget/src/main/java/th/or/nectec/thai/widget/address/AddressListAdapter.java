@@ -29,12 +29,12 @@ import th.or.nectec.thai.widget.thai.R;
 import java.util.ArrayList;
 import java.util.List;
 
-class AddressAdapter <T extends AddressEntity> extends BaseAdapter {
+class AddressListAdapter<T extends AddressEntity> extends BaseAdapter {
 
     List<T> addressList;
     LayoutInflater mInflater;
 
-    public AddressAdapter(Context context, List<T> addressList) {
+    public AddressListAdapter(Context context, List<T> addressList) {
         mInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         addAll(addressList);
     }
@@ -70,12 +70,22 @@ class AddressAdapter <T extends AddressEntity> extends BaseAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
         if (convertView == null) {
             convertView = mInflater.inflate(R.layout.address_picker_list_item, parent, false);
+            convertView.setTag(new ViewHolder(convertView));
         }
-
-        TextView text = (TextView) convertView;
-
         AddressEntity entity = getItem(position);
-        text.setText(entity.getName());
-        return text;
+        ViewHolder viewHolder = (ViewHolder) convertView.getTag();
+        viewHolder.name.setText(entity.getName());
+        viewHolder.code.setText("#" + entity.getCode());
+        return convertView;
+    }
+
+    private class ViewHolder {
+        TextView name;
+        TextView code;
+
+        public ViewHolder(View view) {
+            this.name = (TextView) view.findViewById(R.id.name);
+            this.code = (TextView) view.findViewById(R.id.code);
+        }
     }
 }
