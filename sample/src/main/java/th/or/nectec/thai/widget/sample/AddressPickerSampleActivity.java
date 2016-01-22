@@ -34,11 +34,11 @@ public class AddressPickerSampleActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_region_picker);
+        setContentView(R.layout.activity_address_picker);
 
         textView = (TextView) findViewById(R.id.text_debug);
 
-        addressPicker = (AddressPicker) findViewById(R.id.address_view_2);
+        addressPicker = (AddressPicker) findViewById(R.id.address_view);
         addressPicker.setOnAddressChangedListener(new AddressView.OnAddressChangedListener() {
             @Override
             public void onAddressChanged(Address address) {

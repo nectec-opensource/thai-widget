@@ -27,14 +27,14 @@
             android:label="@string/app_name"
             android:theme="@style/AppTheme"
             tools:ignore="UnusedAttribute">
-        <!--<activity
+        <activity
                 android:name=".MainActivity"
                 android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
-        </activity>-->
+        </activity>
         <activity
                 android:name=".CitizenIdSampleActivity"
                 android:label="@string/app_name">
@@ -62,8 +62,8 @@
                 android:name=".AddressPickerSampleActivity"
                 android:label="@string/app_name">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-                <category android:name="android.intent.category.LAUNCHER"/>
+                <action android:name="ANDROID.INTENT.ACTION.EDIT"/>
+                <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
         </activity>
     </application>

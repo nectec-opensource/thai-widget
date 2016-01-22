@@ -20,12 +20,12 @@ package th.or.nectec.thai.widget.address;
 import android.content.Context;
 import android.os.Parcelable;
 import android.util.AttributeSet;
-import android.widget.Button;
+import android.widget.TextView;
 import th.or.nectec.thai.address.Address;
 import th.or.nectec.thai.widget.address.repository.AddressRepositoryImpl;
 import th.or.nectec.thai.widget.thai.R;
 
-public class AddressPicker extends Button implements AddressView {
+public class AddressPicker extends TextView implements AddressView {
 
     private Address address;
     private AddressRepositoryImpl addressRepository;

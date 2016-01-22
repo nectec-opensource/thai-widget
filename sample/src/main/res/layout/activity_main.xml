@@ -13,15 +13,56 @@
   limitations under the License.
   -->
 
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                xmlns:tools="http://schemas.android.com/tools"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                tools:context=".MainActivity">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical"
+              android:padding="8dp"
+              tools:context=".MainActivity">
 
     <TextView
-            android:text="@string/hello_world"
+            android:layout_gravity="end"
+            android:textSize="32sp"
+            android:text="@string/app_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
 
-</RelativeLayout>
+    <Button
+            android:id="@+id/citizen_id"
+            android:layout_marginTop="8dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/citizen_id"
+            android:onClick="onClick"
+            />
+
+    <Button
+            android:id="@+id/house_id"
+            android:layout_gravity="center_horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/house_id"
+            android:onClick="onClick"
+            />
+
+    <Button
+            android:id="@+id/area_picker"
+            android:layout_gravity="center_horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/area_unit"
+            android:onClick="onClick"
+            />
+
+    <Button
+            android:id="@+id/address_picker"
+            android:layout_gravity="center_horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/address_thai"
+            android:onClick="onClick"
+            />
+
+</LinearLayout>

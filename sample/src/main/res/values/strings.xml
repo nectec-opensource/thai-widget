@@ -28,4 +28,8 @@
     <string name="area_picker_dialog">Area Picker Dialog</string>
     <string name="update_area_value">update area value</string>
     <string name="update">update!</string>
+    <string name="citizen_id">รหัสประชาชน</string>
+    <string name="house_id">รหัสประจำบ้าน</string>
+    <string name="area_unit">พื้นที่ ไร่/งาน/ตารางวา</string>
+    <string name="address_thai">ที่อยู่ ตำบล/อำเภอ/จังหวัด</string>
 </resources>

@@ -17,8 +17,11 @@
 
 package th.or.nectec.thai.widget.sample;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -26,6 +29,28 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+    }
+
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.citizen_id:
+                openSampleActivity(CitizenIdSampleActivity.class);
+                break;
+            case R.id.house_id:
+                openSampleActivity(HouseIdSampleActivity.class);
+                break;
+            case R.id.area_picker:
+                openSampleActivity(AreaPickerSampleActivity.class);
+                break;
+            case R.id.address_picker:
+                openSampleActivity(AddressPickerSampleActivity.class);
+                break;
+        }
+    }
+
+    private void openSampleActivity(Class<? extends Activity> citizenIdSampleActivityClass) {
+        Intent intent = new Intent(this, citizenIdSampleActivityClass);
+        startActivity(intent);
     }
 
 }

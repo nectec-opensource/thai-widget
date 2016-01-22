@@ -28,13 +28,8 @@
         android:layout_height="wrap_content"
         android:text="@string/hello_world" />
 
-    <th.or.nectec.thai.widget.address.AppCompatAddressPicker
-        android:id="@+id/address_view"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-
     <th.or.nectec.thai.widget.address.AddressPicker
-        android:id="@+id/address_view_2"
+        android:id="@+id/address_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
