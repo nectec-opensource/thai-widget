@@ -24,7 +24,8 @@
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="@string/lable_citizen_id"/>
-    <th.or.nectec.android.widget.thai.CitizenIdEditText
+
+    <th.or.nectec.thai.widget.identity.CitizenIdEditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/citizen_id"

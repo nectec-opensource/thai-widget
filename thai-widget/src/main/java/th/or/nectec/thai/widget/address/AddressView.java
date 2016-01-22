@@ -1,6 +1,6 @@
 /*
- * Copyright 2015 NECTEC
- * National Electronics and Computer Technology Center, Thailand
+ * Copyright © 2015 NECTEC
+ *   National Electronics and Computer Technology Center, Thailand
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,26 +15,21 @@
  * limitations under the License.
  */
 
-package th.or.nectec.util;
+package th.or.nectec.thai.widget.address;
 
-public class TextUtils {
+import th.or.nectec.thai.address.Address;
 
-    public static boolean isDigitOnly(String text) {
-        return text.matches("\\d+");
+public interface AddressView {
+    void setAddressCode(String addressCode);
+
+    void setOnAddressChangedListener(OnAddressChangedListener onAddressChangedListener);
+
+    Address getAddress();
+
+    interface OnAddressChangedListener {
+
+        void onAddressChanged(Address address);
+
+        void onAddressCanceled();
     }
-
-    public static boolean isRepeatingNumber(String text) {
-        return text.matches("\\b(\\d)\\1+\\b");
-    }
-
-    public static boolean isRepeatPatternNumber(String text) {
-        return text.matches("\\b(\\d+)\\1+\\b");
-    }
-
-    public static boolean isEmpty(String text) {
-        return text == null || text.isEmpty();
-    }
-
-
-
 }

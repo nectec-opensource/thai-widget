@@ -1,12 +1,12 @@
 /*
- * Copyright 2015 NECTEC
+ * Copyright © 2015 NECTEC
  * National Electronics and Computer Technology Center, Thailand
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- *    http://www.apache.org/licenses/LICENSE-2.0
+ *      http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -15,26 +15,11 @@
  * limitations under the License.
  */
 
-package th.or.nectec.util;
-
-public class TextUtils {
-
-    public static boolean isDigitOnly(String text) {
-        return text.matches("\\d+");
-    }
-
-    public static boolean isRepeatingNumber(String text) {
-        return text.matches("\\b(\\d)\\1+\\b");
-    }
-
-    public static boolean isRepeatPatternNumber(String text) {
-        return text.matches("\\b(\\d+)\\1+\\b");
-    }
-
-    public static boolean isEmpty(String text) {
-        return text == null || text.isEmpty();
-    }
+package th.or.nectec.thai.identity;
 
 
+public interface PrettyPrinter {
+    String print(String text);
 
+    String separator();
 }

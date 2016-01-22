@@ -22,12 +22,12 @@ android {
     buildToolsVersion  rootProject.ext.buildToolsVersion
 
     defaultConfig {
-        applicationId "th.or.nectec.android.widget.thai.sample"
+        applicationId "th.or.nectec.thai.widget.sample"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
         versionName "1.0"
-        testApplicationId "th.or.nectec.android.widget.thai.sample.test"
+        testApplicationId "th.or.nectec.thai.widget.sample.test"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
 
