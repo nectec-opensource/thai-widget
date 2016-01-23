@@ -16,42 +16,57 @@
   -->
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical">
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:orientation="vertical">
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        <ImageButton
+                android:background="?android:attr/selectableItemBackground"
+                android:contentDescription="@string/cd_back_button"
+                android:id="@+id/back"
+                android:src="@drawable/ic_action_back"
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                android:minHeight="56dp"/>
+
+        <TextView
+                android:id="@+id/header"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:minHeight="56dp"
+                android:textAppearance="?android:attr/textAppearance"
+                android:textIsSelectable="false"
+                tools:text="เลือกแขวง ตำบล"/>
+    </LinearLayout>
 
     <TextView
-        android:id="@+id/title_text"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/teal_500"
-        android:gravity="center_vertical"
-        android:minHeight="48dp"
-        android:padding="16dp"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textColor="@android:color/white"
-        android:textIsSelectable="false"
-        tools:text="อ.บางปะหัน > จ.พระนครศรีอยุธยา" />
+            android:id="@+id/province"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:minHeight="48dp"
+            android:padding="16dp"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textIsSelectable="false"
+            tools:text="พระนครศรีอยุธยา  >  บางปะอิน"/>
 
-    <TextView
-        android:id="@+id/status_info"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/gray_300"
-        android:gravity="center_vertical"
-        android:minHeight="48dp"
-        android:padding="16dp"
-        android:textAppearance="?android:attr/textAppearance"
-        android:textColor="@android:color/black"
-        android:textIsSelectable="false"
-        tools:text="เลือกแขวง ตำบล" />
+    <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/gray_300"/>
 
     <ListView
-        android:id="@+id/picker_list"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:choiceMode="singleChoice"
-        android:divider="@color/gray_300"
-        android:dividerHeight="1dp" />
+            android:id="@+id/picker_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:choiceMode="singleChoice"
+            android:divider="?android:attr/listDivider"
+            android:dividerHeight="1dp"
+            tools:listitem="@android:layout/simple_list_item_2"/>
 </LinearLayout>
