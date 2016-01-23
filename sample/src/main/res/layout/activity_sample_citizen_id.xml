@@ -29,6 +29,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/citizen_id"
+            android:ems="9"
             tools:text="1-3453-02323-93-3"/>
 
 </LinearLayout>
