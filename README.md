@@ -4,11 +4,13 @@ Thai style android custom widget by thai-dev for thai-dev
 
 Widget
 -------
-* CitizenIdEditText - EditText for Citizen ID with validator [Released]
-* HouseIdEditText - EditText for House ID with validator [Released]
-* DatePicker - Buddism year version of android DatePicker [TODO]
-* AreaPicker - for input area size in Rai Ngan Wa2 formate [Beta Release]
-* AddressPicker - for select Thai's Province District and Subdistrict [WIP]
+Released
+* CitizenIdEditText - EditText for Citizen ID with validator
+* HouseIdEditText - EditText for House ID with validator
+* AreaPicker - for input area size in Rai Ngan Wa2 formate
+* AddressPicker - for select Thai's Province District and SubDistrict
+TODO
+* DatePicker - Buddism year version of android DatePicker
 
 Download
 -------
@@ -24,7 +26,7 @@ Add dependencies on app module
 
     dependencies {
         ...
-        compile 'th.or.nectec.android:thai-widget:0.2.1'
+        compile 'th.or.nectec.android:thai-widget:0.4'
         ...
     }
 
