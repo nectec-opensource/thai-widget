@@ -69,7 +69,7 @@ class AddressListAdapter<T extends AddressEntity> extends BaseAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         if (convertView == null) {
-            convertView = mInflater.inflate(R.layout.address_picker_list_item, parent, false);
+            convertView = mInflater.inflate(R.layout.list_item_address, parent, false);
             convertView.setTag(new ViewHolder(convertView));
         }
         AddressEntity entity = getItem(position);

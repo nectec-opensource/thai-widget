@@ -88,7 +88,7 @@ public class AreaPickerDialog extends AlertDialog implements AreaPopup {
     @SuppressLint("InflateParams")
     private View InflateView(Context context) {
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        return inflater.inflate(R.layout.area_picker_dialog, null, false);
+        return inflater.inflate(R.layout.dialog_area_picker, null, false);
     }
 
     private void findView(View view) {
