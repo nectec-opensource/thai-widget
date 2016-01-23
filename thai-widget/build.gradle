@@ -61,8 +61,6 @@ android {
 dependencies {
     compile project(':thai-widget-domain')
     compile 'com.google.code.gson:gson:' + rootProject.ext.gsonVersion
-    compile 'com.android.support:appcompat-v7:' + rootProject.ext.supportLibVersion
-
     testCompile 'junit:junit:' + rootProject.ext.junitVersion
     testCompile "org.robolectric:robolectric:3.0"
 }

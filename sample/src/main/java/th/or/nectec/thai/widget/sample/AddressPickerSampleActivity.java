@@ -20,17 +20,12 @@ package th.or.nectec.thai.widget.sample;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.TextView;
 import th.or.nectec.thai.address.Address;
 import th.or.nectec.thai.widget.address.AddressPicker;
 import th.or.nectec.thai.widget.address.AddressPickerDialog;
 import th.or.nectec.thai.widget.address.AddressView;
 
 public class AddressPickerSampleActivity extends AppCompatActivity {
-
-    TextView textView;
-    AddressPicker addressPicker;
-
     Address selectedAddress;
 
     @Override
@@ -43,7 +38,7 @@ public class AddressPickerSampleActivity extends AppCompatActivity {
         findViewById(R.id.button).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                new AddressPickerDialog(AddressPickerSampleActivity.this, new AddressView.OnAddressChangedListener() {
+                new AddressPickerDialog(AddressPickerSampleActivity.this, android.R.style.Theme_Holo_Dialog, new AddressView.OnAddressChangedListener() {
                     @Override
                     public void onAddressChanged(Address address) {
                         selectedAddress = address;
