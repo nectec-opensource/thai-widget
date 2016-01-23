@@ -32,4 +32,6 @@
     <string name="house_id">รหัสประจำบ้าน</string>
     <string name="area_unit">พื้นที่ ไร่/งาน/ตารางวา</string>
     <string name="address_thai">ที่อยู่ ตำบล/อำเภอ/จังหวัด</string>
+    <string name="address_picker">Address Picker</string>
+    <string name="address_picker_dialog">address picker dialog</string>
 </resources>

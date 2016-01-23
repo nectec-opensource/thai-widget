@@ -19,10 +19,11 @@ package th.or.nectec.thai.widget.sample;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 import android.widget.TextView;
-import android.widget.Toast;
 import th.or.nectec.thai.address.Address;
 import th.or.nectec.thai.widget.address.AddressPicker;
+import th.or.nectec.thai.widget.address.AddressPickerDialog;
 import th.or.nectec.thai.widget.address.AddressView;
 
 public class AddressPickerSampleActivity extends AppCompatActivity {
@@ -30,27 +31,31 @@ public class AddressPickerSampleActivity extends AppCompatActivity {
     TextView textView;
     AddressPicker addressPicker;
 
+    Address selectedAddress;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_address_picker);
 
-        textView = (TextView) findViewById(R.id.text_debug);
+        ((AddressPicker) findViewById(R.id.address_view_set)).setAddressCode("141604");
 
-        addressPicker = (AddressPicker) findViewById(R.id.address_view);
-        addressPicker.setOnAddressChangedListener(new AddressView.OnAddressChangedListener() {
+        findViewById(R.id.button).setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onAddressChanged(Address address) {
-                Toast.makeText(AddressPickerSampleActivity.this, address.toString(), Toast.LENGTH_LONG).show();
-            }
+            public void onClick(View view) {
+                new AddressPickerDialog(AddressPickerSampleActivity.this, new AddressView.OnAddressChangedListener() {
+                    @Override
+                    public void onAddressChanged(Address address) {
+                        selectedAddress = address;
+                    }
 
-            @Override
-            public void onAddressCanceled() {
-                Toast.makeText(AddressPickerSampleActivity.this, "address canceled", Toast.LENGTH_LONG).show();
+                    @Override
+                    public void onAddressCanceled() {
+                        selectedAddress = null;
+                    }
+                }).show(selectedAddress);
             }
         });
-        addressPicker.setAddressCode("141604");
     }
 
 }
