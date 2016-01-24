@@ -120,14 +120,14 @@ public class AddressPickerDialog extends Dialog implements AddressPopup, Adapter
     private void switchPage() {
         updateBreadCrumb();
         if (addressStack.isEmpty()) {
-            showProvinceList();
+            updateDialog(R.string.choose_province, provinceRepository.find());
             return;
         }
         AddressEntity choosedEntity = addressStack.peek();
         if (choosedEntity instanceof Province) {
-            showDistrictList(choosedEntity.getCode());
+            updateDialog(R.string.choose_district, districtRepository.findByParentCode(choosedEntity.getCode()));
         } else if (choosedEntity instanceof District) {
-            showSubDistrictList(choosedEntity.getCode());
+            updateDialog(R.string.choose_subdistrict, subDistrictRepository.findByParentCode(choosedEntity.getCode()));
         } else if (choosedEntity instanceof SubDistrict) {
             notifyAddressChange(choosedEntity.getCode());
             dismiss();
@@ -152,27 +152,14 @@ public class AddressPickerDialog extends Dialog implements AddressPopup, Adapter
         breadcrumb.setVisibility(View.VISIBLE);
     }
 
-    private void showProvinceList() {
-        header.setText(R.string.choose_province);
-        List<Province> provinces = provinceRepository.find();
-        setListAdapter(new AddressListAdapter<>(getContext(), provinces));
+    public void updateDialog(int HeaderStringResId, List<? extends AddressEntity> addressEntityList) {
+        header.setText(HeaderStringResId);
+        setListAdapter(new AddressListAdapter<>(getContext(), addressEntityList));
     }
 
     private void setListAdapter(AddressListAdapter addressListAdapter) {
         this.addressListAdapter = addressListAdapter;
         list.setAdapter(addressListAdapter);
-    }
-
-    private void showSubDistrictList(String code) {
-        header.setText(R.string.choose_subdistrict);
-        List<SubDistrict> subDistricts = subDistrictRepository.findByParentCode(code);
-        setListAdapter(new AddressListAdapter<>(getContext(), subDistricts));
-    }
-
-    private void showDistrictList(String code) {
-        header.setText(R.string.choose_district);
-        List<District> districts = districtRepository.findByParentCode(code);
-        setListAdapter(new AddressListAdapter<>(getContext(), districts));
     }
 
     private void notifyAddressChange(String code) {

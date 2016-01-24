@@ -25,7 +25,7 @@
 
     <TextView
             tools:text="กรุงเทพมหานคร"
-            android:textIsSelectable="true"
+            android:textIsSelectable="false"
             android:textAppearance="?android:attr/textAppearanceListItem"
             android:id="@+id/name"
             android:layout_weight="1"
