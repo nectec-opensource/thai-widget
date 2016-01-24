@@ -61,8 +61,9 @@ android {
 dependencies {
     compile project(':thai-widget-domain')
     compile 'com.google.code.gson:gson:' + rootProject.ext.gsonVersion
+
     testCompile 'junit:junit:' + rootProject.ext.junitVersion
-    testCompile "org.robolectric:robolectric:3.0"
+    testCompile 'org.robolectric:robolectric:' + rootProject.ext.robolectricVersion
 }
 
 apply from: '../gradle/artifact.gradle'

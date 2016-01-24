@@ -50,6 +50,7 @@ ext {
     rulesVersion = "0.4.1"
     espressoVersion = "2.2.1"
     uiautomatorVersion = "2.1.2"
+    robolectricVersion = "3.0"
 }
 
 task wrapper(type: Wrapper) {
