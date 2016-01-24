@@ -42,9 +42,9 @@ public class AddressPickerDialog extends Dialog implements AddressPopup, Adapter
     private TextView breadcrumb;
     private ListView list;
     private AddressRepositoryImpl addressRepository;
-    private ProvinceRepository provinceRepository;
-    private DistrictRepository districtRepository;
-    private SubDistrictRepository subDistrictRepository;
+    private AddressRepository<Province> provinceRepository;
+    private AddressRepository<District> districtRepository;
+    private AddressRepository<SubDistrict> subDistrictRepository;
     private AddressView.OnAddressChangedListener onAddressChangedListener;
     private AddressListAdapter addressListAdapter;
 
@@ -96,17 +96,17 @@ public class AddressPickerDialog extends Dialog implements AddressPopup, Adapter
         switchPage();
     }
 
-    public AddressPickerDialog setRepository(ProvinceRepository province) {
+    public AddressPickerDialog setProvinceRepository(AddressRepository<Province> province) {
         this.provinceRepository = province;
         return this;
     }
 
-    public AddressPickerDialog setRepository(DistrictRepository districtRepository) {
+    public AddressPickerDialog setDistrictRepository(AddressRepository<District> districtRepository) {
         this.districtRepository = districtRepository;
         return this;
     }
 
-    public AddressPickerDialog setRepository(SubDistrictRepository subDistrictRepository) {
+    public AddressPickerDialog setSubDistrictRepository(AddressRepository<SubDistrict> subDistrictRepository) {
         this.subDistrictRepository = subDistrictRepository;
         return this;
     }
