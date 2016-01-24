@@ -69,7 +69,7 @@ public class AddressPicker extends Button implements AddressView {
 
     public void setPopup(AddressPopup popup) {
         this.popup = popup;
-        this.popup.setOnAddressChangedListener(onAddressChangedListener);
+        this.popup.setOnAddressChangedListener(onPopupAddressChangedListener);
     }
 
     @Override

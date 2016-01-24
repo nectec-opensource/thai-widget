@@ -33,6 +33,7 @@ public class AddressPickerSampleActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_address_picker);
 
+        ((AddressPicker) findViewById(R.id.address_view_set)).setPopup(new AddressPickerDialog(this, R.style.AppTheme, null));
         ((AddressPicker) findViewById(R.id.address_view_set)).setAddressCode("141604");
 
         findViewById(R.id.button).setOnClickListener(new View.OnClickListener() {
@@ -51,6 +52,7 @@ public class AddressPickerSampleActivity extends AppCompatActivity {
                 }).show(selectedAddress);
             }
         });
+
     }
 
 }
