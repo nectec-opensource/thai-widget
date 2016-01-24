@@ -26,11 +26,11 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
 import th.or.nectec.thai.address.*;
+import th.or.nectec.thai.widget.R;
 import th.or.nectec.thai.widget.address.repository.AddressRepositoryImpl;
 import th.or.nectec.thai.widget.address.repository.DistrictRepository;
 import th.or.nectec.thai.widget.address.repository.ProvinceRepository;
 import th.or.nectec.thai.widget.address.repository.SubDistrictRepository;
-import th.or.nectec.thai.widget.thai.R;
 
 import java.util.Iterator;
 import java.util.List;
@@ -170,6 +170,7 @@ public class AddressPickerDialog extends Dialog implements AddressPopup, Adapter
     }
 
     private void showDistrictList(String code) {
+        header.setText(R.string.choose_district);
         List<District> districts = districtRepository.findByParentCode(code);
         setListAdapter(new AddressListAdapter<>(getContext(), districts));
     }

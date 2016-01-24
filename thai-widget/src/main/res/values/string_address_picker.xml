@@ -1,15 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="breadcrumb_text" formatted="false">%s &gt; %s</string>
-
-    <string name="choose_region">เลือกภูมิภาค</string>
     <string name="choose_subdistrict">เลือกแขวง/ตำบล</string>
     <string name="choose_district">เลือกเขต/อำเภอ</string>
     <string name="choose_province">เลือกจังหวัด</string>
-
-    <string name="region_not_found">ไม่พบภูมิภาค</string>
-    <string name="province_not_found">ไม่พบจังหวัด</string>
-    <string name="district_not_found">ไม่พบอำเภอ</string>
-    <string name="subdistrict_not_found">ไม่พบตำบล</string>
-    <string name="address_not_found">ไม่พบข้อมูลที่อยู่</string>
 </resources>

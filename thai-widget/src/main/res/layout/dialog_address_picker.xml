@@ -29,10 +29,9 @@
                 android:background="?android:attr/selectableItemBackground"
                 android:contentDescription="@string/cd_back_button"
                 android:id="@+id/back"
-                android:src="@drawable/ic_action_back"
+                android:src="@drawable/ic_back"
                 android:layout_width="60dp"
-                android:layout_height="wrap_content"
-                android:minHeight="56dp"/>
+                android:layout_height="56dp"/>
 
         <TextView
                 android:id="@+id/header"

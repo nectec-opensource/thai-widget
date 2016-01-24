@@ -24,7 +24,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 import th.or.nectec.thai.address.AddressEntity;
-import th.or.nectec.thai.widget.thai.R;
+import th.or.nectec.thai.widget.R;
 
 import java.util.ArrayList;
 import java.util.List;
