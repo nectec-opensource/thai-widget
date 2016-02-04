@@ -18,18 +18,32 @@ Download
 
 Add JCenter to your build file's list of repositories.
 
-    repositories {
-        jcenter()
-    }
+```gradle
+repositories {
+    jcenter()
+}
+```
 
 Add dependencies on app module
 
-    dependencies {
-        ...
-        compile 'th.or.nectec.android:thai-widget:0.4'
-        ...
-    }
+```gradle
+dependencies {
+    ...
+    compile 'th.or.nectec.android:thai-widget:0.4'
+    ...
+}
+```
 
+Proguard-Rule
+--------
+add follow this in proguard-rules.pro in your project.
+
+```proguard
+-keepattributes Signature
+-keep class sun.misc.Unsafe { *; }
+-keep class com.google.gson.stream.** { *; }
+-keep class th.or.nectec.thai.** { *; }
+```
 
 License
 --------
