@@ -32,6 +32,7 @@ import th.or.nectec.thai.widget.address.repository.DistrictRepository;
 import th.or.nectec.thai.widget.address.repository.ProvinceRepository;
 import th.or.nectec.thai.widget.address.repository.SubDistrictRepository;
 
+import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 
@@ -120,14 +121,20 @@ public class AddressPickerDialog extends Dialog implements AddressPopup, Adapter
     private void switchPage() {
         updateBreadCrumb();
         if (addressStack.isEmpty()) {
-            updateDialog(R.string.choose_province, provinceRepository.find());
+            List<Province> provinceList = provinceRepository.find();
+            Collections.sort(provinceList);
+            updateDialog(R.string.choose_province, provinceList);
             return;
         }
         AddressEntity choosedEntity = addressStack.peek();
         if (choosedEntity instanceof Province) {
-            updateDialog(R.string.choose_district, districtRepository.findByParentCode(choosedEntity.getCode()));
+            List<District> districtList = districtRepository.findByParentCode(choosedEntity.getCode());
+            Collections.sort(districtList);
+            updateDialog(R.string.choose_district, districtList);
         } else if (choosedEntity instanceof District) {
-            updateDialog(R.string.choose_subdistrict, subDistrictRepository.findByParentCode(choosedEntity.getCode()));
+            List<SubDistrict> subDistrictList = subDistrictRepository.findByParentCode(choosedEntity.getCode());
+            Collections.sort(subDistrictList);
+            updateDialog(R.string.choose_subdistrict, subDistrictList);
         } else if (choosedEntity instanceof SubDistrict) {
             notifyAddressChange(choosedEntity.getCode());
             dismiss();
