@@ -77,7 +77,7 @@ The follow instructions only for Project Administrator
 
 2. Upload with command :
 
-        ./gradlew bintrayUpload
+        ./gradlew bintray
     
 3. Log in to Bintray to publish
 
