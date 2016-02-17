@@ -24,6 +24,7 @@ import th.or.nectec.thai.address.Province;
 import th.or.nectec.thai.address.Region;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class ProvinceRepository implements AddressRepository<Province> {
@@ -33,6 +34,7 @@ public class ProvinceRepository implements AddressRepository<Province> {
 
     private ProvinceRepository(Context context) {
         allProvince = JsonParser.parse(context, "province.json", Province.class);
+        Collections.sort(allProvince);
     }
 
     public static ProvinceRepository getInstance(Context context) {

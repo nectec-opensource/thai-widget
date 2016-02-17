@@ -24,6 +24,7 @@ import th.or.nectec.thai.address.InvalidAddressCodeFormatException.InvalidDistri
 import th.or.nectec.thai.address.InvalidAddressCodeFormatException.InvalidProvinceCodeException;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class DistrictRepository implements AddressRepository<District> {
@@ -33,6 +34,7 @@ public class DistrictRepository implements AddressRepository<District> {
 
     private DistrictRepository(Context context) {
         allDistrict = JsonParser.parse(context, "district.json", District.class);
+        Collections.sort(allDistrict);
     }
 
     public static DistrictRepository getInstance(Context context) {

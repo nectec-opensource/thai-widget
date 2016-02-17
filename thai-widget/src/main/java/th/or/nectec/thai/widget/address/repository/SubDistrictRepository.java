@@ -24,6 +24,7 @@ import th.or.nectec.thai.address.InvalidAddressCodeFormatException.InvalidSubDis
 import th.or.nectec.thai.address.SubDistrict;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class SubDistrictRepository implements AddressRepository<SubDistrict> {
@@ -33,6 +34,7 @@ public class SubDistrictRepository implements AddressRepository<SubDistrict> {
 
     private SubDistrictRepository(Context context) {
         allSubDistrict = JsonParser.parse(context, "subdistrict.json", SubDistrict.class);
+        Collections.sort(allSubDistrict);
     }
 
     public static SubDistrictRepository getInstance(Context context) {
