@@ -20,7 +20,7 @@ package th.or.nectec.thai.address;
 import th.or.nectec.thai.address.InvalidAddressCodeFormatException.InvalidProvinceCodeException;
 import th.or.nectec.util.TextUtils;
 
-public class Province implements AddressEntity {
+public class Province implements AddressEntity, Comparable<Province> {
 
     private String code;
     private String name;
@@ -77,5 +77,10 @@ public class Province implements AddressEntity {
         sb.append(", region=").append(region);
         sb.append('}');
         return sb.toString();
+    }
+
+    @Override
+    public int compareTo(Province that) {
+        return this.name.compareTo(that.name);
     }
 }

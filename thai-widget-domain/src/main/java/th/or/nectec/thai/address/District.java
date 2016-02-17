@@ -20,7 +20,7 @@ package th.or.nectec.thai.address;
 import th.or.nectec.thai.address.InvalidAddressCodeFormatException.InvalidDistrictCodeException;
 import th.or.nectec.util.TextUtils;
 
-public class District implements AddressEntity {
+public class District implements AddressEntity, Comparable<District> {
     private String code;
     private String name;
 
@@ -72,5 +72,10 @@ public class District implements AddressEntity {
         sb.append(", name='").append(name).append('\'');
         sb.append('}');
         return sb.toString();
+    }
+
+    @Override
+    public int compareTo(District that) {
+        return this.name.compareTo(that.name);
     }
 }

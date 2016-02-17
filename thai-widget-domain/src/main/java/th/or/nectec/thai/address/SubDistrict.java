@@ -20,7 +20,7 @@ package th.or.nectec.thai.address;
 import th.or.nectec.thai.address.InvalidAddressCodeFormatException.InvalidSubDistrictCodeException;
 import th.or.nectec.util.TextUtils;
 
-public class SubDistrict implements AddressEntity {
+public class SubDistrict implements AddressEntity, Comparable<SubDistrict> {
     private String code;
     private String name;
     private String postcode;
@@ -89,5 +89,10 @@ public class SubDistrict implements AddressEntity {
         sb.append(", postcode='").append(postcode).append('\'');
         sb.append('}');
         return sb.toString();
+    }
+
+    @Override
+    public int compareTo(SubDistrict that) {
+        return this.name.compareTo(that.name) ;
     }
 }
