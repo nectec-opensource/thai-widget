@@ -5,11 +5,14 @@ Thai style android custom widget by thai-dev for thai-dev
 Widget
 -------
 Released
+
 * CitizenIdEditText - EditText for Citizen ID with validator
 * HouseIdEditText - EditText for House ID with validator
 * AreaPicker - for input area size in Rai Ngan Wa2 formate
 * AddressPicker - for select Thai's Province District and SubDistrict
+
 TODO
+
 * DatePicker - Buddism year version of android DatePicker
 
 Download
