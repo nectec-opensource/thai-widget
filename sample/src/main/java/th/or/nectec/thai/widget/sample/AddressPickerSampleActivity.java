@@ -1,5 +1,5 @@
 /*
- * Copyright © 2015 NECTEC
+ * Copyright (c) 2016 NECTEC
  *   National Electronics and Computer Technology Center, Thailand
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -13,6 +13,7 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
+ *
  */
 
 package th.or.nectec.thai.widget.sample;
@@ -23,33 +24,36 @@ import android.view.View;
 import th.or.nectec.thai.address.Address;
 import th.or.nectec.thai.widget.address.AddressPicker;
 import th.or.nectec.thai.widget.address.AddressPickerDialog;
-import th.or.nectec.thai.widget.address.AddressView;
+import th.or.nectec.thai.widget.address.AddressView.OnAddressChangedListener;
 
 public class AddressPickerSampleActivity extends AppCompatActivity {
-    Address selectedAddress;
+    private Address selectedAddress;
+    private final OnAddressChangedListener onAddressChangedListener = new OnAddressChangedListener() {
+        @Override
+        public void onAddressChanged(Address address) {
+            selectedAddress = address;
+        }
+
+        @Override
+        public void onAddressCanceled() {
+            selectedAddress = null;
+        }
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_address_picker);
 
-        ((AddressPicker) findViewById(R.id.address_view)).setPopup(new AddressPickerDialog(this, R.style.AppTheme, null));
+        ((AddressPicker) findViewById(R.id.address_view))
+                .setPopup(new AddressPickerDialog(this, R.style.AppTheme, null));
         ((AddressPicker) findViewById(R.id.address_view_set)).setAddressCode("141604");
 
         findViewById(R.id.button).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                new AddressPickerDialog(AddressPickerSampleActivity.this, android.R.style.Theme_Holo_Dialog, new AddressView.OnAddressChangedListener() {
-                    @Override
-                    public void onAddressChanged(Address address) {
-                        selectedAddress = address;
-                    }
-
-                    @Override
-                    public void onAddressCanceled() {
-                        selectedAddress = null;
-                    }
-                }).show(selectedAddress);
+                new AddressPickerDialog(AddressPickerSampleActivity.this,
+                        android.R.style.Theme_Holo_Dialog, onAddressChangedListener).show(selectedAddress);
             }
         });
 

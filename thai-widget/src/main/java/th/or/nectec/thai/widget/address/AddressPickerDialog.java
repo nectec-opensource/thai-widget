@@ -1,5 +1,5 @@
 /*
- * Copyright © 2016 NECTEC
+ * Copyright (c) 2016 NECTEC
  *   National Electronics and Computer Technology Center, Thailand
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -13,6 +13,7 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
+ *
  */
 
 package th.or.nectec.thai.widget.address;
@@ -27,6 +28,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 import th.or.nectec.thai.address.*;
 import th.or.nectec.thai.widget.R;
+import th.or.nectec.thai.widget.address.AddressView.OnAddressChangedListener;
 import th.or.nectec.thai.widget.address.repository.AddressRepositoryImpl;
 import th.or.nectec.thai.widget.address.repository.DistrictRepository;
 import th.or.nectec.thai.widget.address.repository.ProvinceRepository;
@@ -46,7 +48,7 @@ public class AddressPickerDialog extends Dialog implements AddressPopup, Adapter
     private AddressRepository<Province> provinceRepository;
     private AddressRepository<District> districtRepository;
     private AddressRepository<SubDistrict> subDistrictRepository;
-    private AddressView.OnAddressChangedListener onAddressChangedListener;
+    private OnAddressChangedListener onAddressChangedListener;
     private AddressListAdapter addressListAdapter;
 
 
@@ -54,11 +56,11 @@ public class AddressPickerDialog extends Dialog implements AddressPopup, Adapter
         this(context, null);
     }
 
-    public AddressPickerDialog(Context context, AddressView.OnAddressChangedListener onAddressChangedListener) {
+    public AddressPickerDialog(Context context, OnAddressChangedListener onAddressChangedListener) {
         this(context, 0, onAddressChangedListener);
     }
 
-    public AddressPickerDialog(Context context, int themeResId, AddressView.OnAddressChangedListener onAddressChangedListener) {
+    public AddressPickerDialog(Context context, int themeResId, OnAddressChangedListener onAddressChangedListener) {
         super(context, themeResId);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setOnAddressChangedListener(onAddressChangedListener);
@@ -159,8 +161,8 @@ public class AddressPickerDialog extends Dialog implements AddressPopup, Adapter
         breadcrumb.setVisibility(View.VISIBLE);
     }
 
-    public void updateDialog(int HeaderStringResId, List<? extends AddressEntity> addressEntityList) {
-        header.setText(HeaderStringResId);
+    public void updateDialog(int headerStringResId, List<? extends AddressEntity> addressEntityList) {
+        header.setText(headerStringResId);
         setListAdapter(new AddressListAdapter<>(getContext(), addressEntityList));
     }
 
@@ -190,7 +192,7 @@ public class AddressPickerDialog extends Dialog implements AddressPopup, Adapter
     }
 
     @Override
-    public void setOnAddressChangedListener(AddressView.OnAddressChangedListener onAddressChangedListener) {
+    public void setOnAddressChangedListener(OnAddressChangedListener onAddressChangedListener) {
         this.onAddressChangedListener = onAddressChangedListener;
     }
 

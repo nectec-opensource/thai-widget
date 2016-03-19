@@ -1,5 +1,5 @@
 /*
- * Copyright © 2015 NECTEC
+ * Copyright (c) 2016 NECTEC
  *   National Electronics and Computer Technology Center, Thailand
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -13,6 +13,7 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
+ *
  */
 
 package th.or.nectec.thai.unit;
@@ -24,7 +25,9 @@ public class AreaConverter {
     public static final float SQUARE_METER_PER_SQUARE_WA = 4;
 
     public static int RaiToSqMeter(int rai, int ngan, int tarangwa) {
-        float sqMeter = (rai * SQUARE_METER_PER_RAI) + (ngan * SQUARE_METER_PER_NGAN) + (tarangwa * SQUARE_METER_PER_SQUARE_WA);
+        float sqMeter = (rai * SQUARE_METER_PER_RAI)
+                + (ngan * SQUARE_METER_PER_NGAN)
+                + (tarangwa * SQUARE_METER_PER_SQUARE_WA);
         return Math.round(sqMeter);
     }
 

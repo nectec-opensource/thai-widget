@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2015 NECTEC
+ * Copyright (c) 2016 NECTEC
  *   National Electronics and Computer Technology Center, Thailand
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -13,6 +13,7 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
+ *
  */
 
 package th.or.nectec.thai.widget.sample;
@@ -27,6 +28,18 @@ import th.or.nectec.thai.widget.unit.AreaPickerDialog;
 
 
 public class AreaPickerSampleActivity extends Activity {
+
+    private final AreaPickerDialog.OnAreaPickListener callback = new AreaPickerDialog.OnAreaPickListener() {
+        @Override
+        public void onAreaPick(Area area) {
+            Toast.makeText(getBaseContext(), area.prettyPrint(), Toast.LENGTH_LONG).show();
+        }
+
+        @Override
+        public void onCancel() {
+            Toast.makeText(getBaseContext(), "onCancel", Toast.LENGTH_SHORT).show();
+        }
+    };
 
     private AreaPickerDialog areaPickerDialog;
 
@@ -58,16 +71,6 @@ public class AreaPickerSampleActivity extends Activity {
     }
 
     private void setupDialog() {
-        areaPickerDialog = new AreaPickerDialog(AreaPickerSampleActivity.this, new AreaPickerDialog.OnAreaPickListener() {
-            @Override
-            public void onAreaPick(Area area) {
-                Toast.makeText(getBaseContext(), area.prettyPrint(), Toast.LENGTH_LONG).show();
-            }
-
-            @Override
-            public void onCancel() {
-                Toast.makeText(getBaseContext(), "cancel", Toast.LENGTH_SHORT).show();
-            }
-        });
+        areaPickerDialog = new AreaPickerDialog(AreaPickerSampleActivity.this, callback);
     }
 }
