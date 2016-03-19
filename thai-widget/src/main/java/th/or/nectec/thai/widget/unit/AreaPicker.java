@@ -19,6 +19,7 @@
 package th.or.nectec.thai.widget.unit;
 
 import android.content.Context;
+import android.os.Parcelable;
 import android.util.AttributeSet;
 import android.view.Gravity;
 import android.view.View;
@@ -86,6 +87,27 @@ public class AreaPicker extends TextView implements AreaView, OnClickListener {
     @Override
     public void onClick(View view) {
         pickerDialog.show(area);
+    }
+
+    @Override
+    public Parcelable onSaveInstanceState() {
+        if (area == null)
+            return super.onSaveInstanceState();
+        Parcelable parcelable = super.onSaveInstanceState();
+        AreaSaveState savedState = new AreaSaveState(parcelable);
+        savedState.setArea(area);
+        return savedState;
+    }
+
+    @Override
+    public void onRestoreInstanceState(Parcelable state) {
+        if (!(state instanceof AreaSaveState)) {
+            super.onRestoreInstanceState(state);
+            return;
+        }
+        AreaSaveState ss = (AreaSaveState) state;
+        super.onRestoreInstanceState(ss.getSuperState());
+        setArea(ss.getArea());
     }
 
     interface AreaPopup {
