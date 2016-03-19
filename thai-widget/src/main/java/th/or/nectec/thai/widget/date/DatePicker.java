@@ -104,6 +104,7 @@ public class DatePicker extends Button implements DateView {
         setCalendar(calendar);
     }
 
+
     @Override
     public int getYear() {
         return calendar.get(YEAR);
@@ -117,6 +118,14 @@ public class DatePicker extends Button implements DateView {
     @Override
     public int getDayOfMonth() {
         return calendar.get(DAY_OF_MONTH);
+    }
+
+    @Override
+    public void setMaxDate(int year, int month, int dayOfMonth) {
+        Calendar maxCalendar = defaultCalendar();
+        maxCalendar.set(year, month, dayOfMonth);
+        if (this.calendar.compareTo(maxCalendar) > 0) setCalendar(maxCalendar);
+        popup.setMaxDate(year, month, dayOfMonth);
     }
 
     @Override

@@ -20,12 +20,43 @@ package th.or.nectec.thai.widget.sample;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.Button;
+import th.or.nectec.thai.date.DatePrinter;
+import th.or.nectec.thai.widget.date.DatePickerDialog;
+import th.or.nectec.thai.widget.date.DateView;
+
+import java.util.Calendar;
 
 public class DatePickerSampleActivity extends AppCompatActivity {
+
+    private final DateView.DatePickerCallback datePickerCallback = new DateView.DatePickerCallback() {
+        @Override
+        public void onPicked(DateView view, Calendar calendar) {
+            Button button = (Button) findViewById(R.id.button);
+            button.setText(DatePrinter.print(calendar));
+        }
+
+        @Override
+        public void onCancel() {
+
+        }
+    };
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sample_date_picker);
+
+//        DatePicker datePicker = (DatePicker) findViewById(R.id.date_picker);
+//        datePicker.setMaxDate(1988, 9, 21);
+        findViewById(R.id.button).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                DatePickerDialog dialog = new DatePickerDialog(DatePickerSampleActivity.this, datePickerCallback);
+                dialog.setMaxDateIsToday();
+                dialog.show();
+            }
+        });
     }
 }

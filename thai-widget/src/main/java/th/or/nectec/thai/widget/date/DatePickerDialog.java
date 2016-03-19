@@ -21,6 +21,7 @@ package th.or.nectec.thai.widget.date;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.util.Log;
 import android.view.View;
 import android.widget.NumberPicker;
 import th.or.nectec.thai.date.DatePrinter;
@@ -33,13 +34,12 @@ import static java.util.Calendar.*;
 
 public class DatePickerDialog extends AlertDialog implements DatePopup, NumberPicker.OnValueChangeListener {
 
+    private static final String TAG = "DatePickerDialog";
     private final NumberPicker dayPicker;
     private final NumberPicker monthPicker;
     private final NumberPicker yearPicker;
-
     private Calendar calendar;
     private DatePickerCallback callback;
-
     private DialogInterface.OnClickListener onPositiveButtonClick = new DialogInterface.OnClickListener() {
         @Override
         public void onClick(DialogInterface dialogInterface, int i) {
@@ -56,14 +56,21 @@ public class DatePickerDialog extends AlertDialog implements DatePopup, NumberPi
             dismiss();
         }
     };
+    private Calendar maxDate;
 
     public DatePickerDialog(Context context) {
-        this(context, Calendar.getInstance());
+        this(context, null);
     }
 
-    public DatePickerDialog(Context context, Calendar calendar) {
+    public DatePickerDialog(Context context, DatePickerCallback datePickerCallback) {
+        this(context, Calendar.getInstance(), datePickerCallback);
+
+    }
+
+    public DatePickerDialog(Context context, Calendar calendar, DatePickerCallback datePickerCallback) {
         super(context);
         this.calendar = calendar;
+        this.callback = datePickerCallback;
 
         View view = ViewUtils.inflateView(getContext(), R.layout.dialog_date_picker);
         setView(view);
@@ -96,6 +103,7 @@ public class DatePickerDialog extends AlertDialog implements DatePopup, NumberPi
 
     @Override
     public void updateDate(int year, int month, int dayOfMonth) {
+        Log.e(TAG, String.format("updateDate %s %s %s", dayOfMonth, month, year));
         calendar.set(year, month, dayOfMonth);
 
         if (dayPicker != null) {
@@ -123,13 +131,28 @@ public class DatePickerDialog extends AlertDialog implements DatePopup, NumberPi
     }
 
     @Override
+    public void setMaxDate(int year, int month, int dayOfMonth) {
+        Calendar calendar = Calendar.getInstance();
+        calendar.set(year, month, dayOfMonth);
+        setMaxDate(calendar);
+    }
+
+    @Override
     public void setCallback(DatePickerCallback callback) {
         this.callback = callback;
     }
 
-    public DatePickerDialog(Context context, DatePickerCallback datePickerCallback) {
-        this(context, Calendar.getInstance());
-        this.callback = datePickerCallback;
+    public void setMaxDateIsToday() {
+        setMaxDate(Calendar.getInstance());
+    }
+
+    public void setMaxDate(Calendar maxDate) {
+        this.maxDate = maxDate;
+        yearPicker.setMaxValue(maxDate.get(YEAR) + 543);
+
+        updateMaxValueIfMaxDateSetted();
+
+        if (calendar.compareTo(maxDate) > 0) updateDate(maxDate);
     }
 
     @Override
@@ -154,9 +177,48 @@ public class DatePickerDialog extends AlertDialog implements DatePopup, NumberPi
             dayPicker.setValue(maxDayOfMonth);
         }
         dayPicker.setMaxValue(maxDayOfMonth);
-
         newCalendar.set(DAY_OF_MONTH, dayPicker.getValue());
-
         updateDate(newCalendar);
+
+        updateMaxValueIfMaxDateSetted();
+
+    }
+
+    private void updateMaxValueIfMaxDateSetted() {
+        if (maxDate == null)
+            return;
+
+        Calendar newCalendar = Calendar.getInstance();
+        newCalendar.set(yearPicker.getValue() - 543, monthPicker.getValue(), 1);
+
+
+        if (yearPicker.getValue() == maxDate.get(YEAR) + 543) {
+            monthPicker.setOnValueChangedListener(null);
+            dayPicker.setOnValueChangedListener(null);
+            int maxMonth = maxDate.get(MONTH);
+            if (monthPicker.getValue() > maxMonth) {
+                monthPicker.setValue(maxMonth);
+                Log.d(TAG, "updateMaxValueIfMaxDateSetted set month value to " + maxMonth);
+            }
+            monthPicker.setMaxValue(maxMonth);
+
+            if (monthPicker.getValue() == maxMonth) {
+                int maxDayOfMonth = maxDate.get(DAY_OF_MONTH);
+                if (dayPicker.getValue() > maxDayOfMonth) {
+                    dayPicker.setValue(maxDayOfMonth);
+                    Log.d(TAG, "updateMaxValueIfMaxDateSetted set DOM value to " + maxDayOfMonth);
+                }
+                dayPicker.setMaxValue(maxDayOfMonth);
+            }
+
+            monthPicker.setOnValueChangedListener(this);
+            dayPicker.setOnValueChangedListener(this);
+            newCalendar.set(yearPicker.getValue() - 543, monthPicker.getValue(), dayPicker.getValue());
+            Log.e(TAG, String.format("updateMaxValueIfMaxDateSetted %s %s %s", newCalendar.get(DAY_OF_MONTH),
+                    newCalendar.get(MONTH), newCalendar.get(YEAR)));
+            updateDate(newCalendar);
+        } else {
+            monthPicker.setMaxValue(11);
+        }
     }
 }

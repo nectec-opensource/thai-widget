@@ -35,4 +35,5 @@
     <string name="address_picker_dialog">address picker dialog</string>
     <string name="date_thai">วัน/เดือน/ปี(พ.ศ.)</string>
     <string name="date_picker">Date Picker</string>
+    <string name="datepicker_dialog">DatePicker dialog</string>
 </resources>
