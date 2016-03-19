@@ -20,6 +20,7 @@ package th.or.nectec.thai.widget.date;
 
 
 import android.content.Context;
+import android.os.Parcelable;
 import android.util.AttributeSet;
 import android.widget.Button;
 import th.or.nectec.thai.date.DatePrinter;
@@ -123,4 +124,24 @@ public class DatePicker extends Button implements DateView {
         this.callback = callback;
     }
 
+    @Override
+    public Parcelable onSaveInstanceState() {
+        if (calendar == null)
+            return super.onSaveInstanceState();
+        Parcelable parcelable = super.onSaveInstanceState();
+        CalendarSavedState savedState = new CalendarSavedState(parcelable);
+        savedState.setCalendar(calendar);
+        return savedState;
+    }
+
+    @Override
+    public void onRestoreInstanceState(Parcelable state) {
+        if (!(state instanceof CalendarSavedState)) {
+            super.onRestoreInstanceState(state);
+            return;
+        }
+        CalendarSavedState ss = (CalendarSavedState) state;
+        super.onRestoreInstanceState(ss.getSuperState());
+        setCalendar(ss.getCalendar());
+    }
 }
