@@ -36,8 +36,10 @@ public class DatePickerDialog extends AlertDialog implements DatePopup, NumberPi
     private final NumberPicker dayPicker;
     private final NumberPicker monthPicker;
     private final NumberPicker yearPicker;
+
     private Calendar calendar;
     private DatePickerCallback callback;
+
     private DialogInterface.OnClickListener onPositiveButtonClick = new DialogInterface.OnClickListener() {
         @Override
         public void onClick(DialogInterface dialogInterface, int i) {
@@ -62,7 +64,6 @@ public class DatePickerDialog extends AlertDialog implements DatePopup, NumberPi
     public DatePickerDialog(Context context, Calendar calendar) {
         super(context);
         this.calendar = calendar;
-        setTitle(DatePrinter.print(calendar));
 
         View view = ViewUtils.inflateView(getContext(), R.layout.dialog_date_picker);
         setView(view);
@@ -71,11 +72,13 @@ public class DatePickerDialog extends AlertDialog implements DatePopup, NumberPi
         dayPicker.setOnValueChangedListener(this);
         dayPicker.setMinValue(1);
         dayPicker.setMaxValue(calendar.getActualMaximum(DAY_OF_MONTH));
+
         monthPicker = (NumberPicker) view.findViewById(R.id.month);
         monthPicker.setOnValueChangedListener(this);
         monthPicker.setMinValue(0);
         monthPicker.setMaxValue(11);
         monthPicker.setDisplayedValues(DatePrinter.THAI_MONTH);
+
         yearPicker = (NumberPicker) view.findViewById(R.id.year);
         yearPicker.setOnValueChangedListener(this);
         yearPicker.setMinValue(2400);
@@ -94,11 +97,14 @@ public class DatePickerDialog extends AlertDialog implements DatePopup, NumberPi
     @Override
     public void updateDate(int year, int month, int dayOfMonth) {
         calendar.set(year, month, dayOfMonth);
+
         if (dayPicker != null) {
             dayPicker.setValue(dayOfMonth);
             monthPicker.setValue(month);
             yearPicker.setValue(year + 543);
         }
+
+        setTitle(DatePrinter.print(calendar));
     }
 
     @Override
@@ -117,6 +123,16 @@ public class DatePickerDialog extends AlertDialog implements DatePopup, NumberPi
     }
 
     @Override
+    public void setCallback(DatePickerCallback callback) {
+        this.callback = callback;
+    }
+
+    public DatePickerDialog(Context context, DatePickerCallback datePickerCallback) {
+        this(context, Calendar.getInstance());
+        this.callback = datePickerCallback;
+    }
+
+    @Override
     public void show(int year, int month, int dayOfMonth) {
         updateDate(year, month, dayOfMonth);
         show();
@@ -126,16 +142,6 @@ public class DatePickerDialog extends AlertDialog implements DatePopup, NumberPi
     public void show(Calendar calendar) {
         updateDate(calendar);
         show();
-    }
-
-    @Override
-    public void setCallback(DatePickerCallback callback) {
-        this.callback = callback;
-    }
-
-    public DatePickerDialog(Context context, DatePickerCallback datePickerCallback) {
-        this(context, Calendar.getInstance());
-        this.callback = datePickerCallback;
     }
 
     @Override
@@ -150,7 +156,7 @@ public class DatePickerDialog extends AlertDialog implements DatePopup, NumberPi
         dayPicker.setMaxValue(maxDayOfMonth);
 
         newCalendar.set(DAY_OF_MONTH, dayPicker.getValue());
-        setTitle(DatePrinter.print(newCalendar));
-        calendar = newCalendar;
+
+        updateDate(newCalendar);
     }
 }

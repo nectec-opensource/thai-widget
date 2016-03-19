@@ -25,12 +25,27 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.TextView;
 import th.or.nectec.thai.unit.Area;
+import th.or.nectec.thai.widget.R;
 
 public class AreaPicker extends TextView implements AreaView, OnClickListener {
 
-    protected static final String DEFAULT_MESSAGE = "ระบุขนาดพื้นที่";
+    protected static final String HINT_MESSAGE = "ระบุขนาดพื้นที่";
+
     private AreaPopup pickerDialog;
     private Area area = new Area(0);
+
+    private final AreaPickerDialog.OnAreaPickListener listener = new AreaPickerDialog.OnAreaPickListener() {
+        @Override
+        public void onAreaPick(Area area) {
+            setArea(area);
+        }
+
+        @Override
+        public void onCancel() {
+            setText(null);
+            setArea(Area.fromSquareMeter(0));
+        }
+    };
 
     public AreaPicker(Context context) {
         this(context, null);
@@ -42,31 +57,16 @@ public class AreaPicker extends TextView implements AreaView, OnClickListener {
 
     public AreaPicker(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        initialize();
-    }
-
-
-    private void initialize() {
-        setText(DEFAULT_MESSAGE);
+        setHint(HINT_MESSAGE);
         setGravity(Gravity.CENTER_VERTICAL);
+        setPadding(0, 0, context.getResources().getDimensionPixelOffset(R.dimen.spinner_rigth_padding), 0);
         if (!isInEditMode()) {
             setupPickerDialog();
         }
     }
 
     private void setupPickerDialog() {
-        pickerDialog = new AreaPickerDialog(getContext(), new AreaPickerDialog.OnAreaPickListener() {
-            @Override
-            public void onAreaPick(Area area) {
-                setArea(area);
-            }
-
-            @Override
-            public void onCancel() {
-                setText(DEFAULT_MESSAGE);
-                setArea(Area.fromSquareMeter(0));
-            }
-        });
+        pickerDialog = new AreaPickerDialog(getContext(), listener);
         setOnClickListener(this);
     }
 

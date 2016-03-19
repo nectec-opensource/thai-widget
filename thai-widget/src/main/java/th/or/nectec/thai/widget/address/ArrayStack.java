@@ -21,7 +21,7 @@ package th.or.nectec.thai.widget.address;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-public class ArrayStack<T> {
+class ArrayStack<T> {
 
     private ArrayList<T> arrayList;
 

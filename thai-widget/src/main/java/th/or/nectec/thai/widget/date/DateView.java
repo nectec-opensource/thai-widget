@@ -18,11 +18,23 @@
 
 package th.or.nectec.thai.widget.date;
 
+
 import java.util.Calendar;
 
-public interface DatePopup extends DateView {
+public interface DateView {
+    void updateDate(int year, int month, int dayOfMonth);
 
-    void show(int year, int month, int dayOfMonth);
+    int getYear();
 
-    void show(Calendar calendar);
+    int getMonth();
+
+    int getDayOfMonth();
+
+    void setCallback(DatePickerCallback callback);
+
+    interface DatePickerCallback {
+        void onPicked(DateView view, Calendar calendar);
+
+        void onCancel();
+    }
 }

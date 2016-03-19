@@ -59,13 +59,17 @@ public class AddressPicker extends Button implements AddressView {
     public AddressPicker(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         emptyView();
+        setHint(R.string.please_define_address);
+        setPadding(0, 0, context.getResources().getDimensionPixelOffset(R.dimen.spinner_rigth_padding), 0);
+
         addressRepository = AddressRepositoryImpl.getInstance(context);
         popup = new AddressPickerDialog(context, onPopupAddressChangedListener);
     }
 
     private void emptyView() {
         address = null;
-        setText(R.string.please_define_address);
+        setText(null);
+
     }
 
     public void setPopup(AddressPopup popup) {
