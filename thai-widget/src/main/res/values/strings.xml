@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="please_define_address">กรุณาระบุ ตำบล อำเภอ จังหวัด</string>
+    <string name="choose_subdistrict">เลือกแขวง/ตำบล</string>
+    <string name="choose_district">เลือกเขต/อำเภอ</string>
+    <string name="choose_province">เลือกจังหวัด</string>
     <string name="cd_back_button">กดเพื่อย้อนกลับไปขั้นตอนก่อนหน้า</string>
+
+    <string name="ok">ตกลง</string>
+    <string name="cancel">ยกเลิก</string>
 </resources>

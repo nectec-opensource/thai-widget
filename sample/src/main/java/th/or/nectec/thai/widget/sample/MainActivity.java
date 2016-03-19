@@ -45,6 +45,9 @@ public class MainActivity extends AppCompatActivity {
             case R.id.address_picker:
                 openSampleActivity(AddressPickerSampleActivity.class);
                 break;
+            case R.id.date_picker:
+                openSampleActivity(DatePickerSampleActivity.class);
+                break;
         }
     }
 

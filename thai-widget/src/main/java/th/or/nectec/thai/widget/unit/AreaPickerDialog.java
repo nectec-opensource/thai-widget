@@ -17,19 +17,17 @@
 
 package th.or.nectec.thai.widget.unit;
 
-import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.text.TextUtils;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.NumberPicker;
 import android.widget.NumberPicker.OnValueChangeListener;
 import th.or.nectec.thai.unit.Area;
 import th.or.nectec.thai.widget.R;
 import th.or.nectec.thai.widget.unit.AreaPicker.AreaPopup;
-
+import th.or.nectec.thai.widget.utils.ViewUtils;
 
 /**
  * Dialog for select area's size in Thai Unit of measurement
@@ -42,6 +40,7 @@ public class AreaPickerDialog extends AlertDialog implements AreaPopup {
     private NumberPicker ngan;
     private NumberPicker squareWa;
     private OnAreaPickListener onAreaPickListener;
+
     private OnClickListener onPositiveButtonClick = new OnClickListener() {
         @Override
         public void onClick(DialogInterface dialogInterface, int i) {
@@ -76,7 +75,7 @@ public class AreaPickerDialog extends AlertDialog implements AreaPopup {
     }
 
     private void setupView(Context context) {
-        View view = InflateView(context);
+        View view = ViewUtils.inflateView(context, R.layout.dialog_area_picker);
         setView(view);
         findView(view);
         initRai();
@@ -85,11 +84,6 @@ public class AreaPickerDialog extends AlertDialog implements AreaPopup {
         initButton();
     }
 
-    @SuppressLint("InflateParams")
-    private View InflateView(Context context) {
-        LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        return inflater.inflate(R.layout.dialog_area_picker, null, false);
-    }
 
     private void findView(View view) {
         rai = (NumberPicker) view.findViewById(R.id.rai);
@@ -120,8 +114,8 @@ public class AreaPickerDialog extends AlertDialog implements AreaPopup {
     }
 
     private void initButton() {
-        setButton(BUTTON_POSITIVE, "ok", onPositiveButtonClick);
-        setButton(BUTTON_NEGATIVE, "cancel", onNegativeButtonClick);
+        setButton(BUTTON_POSITIVE, getContext().getString(R.string.ok), onPositiveButtonClick);
+        setButton(BUTTON_NEGATIVE, getContext().getString(R.string.cancel), onNegativeButtonClick);
     }
 
     @Override
