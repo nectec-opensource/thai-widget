@@ -26,7 +26,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.TextView;
 import th.or.nectec.thai.unit.Area;
-import th.or.nectec.thai.widget.R;
+import th.or.nectec.thai.widget.utils.ViewUtils;
 
 public class AreaPicker extends TextView implements AreaView, OnClickListener {
 
@@ -60,7 +60,7 @@ public class AreaPicker extends TextView implements AreaView, OnClickListener {
         super(context, attrs, defStyleAttr);
         setHint(HINT_MESSAGE);
         setGravity(Gravity.CENTER_VERTICAL);
-        setPadding(0, 0, context.getResources().getDimensionPixelOffset(R.dimen.spinner_rigth_padding), 0);
+        ViewUtils.updatePaddingRight(this);
         if (!isInEditMode()) {
             setupPickerDialog();
         }

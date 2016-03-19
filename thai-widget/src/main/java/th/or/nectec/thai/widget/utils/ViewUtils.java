@@ -22,6 +22,7 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
+import th.or.nectec.thai.widget.R;
 
 public final class ViewUtils {
 
@@ -32,5 +33,13 @@ public final class ViewUtils {
     public static View inflateView(Context context, int layoutId) {
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         return inflater.inflate(layoutId, null, false);
+    }
+
+    public static void updatePaddingRight(View view) {
+        int minPaddingRight = view.getContext().getResources().getDimensionPixelOffset(R.dimen.spinner_padding_right);
+        int paddingRight = view.getPaddingRight();
+        if (paddingRight < minPaddingRight)
+            paddingRight = minPaddingRight;
+        view.setPadding(view.getPaddingLeft(), view.getPaddingTop(), paddingRight, view.getPaddingBottom());
     }
 }

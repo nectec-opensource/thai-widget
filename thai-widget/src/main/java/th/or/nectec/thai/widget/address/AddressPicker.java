@@ -25,6 +25,7 @@ import android.widget.Button;
 import th.or.nectec.thai.address.Address;
 import th.or.nectec.thai.widget.R;
 import th.or.nectec.thai.widget.address.repository.AddressRepositoryImpl;
+import th.or.nectec.thai.widget.utils.ViewUtils;
 
 public class AddressPicker extends Button implements AddressView {
 
@@ -60,7 +61,7 @@ public class AddressPicker extends Button implements AddressView {
         super(context, attrs, defStyleAttr);
         emptyView();
         setHint(R.string.please_define_address);
-        setPadding(0, 0, context.getResources().getDimensionPixelOffset(R.dimen.spinner_rigth_padding), 0);
+        ViewUtils.updatePaddingRight(this);
 
         addressRepository = AddressRepositoryImpl.getInstance(context);
         popup = new AddressPickerDialog(context, onPopupAddressChangedListener);

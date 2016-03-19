@@ -24,7 +24,7 @@ import android.os.Parcelable;
 import android.util.AttributeSet;
 import android.widget.Button;
 import th.or.nectec.thai.date.DatePrinter;
-import th.or.nectec.thai.widget.R;
+import th.or.nectec.thai.widget.utils.ViewUtils;
 
 import java.util.Calendar;
 import java.util.Locale;
@@ -67,7 +67,7 @@ public class DatePicker extends Button implements DateView {
 
         setText(DatePrinter.print(calendar));
         setHint(HINT_MESSAGE);
-        setPadding(0, 0, context.getResources().getDimensionPixelOffset(R.dimen.spinner_rigth_padding), 0);
+        ViewUtils.updatePaddingRight(this);
 
         popup = new DatePickerDialog(context, datePickerCallback);
     }
