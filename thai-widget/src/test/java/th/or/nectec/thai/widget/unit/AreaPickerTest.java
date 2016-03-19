@@ -1,5 +1,5 @@
 /*
- * Copyright © 2015 NECTEC
+ * Copyright (c) 2016 NECTEC
  *   National Electronics and Computer Technology Center, Thailand
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -13,6 +13,7 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
+ *
  */
 
 package th.or.nectec.thai.widget.unit;
@@ -28,12 +29,12 @@ import org.robolectric.annotation.Config;
 import th.or.nectec.thai.unit.Area;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNull;
 
 @Ignore
 @RunWith(RobolectricTestRunner.class)
 @Config(manifest = Config.NONE)
 public class AreaPickerTest {
-
 
     private AreaPicker areaPicker;
 
@@ -48,7 +49,8 @@ public class AreaPickerTest {
 
     @Test
     public void testShowDefaultMessage() throws Exception {
-        assertEquals(AreaPicker.DEFAULT_MESSAGE, areaPicker.getText());
+        assertEquals(AreaPicker.HINT_MESSAGE, areaPicker.getHint());
+        assertNull(areaPicker.getText());
     }
 
     @Test
@@ -57,7 +59,7 @@ public class AreaPickerTest {
 
         areaPicker.setArea(Area.fromSquareMeter(0));
 
-        assertEquals(AreaPicker.DEFAULT_MESSAGE, areaPicker.getText());
+        assertNull(areaPicker.getText());
     }
 
     @Test
