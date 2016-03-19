@@ -41,10 +41,9 @@ public class DatePickerDialog extends AlertDialog implements DatePopup, NumberPi
     private DialogInterface.OnClickListener onPositiveButtonClick = new DialogInterface.OnClickListener() {
         @Override
         public void onClick(DialogInterface dialogInterface, int i) {
-            getButton(BUTTON_POSITIVE).requestFocus();
-            if (callback != null) {
-                callback.onPicked(DatePickerDialog.this, calendar);
-            }
+            View currentFocus = getCurrentFocus();
+            if (currentFocus != null) currentFocus.clearFocus();
+            if (callback != null) callback.onPicked(DatePickerDialog.this, calendar);
             dismiss();
         }
     };

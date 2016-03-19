@@ -45,6 +45,8 @@ public class AreaPickerDialog extends AlertDialog implements AreaPopup {
     private OnClickListener onPositiveButtonClick = new OnClickListener() {
         @Override
         public void onClick(DialogInterface dialogInterface, int i) {
+            View currentFocus = getCurrentFocus();
+            if (currentFocus != null) currentFocus.clearFocus();
             Area area = Area.fromRaiNganSqaureWa(rai.getValue(), ngan.getValue(), squareWa.getValue());
             onAreaPickListener.onAreaPick(area);
             dismiss();
