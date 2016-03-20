@@ -57,6 +57,7 @@ public class DatePickerDialog extends AlertDialog implements DatePopup, NumberPi
         }
     };
     private Calendar maxDate;
+    private Calendar minDate;
 
     public DatePickerDialog(Context context) {
         this(context, null);
@@ -138,6 +139,13 @@ public class DatePickerDialog extends AlertDialog implements DatePopup, NumberPi
     }
 
     @Override
+    public void setMinDate(int year, int month, int dayOfMonth) {
+        Calendar calendar = Calendar.getInstance();
+        calendar.set(year, month, dayOfMonth);
+        setMinDate(calendar);
+    }
+
+    @Override
     public void setCallback(DatePickerCallback callback) {
         this.callback = callback;
     }
@@ -150,9 +158,22 @@ public class DatePickerDialog extends AlertDialog implements DatePopup, NumberPi
         this.maxDate = maxDate;
         yearPicker.setMaxValue(maxDate.get(YEAR) + 543);
 
-        updateMaxValueIfMaxDateSetted();
+        updateMaxValueIfMaxDateSet();
 
         if (calendar.compareTo(maxDate) > 0) updateDate(maxDate);
+    }
+
+    public void setMinDate(Calendar minDate) {
+        this.minDate = minDate;
+        yearPicker.setMinValue(minDate.get(YEAR) + 543);
+
+        updateMinValueIfMinDateSet();
+
+        if (calendar.compareTo(minDate) < 0) updateDate(minDate);
+    }
+
+    public void setMinDateIsToday() {
+        setMinDate(Calendar.getInstance());
     }
 
     @Override
@@ -176,11 +197,12 @@ public class DatePickerDialog extends AlertDialog implements DatePopup, NumberPi
         newCalendar.set(DAY_OF_MONTH, dayPicker.getValue());
 
         updateDate(newCalendar);
-        updateMaxValueIfMaxDateSetted();
+        updateMaxValueIfMaxDateSet();
+        updateMinValueIfMinDateSet();
 
     }
 
-    private void updateMaxValueIfMaxDateSetted() {
+    private void updateMaxValueIfMaxDateSet() {
         if (maxDate == null)
             return;
         Calendar newCalendar = Calendar.getInstance();
@@ -205,6 +227,41 @@ public class DatePickerDialog extends AlertDialog implements DatePopup, NumberPi
             dayPicker.setOnValueChangedListener(this);
         } else {
             monthPicker.setMaxValue(11);
+        }
+    }
+
+    private void updateMinValueIfMinDateSet() {
+        if (minDate == null)
+            return;
+        Calendar newCalendar = Calendar.getInstance();
+        newCalendar.set(yearPicker.getValue() - 543, monthPicker.getValue(), 1);
+
+        if (yearPicker.getValue() == minDate.get(YEAR) + 543) {
+            monthPicker.setOnValueChangedListener(null);
+            dayPicker.setOnValueChangedListener(null);
+
+            int minMonth = minDate.get(MONTH);
+            monthPicker.setMinValue(minMonth);
+            String[] monthDisplay = new String[12 - minMonth];
+            System.arraycopy(DatePrinter.THAI_MONTH, minMonth, monthDisplay, 0, monthDisplay.length);
+            monthPicker.setDisplayedValues(monthDisplay);
+
+            if (monthPicker.getValue() == minMonth) {
+                int minDayOfMonth = minDate.get(DAY_OF_MONTH);
+                dayPicker.setMinValue(minDayOfMonth);
+            } else {
+                dayPicker.setMinValue(1);
+            }
+
+            newCalendar.set(yearPicker.getValue() - 543, monthPicker.getValue(), dayPicker.getValue());
+            updateDate(newCalendar);
+
+            monthPicker.setOnValueChangedListener(this);
+            dayPicker.setOnValueChangedListener(this);
+        } else {
+            monthPicker.setMinValue(0);
+            monthPicker.setDisplayedValues(DatePrinter.THAI_MONTH);
+            dayPicker.setMinValue(1);
         }
     }
 }

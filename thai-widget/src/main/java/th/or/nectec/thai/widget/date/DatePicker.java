@@ -129,6 +129,14 @@ public class DatePicker extends Button implements DateView {
     }
 
     @Override
+    public void setMinDate(int year, int month, int dayOfMonth) {
+        Calendar maxCalendar = defaultCalendar();
+        maxCalendar.set(year, month, dayOfMonth);
+        if (this.calendar.compareTo(maxCalendar) < 0) setCalendar(maxCalendar);
+        popup.setMinDate(year, month, dayOfMonth);
+    }
+
+    @Override
     public void setCallback(DatePickerCallback callback) {
         this.callback = callback;
     }

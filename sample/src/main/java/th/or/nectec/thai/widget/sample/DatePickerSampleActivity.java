@@ -54,7 +54,7 @@ public class DatePickerSampleActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 DatePickerDialog dialog = new DatePickerDialog(DatePickerSampleActivity.this, datePickerCallback);
-                dialog.setMaxDateIsToday();
+                dialog.setMinDateIsToday();
                 dialog.show();
             }
         });

@@ -32,6 +32,8 @@ public interface DateView {
 
     void setMaxDate(int year, int month, int dayOfMonth);
 
+    void setMinDate(int year, int month, int dayOfMonth);
+
     void setCallback(DatePickerCallback callback);
 
     interface DatePickerCallback {
