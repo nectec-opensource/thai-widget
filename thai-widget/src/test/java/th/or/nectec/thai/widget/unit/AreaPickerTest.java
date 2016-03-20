@@ -20,20 +20,18 @@ package th.or.nectec.thai.widget.unit;
 
 import android.app.Activity;
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.robolectric.Robolectric;
-import org.robolectric.RobolectricTestRunner;
+import org.robolectric.RobolectricGradleTestRunner;
 import org.robolectric.annotation.Config;
 import th.or.nectec.thai.unit.Area;
+import th.or.nectec.thai.widget.BuildConfig;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNull;
 
-@Ignore
-@RunWith(RobolectricTestRunner.class)
-@Config(manifest = Config.NONE)
+@RunWith(RobolectricGradleTestRunner.class)
+@Config(constants = BuildConfig.class, sdk = 21, manifest = "src/main/AndroidManifest.xml")
 public class AreaPickerTest {
 
     private AreaPicker areaPicker;
@@ -50,7 +48,7 @@ public class AreaPickerTest {
     @Test
     public void testShowDefaultMessage() throws Exception {
         assertEquals(AreaPicker.HINT_MESSAGE, areaPicker.getHint());
-        assertNull(areaPicker.getText());
+        assertEquals("", areaPicker.getText());
     }
 
     @Test
@@ -59,7 +57,7 @@ public class AreaPickerTest {
 
         areaPicker.setArea(Area.fromSquareMeter(0));
 
-        assertNull(areaPicker.getText());
+        assertEquals("", areaPicker.getText());
     }
 
     @Test
