@@ -71,6 +71,6 @@ public class AreaPickerSampleActivity extends Activity {
     }
 
     private void setupDialog() {
-        areaPickerDialog = new AreaPickerDialog(AreaPickerSampleActivity.this, callback);
+        areaPickerDialog = new AreaPickerDialog(this, callback);
     }
 }

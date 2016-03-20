@@ -22,6 +22,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 import th.or.nectec.thai.date.DatePrinter;
 import th.or.nectec.thai.widget.date.DatePickerDialog;
 import th.or.nectec.thai.widget.date.DateView;
@@ -39,7 +40,7 @@ public class DatePickerSampleActivity extends AppCompatActivity {
 
         @Override
         public void onCancel() {
-
+            if (BuildConfig.DEBUG) Toast.makeText(DatePickerSampleActivity.this, "onCancle", Toast.LENGTH_SHORT).show();
         }
     };
 
