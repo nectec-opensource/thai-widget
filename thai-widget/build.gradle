@@ -68,6 +68,13 @@ dependencies {
     testCompile 'org.robolectric:robolectric:' + rootProject.ext.robolectricVersion
 }
 
+check {
+    abortOnError true
+    findbugs {
+        skip true
+    }
+}
+
 apply from: '../gradle/artifact.gradle'
 apply from: '../gradle/install.gradle'
 apply from: '../gradle/bintray.gradle'
