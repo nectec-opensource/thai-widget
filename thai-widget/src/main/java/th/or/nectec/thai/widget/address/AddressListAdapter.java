@@ -32,10 +32,12 @@ import java.util.List;
 
 class AddressListAdapter<T extends AddressEntity> extends BaseAdapter {
 
-    List<T> addressList;
-    LayoutInflater mInflater;
+    private final LayoutInflater mInflater;
+    private final Context context;
+    private List<T> addressList;
 
     public AddressListAdapter(Context context, List<T> addressList) {
+        this.context = context;
         mInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         addAll(addressList);
     }
@@ -76,7 +78,7 @@ class AddressListAdapter<T extends AddressEntity> extends BaseAdapter {
         AddressEntity entity = getItem(position);
         ViewHolder viewHolder = (ViewHolder) convertView.getTag();
         viewHolder.name.setText(entity.getName());
-        viewHolder.code.setText("#" + entity.getCode());
+        viewHolder.code.setText(context.getString(R.string.address_code_format, entity.getCode()));
         return convertView;
     }
 
