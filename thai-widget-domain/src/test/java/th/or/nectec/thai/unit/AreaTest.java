@@ -26,7 +26,7 @@ import static org.junit.Assert.assertEquals;
 public class AreaTest {
 
     @Test
-    public void squareMeterToRaiNganSquareWa() throws Exception {
+    public void squareMeterToRaiNganSquareWa() {
         Area rai = Area.fromSquareMeter(1600);
         assertEquals(1,rai.getRai());
         assertEquals(0,rai.getNgan());
@@ -34,20 +34,20 @@ public class AreaTest {
     }
 
     @Test
-    public void testToString() throws Exception {
+    public void testToString() {
         Area rai = Area.fromSquareMeter(1600);
         assertEquals("1-0-0", rai.toString());
     }
 
     @Test
-    public void testEqual() throws Exception {
+    public void testEqual() {
         Area area1 = Area.fromSquareMeter(1600);
         Area area2 = Area.fromRaiNganSqaureWa(1, 0, 0);
         assertEquals(area1, area2);
     }
 
     @Test
-    public void RaiNganSquareWaToSquareMeter() throws Exception {
+    public void testRaiNganSquareWaToSquareMeter() {
         Area rai = Area.fromRaiNganSqaureWa(1, 0, 0);
         assertEquals(1600, rai.getSquareMeter());
         assertEquals(1,rai.getRai());
@@ -56,7 +56,7 @@ public class AreaTest {
     }
 
     @Test
-    public void prettyPrint() throws Exception {
+    public void prettyPrint() {
         assertEquals("1 ไร่", Area.fromRaiNganSqaureWa(1, 0, 0).prettyPrint());
         assertEquals("2 งาน", Area.fromRaiNganSqaureWa(0, 2, 0).prettyPrint());
         assertEquals("1 ตารางวา", Area.fromRaiNganSqaureWa(0, 0, 1).prettyPrint());
@@ -65,7 +65,7 @@ public class AreaTest {
     }
 
     @Test
-    public void rounding() throws Exception {
+    public void rounding() {
         Area ex1 = Area.fromSquareMeter(2400);
         assertEquals(1, ex1.getRai());
         assertEquals(2, ex1.getNgan());

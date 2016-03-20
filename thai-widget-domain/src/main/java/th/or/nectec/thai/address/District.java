@@ -22,23 +22,19 @@ import th.or.nectec.thai.address.InvalidAddressCodeFormatException.InvalidDistri
 import th.or.nectec.util.TextUtils;
 
 public class District implements AddressEntity, Comparable<District> {
-    private String code;
-    private String name;
+    private final String code;
+    private final String name;
 
     public District(String code, String name) {
-        setCode(code);
+        if (code.length() != 4 || !TextUtils.isDigitOnly(code))
+            throw new InvalidDistrictCodeException(code);
+        this.code = code;
         this.name = name;
     }
 
     @Override
     public String getCode() {
         return code;
-    }
-
-    public void setCode(String code) {
-        if (code.length() != 4 || !TextUtils.isDigitOnly(code))
-            throw new InvalidDistrictCodeException(code);
-        this.code = code;
     }
 
     @Override
@@ -68,11 +64,9 @@ public class District implements AddressEntity, Comparable<District> {
 
     @Override
     public String toString() {
-        final StringBuilder sb = new StringBuilder("District{");
-        sb.append("code='").append(code).append('\'');
-        sb.append(", name='").append(name).append('\'');
-        sb.append('}');
-        return sb.toString();
+        return "District{code='" + code + '\''
+                + ", name='" + name + '\''
+                + '}';
     }
 
     @Override

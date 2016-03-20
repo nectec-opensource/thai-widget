@@ -29,25 +29,24 @@ public class DistrictTest {
     private District bangkok;
 
     @Before
-    public void setUp() throws Exception {
+    public void setUp() {
         bangkok = new District("1001", "พระนคร");
     }
 
 
     @Test(expected = InvalidAddressCodeFormatException.class)
     public void setInvalidProvinceCode() {
-        District phranakhon = new District("1002", "พระนคร");
-        phranakhon.setCode("102");
+        new District("102", "พระนคร");
     }
 
     @Test
-    public void getField() throws Exception {
+    public void getField() {
         assertEquals("1001", bangkok.getCode());
         assertEquals("พระนคร", bangkok.getName());
     }
 
     @Test
-    public void getProvinceCode() throws Exception {
+    public void getProvinceCode() {
         assertEquals("10", bangkok.getProvinceCode());
     }
 }

@@ -28,8 +28,8 @@ public class HouseId implements Identity {
 
     public static final int LENGTH = 11;
     private static final int[] MULTIPLIER_TABLE = {11, 10, 9, 8, 7, 6, 5, 4, 3, 2};
-    private String id;
-    private PrettyPrinter printer = new IdPrettyPrinter() {
+    private final String id;
+    private final PrettyPrinter printer = new IdPrettyPrinter() {
         @Override
         boolean positionToInsertSeparatorBefore(int position) {
             switch (position) {
@@ -43,7 +43,7 @@ public class HouseId implements Identity {
 
     public HouseId(String id) {
         if (id == null)
-            throw new NullPointerException("ID must not be null");
+            throw new IllegalArgumentException("ID must not be null");
         this.id = id.replace(printer.separator(), "");
     }
 

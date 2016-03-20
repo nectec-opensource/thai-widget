@@ -23,13 +23,14 @@ import th.or.nectec.util.TextUtils;
 
 public class Province implements AddressEntity, Comparable<Province> {
 
-    private String code;
-    private String name;
-    private Region region;
-
+    private final String code;
+    private final String name;
+    private final Region region;
 
     public Province(String code, String name, Region region) {
-        setCode(code);
+        if (code.length() != 2 || !TextUtils.isDigitOnly(code))
+            throw new InvalidProvinceCodeException(code);
+        this.code = code;
         this.name = name;
         this.region = region;
     }
@@ -37,12 +38,6 @@ public class Province implements AddressEntity, Comparable<Province> {
     @Override
     public String getCode() {
         return code;
-    }
-
-    public void setCode(String code) {
-        if (code.length() != 2 || !TextUtils.isDigitOnly(code))
-            throw new InvalidProvinceCodeException(code);
-        this.code = code;
     }
 
     @Override
@@ -72,12 +67,9 @@ public class Province implements AddressEntity, Comparable<Province> {
 
     @Override
     public String toString() {
-        final StringBuilder sb = new StringBuilder("Province{");
-        sb.append("code='").append(code).append('\'');
-        sb.append(", name='").append(name).append('\'');
-        sb.append(", region=").append(region);
-        sb.append('}');
-        return sb.toString();
+        return "Province{code='" + code + '\''
+                + ", name='" + name + '\''
+                + ", region=" + region + '}';
     }
 
     @Override

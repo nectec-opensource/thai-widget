@@ -19,7 +19,10 @@
 package th.or.nectec.thai.address;
 
 
-public class AddressPrinter {
+public final class AddressPrinter {
+
+    private AddressPrinter() {
+    }
 
     public static String printFull(SubDistrict subDistrict, District district, Province province) {
         return printFull(subDistrict.getName(), district.getName(), province.getName());
@@ -27,7 +30,7 @@ public class AddressPrinter {
 
     public static String printFull(String subdistrict, String district, String province) {
         String address = "";
-        if (province.equals("กรุงเทพมหานคร")) {
+        if ("กรุงเทพมหานคร".equals(province)) {
             address += "แขวง" + subdistrict + " ";
             address += "เขต" + district + " ";
             address += province;
@@ -45,7 +48,7 @@ public class AddressPrinter {
 
     public static String print(String subdistrict, String district, String province) {
         String address = "";
-        if (province.equals("กรุงเทพมหานคร")) {
+        if ("กรุงเทพมหานคร".equals(province)) {
             address += "แขวง" + subdistrict + " ";
             address += "เขต" + district + " ";
             address += province;

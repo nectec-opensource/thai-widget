@@ -19,9 +19,9 @@
 package th.or.nectec.thai.address;
 
 public class Address implements AddressEntity {
-    SubDistrict subDistrict;
-    District district;
-    Province province;
+    private final SubDistrict subDistrict;
+    private final District district;
+    private final Province province;
 
     public Address(SubDistrict subDistrict, District district, Province province) {
         this.subDistrict = subDistrict;
@@ -56,12 +56,10 @@ public class Address implements AddressEntity {
 
     @Override
     public String toString() {
-        final StringBuilder sb = new StringBuilder("Address{");
-        sb.append("subDistrict=").append(subDistrict);
-        sb.append(", district=").append(district);
-        sb.append(", province=").append(province);
-        sb.append('}');
-        return sb.toString();
+        return "Address{subDistrict=" + subDistrict
+                + ", district=" + district
+                + ", province=" + province
+                + '}';
     }
 
     @Override

@@ -21,31 +21,30 @@ package th.or.nectec.thai.identity;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 public class CitizenIdTest {
 
-    private boolean invalid = false;
-    private boolean valid = true;
-
     @Test
-    public void InvalidFormatCitizenId() {
-        assertEquals("Not Only Digit citizen-id, must be invalid", invalid, CitizenId.isValid("1a3456789101b"));
-        assertEquals("citizen-id length more than 13, must be invalid", invalid, CitizenId.isValid("12345678910124"));
-        assertEquals("citizen-id length less than 13, must be invalid", invalid, CitizenId.isValid("00000"));
+    public void testInvalidFormatCitizenId() {
+        assertFalse("Not Only Digit citizen-id, must be invalid", CitizenId.isValid("1a3456789101b"));
+        assertFalse("citizen-id length more than 13, must be invalid", CitizenId.isValid("12345678910124"));
+        assertFalse("citizen-id length less than 13, must be invalid", CitizenId.isValid("00000"));
     }
 
     @Test
     public void validId() {
-        assertEquals("1610255800005 should be valid", valid, CitizenId.isValid("1610255800005"));
-        assertEquals("1610255811112 should be valid", valid, CitizenId.isValid("1610255811112"));
-        assertEquals("1610255822220 should be valid", valid, CitizenId.isValid("1610255822220"));
-        assertEquals("pretty format id should be valid", valid, CitizenId.isValid("1-6102-55800-00-5"));
+        assertTrue("1610255800005 should be valid", CitizenId.isValid("1610255800005"));
+        assertTrue("1610255811112 should be valid", CitizenId.isValid("1610255811112"));
+        assertTrue("1610255822220 should be valid", CitizenId.isValid("1610255822220"));
+        assertTrue("pretty format id should be valid", CitizenId.isValid("1-6102-55800-00-5"));
     }
 
     @Test
     public void invalIdWithValidFormat() {
-        assertEquals("0012300000000 should be invalid", invalid, CitizenId.isValid("0012300000000"));
-        assertEquals("0012300000000 should be invalid", invalid, CitizenId.isValid("0012300000000"));
+        assertFalse("0012300000000 should be invalid", CitizenId.isValid("0012300000000"));
+        assertFalse("1345678981235 should be invalid", CitizenId.isValid("1345678981235"));
     }
 
     @Test
@@ -80,7 +79,7 @@ public class CitizenIdTest {
     }
 
     @Test
-    public void equals() {
+    public void testEquals() {
         CitizenId c1 = new CitizenId("161025581111");
         CitizenId c2 = new CitizenId("161025581111");
         assertEquals("2 Object with same id should be equal", c1, c2);
@@ -91,9 +90,9 @@ public class CitizenIdTest {
     public void repeatNumberWithValidCheckDigit() {
         CitizenId cid;
         cid = new CitizenId("0000000000001");
-        assertEquals("repeat number with valid check digit should be Invalid", invalid, cid.validate());
+        assertFalse("repeat number with valid check digit should be Invalid", cid.validate());
         cid = new CitizenId("1234123412340");
-        assertEquals("repeat pattern number with valid check digit should be Invalid", invalid, cid.validate());
+        assertFalse("repeat pattern number with valid check digit should be Invalid", cid.validate());
     }
 
 }

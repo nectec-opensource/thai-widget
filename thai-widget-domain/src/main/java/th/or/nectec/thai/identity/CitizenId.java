@@ -26,10 +26,10 @@ import th.or.nectec.util.TextUtils;
 public class CitizenId implements Identity {
 
     private static final int[] MULTIPLIER_TABLE = {13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2};
-    private static int LENGTH = 13;
+    private static final int LENGTH = 13;
 
-    private String id;
-    private PrettyPrinter printer = new IdPrettyPrinter() {
+    private final String id;
+    private final PrettyPrinter printer = new IdPrettyPrinter() {
         @Override
         boolean positionToInsertSeparatorBefore(int position) {
             switch (position) {
@@ -45,7 +45,7 @@ public class CitizenId implements Identity {
 
     public CitizenId(String id) {
         if (id == null)
-            throw new NullPointerException("id must not be null");
+            throw new IllegalArgumentException("id must not be null");
         id = id.replace(printer.separator(), "");
         this.id = id;
     }

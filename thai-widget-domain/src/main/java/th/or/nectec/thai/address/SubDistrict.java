@@ -22,25 +22,23 @@ import th.or.nectec.thai.address.InvalidAddressCodeFormatException.InvalidSubDis
 import th.or.nectec.util.TextUtils;
 
 public class SubDistrict implements AddressEntity, Comparable<SubDistrict> {
-    private String code;
-    private String name;
-    private String postcode;
+    private final String code;
+    private final String name;
+    private final String postcode;
 
     public SubDistrict(String code, String name, String postcode) {
-        setCode(code);
-        setPostcode(postcode);
+        if (code.length() != 6 || !TextUtils.isDigitOnly(code))
+            throw new InvalidSubDistrictCodeException(code);
+        this.code = code;
+        if (postcode.length() != 5 || !TextUtils.isDigitOnly(postcode))
+            throw new InvalidAddressCodeFormatException("Invalid postcode format", postcode);
+        this.postcode = postcode;
         this.name = name;
     }
 
     @Override
     public String getCode() {
         return code;
-    }
-
-    public void setCode(String code) {
-        if (code.length() != 6 || !TextUtils.isDigitOnly(code))
-            throw new InvalidSubDistrictCodeException(code);
-        this.code = code;
     }
 
     @Override
@@ -58,12 +56,6 @@ public class SubDistrict implements AddressEntity, Comparable<SubDistrict> {
 
     public String getPostcode() {
         return postcode;
-    }
-
-    private void setPostcode(String postcode) {
-        if (postcode.length() != 5 || !TextUtils.isDigitOnly(postcode))
-            throw new InvalidAddressCodeFormatException("Invalid postcode format", postcode);
-        this.postcode = postcode;
     }
 
     @Override
@@ -84,12 +76,10 @@ public class SubDistrict implements AddressEntity, Comparable<SubDistrict> {
 
     @Override
     public String toString() {
-        final StringBuilder sb = new StringBuilder("SubDistrict{");
-        sb.append("code='").append(code).append('\'');
-        sb.append(", name='").append(name).append('\'');
-        sb.append(", postcode='").append(postcode).append('\'');
-        sb.append('}');
-        return sb.toString();
+        return "SubDistrict{" + "code='" + code + '\''
+                + ", name='" + name + '\''
+                + ", postcode='" + postcode + '\''
+                + '}';
     }
 
     @Override

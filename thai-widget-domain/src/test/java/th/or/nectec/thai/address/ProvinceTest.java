@@ -30,19 +30,18 @@ public class ProvinceTest {
     private Province bangkok;
 
     @Before
-    public void setUp() throws Exception {
+    public void setUp() {
         bangkok = new Province("10", "กรุงเทพมหานคร", Region.CENTER);
     }
 
 
     @Test(expected = InvalidAddressCodeFormatException.class)
     public void setInvalidProvinceCode() {
-        Province bangkok = new Province("10", "กรุงเทพมหานคร", Region.CENTER);
-        bangkok.setCode("102");
+        new Province("102", "กรุงเทพมหานคร", Region.CENTER);
     }
 
     @Test
-    public void getField() throws Exception {
+    public void getField() {
         assertEquals("10", bangkok.getCode());
         assertEquals("กรุงเทพมหานคร", bangkok.getName());
         assertEquals(Region.CENTER, bangkok.getRegion());

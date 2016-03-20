@@ -61,7 +61,7 @@ public class Area {
     }
 
     public static Area fromRaiNganSqaureWa(int rai, int ngan, int squareWa) {
-        return new Area(AreaConverter.RaiToSqMeter(rai, ngan, squareWa));
+        return new Area(AreaConverter.raiToSqMeter(rai, ngan, squareWa));
     }
 
     @Override
@@ -83,7 +83,7 @@ public class Area {
 
     @Override
     public String toString() {
-        return String.valueOf(getRai()) + "-" + getNgan() + "-" + getSquareWa();
+        return String.format("%s-%d-%d", String.valueOf(getRai()), getNgan(), getSquareWa());
     }
 
     public int getRai() {
@@ -109,29 +109,28 @@ public class Area {
     private class PrettyPrinter {
 
         public static final String SPACE = " ";
-        private StringBuilder stringBuilder;
 
         public String print() {
-            stringBuilder = new StringBuilder();
-            appendRai();
-            appendNgan();
-            appendSquareWa();
+            StringBuilder stringBuilder = new StringBuilder();
+            appendRai(stringBuilder);
+            appendNgan(stringBuilder);
+            appendSquareWa(stringBuilder);
             return stringBuilder.toString().trim();
         }
 
-        private void appendSquareWa() {
+        private void appendSquareWa(StringBuilder stringBuilder) {
             if (squareWa > 0) {
                 stringBuilder.append(SPACE).append(squareWa).append(SPACE).append(SQUARE_WA);
             }
         }
 
-        private void appendNgan() {
+        private void appendNgan(StringBuilder stringBuilder) {
             if (ngan > 0) {
                 stringBuilder.append(SPACE).append(ngan).append(SPACE).append(NGAN);
             }
         }
 
-        private void appendRai() {
+        private void appendRai(StringBuilder stringBuilder) {
             if (rai > 0) {
                 stringBuilder.append(rai).append(SPACE).append(RAI);
             }

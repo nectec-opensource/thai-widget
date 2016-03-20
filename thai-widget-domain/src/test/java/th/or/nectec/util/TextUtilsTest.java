@@ -20,30 +20,31 @@ package th.or.nectec.util;
 
 import org.junit.Test;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 public class TextUtilsTest {
 
     @Test
     public void isDigitOnly() {
-        assertEquals("input only digit should return true", true, TextUtils.isDigitOnly("12346"));
-        assertEquals("input only digit should return true", true, TextUtils.isDigitOnly("222222222"));
-        assertEquals("input not only digit should return false", false, TextUtils.isDigitOnly("123adc"));
-        assertEquals("empty should return false", false, TextUtils.isDigitOnly(""));
+        assertTrue("input only digit should return true", TextUtils.isDigitOnly("12346"));
+        assertTrue("input only digit should return true", TextUtils.isDigitOnly("222222222"));
+        assertFalse("input not only digit should return false", TextUtils.isDigitOnly("123adc"));
+        assertFalse("empty should return false", TextUtils.isDigitOnly(""));
     }
 
     @Test
     public void isRepeatNumber() {
-        assertEquals("not repeating number must return false", false, TextUtils.isRepeatingNumber("029209355"));
-        assertEquals("repeating number must return true", true, TextUtils.isRepeatingNumber("111111111"));
-        assertEquals("repeating number must return true", true, TextUtils.isRepeatingNumber("222222222"));
+        assertFalse("not repeating number must return false", TextUtils.isRepeatingNumber("029209355"));
+        assertTrue("repeating number must return true", TextUtils.isRepeatingNumber("111111111"));
+        assertTrue("repeating number must return true", TextUtils.isRepeatingNumber("222222222"));
     }
 
     @Test
     public void isRepeatPatternNumber() {
-        assertEquals("not repeating number must return false", false, TextUtils.isRepeatPatternNumber("029209355"));
-        assertEquals("repeat pattern number must return true", true, TextUtils.isRepeatPatternNumber("123123123"));
-        assertEquals("repeat pattern number must return true", true, TextUtils.isRepeatPatternNumber("00010001"));
-        assertEquals("repeating number must also return true", true, TextUtils.isRepeatPatternNumber("222222222"));
+        assertFalse("not repeating number must return false", TextUtils.isRepeatPatternNumber("029209355"));
+        assertTrue("repeat pattern number must return true", TextUtils.isRepeatPatternNumber("123123123"));
+        assertTrue("repeat pattern number must return true", TextUtils.isRepeatPatternNumber("00010001"));
+        assertTrue("repeating number must also return true", TextUtils.isRepeatPatternNumber("222222222"));
     }
 }

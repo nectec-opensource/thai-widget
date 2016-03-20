@@ -21,55 +21,54 @@ package th.or.nectec.thai.identity;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 public class HouseIdTest {
 
-    private boolean invalid = false;
-    private boolean valid = true;
-
     @Test
-    public void validFormatId(){
-       HouseId hid = new HouseId("12345678901");
-       assertEquals("12345678901 is valid format id",valid, hid.isValidFormat());
+    public void validFormatId() {
+        HouseId hid = new HouseId("12345678901");
+        assertTrue("12345678901 is valid format id", hid.isValidFormat());
     }
 
     @Test
     public void acceptPrettyId() {
         HouseId hid = new HouseId("1234-567890-1");
-        assertEquals("1234-567890-1 is valid format", valid, hid.isValidFormat());
+        assertTrue("1234-567890-1 is valid format", hid.isValidFormat());
     }
 
     @Test
-    public void setInvalidFormatId(){
+    public void setInvalidFormatId() {
         HouseId hid;
         hid = new HouseId("123456");
-        assertEquals("Id's length 6 must be invalid", invalid, hid.isValidFormat());
+        assertFalse("Id's length 6 must be invalid", hid.isValidFormat());
         hid = new HouseId("1234567890");
-        assertEquals("Id's length 10 must be invalid", invalid, hid.isValidFormat());
+        assertFalse("Id's length 10 must be invalid", hid.isValidFormat());
         hid = new HouseId("");
-        assertEquals("Id's length 0 must be invalid", invalid, hid.isValidFormat());
+        assertFalse("Id's length 0 must be invalid", hid.isValidFormat());
         hid = new HouseId("123456789012");
-        assertEquals("Id's length 12 must be invalid", invalid, hid.isValidFormat());
+        assertFalse("Id's length 12 must be invalid", hid.isValidFormat());
         hid = new HouseId("123456789012345");
-        assertEquals("Id's length 15 must be invalid", invalid, hid.isValidFormat());
+        assertFalse("Id's length 15 must be invalid", hid.isValidFormat());
         hid = new HouseId("ab34/6789x1");
-        assertEquals("Not only digit must be invalid", invalid, hid.isValidFormat());
+        assertFalse("Not only digit must be invalid", hid.isValidFormat());
         hid = new HouseId("1234x678901");
-        assertEquals("Not only digit must be invalid", invalid, hid.isValidFormat());
+        assertFalse("Not only digit must be invalid", hid.isValidFormat());
         hid = new HouseId("-----------");
-        assertEquals("only slash sign must be invalid", invalid, hid.isValidFormat());
+        assertFalse("only slash sign must be invalid", hid.isValidFormat());
     }
 
-    @Test(expected = NullPointerException.class)
+    @Test(expected = IllegalArgumentException.class)
     public void nullIdException() {
-        HouseId hid = new HouseId(null);
+        new HouseId(null);
     }
 
     @Test
     public void checkDigit() {
         HouseId hid;
         hid = new HouseId("1234x678901");
-        assertEquals("test id must be invalid format id", invalid, hid.isValidFormat());
+        assertFalse("test id must be invalid format id", hid.isValidFormat());
         assertEquals("check digit of invalid format should be -1 ", -1, hid.getCheckDigit());
         hid = new HouseId("12345678901");
         assertEquals("check digit must be 1", 1, hid.getCheckDigit());
@@ -85,16 +84,20 @@ public class HouseIdTest {
     public void validdateId() {
         HouseId hid;
         hid = new HouseId("123456789012345");
-        assertEquals("test id must be invalid format id", invalid, hid.isValidFormat());
-        assertEquals("validate invalid format id must be invalid", invalid, hid.validate());
+        assertFalse("test id must be invalid format id", hid.isValidFormat());
+        assertFalse("validate invalid format id must be invalid", hid.validate());
+
         hid = new HouseId("74020749965");
-        assertEquals("Valid Id must return valid", valid, hid.validate());
+        assertTrue("Valid Id must return valid", hid.validate());
+
         hid = new HouseId("12040847961");
-        assertEquals("Valid Id must return valid", valid, hid.validate());
+        assertTrue("Valid Id must return valid", hid.validate());
+
         hid = new HouseId("2-7920-01391-7");
-        assertEquals("Valid Id in pretty format must be valid", valid, hid.validate());
+        assertTrue("Valid Id in pretty format must be valid", hid.validate());
+
         hid = new HouseId("11111111111");
-        assertEquals("repeating number must be invalid", invalid, hid.validate());
+        assertFalse("repeating number must be invalid", hid.validate());
     }
 
     @Test

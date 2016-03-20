@@ -18,7 +18,10 @@
 
 package th.or.nectec.util;
 
-public class TextUtils {
+public final class TextUtils {
+
+    private TextUtils() {
+    }
 
     public static boolean isDigitOnly(String text) {
         return text.matches("\\d+");

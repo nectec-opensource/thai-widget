@@ -18,13 +18,16 @@
 
 package th.or.nectec.thai.unit;
 
-public class AreaConverter {
+public final class AreaConverter {
 
     public static final int SQUARE_METER_PER_RAI = 1600;
     public static final int SQUARE_METER_PER_NGAN = 400;
     public static final float SQUARE_METER_PER_SQUARE_WA = 4;
 
-    public static int RaiToSqMeter(int rai, int ngan, int tarangwa) {
+    private AreaConverter() {
+    }
+
+    public static int raiToSqMeter(int rai, int ngan, int tarangwa) {
         float sqMeter = (rai * SQUARE_METER_PER_RAI)
                 + (ngan * SQUARE_METER_PER_NGAN)
                 + (tarangwa * SQUARE_METER_PER_SQUARE_WA);
