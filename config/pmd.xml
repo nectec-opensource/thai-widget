@@ -46,10 +46,6 @@
         </properties>
     </rule>
 
-    <rule ref="rulesets/java/comments.xml">
-        <exclude name="CommentRequired"/>
-    </rule>
-
     <rule ref="rulesets/java/controversial.xml">
         <!-- while ((x = update()) != null) { process(x); } -->
         <exclude name="AssignmentInOperand"/>
