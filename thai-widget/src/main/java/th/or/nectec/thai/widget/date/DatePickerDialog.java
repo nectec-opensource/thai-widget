@@ -163,6 +163,10 @@ public class DatePickerDialog extends AlertDialog implements DatePopup, NumberPi
         if (calendar.compareTo(maxDate) > 0) updateDate(maxDate);
     }
 
+    public void setMinDateIsToday() {
+        setMinDate(Calendar.getInstance());
+    }
+
     public void setMinDate(Calendar minDate) {
         this.minDate = minDate;
         yearPicker.setMinValue(minDate.get(YEAR) + 543);
@@ -170,10 +174,6 @@ public class DatePickerDialog extends AlertDialog implements DatePopup, NumberPi
         updateMinValueIfMinDateSet();
 
         if (calendar.compareTo(minDate) < 0) updateDate(minDate);
-    }
-
-    public void setMinDateIsToday() {
-        setMinDate(Calendar.getInstance());
     }
 
     @Override
@@ -190,6 +190,12 @@ public class DatePickerDialog extends AlertDialog implements DatePopup, NumberPi
 
     @Override
     public void onValueChange(NumberPicker numberPicker, int i, int i1) {
+        trimDayOverMaxDayOfNewMonth();
+        updateMaxValueIfMaxDateSet();
+        updateMinValueIfMinDateSet();
+    }
+
+    private void trimDayOverMaxDayOfNewMonth() {
         Calendar newCalendar = Calendar.getInstance();
         newCalendar.set(yearPicker.getValue() - 543, monthPicker.getValue(), 1);
 
@@ -197,9 +203,6 @@ public class DatePickerDialog extends AlertDialog implements DatePopup, NumberPi
         newCalendar.set(DAY_OF_MONTH, dayPicker.getValue());
 
         updateDate(newCalendar);
-        updateMaxValueIfMaxDateSet();
-        updateMinValueIfMinDateSet();
-
     }
 
     private void updateMaxValueIfMaxDateSet() {
