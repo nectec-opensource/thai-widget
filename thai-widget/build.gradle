@@ -17,6 +17,7 @@
  */
 
 apply plugin: 'com.android.library'
+apply plugin: 'com.noveogroup.android.check'
 
 android {
     compileSdkVersion  rootProject.ext.compileSdkVersion
