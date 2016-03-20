@@ -20,38 +20,39 @@ package th.or.nectec.thai.widget.address;
 
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.List;
 
 class ArrayStack<T> {
 
-    private ArrayList<T> arrayList;
+    private List<T> list;
 
     public ArrayStack() {
         this(new ArrayList<T>());
     }
 
-    public ArrayStack(ArrayList<T> arrayList) {
-        this.arrayList = arrayList;
+    public ArrayStack(List<T> list) {
+        this.list = list;
     }
 
     public boolean isEmpty() {
-        return arrayList.isEmpty();
+        return list.isEmpty();
     }
 
     public void push(T t) {
-        arrayList.add(t);
+        list.add(t);
     }
 
     public T pop() {
-        int peekIndex = arrayList.size() - 1;
-        return arrayList.remove(peekIndex);
+        int peekIndex = list.size() - 1;
+        return list.remove(peekIndex);
     }
 
     public T peek() {
-        int peekIndex = arrayList.size() - 1;
-        return arrayList.get(peekIndex);
+        int peekIndex = list.size() - 1;
+        return list.get(peekIndex);
     }
 
     public Iterator<T> getIterator() {
-        return arrayList.iterator();
+        return list.iterator();
     }
 }

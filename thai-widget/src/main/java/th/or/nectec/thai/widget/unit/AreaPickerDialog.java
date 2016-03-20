@@ -40,9 +40,9 @@ public class AreaPickerDialog extends AlertDialog implements AreaPopup {
     private NumberPicker rai;
     private NumberPicker ngan;
     private NumberPicker squareWa;
-    private OnAreaPickListener onAreaPickListener;
+    private final OnAreaPickListener onAreaPickListener;
 
-    private OnClickListener onPositiveButtonClick = new OnClickListener() {
+    private final OnClickListener onPositiveButtonClick = new OnClickListener() {
         @Override
         public void onClick(DialogInterface dialogInterface, int i) {
             View currentFocus = getCurrentFocus();
@@ -53,7 +53,7 @@ public class AreaPickerDialog extends AlertDialog implements AreaPopup {
         }
     };
 
-    private OnClickListener onNegativeButtonClick = new OnClickListener() {
+    private final OnClickListener onNegativeButtonClick = new OnClickListener() {
         @Override
         public void onClick(DialogInterface dialogInterface, int i) {
             onAreaPickListener.onCancel();
@@ -61,7 +61,7 @@ public class AreaPickerDialog extends AlertDialog implements AreaPopup {
         }
     };
 
-    private OnValueChangeListener raiNganSquareWaChangeListener = new OnValueChangeListener() {
+    private final OnValueChangeListener raiNganSquareWaChangeListener = new OnValueChangeListener() {
         @Override
         public void onValueChange(NumberPicker numberPicker, int i, int i1) {
             Area area = Area.fromRaiNganSqaureWa(rai.getValue(), ngan.getValue(), squareWa.getValue());

@@ -24,6 +24,7 @@ import th.or.nectec.thai.address.Region;
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 public class RegionRepositoryTest {
 
@@ -32,7 +33,20 @@ public class RegionRepositoryTest {
         List<Region> regions = RegionRepository.getInstance().find();
 
         assertEquals(6, regions.size());
-        assertEquals(true, regions.contains(Region.CENTER));
-        assertEquals(true, regions.contains(Region.EAST_NORTH));
+    }
+
+    @Test
+    public void testFindMustFoundCenterRegion() throws Exception {
+        List<Region> regions = RegionRepository.getInstance().find();
+
+        assertTrue(regions.contains(Region.CENTER));
+    }
+
+    @Test
+    public void testFindMustFoundNorthRegion() throws Exception {
+        List<Region> regions = RegionRepository.getInstance().find();
+
+        assertTrue(regions.contains(Region.NORTH));
+
     }
 }

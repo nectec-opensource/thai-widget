@@ -30,10 +30,7 @@ public abstract class IdentityEditTextHandler implements TextWatcher {
     public IdentityEditTextHandler(EditText editText) {
         this.editText = editText;
         this.id = onCreateNewId(editText.getText().toString());
-        initialize();
-    }
 
-    protected void initialize() {
         editText.setInputType(InputType.TYPE_CLASS_NUMBER);
         editText.setFilters(new InputFilter[]{new InputFilter.LengthFilter(getMaxLength())});
         editText.setKeyListener(DigitsKeyListener.getInstance(false, true));
@@ -45,11 +42,13 @@ public abstract class IdentityEditTextHandler implements TextWatcher {
     protected abstract Identity onCreateNewId(String id);
 
     @Override
-    public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+    public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {//NOPMD
+
     }
 
     @Override
-    public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+    public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {//NOPMD
+
     }
 
     @Override

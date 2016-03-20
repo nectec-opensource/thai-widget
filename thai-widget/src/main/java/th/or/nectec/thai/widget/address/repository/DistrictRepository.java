@@ -28,10 +28,10 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class DistrictRepository implements AddressRepository<District> {
+public final class DistrictRepository implements AddressRepository<District> {
 
     private static DistrictRepository instance;
-    private List<District> allDistrict = new ArrayList<>();
+    private final List<District> allDistrict;
 
     private DistrictRepository(Context context) {
         allDistrict = JsonParser.parse(context, "district.json", District.class);
@@ -39,7 +39,7 @@ public class DistrictRepository implements AddressRepository<District> {
     }
 
     public static DistrictRepository getInstance(Context context) {
-        if (instance == null)
+        if (instance == null)//NOPMD
             instance = new DistrictRepository(context);
         return instance;
     }

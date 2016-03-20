@@ -79,7 +79,7 @@ public class AreaPicker extends TextView implements AreaView, OnClickListener {
     @Override
     public void setArea(Area area) {
         if (area == null)
-            throw new NullPointerException("area must not be null");
+            throw new IllegalArgumentException("area must not be null");
         this.area = area;
         setText(area.prettyPrint());
     }

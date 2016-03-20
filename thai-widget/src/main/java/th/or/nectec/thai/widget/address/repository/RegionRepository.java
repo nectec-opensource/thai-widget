@@ -23,9 +23,9 @@ import th.or.nectec.thai.address.Region;
 import java.util.ArrayList;
 import java.util.List;
 
-public class RegionRepository {
+public final class RegionRepository {
 
-    private static RegionRepository instance;
+    private static RegionRepository instance = new RegionRepository();
     private final List<Region> regions = new ArrayList<>();
 
     private RegionRepository() {
@@ -38,8 +38,6 @@ public class RegionRepository {
     }
 
     public static RegionRepository getInstance() {
-        if (instance == null)
-            instance = new RegionRepository();
         return instance;
     }
 

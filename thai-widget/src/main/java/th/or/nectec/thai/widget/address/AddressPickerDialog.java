@@ -63,12 +63,13 @@ public class AddressPickerDialog extends Dialog implements AddressPopup, Adapter
     public AddressPickerDialog(Context context, int themeResId, OnAddressChangedListener onAddressChangedListener) {
         super(context, themeResId);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
-        setOnAddressChangedListener(onAddressChangedListener);
 
         addressRepository = AddressRepositoryImpl.getInstance(context);
         provinceRepository = ProvinceRepository.getInstance(context);
         districtRepository = DistrictRepository.getInstance(context);
         subDistrictRepository = SubDistrictRepository.getInstance(context);
+
+        this.onAddressChangedListener = onAddressChangedListener;
     }
 
     @Override

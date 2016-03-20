@@ -27,12 +27,12 @@ import th.or.nectec.thai.address.Province;
 import th.or.nectec.thai.address.SubDistrict;
 import th.or.nectec.util.TextUtils;
 
-public class AddressRepositoryImpl {
+public final class AddressRepositoryImpl {
 
     private static AddressRepositoryImpl instance;
-    private ProvinceRepository provinceRepository;
-    private DistrictRepository districtRepository;
-    private SubDistrictRepository subDistrictRepository;
+    private final ProvinceRepository provinceRepository;
+    private final DistrictRepository districtRepository;
+    private final SubDistrictRepository subDistrictRepository;
 
     private AddressRepositoryImpl(SubDistrictRepository subDistrictRepository,
                                   DistrictRepository districtRepository,
@@ -43,7 +43,7 @@ public class AddressRepositoryImpl {
     }
 
     public static AddressRepositoryImpl getInstance(Context context) {
-        if (instance == null)
+        if (instance == null)//NOPMD
             instance = new AddressRepositoryImpl(SubDistrictRepository.getInstance(context),
                     DistrictRepository.getInstance(context),
                     ProvinceRepository.getInstance(context));

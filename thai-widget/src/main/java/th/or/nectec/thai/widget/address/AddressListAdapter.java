@@ -37,13 +37,14 @@ class AddressListAdapter<T extends AddressEntity> extends BaseAdapter {
     private List<T> addressList;
 
     public AddressListAdapter(Context context, List<T> addressList) {
+        super();
         this.context = context;
         mInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         addAll(addressList);
     }
 
 
-    public void addAll(List<T> collection) {
+    public final void addAll(List<T> collection) {
         addressList = new ArrayList<>();
         addressList.addAll(collection);
         notifyDataSetChanged();
@@ -83,8 +84,8 @@ class AddressListAdapter<T extends AddressEntity> extends BaseAdapter {
     }
 
     private class ViewHolder {
-        TextView name;
-        TextView code;
+        protected TextView name;
+        protected TextView code;
 
         public ViewHolder(View view) {
             this.name = (TextView) view.findViewById(R.id.name);

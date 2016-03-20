@@ -33,7 +33,7 @@ public class AddressPicker extends Button implements AddressView {
     private AddressRepositoryImpl addressRepository;
     private AddressPopup popup;
     private OnAddressChangedListener onAddressChangedListener;
-    private OnAddressChangedListener onPopupAddressChangedListener = new OnAddressChangedListener() {
+    private final OnAddressChangedListener onPopupAddressChangedListener = new OnAddressChangedListener() {
         @Override
         public void onAddressChanged(Address address) {
             setAddressCode(address.getCode());

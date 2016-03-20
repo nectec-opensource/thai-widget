@@ -30,7 +30,9 @@ import th.or.nectec.thai.widget.utils.ViewUtils;
 
 import java.util.Calendar;
 
-import static java.util.Calendar.*;
+import static java.util.Calendar.DAY_OF_MONTH;
+import static java.util.Calendar.MONTH;
+import static java.util.Calendar.YEAR;
 
 public class DatePickerDialog extends AlertDialog implements DatePopup, NumberPicker.OnValueChangeListener {
 
@@ -40,7 +42,8 @@ public class DatePickerDialog extends AlertDialog implements DatePopup, NumberPi
     protected final NumberPicker yearPicker;
     private Calendar calendar;
     private DatePickerCallback callback;
-    private DialogInterface.OnClickListener onPositiveButtonClick = new DialogInterface.OnClickListener() {
+
+    private final DialogInterface.OnClickListener onPositiveButtonClick = new DialogInterface.OnClickListener() {
         @Override
         public void onClick(DialogInterface dialogInterface, int i) {
             View currentFocus = getCurrentFocus();
@@ -49,7 +52,8 @@ public class DatePickerDialog extends AlertDialog implements DatePopup, NumberPi
             dismiss();
         }
     };
-    private DialogInterface.OnClickListener onNegativeButtonClick = new DialogInterface.OnClickListener() {
+
+    private final DialogInterface.OnClickListener onNegativeButtonClick = new DialogInterface.OnClickListener() {
         @Override
         public void onClick(DialogInterface dialogInterface, int i) {
             if (callback != null) callback.onCancel();
@@ -65,7 +69,6 @@ public class DatePickerDialog extends AlertDialog implements DatePopup, NumberPi
 
     public DatePickerDialog(Context context, DatePickerCallback datePickerCallback) {
         this(context, Calendar.getInstance(), datePickerCallback);
-
     }
 
     public DatePickerDialog(Context context, Calendar calendar, DatePickerCallback datePickerCallback) {
@@ -98,7 +101,7 @@ public class DatePickerDialog extends AlertDialog implements DatePopup, NumberPi
         updateDate(calendar);
     }
 
-    public void updateDate(Calendar calendar) {
+    public final void updateDate(Calendar calendar) {
         updateDate(calendar.get(YEAR), calendar.get(MONTH), calendar.get(DAY_OF_MONTH));
     }
 
@@ -194,7 +197,7 @@ public class DatePickerDialog extends AlertDialog implements DatePopup, NumberPi
         updateValueAndUi();
     }
 
-    void updateValueAndUi() {
+    protected void updateValueAndUi() {
         trimDayOverMaxDayOfNewMonth();
         updateMaxValueIfMaxDateSet();
         updateMinValueIfMinDateSet();
@@ -202,11 +205,10 @@ public class DatePickerDialog extends AlertDialog implements DatePopup, NumberPi
 
     private void trimDayOverMaxDayOfNewMonth() {
         Calendar newCalendar = newCalendarFromPicker();
-
         updateDate(newCalendar);
     }
 
-    Calendar newCalendarFromPicker() {
+    protected Calendar newCalendarFromPicker() {
         Calendar newCalendar = Calendar.getInstance();
         newCalendar.set(yearPicker.getValue() - 543, monthPicker.getValue(), 1);
 

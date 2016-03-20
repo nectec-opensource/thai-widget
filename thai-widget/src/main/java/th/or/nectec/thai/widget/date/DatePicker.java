@@ -29,7 +29,9 @@ import th.or.nectec.thai.widget.utils.ViewUtils;
 import java.util.Calendar;
 import java.util.Locale;
 
-import static java.util.Calendar.*;
+import static java.util.Calendar.DAY_OF_MONTH;
+import static java.util.Calendar.MONTH;
+import static java.util.Calendar.YEAR;
 
 public class DatePicker extends Button implements DateView {
 
@@ -79,7 +81,7 @@ public class DatePicker extends Button implements DateView {
         return calendar;
     }
 
-    public void setCalendar(Calendar calendar) {
+    public final void setCalendar(Calendar calendar) {
         this.calendar = calendar;
         setText(DatePrinter.print(calendar));
     }

@@ -25,7 +25,7 @@ import th.or.nectec.thai.identity.Identity;
 
 public class HouseIdEditText extends EditText implements IdentityView {
 
-    IdentityEditTextHandler hidHandler;
+    private IdentityEditTextHandler hidHandler;
 
     public HouseIdEditText(Context context) {
         super(context);

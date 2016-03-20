@@ -19,19 +19,26 @@
 package th.or.nectec.thai.widget.address.repository;
 
 import android.content.Context;
+import android.util.Log;
 import com.google.gson.Gson;
 import com.google.gson.stream.JsonReader;
+import th.or.nectec.thai.widget.BuildConfig;
 
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.List;
 
-class JsonParser {
+final class JsonParser {
 
-    public static <T> ArrayList<T> parse(Context context, String jsonFileName, Class<T> tClass) {
+    private static final String TAG = "JsonParser";
 
-        ArrayList<T> allProvince = new ArrayList<>();
+    private JsonParser() {
+    }
+
+    public static <T> List<T> parse(Context context, String jsonFileName, Class<T> tClass) {
+        List<T> allProvince = new ArrayList<>();
         Gson gson = new Gson();
         try {
             InputStream inputStream = context.getAssets().open(jsonFileName);
@@ -44,7 +51,7 @@ class JsonParser {
             reader.endArray();
             reader.close();
         } catch (IOException e) {
-            e.printStackTrace();
+            if (BuildConfig.DEBUG) Log.e(TAG, "parse() error.", e);
         }
         return allProvince;
     }

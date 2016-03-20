@@ -45,22 +45,22 @@ public class DatePickerDialogTest {
 
     @Test
     public void testUpdateDate() throws Exception {
-        datePickerDialog.updateDate(1988, Calendar.SEPTEMBER, 21);
+        datePickerDialog.updateDate(1988, SEPTEMBER, 21);
 
         assertEquals(1988, datePickerDialog.getYear());
-        assertEquals(Calendar.SEPTEMBER, datePickerDialog.getMonth());
+        assertEquals(SEPTEMBER, datePickerDialog.getMonth());
         assertEquals(21, datePickerDialog.getDayOfMonth());
     }
 
     @Test
     public void testUpdateDateByCalendar() throws Exception {
-        Calendar calendar = Calendar.getInstance();
-        calendar.set(1988, Calendar.SEPTEMBER, 21);
+        Calendar calendar = Calendar.getInstance(); //NOPMD
+        calendar.set(1988, SEPTEMBER, 21);
 
         datePickerDialog.updateDate(calendar);
 
         assertEquals(1988, datePickerDialog.getYear());
-        assertEquals(Calendar.SEPTEMBER, datePickerDialog.getMonth());
+        assertEquals(SEPTEMBER, datePickerDialog.getMonth());
         assertEquals(21, datePickerDialog.getDayOfMonth());
     }
 
@@ -85,17 +85,10 @@ public class DatePickerDialogTest {
         datePickerDialog.updateValueAndUi();
         assertEquals(28, datePickerDialog.dayPicker.getMaxValue());
 
-        datePickerDialog.monthPicker.setValue(MARCH);
-        datePickerDialog.updateValueAndUi();
-        assertEquals(31, datePickerDialog.dayPicker.getMaxValue());
-
         datePickerDialog.monthPicker.setValue(APRIL);
         datePickerDialog.updateValueAndUi();
         assertEquals(30, datePickerDialog.dayPicker.getMaxValue());
 
-        datePickerDialog.monthPicker.setValue(MAY);
-        datePickerDialog.updateValueAndUi();
-        assertEquals(31, datePickerDialog.dayPicker.getMaxValue());
     }
 
     @Test
