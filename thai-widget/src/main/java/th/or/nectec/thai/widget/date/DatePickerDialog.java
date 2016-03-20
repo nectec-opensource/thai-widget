@@ -172,14 +172,10 @@ public class DatePickerDialog extends AlertDialog implements DatePopup, NumberPi
         Calendar newCalendar = Calendar.getInstance();
         newCalendar.set(yearPicker.getValue() - 543, monthPicker.getValue(), 1);
 
-        int maxDayOfMonth = newCalendar.getActualMaximum(DAY_OF_MONTH);
-        if (dayPicker.getValue() > maxDayOfMonth) {
-            dayPicker.setValue(maxDayOfMonth);
-        }
-        dayPicker.setMaxValue(maxDayOfMonth);
+        dayPicker.setMaxValue(newCalendar.getActualMaximum(DAY_OF_MONTH));
         newCalendar.set(DAY_OF_MONTH, dayPicker.getValue());
-        updateDate(newCalendar);
 
+        updateDate(newCalendar);
         updateMaxValueIfMaxDateSetted();
 
     }
@@ -187,36 +183,26 @@ public class DatePickerDialog extends AlertDialog implements DatePopup, NumberPi
     private void updateMaxValueIfMaxDateSetted() {
         if (maxDate == null)
             return;
-
         Calendar newCalendar = Calendar.getInstance();
         newCalendar.set(yearPicker.getValue() - 543, monthPicker.getValue(), 1);
-
 
         if (yearPicker.getValue() == maxDate.get(YEAR) + 543) {
             monthPicker.setOnValueChangedListener(null);
             dayPicker.setOnValueChangedListener(null);
+
             int maxMonth = maxDate.get(MONTH);
-            if (monthPicker.getValue() > maxMonth) {
-                monthPicker.setValue(maxMonth);
-                Log.d(TAG, "updateMaxValueIfMaxDateSetted set month value to " + maxMonth);
-            }
             monthPicker.setMaxValue(maxMonth);
 
             if (monthPicker.getValue() == maxMonth) {
                 int maxDayOfMonth = maxDate.get(DAY_OF_MONTH);
-                if (dayPicker.getValue() > maxDayOfMonth) {
-                    dayPicker.setValue(maxDayOfMonth);
-                    Log.d(TAG, "updateMaxValueIfMaxDateSetted set DOM value to " + maxDayOfMonth);
-                }
                 dayPicker.setMaxValue(maxDayOfMonth);
             }
 
+            newCalendar.set(yearPicker.getValue() - 543, monthPicker.getValue(), dayPicker.getValue());
+            updateDate(newCalendar);
+
             monthPicker.setOnValueChangedListener(this);
             dayPicker.setOnValueChangedListener(this);
-            newCalendar.set(yearPicker.getValue() - 543, monthPicker.getValue(), dayPicker.getValue());
-            Log.e(TAG, String.format("updateMaxValueIfMaxDateSetted %s %s %s", newCalendar.get(DAY_OF_MONTH),
-                    newCalendar.get(MONTH), newCalendar.get(YEAR)));
-            updateDate(newCalendar);
         } else {
             monthPicker.setMaxValue(11);
         }
