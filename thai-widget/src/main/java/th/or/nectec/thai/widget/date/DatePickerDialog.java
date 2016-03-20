@@ -35,9 +35,9 @@ import static java.util.Calendar.*;
 public class DatePickerDialog extends AlertDialog implements DatePopup, NumberPicker.OnValueChangeListener {
 
     private static final String TAG = "DatePickerDialog";
-    private final NumberPicker dayPicker;
-    private final NumberPicker monthPicker;
-    private final NumberPicker yearPicker;
+    protected final NumberPicker dayPicker;
+    protected final NumberPicker monthPicker;
+    protected final NumberPicker yearPicker;
     private Calendar calendar;
     private DatePickerCallback callback;
     private DialogInterface.OnClickListener onPositiveButtonClick = new DialogInterface.OnClickListener() {
@@ -109,6 +109,7 @@ public class DatePickerDialog extends AlertDialog implements DatePopup, NumberPi
 
         if (dayPicker != null) {
             dayPicker.setValue(dayOfMonth);
+            dayPicker.setMaxValue(calendar.getActualMaximum(DAY_OF_MONTH));
             monthPicker.setValue(month);
             yearPicker.setValue(year + 543);
         }
@@ -190,19 +191,31 @@ public class DatePickerDialog extends AlertDialog implements DatePopup, NumberPi
 
     @Override
     public void onValueChange(NumberPicker numberPicker, int i, int i1) {
+        updateValueAndUi();
+    }
+
+    void updateValueAndUi() {
         trimDayOverMaxDayOfNewMonth();
         updateMaxValueIfMaxDateSet();
         updateMinValueIfMinDateSet();
     }
 
     private void trimDayOverMaxDayOfNewMonth() {
+        Calendar newCalendar = newCalendarFromPicker();
+
+        updateDate(newCalendar);
+    }
+
+    Calendar newCalendarFromPicker() {
         Calendar newCalendar = Calendar.getInstance();
         newCalendar.set(yearPicker.getValue() - 543, monthPicker.getValue(), 1);
 
+        if (dayPicker.getValue() > newCalendar.getActualMaximum(DAY_OF_MONTH)) {
+            dayPicker.setValue(newCalendar.getActualMaximum(DAY_OF_MONTH));
+        }
         dayPicker.setMaxValue(newCalendar.getActualMaximum(DAY_OF_MONTH));
         newCalendar.set(DAY_OF_MONTH, dayPicker.getValue());
-
-        updateDate(newCalendar);
+        return newCalendar;
     }
 
     private void updateMaxValueIfMaxDateSet() {
