@@ -8,11 +8,8 @@ Released
 
 * CitizenIdEditText - EditText for Citizen ID with validator
 * HouseIdEditText - EditText for House ID with validator
-* AreaPicker - for input area size in Rai Ngan Wa2 formate
+* AreaPicker - for input area size in Rai Ngan Wa2 format
 * AddressPicker - for select Thai's Province District and SubDistrict
-
-TODO
-
 * DatePicker - Buddism year version of android DatePicker
 
 Download
