@@ -33,7 +33,7 @@ public abstract class IdPrettyPrinter implements PrettyPrinter {
         return idFormatted.toString();
     }
 
-    abstract boolean positionToInsertSeparatorBefore(int position);
+    protected abstract boolean positionToInsertSeparatorBefore(int position);
 
     @Override
     public String separator() {

@@ -31,7 +31,7 @@ public class HouseId implements Identity {
     private final String id;
     private final PrettyPrinter printer = new IdPrettyPrinter() {
         @Override
-        boolean positionToInsertSeparatorBefore(int position) {
+        protected boolean positionToInsertSeparatorBefore(int position) {
             switch (position) {
                 case 4:
                 case 10:
