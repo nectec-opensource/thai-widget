@@ -2,18 +2,16 @@
 
 Thai style android custom widget by thai-dev for thai-dev
 
-Widget
--------
-Released
+## Widget
 
-* CitizenIdEditText - EditText for Citizen ID with validator
-* HouseIdEditText - EditText for House ID with validator
-* AreaPicker - for input area size in Rai Ngan Wa2 format
-* AddressPicker - for select Thai's Province District and SubDistrict
-* DatePicker - Buddism year version of android DatePicker
+- CitizenIdEditText - EditText for Citizen ID with validator
+- HouseIdEditText - EditText for House ID with validator
+- AreaPicker - for input area size in Rai Ngan Wa2 format
+- AddressPicker - for select Thai's Province District and SubDistrict
+- DatePicker - Buddism year version of android DatePicker
 
-Download
--------
+## Download
+
 ### JCenter
 
 Add JCenter to your build file's list of repositories.
@@ -29,14 +27,14 @@ Add dependencies on app module
 ```gradle
 dependencies {
     ...
-    compile 'th.or.nectec.android:thai-widget:0.4'
+    compile 'th.or.nectec.android:thai-widget:0.4.6'
     ...
 }
 ```
 
-Proguard-Rule
---------
-add follow this in proguard-rules.pro in your project.
+### Proguard-Rule
+
+Add follow this in proguard-rules.pro in your project.
 
 ```proguard
 -keepattributes Signature
@@ -44,6 +42,35 @@ add follow this in proguard-rules.pro in your project.
 -keep class com.google.gson.stream.** { *; }
 -keep class th.or.nectec.thai.** { *; }
 ```
+
+## Libraries
+This project depend on
+
+- [gson](https://github.com/google/gson)
+
+Test libraries use on this project
+
+- [JUnit](http://junit.org/)
+- [Robolectric](http://robolectric.org/)
+- [Espresso](https://google.github.io/android-testing-support-library/)
+
+## Code Quality
+
+This project use quality control by unit-test ui-test and code analysis tools.
+
+Static code analysis tools
+
+- [Checkstyle](http://checkstyle.sourceforge.net/) 
+- [PMD](https://pmd.github.io/)
+- [Findbugs](http://findbugs.sourceforge.net/)
+- [Android Check](https://github.com/noveogroup/android-check)
+
+check for config of those tools at [Java Quality Config](https://github.com/Blazei/java-quality-config)
+
+## Developers
+
+- [Blaze Piruin](https://github.com/Blazei)
+- [N. Choatravee](https://github.com/chncs23)
 
 License
 --------
@@ -72,8 +99,8 @@ The follow instructions only for Project Administrator
 
 1. Configure gradle.properties with:
     
-        bintrayKey = <YOUR API KEY>
-        bintrayUser = <YOUR BINTRAY USERNAME>
+        bintrayKey = <API KEY>
+        bintrayUser = <BINTRAY USERNAME>
 
 2. Upload with command :
 

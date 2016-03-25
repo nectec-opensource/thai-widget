@@ -27,7 +27,6 @@ dependencies {
     compile 'com.google.code.gson:gson:' + rootProject.ext.gsonVersion
 
     testCompile 'junit:junit:' + rootProject.ext.junitVersion
-    testCompile 'org.jmock:jmock-junit4:' + rootProject.ext.jMockVersion
 }
 
 apply from: 'maven.gradle'
