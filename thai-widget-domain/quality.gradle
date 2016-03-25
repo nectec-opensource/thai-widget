@@ -16,19 +16,21 @@
  *
  */
 
-apply plugin: 'java'
+apply plugin: 'checkstyle'
+apply plugin: 'pmd'
+apply plugin: 'findbugs'
 
-//noinspection GroovyUnusedAssignment
-sourceCompatibility = rootProject.ext.javaSourceCompatibility
-//noinspection GroovyUnusedAssignment
-targetCompatibility = rootProject.ext.javaTargetCompatibility
-
-dependencies {
-    compile 'com.google.code.gson:gson:' + rootProject.ext.gsonVersion
-
-    testCompile 'junit:junit:' + rootProject.ext.junitVersion
+checkstyle {
+    toolVersion '6.10.1'
+    configFile rootProject.file('config/checkstyle.xml')
 }
 
-apply from: 'quality.gradle'
-apply from: 'maven.gradle'
-apply from: '../gradle/bintray.gradle'
+pmd {
+    toolVersion '5.3.4'
+    ruleSetFiles = files(rootProject.file('config/pmd.xml'))
+}
+
+findbugs {
+    toolVersion '3.0.1'
+    excludeFilter rootProject.file('config/findbugs.xml')
+}
