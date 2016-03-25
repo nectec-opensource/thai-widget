@@ -29,17 +29,11 @@ public final class AddressPrinter {
     }
 
     public static String printFull(String subdistrict, String district, String province) {
-        String address = "";
         if ("กรุงเทพมหานคร".equals(province)) {
-            address += "แขวง" + subdistrict + " ";
-            address += "เขต" + district + " ";
-            address += province;
+            return String.format("แขวง%s เขต%s กรุงเทพมหานคร", subdistrict, district);
         } else {
-            address += "ตำบล" + subdistrict + " ";
-            address += "อำเภอ" + district + " ";
-            address += "จังหวัด" + province;
+            return String.format("ตำบล%s อำเภอ%s จังหวัด%s", subdistrict, district, province);
         }
-        return address;
     }
 
     public static String print(SubDistrict subDistrict, District district, Province province) {
@@ -47,18 +41,11 @@ public final class AddressPrinter {
     }
 
     public static String print(String subdistrict, String district, String province) {
-        String address = "";
         if ("กรุงเทพมหานคร".equals(province)) {
-            address += "แขวง" + subdistrict + " ";
-            address += "เขต" + district + " ";
-            address += province;
+            return String.format("แขวง%s เขต%s กรุงเทพมหานคร", subdistrict, district);
         } else {
-            address += "ต." + subdistrict + " ";
-            address += "อ." + district + " ";
-            address += "จ." + province;
+            return String.format("ต.%s อ.%s จ.%s", subdistrict, district, province);
         }
-
-        return address;
     }
 
 
