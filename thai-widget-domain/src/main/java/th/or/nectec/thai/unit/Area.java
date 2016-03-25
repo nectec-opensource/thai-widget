@@ -27,7 +27,7 @@ public class Area {
     private static final String NGAN = "งาน";
     private static final String SQUARE_WA = "ตารางวา";
 
-    private int sizeSquareMeter;
+    private final int sizeSquareMeter;
     private int rai;
     private int ngan;
     private int squareWa;
