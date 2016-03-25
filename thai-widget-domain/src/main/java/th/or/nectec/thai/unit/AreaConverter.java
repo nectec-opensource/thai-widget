@@ -28,10 +28,9 @@ public final class AreaConverter {
     }
 
     public static int raiToSqMeter(int rai, int ngan, int tarangwa) {
-        float sqMeter = (rai * SQUARE_METER_PER_RAI)
-                + (ngan * SQUARE_METER_PER_NGAN)
-                + (tarangwa * SQUARE_METER_PER_SQUARE_WA);
-        return Math.round(sqMeter);
+        return Math.round(rai * SQUARE_METER_PER_RAI
+                + ngan * SQUARE_METER_PER_NGAN
+                + tarangwa * SQUARE_METER_PER_SQUARE_WA);
     }
 
     public static int squareMeterToRai(int squareMeter) {
