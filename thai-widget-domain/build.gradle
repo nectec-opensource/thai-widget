@@ -43,5 +43,12 @@ pmd {
     ruleSetFiles = files("$rootDir/config/pmd.xml")
 }
 
+apply plugin: 'findbugs'
+
+findbugs {
+    toolVersion '3.0.1'
+    excludeFilter rootProject.file('config/findbugs.xml')
+}
+
 apply from: 'maven.gradle'
 apply from: '../gradle/bintray.gradle'

@@ -36,6 +36,10 @@ import static java.util.Calendar.YEAR;
 
 public class DatePickerDialog extends AlertDialog implements DatePopup, NumberPicker.OnValueChangeListener {
 
+    private static final String[] THAI_MONTH = {"มกราคม", "กุมภาพันธ์",
+            "มีนาคม", "เมษายน", "พฤษภาคม", "มิถุนายน", "กรกฎาคม", "สิงหาคม",
+            "กันยายน", "ตุลาคม", "พฤศจิกายน", "ธันวาคม"};
+
     private static final String TAG = "DatePickerDialog";
     protected final NumberPicker dayPicker;
     protected final NumberPicker monthPicker;
@@ -88,7 +92,7 @@ public class DatePickerDialog extends AlertDialog implements DatePopup, NumberPi
         monthPicker.setOnValueChangedListener(this);
         monthPicker.setMinValue(0);
         monthPicker.setMaxValue(11);
-        monthPicker.setDisplayedValues(DatePrinter.THAI_MONTH);
+        monthPicker.setDisplayedValues(THAI_MONTH);
 
         yearPicker = (NumberPicker) view.findViewById(R.id.year);
         yearPicker.setOnValueChangedListener(this);
@@ -261,7 +265,7 @@ public class DatePickerDialog extends AlertDialog implements DatePopup, NumberPi
             int minMonth = minDate.get(MONTH);
             monthPicker.setMinValue(minMonth);
             String[] monthDisplay = new String[12 - minMonth];
-            System.arraycopy(DatePrinter.THAI_MONTH, minMonth, monthDisplay, 0, monthDisplay.length);
+            System.arraycopy(THAI_MONTH, minMonth, monthDisplay, 0, monthDisplay.length);
             monthPicker.setDisplayedValues(monthDisplay);
 
             if (monthPicker.getValue() == minMonth) {
@@ -278,7 +282,7 @@ public class DatePickerDialog extends AlertDialog implements DatePopup, NumberPi
             dayPicker.setOnValueChangedListener(this);
         } else {
             monthPicker.setMinValue(0);
-            monthPicker.setDisplayedValues(DatePrinter.THAI_MONTH);
+            monthPicker.setDisplayedValues(THAI_MONTH);
             dayPicker.setMinValue(1);
         }
     }

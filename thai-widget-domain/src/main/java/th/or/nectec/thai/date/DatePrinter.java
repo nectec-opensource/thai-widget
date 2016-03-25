@@ -22,7 +22,7 @@ import java.util.Calendar;
 
 public final class DatePrinter {
 
-    public static final String[] THAI_MONTH = {"มกราคม", "กุมภาพันธ์",
+    private static final String[] THAI_MONTH = {"มกราคม", "กุมภาพันธ์",
             "มีนาคม", "เมษายน", "พฤษภาคม", "มิถุนายน", "กรกฎาคม", "สิงหาคม",
             "กันยายน", "ตุลาคม", "พฤศจิกายน", "ธันวาคม"};
 

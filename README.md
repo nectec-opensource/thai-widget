@@ -67,7 +67,7 @@ Static code analysis tools
 
 check for config of those tools at [Java Quality Config](https://github.com/Blazei/java-quality-config)
 
-## Developers
+## Develop by
 
 - [Blaze Piruin](https://github.com/Blazei)
 - [N. Choatravee](https://github.com/chncs23)
