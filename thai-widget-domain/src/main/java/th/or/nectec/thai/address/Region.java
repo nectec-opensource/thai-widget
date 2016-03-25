@@ -21,15 +21,14 @@ package th.or.nectec.thai.address;
 import com.google.gson.annotations.SerializedName;
 
 public enum Region {
-    @SerializedName(Name.ภาคกลาง)CENTER(Name.ภาคกลาง),
-    @SerializedName(Name.ภาคเหนือ)NORTH(Name.ภาคเหนือ),
-    @SerializedName(Name.ภาคตะวันออกเฉียงเหนือ)EAST_NORTH(Name.ภาคตะวันออกเฉียงเหนือ),
-    @SerializedName(Name.ภาคตะวันออก)EAST(Name.ภาคตะวันออก),
-    @SerializedName(Name.ภาคตะวันตก)WEST(Name.ภาคตะวันตก),
-    @SerializedName(Name.ภาคใต้)SOUTH(Name.ภาคใต้);
+    @SerializedName("ภาคกลาง")CENTER("ภาคกลาง"),
+    @SerializedName("ภาคเหนือ")NORTH("ภาคเหนือ"),
+    @SerializedName("ภาคตะวันออกเฉียงเหนือ")EAST_NORTH("ภาคตะวันออกเฉียงเหนือ"),
+    @SerializedName("ภาคตะวันออก")EAST("ภาคตะวันออก"),
+    @SerializedName("ภาคตะวันตก")WEST("ภาคตะวันตก"),
+    @SerializedName("ภาคใต้")SOUTH("ภาคใต้");
 
-
-    private String regionName;
+    private final String regionName;
 
     Region(String regionName) {
         this.regionName = regionName;
@@ -37,17 +36,17 @@ public enum Region {
 
     public static Region fromName(String regionName) {
         switch (regionName) {
-            case Name.ภาคกลาง:
+            case "ภาคกลาง":
                 return Region.CENTER;
-            case Name.ภาคเหนือ:
+            case "ภาคเหนือ":
                 return Region.NORTH;
-            case Name.ภาคตะวันออกเฉียงเหนือ:
+            case "ภาคตะวันออกเฉียงเหนือ":
                 return Region.EAST_NORTH;
-            case Name.ภาคตะวันออก:
+            case "ภาคตะวันออก":
                 return Region.EAST;
-            case Name.ภาคตะวันตก:
+            case "ภาคตะวันตก":
                 return Region.WEST;
-            case Name.ภาคใต้:
+            case "ภาคใต้":
                 return Region.SOUTH;
             default:
                 throw new IllegalArgumentException("input name not match any region name");
@@ -57,14 +56,5 @@ public enum Region {
     @Override
     public String toString() {
         return this.regionName;
-    }
-
-    private static class Name {
-        public static final String ภาคกลาง = "ภาคกลาง";
-        public static final String ภาคเหนือ = "ภาคเหนือ";
-        public static final String ภาคตะวันออกเฉียงเหนือ = "ภาคตะวันออกเฉียงเหนือ";
-        public static final String ภาคตะวันออก = "ภาคตะวันออก";
-        public static final String ภาคตะวันตก = "ภาคตะวันตก";
-        public static final String ภาคใต้ = "ภาคใต้";
     }
 }

@@ -22,10 +22,8 @@ import org.junit.Test;
 
 import java.util.Calendar;
 
-import static java.util.Calendar.DAY_OF_MONTH;
 import static java.util.Calendar.FEBRUARY;
 import static java.util.Calendar.MARCH;
-import static java.util.Calendar.MONTH;
 import static java.util.Calendar.SEPTEMBER;
 import static org.junit.Assert.assertEquals;
 
@@ -36,12 +34,12 @@ public class CalendarTest {
         Calendar calendar = Calendar.getInstance();
 
         calendar.set(1988, SEPTEMBER, 21);
-        assertEquals(30, calendar.getActualMaximum(DAY_OF_MONTH));
+        assertEquals(30, calendar.getActualMaximum(Calendar.DAY_OF_MONTH));
 
         calendar.set(2016, FEBRUARY, 10);
-        assertEquals(29, calendar.getActualMaximum(DAY_OF_MONTH));
+        assertEquals(29, calendar.getActualMaximum(Calendar.DAY_OF_MONTH));
 
-        calendar.set(MONTH, MARCH);
-        assertEquals(31, calendar.getActualMaximum(DAY_OF_MONTH));
+        calendar.set(Calendar.MONTH, MARCH);
+        assertEquals(31, calendar.getActualMaximum(Calendar.DAY_OF_MONTH));
     }
 }
