@@ -29,6 +29,6 @@ dependencies {
     testCompile 'junit:junit:' + rootProject.ext.junitVersion
 }
 
-apply from: 'quality.gradle'
+apply from: 'https://raw.githubusercontent.com/Blazei/java-quality-config/master/java/quality.gradle'
 apply from: 'maven.gradle'
 apply from: '../gradle/bintray.gradle'
