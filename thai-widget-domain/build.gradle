@@ -16,11 +16,7 @@
  *
  */
 
-
 apply plugin: 'java'
-apply plugin: 'maven'
-apply plugin: 'maven-publish'
-
 
 //noinspection GroovyUnusedAssignment
 sourceCompatibility = rootProject.ext.javaSourceCompatibility
@@ -34,44 +30,5 @@ dependencies {
     testCompile 'org.jmock:jmock-junit4:' + rootProject.ext.jMockVersion
 }
 
-// custom tasks for creating source/javadoc jars
-task sourcesJar(type: Jar, dependsOn: classes) {
-    classifier = 'sources'
-    from sourceSets.main.allSource
-}
-
-task javadocJar(type: Jar, dependsOn: javadoc) {
-
-    classifier = 'javadoc'
-    from javadoc.destinationDir
-}
-
-
-javadoc {
-    options {
-        encoding "UTF-8"
-        charSet 'UTF-8'
-    }
-}
-// add javadoc/source jar tasks as artifacts
-artifacts {
-    archives sourcesJar, javadocJar
-}
-
-group = publishedGroupId
-
-publishing {
-    publications {
-        MyPublication(MavenPublication) {
-            from components.java
-            groupId 'th.or.nectec.android'
-            artifactId project.name
-            version libraryVersion
-
-            artifact sourcesJar
-            artifact javadocJar
-        }
-    }
-}
-
+apply from: 'maven.gradle'
 apply from: '../gradle/bintray.gradle'
