@@ -28,9 +28,9 @@ public class AreaTest {
     @Test
     public void squareMeterToRaiNganSquareWa() {
         Area rai = Area.fromSquareMeter(1600);
-        assertEquals(1,rai.getRai());
-        assertEquals(0,rai.getNgan());
-        assertEquals(0,rai.getSquareWa());
+        assertEquals(1, rai.getRai());
+        assertEquals(0, rai.getNgan());
+        assertEquals(0, rai.getSquareWa());
     }
 
     @Test
@@ -50,9 +50,9 @@ public class AreaTest {
     public void testRaiNganSquareWaToSquareMeter() {
         Area rai = Area.fromRaiNganSqaureWa(1, 0, 0);
         assertEquals(1600, rai.getSquareMeter());
-        assertEquals(1,rai.getRai());
-        assertEquals(0,rai.getNgan());
-        assertEquals(0,rai.getSquareWa());
+        assertEquals(1, rai.getRai());
+        assertEquals(0, rai.getNgan());
+        assertEquals(0, rai.getSquareWa());
     }
 
     @Test

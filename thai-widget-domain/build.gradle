@@ -18,6 +18,7 @@
 
 apply plugin: 'java'
 
+
 //noinspection GroovyUnusedAssignment
 sourceCompatibility = rootProject.ext.javaSourceCompatibility
 //noinspection GroovyUnusedAssignment
@@ -27,6 +28,13 @@ dependencies {
     compile 'com.google.code.gson:gson:' + rootProject.ext.gsonVersion
 
     testCompile 'junit:junit:' + rootProject.ext.junitVersion
+}
+
+apply plugin: 'checkstyle'
+
+checkstyle {
+    toolVersion '6.10.1'
+    configFile rootProject.file('config/checkstyle.xml')
 }
 
 apply from: 'maven.gradle'
