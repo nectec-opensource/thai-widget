@@ -1,4 +1,4 @@
-# Android-Thai-Widget [![Build Status](https://travis-ci.org/nectec-wisru/android-ThaiWidget.svg?branch=master)](https://travis-ci.org/nectec-wisru/android-ThaiWidget)
+# Android-Thai-Widget [![Build Status](https://travis-ci.org/nectec-wisru/android-ThaiWidget.svg?branch=master)](https://travis-ci.org/nectec-wisru/android-ThaiWidget) [ ![Download](https://api.bintray.com/packages/nectec-wisru/maven/thai-widget/images/download.svg) ](https://bintray.com/nectec-wisru/maven/thai-widget/_latestVersion)
 
 Thai style android custom widget by thai-dev for thai-dev
 
