@@ -4,11 +4,30 @@ Thai style android custom widget by thai-dev for thai-dev
 
 ## Widget
 
-- CitizenIdEditText - EditText for Citizen ID with validator
-- HouseIdEditText - EditText for House ID with validator
-- AreaPicker - for input area size in Rai Ngan Wa2 format
-- AddressPicker - for select Thai's Province District and SubDistrict
-- DatePicker - Buddism year version of android DatePicker
+### CitizenIdEditText
+EditText for Citizen ID with validator
+
+![CitizenIdEditText](https://raw.githubusercontent.com/nectec-wisru/android-ThaiWidget/77c2a32fb9d21fcbbbed4f40ae29205384bb3ba1/images/citizen_id.gif)
+
+### HouseIdEditText
+EditText for House ID with validator
+
+![CitizenIdEditText](https://raw.githubusercontent.com/nectec-wisru/android-ThaiWidget/77c2a32fb9d21fcbbbed4f40ae29205384bb3ba1/images/house_id.gif)
+
+### AreaPicker 
+For input area size in Rai Ngan Wa2 format
+
+![CitizenIdEditText](https://raw.githubusercontent.com/nectec-wisru/android-ThaiWidget/77c2a32fb9d21fcbbbed4f40ae29205384bb3ba1/images/area_picker.gif)
+
+### AddressPicker
+Selector of Thai's Province District and SubDistrict
+
+![CitizenIdEditText](https://raw.githubusercontent.com/nectec-wisru/android-ThaiWidget/77c2a32fb9d21fcbbbed4f40ae29205384bb3ba1/images/address_picker.gif)
+
+### DatePicker
+Buddha year version of android DatePicker
+
+![CitizenIdEditText](https://raw.githubusercontent.com/nectec-wisru/android-ThaiWidget/77c2a32fb9d21fcbbbed4f40ae29205384bb3ba1/images/date_picker.gif)
 
 ## Download
 
