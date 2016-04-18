@@ -111,7 +111,6 @@ public class DatePickerDialog extends AlertDialog implements DatePopup, NumberPi
 
     @Override
     public void updateDate(int year, int month, int dayOfMonth) {
-        Log.e(TAG, String.format("updateDate %s %s %s", dayOfMonth, month, year));
         calendar.set(year, month, dayOfMonth);
 
         if (dayPicker != null) {
@@ -120,8 +119,6 @@ public class DatePickerDialog extends AlertDialog implements DatePopup, NumberPi
             monthPicker.setValue(month);
             yearPicker.setValue(year + 543);
         }
-
-        setTitle(DatePrinter.print(calendar));
     }
 
     @Override
@@ -194,6 +191,11 @@ public class DatePickerDialog extends AlertDialog implements DatePopup, NumberPi
     public void show(Calendar calendar) {
         updateDate(calendar);
         show();
+    }
+
+    @Override
+    public void setPopupTitle(String title) {
+        setTitle(title);
     }
 
     @Override

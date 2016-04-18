@@ -25,4 +25,6 @@ public interface DatePopup extends DateView {
     void show(int year, int month, int dayOfMonth);
 
     void show(Calendar calendar);
+
+    void setPopupTitle(String title);
 }

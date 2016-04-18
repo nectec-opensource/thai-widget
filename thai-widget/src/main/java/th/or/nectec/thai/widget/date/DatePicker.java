@@ -163,4 +163,8 @@ public class DatePicker extends Button implements DateView {
         super.onRestoreInstanceState(ss.getSuperState());
         setCalendar(ss.getCalendar());
     }
+
+    public void setPopupTitle(String title){
+        popup.setPopupTitle(title);
+    }
 }

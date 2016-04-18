@@ -24,6 +24,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 import th.or.nectec.thai.date.DatePrinter;
+import th.or.nectec.thai.widget.date.DatePicker;
 import th.or.nectec.thai.widget.date.DatePickerDialog;
 import th.or.nectec.thai.widget.date.DateView;
 
@@ -49,8 +50,9 @@ public class DatePickerSampleActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sample_date_picker);
 
-//        DatePicker datePicker = (DatePicker) findViewById(R.id.date_picker);
-//        datePicker.setMaxDate(1988, 9, 21);
+        DatePicker datePicker = (DatePicker) findViewById(R.id.date_picker);
+        datePicker.setPopupTitle("ระบุ วัน/เดือน/ปี เกิด");
+
         findViewById(R.id.button).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
