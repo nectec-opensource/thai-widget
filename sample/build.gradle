@@ -37,6 +37,12 @@ android {
         targetCompatibility rootProject.ext.javaTargetCompatibility
     }
 
+    signingConfigs {
+        debug {
+            storeFile file("debug.keystore")
+        }
+    }
+
     buildTypes {
         debug{
             testCoverageEnabled = true
