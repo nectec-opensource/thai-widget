@@ -24,7 +24,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
+
 import th.or.nectec.thai.address.AddressEntity;
+import th.or.nectec.thai.widget.BuildConfig;
 import th.or.nectec.thai.widget.R;
 
 import java.util.ArrayList;
@@ -42,7 +44,6 @@ class AddressListAdapter<T extends AddressEntity> extends BaseAdapter {
         mInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         addAll(addressList);
     }
-
 
     public final void addAll(List<T> collection) {
         addressList = new ArrayList<>();
@@ -80,6 +81,7 @@ class AddressListAdapter<T extends AddressEntity> extends BaseAdapter {
         ViewHolder viewHolder = (ViewHolder) convertView.getTag();
         viewHolder.name.setText(entity.getName());
         viewHolder.code.setText(context.getString(R.string.address_code_format, entity.getCode()));
+
         return convertView;
     }
 
@@ -90,6 +92,7 @@ class AddressListAdapter<T extends AddressEntity> extends BaseAdapter {
         public ViewHolder(View view) {
             this.name = (TextView) view.findViewById(R.id.name);
             this.code = (TextView) view.findViewById(R.id.code);
+            code.setVisibility(BuildConfig.DEBUG ? View.VISIBLE : View.GONE);
         }
     }
 }
