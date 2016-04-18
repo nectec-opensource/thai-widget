@@ -21,18 +21,15 @@ package th.or.nectec.thai.widget.date;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
-import android.util.Log;
 import android.view.View;
 import android.widget.NumberPicker;
-import th.or.nectec.thai.date.DatePrinter;
+
 import th.or.nectec.thai.widget.R;
 import th.or.nectec.thai.widget.utils.ViewUtils;
 
 import java.util.Calendar;
 
-import static java.util.Calendar.DAY_OF_MONTH;
-import static java.util.Calendar.MONTH;
-import static java.util.Calendar.YEAR;
+import static java.util.Calendar.*;
 
 public class DatePickerDialog extends AlertDialog implements DatePopup, NumberPicker.OnValueChangeListener {
 
@@ -40,7 +37,6 @@ public class DatePickerDialog extends AlertDialog implements DatePopup, NumberPi
             "มีนาคม", "เมษายน", "พฤษภาคม", "มิถุนายน", "กรกฎาคม", "สิงหาคม",
             "กันยายน", "ตุลาคม", "พฤศจิกายน", "ธันวาคม"};
 
-    private static final String TAG = "DatePickerDialog";
     protected final NumberPicker dayPicker;
     protected final NumberPicker monthPicker;
     protected final NumberPicker yearPicker;

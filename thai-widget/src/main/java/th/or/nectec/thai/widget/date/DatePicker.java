@@ -29,8 +29,6 @@ import th.or.nectec.thai.widget.utils.ViewUtils;
 import java.util.Calendar;
 import java.util.Locale;
 
-import static java.util.Calendar.*;
-
 public class DatePicker extends Button implements DateView {
 
     protected static final String HINT_MESSAGE = "ระบุวันที";
@@ -106,17 +104,17 @@ public class DatePicker extends Button implements DateView {
 
     @Override
     public int getYear() {
-        return calendar.get(YEAR);
+        return calendar.get(Calendar.YEAR);
     }
 
     @Override
     public int getMonth() {
-        return calendar.get(MONTH);
+        return calendar.get(Calendar.MONTH);
     }
 
     @Override
     public int getDayOfMonth() {
-        return calendar.get(DAY_OF_MONTH);
+        return calendar.get(Calendar.DAY_OF_MONTH);
     }
 
     @Override

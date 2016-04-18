@@ -23,7 +23,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.view.View;
 import android.widget.NumberPicker;
-import android.widget.NumberPicker.OnValueChangeListener;
+
 import th.or.nectec.thai.unit.Area;
 import th.or.nectec.thai.widget.R;
 import th.or.nectec.thai.widget.utils.ViewUtils;
@@ -34,11 +34,17 @@ import th.or.nectec.thai.widget.utils.ViewUtils;
 public class AreaPickerDialog extends AlertDialog implements AreaPopup {
 
     public static final String DEFALT_TITLE = "ระบุขนาดพื้นที่";
+    private final OnAreaPickListener onAreaPickListener;
+    private final OnClickListener onNegativeButtonClick = new OnClickListener() {
+        @Override
+        public void onClick(DialogInterface dialogInterface, int i) {
+            onAreaPickListener.onCancel();
+            dismiss();
+        }
+    };
     private NumberPicker rai;
     private NumberPicker ngan;
     private NumberPicker squareWa;
-    private final OnAreaPickListener onAreaPickListener;
-
     private final OnClickListener onPositiveButtonClick = new OnClickListener() {
         @Override
         public void onClick(DialogInterface dialogInterface, int i) {
@@ -47,21 +53,6 @@ public class AreaPickerDialog extends AlertDialog implements AreaPopup {
             Area area = Area.fromRaiNganSqaureWa(rai.getValue(), ngan.getValue(), squareWa.getValue());
             onAreaPickListener.onAreaPick(area);
             dismiss();
-        }
-    };
-
-    private final OnClickListener onNegativeButtonClick = new OnClickListener() {
-        @Override
-        public void onClick(DialogInterface dialogInterface, int i) {
-            onAreaPickListener.onCancel();
-            dismiss();
-        }
-    };
-
-    private final OnValueChangeListener raiNganSquareWaChangeListener = new OnValueChangeListener() {
-        @Override
-        public void onValueChange(NumberPicker numberPicker, int i, int i1) {
-            Area area = Area.fromRaiNganSqaureWa(rai.getValue(), ngan.getValue(), squareWa.getValue());
         }
     };
 
@@ -89,25 +80,22 @@ public class AreaPickerDialog extends AlertDialog implements AreaPopup {
         squareWa = (NumberPicker) view.findViewById(R.id.squareWa);
     }
 
-    private void initSquareWa() {
-        squareWa.setMaxValue(99);
-        squareWa.setMinValue(0);
-        squareWa.setValue(0);
-        squareWa.setOnValueChangedListener(raiNganSquareWaChangeListener);
+    private void initRai() {
+        rai.setMaxValue(10000);
+        rai.setMinValue(0);
+        rai.setValue(0);
     }
 
     private void initNgan() {
         ngan.setMaxValue(3);
         ngan.setMinValue(0);
         ngan.setValue(0);
-        ngan.setOnValueChangedListener(raiNganSquareWaChangeListener);
     }
 
-    private void initRai() {
-        rai.setMaxValue(10000);
-        rai.setMinValue(0);
-        rai.setValue(0);
-        rai.setOnValueChangedListener(raiNganSquareWaChangeListener);
+    private void initSquareWa() {
+        squareWa.setMaxValue(99);
+        squareWa.setMinValue(0);
+        squareWa.setValue(0);
     }
 
     private void initButton() {
