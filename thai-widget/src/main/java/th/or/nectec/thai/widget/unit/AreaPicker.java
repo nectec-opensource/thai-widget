@@ -25,6 +25,7 @@ import android.view.Gravity;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.TextView;
+
 import th.or.nectec.thai.unit.Area;
 import th.or.nectec.thai.widget.utils.ViewUtils;
 
@@ -110,7 +111,7 @@ public class AreaPicker extends TextView implements AreaView, OnClickListener {
         setArea(ss.getArea());
     }
 
-    public void setTitle(String title){
+    public void setTitle(String title) {
         popup.setPopupTitle(title);
     }
 
