@@ -29,7 +29,9 @@ import th.or.nectec.thai.widget.utils.ViewUtils;
 
 import java.util.Calendar;
 
-import static java.util.Calendar.*;
+import static java.util.Calendar.DAY_OF_MONTH;
+import static java.util.Calendar.MONTH;
+import static java.util.Calendar.YEAR;
 
 public class DatePickerDialog extends AlertDialog implements DatePopup, NumberPicker.OnValueChangeListener {
 
