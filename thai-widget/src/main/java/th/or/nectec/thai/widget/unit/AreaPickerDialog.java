@@ -21,7 +21,6 @@ package th.or.nectec.thai.widget.unit;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
-import android.text.TextUtils;
 import android.view.View;
 import android.widget.NumberPicker;
 import android.widget.NumberPicker.OnValueChangeListener;
@@ -35,8 +34,7 @@ import th.or.nectec.thai.widget.utils.ViewUtils;
  */
 public class AreaPickerDialog extends AlertDialog implements AreaPopup {
 
-    public static final String TITLE = "ระบุขนาดพื้นที่";
-    public static final String TITLE_SEPARATOR = " - ";
+    public static final String DEFALT_TITLE = "ระบุขนาดพื้นที่";
     private NumberPicker rai;
     private NumberPicker ngan;
     private NumberPicker squareWa;
@@ -65,7 +63,6 @@ public class AreaPickerDialog extends AlertDialog implements AreaPopup {
         @Override
         public void onValueChange(NumberPicker numberPicker, int i, int i1) {
             Area area = Area.fromRaiNganSqaureWa(rai.getValue(), ngan.getValue(), squareWa.getValue());
-            updateTitle(area);
         }
     };
 
@@ -73,7 +70,7 @@ public class AreaPickerDialog extends AlertDialog implements AreaPopup {
         super(context);
         this.onAreaPickListener = listener;
 
-        setTitle(TITLE);
+        setTitle(DEFALT_TITLE);
         setupView(context);
     }
 
@@ -86,7 +83,6 @@ public class AreaPickerDialog extends AlertDialog implements AreaPopup {
         initSquareWa();
         initButton();
     }
-
 
     private void findView(View view) {
         rai = (NumberPicker) view.findViewById(R.id.rai);
@@ -113,12 +109,16 @@ public class AreaPickerDialog extends AlertDialog implements AreaPopup {
         rai.setMinValue(0);
         rai.setValue(0);
         rai.setOnValueChangedListener(raiNganSquareWaChangeListener);
-
     }
 
     private void initButton() {
         setButton(BUTTON_POSITIVE, getContext().getString(R.string.ok), onPositiveButtonClick);
         setButton(BUTTON_NEGATIVE, getContext().getString(R.string.cancel), onNegativeButtonClick);
+    }
+
+    @Override
+    public void setPopupTitle(String title) {
+        setTitle(title);
     }
 
     @Override
@@ -132,15 +132,6 @@ public class AreaPickerDialog extends AlertDialog implements AreaPopup {
         ngan.setValue(area.getNgan());
         squareWa.setValue(area.getSquareWa());
     }
-
-    private void updateTitle(Area area) {
-        StringBuilder builder = new StringBuilder(TITLE);
-        String detail = area.prettyPrint();
-        if (!TextUtils.isEmpty(detail))
-            builder.append(TITLE_SEPARATOR).append(detail);
-        setTitle(builder);
-    }
-
 
     public interface OnAreaPickListener {
         void onAreaPick(Area area);

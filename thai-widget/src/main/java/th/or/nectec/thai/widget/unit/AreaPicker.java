@@ -32,7 +32,7 @@ public class AreaPicker extends TextView implements AreaView, OnClickListener {
 
     protected static final String HINT_MESSAGE = "ระบุขนาดพื้นที่";
 
-    private AreaPopup pickerDialog;
+    private AreaPopup popup;
     private Area area = new Area(0);
 
     private final AreaPickerDialog.OnAreaPickListener listener = new AreaPickerDialog.OnAreaPickListener() {
@@ -67,7 +67,7 @@ public class AreaPicker extends TextView implements AreaView, OnClickListener {
     }
 
     private void setupPickerDialog() {
-        pickerDialog = new AreaPickerDialog(getContext(), listener);
+        popup = new AreaPickerDialog(getContext(), listener);
         setOnClickListener(this);
     }
 
@@ -86,7 +86,7 @@ public class AreaPicker extends TextView implements AreaView, OnClickListener {
 
     @Override
     public void onClick(View view) {
-        pickerDialog.show(area);
+        popup.show(area);
     }
 
     @Override
@@ -110,7 +110,13 @@ public class AreaPicker extends TextView implements AreaView, OnClickListener {
         setArea(ss.getArea());
     }
 
+    public void setTitle(String title){
+        popup.setPopupTitle(title);
+    }
+
     interface AreaPopup {
+        void setPopupTitle(String title);
+
         void show(Area area);
     }
 }

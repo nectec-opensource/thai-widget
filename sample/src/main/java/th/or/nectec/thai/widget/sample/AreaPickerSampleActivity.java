@@ -58,6 +58,7 @@ public class AreaPickerSampleActivity extends Activity {
 
             @Override
             public void onClick(View view) {
+                areaPickerDialog.setPopupTitle("ระบุพื้นที่เพาะปลูก");
                 areaPickerDialog.show();
             }
         });
