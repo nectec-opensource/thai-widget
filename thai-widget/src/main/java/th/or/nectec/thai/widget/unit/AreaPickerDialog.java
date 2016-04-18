@@ -26,7 +26,6 @@ import android.widget.NumberPicker;
 import android.widget.NumberPicker.OnValueChangeListener;
 import th.or.nectec.thai.unit.Area;
 import th.or.nectec.thai.widget.R;
-import th.or.nectec.thai.widget.unit.AreaPicker.AreaPopup;
 import th.or.nectec.thai.widget.utils.ViewUtils;
 
 /**

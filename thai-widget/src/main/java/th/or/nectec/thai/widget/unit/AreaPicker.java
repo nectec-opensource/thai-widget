@@ -114,9 +114,4 @@ public class AreaPicker extends TextView implements AreaView, OnClickListener {
         popup.setPopupTitle(title);
     }
 
-    interface AreaPopup {
-        void setPopupTitle(String title);
-
-        void show(Area area);
-    }
 }
