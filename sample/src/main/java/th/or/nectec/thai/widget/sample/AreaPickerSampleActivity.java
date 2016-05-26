@@ -22,9 +22,11 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
+
 import th.or.nectec.thai.unit.Area;
 import th.or.nectec.thai.widget.unit.AreaPicker;
 import th.or.nectec.thai.widget.unit.AreaPickerDialog;
+import th.or.nectec.thai.widget.unit.AreaView;
 
 
 public class AreaPickerSampleActivity extends Activity {
@@ -66,6 +68,12 @@ public class AreaPickerSampleActivity extends Activity {
             @Override
             public void onClick(View view) {
                 AreaPicker areaPicker = (AreaPicker) findViewById(R.id.area_picker);
+                areaPicker.setOnAreaChangeListener(new AreaView.OnAreaChangedListener() {
+                    @Override
+                    public void onAreaChanged(Area area) {
+                        Toast.makeText(AreaPickerSampleActivity.this, area.prettyPrint(), Toast.LENGTH_LONG).show();
+                    }
+                });
                 areaPicker.setArea(new Area(1600));
             }
         });

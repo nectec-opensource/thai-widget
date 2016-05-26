@@ -35,8 +35,8 @@ public class AreaPicker extends TextView implements AreaView, OnClickListener {
 
     private AreaPopup popup;
     private Area area = new Area(0);
-
-    private final AreaPickerDialog.OnAreaPickListener listener = new AreaPickerDialog.OnAreaPickListener() {
+    private OnAreaChangedListener listener;
+    private final AreaPickerDialog.OnAreaPickListener dialogListener = new AreaPickerDialog.OnAreaPickListener() {
         @Override
         public void onAreaPick(Area area) {
             setArea(area);
@@ -68,7 +68,7 @@ public class AreaPicker extends TextView implements AreaView, OnClickListener {
     }
 
     private void setupPickerDialog() {
-        popup = new AreaPickerDialog(getContext(), listener);
+        popup = new AreaPickerDialog(getContext(), dialogListener);
         setOnClickListener(this);
     }
 
@@ -83,6 +83,7 @@ public class AreaPicker extends TextView implements AreaView, OnClickListener {
             throw new IllegalArgumentException("area must not be null");
         this.area = area;
         setText(area.prettyPrint());
+        if (listener != null) listener.onAreaChanged(area);
     }
 
     @Override
@@ -113,6 +114,10 @@ public class AreaPicker extends TextView implements AreaView, OnClickListener {
 
     public void setTitle(String title) {
         popup.setPopupTitle(title);
+    }
+
+    public void setOnAreaChangeListener(OnAreaChangedListener listener) {
+        this.listener = listener;
     }
 
 }
