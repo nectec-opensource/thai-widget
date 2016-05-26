@@ -25,4 +25,8 @@ public interface AreaView {
     Area getArea();
 
     void setArea(Area area);
+
+    interface OnAreaChangedListener {
+        void onAreaChanged(Area area);
+    }
 }
