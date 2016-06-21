@@ -23,12 +23,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
+
+import java.util.Calendar;
+
 import th.or.nectec.thai.date.DatePrinter;
 import th.or.nectec.thai.widget.date.DatePicker;
 import th.or.nectec.thai.widget.date.DatePickerDialog;
 import th.or.nectec.thai.widget.date.DateView;
-
-import java.util.Calendar;
 
 public class DatePickerSampleActivity extends AppCompatActivity {
 
@@ -59,6 +60,13 @@ public class DatePickerSampleActivity extends AppCompatActivity {
                 DatePickerDialog dialog = new DatePickerDialog(DatePickerSampleActivity.this, datePickerCallback);
                 dialog.setMinDateIsToday();
                 dialog.show();
+            }
+        });
+
+        datePicker.setOnDateChangedListener(new DatePicker.OnDateChangedListener() {
+            @Override
+            public void onDateChanged(Calendar calendar) {
+                Toast.makeText(DatePickerSampleActivity.this, calendar.getTime().toString(), Toast.LENGTH_SHORT).show();
             }
         });
     }

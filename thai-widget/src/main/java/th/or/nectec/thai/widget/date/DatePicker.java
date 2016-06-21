@@ -23,11 +23,11 @@ import android.os.Parcelable;
 import android.util.AttributeSet;
 import android.widget.Button;
 
-import th.or.nectec.thai.date.DatePrinter;
-import th.or.nectec.thai.widget.utils.ViewUtils;
-
 import java.util.Calendar;
 import java.util.Locale;
+
+import th.or.nectec.thai.date.DatePrinter;
+import th.or.nectec.thai.widget.utils.ViewUtils;
 
 public class DatePicker extends Button implements DateView {
 
@@ -36,6 +36,8 @@ public class DatePicker extends Button implements DateView {
     private final DatePopup popup;
     private Calendar calendar;
     private DatePickerCallback callback;
+
+    private OnDateChangedListener onDateChangedListener;
 
     private final DatePopup.DatePickerCallback datePickerCallback = new DatePickerDialog.DatePickerCallback() {
         @Override
@@ -73,6 +75,9 @@ public class DatePicker extends Button implements DateView {
     public final void setCalendar(Calendar calendar) {
         this.calendar = calendar;
         setText(DatePrinter.print(calendar));
+
+        if (onDateChangedListener != null)
+            onDateChangedListener.onDateChanged(calendar);
     }
 
     private Calendar defaultCalendar() {
@@ -159,7 +164,15 @@ public class DatePicker extends Button implements DateView {
         setCalendar(ss.getCalendar());
     }
 
+    public void setOnDateChangedListener(OnDateChangedListener onDateChangedListener) {
+        this.onDateChangedListener = onDateChangedListener;
+    }
+
     public void setPopupTitle(String title) {
         popup.setPopupTitle(title);
+    }
+
+    public interface OnDateChangedListener {
+        void onDateChanged(Calendar calendar);
     }
 }
