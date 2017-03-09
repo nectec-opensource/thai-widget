@@ -63,12 +63,10 @@ task bintray {
     group 'Publishing'
     description 'Publish all artifcats to bintray'
 
-    dependsOn(":thai-widget-domain:clean")
-    dependsOn(":thai-widget-domain:test")
     dependsOn(":thai-widget-domain:build")
+    dependsOn(":thai-widget-domain:install")
     dependsOn(":thai-widget-domain:bintrayUpload")
-    dependsOn(":thai-widget:clean")
-    dependsOn(":thai-widget:test")
     dependsOn(":thai-widget:build")
+    dependsOn(":thai-widget:install")
     dependsOn(":thai-widget:bintrayUpload")
 }
