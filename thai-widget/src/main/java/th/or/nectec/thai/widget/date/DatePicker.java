@@ -40,17 +40,16 @@ public class DatePicker extends Button implements DateView {
     private OnDateChangedListener onDateChangedListener;
 
     private final DatePopup.DatePickerCallback datePickerCallback = new DatePickerDialog.DatePickerCallback() {
-        @Override
-        public void onPicked(DateView view, Calendar calendar) {
+        @Override public void onPicked(DateView view, Calendar calendar) {
             setCalendar(calendar);
             if (callback != null) callback.onPicked(DatePicker.this, calendar);
         }
 
-        @Override
-        public void onCancel() {
+        @Override public void onCancel() {
             removeCalendar();
         }
     };
+    private boolean undefinedAsDefault;
 
     public DatePicker(Context context) {
         this(context, null);
@@ -63,9 +62,10 @@ public class DatePicker extends Button implements DateView {
     public DatePicker(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
 
-        setCalendar(defaultCalendar());
+        if (!undefinedAsDefault) {
+            setCalendar(defaultCalendar());
+        }
 
-        setText(DatePrinter.print(calendar));
         setHint(HINT_MESSAGE);
         ViewUtils.updatePaddingRight(this);
 
@@ -76,8 +76,7 @@ public class DatePicker extends Button implements DateView {
         this.calendar = calendar;
         setText(DatePrinter.print(calendar));
 
-        if (onDateChangedListener != null)
-            onDateChangedListener.onDateChanged(calendar);
+        if (onDateChangedListener != null) onDateChangedListener.onDateChanged(calendar);
     }
 
     private Calendar defaultCalendar() {
@@ -87,74 +86,73 @@ public class DatePicker extends Button implements DateView {
         return calendar;
     }
 
+    public void setUndefinedAsDefault() {
+        removeCalendar();
+        undefinedAsDefault = true;
+    }
+
     private void removeCalendar() {
         callback = null;
+        calendar = null;
+        if (onDateChangedListener != null) onDateChangedListener.onDateChanged(calendar);
         setText(null);
     }
 
-    @Override
-    public boolean performClick() {
-        if (calendar == null)
-            calendar = defaultCalendar();
+    public Calendar getCalendar() {
+        return calendar;
+    }
+
+    @Override public boolean performClick() {
+        if (calendar == null) calendar = defaultCalendar();
         popup.show(calendar);
         return super.performClick();
     }
 
-    @Override
-    public void updateDate(int year, int month, int dayOfMonth) {
+    @Override public void updateDate(int year, int month, int dayOfMonth) {
         Calendar calendar = Calendar.getInstance();
         calendar.set(year, month, dayOfMonth);
         setCalendar(calendar);
     }
 
-    @Override
-    public int getYear() {
+    @Override public int getYear() {
         return calendar.get(Calendar.YEAR);
     }
 
-    @Override
-    public int getMonth() {
+    @Override public int getMonth() {
         return calendar.get(Calendar.MONTH);
     }
 
-    @Override
-    public int getDayOfMonth() {
+    @Override public int getDayOfMonth() {
         return calendar.get(Calendar.DAY_OF_MONTH);
     }
 
-    @Override
-    public void setMaxDate(int year, int month, int dayOfMonth) {
+    @Override public void setMaxDate(int year, int month, int dayOfMonth) {
         Calendar maxCalendar = defaultCalendar();
         maxCalendar.set(year, month, dayOfMonth);
         if (this.calendar.compareTo(maxCalendar) > 0) setCalendar(maxCalendar);
         popup.setMaxDate(year, month, dayOfMonth);
     }
 
-    @Override
-    public void setMinDate(int year, int month, int dayOfMonth) {
+    @Override public void setMinDate(int year, int month, int dayOfMonth) {
         Calendar maxCalendar = defaultCalendar();
         maxCalendar.set(year, month, dayOfMonth);
         if (this.calendar.compareTo(maxCalendar) < 0) setCalendar(maxCalendar);
         popup.setMinDate(year, month, dayOfMonth);
     }
 
-    @Override
-    public void setCallback(DatePickerCallback callback) {
+    @Override public void setCallback(DatePickerCallback callback) {
         this.callback = callback;
     }
 
-    @Override
-    public Parcelable onSaveInstanceState() {
-        if (calendar == null)
-            return super.onSaveInstanceState();
+    @Override public Parcelable onSaveInstanceState() {
+        if (calendar == null) return super.onSaveInstanceState();
         Parcelable parcelable = super.onSaveInstanceState();
         CalendarSavedState savedState = new CalendarSavedState(parcelable);
         savedState.setCalendar(calendar);
         return savedState;
     }
 
-    @Override
-    public void onRestoreInstanceState(Parcelable state) {
+    @Override public void onRestoreInstanceState(Parcelable state) {
         if (!(state instanceof CalendarSavedState)) {
             super.onRestoreInstanceState(state);
             return;

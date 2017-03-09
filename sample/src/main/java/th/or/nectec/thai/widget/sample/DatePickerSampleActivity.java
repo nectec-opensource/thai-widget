@@ -34,29 +34,27 @@ import th.or.nectec.thai.widget.date.DateView;
 public class DatePickerSampleActivity extends AppCompatActivity {
 
     private final DateView.DatePickerCallback datePickerCallback = new DateView.DatePickerCallback() {
-        @Override
-        public void onPicked(DateView view, Calendar calendar) {
+        @Override public void onPicked(DateView view, Calendar calendar) {
             Button button = (Button) findViewById(R.id.button);
             button.setText(DatePrinter.print(calendar));
         }
 
-        @Override
-        public void onCancel() {
+        @Override public void onCancel() {
             if (BuildConfig.DEBUG) Toast.makeText(DatePickerSampleActivity.this, "onCancle", Toast.LENGTH_SHORT).show();
         }
     };
 
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
+    @Override public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sample_date_picker);
 
         DatePicker datePicker = (DatePicker) findViewById(R.id.date_picker);
         datePicker.setPopupTitle("ระบุ วัน/เดือน/ปี เกิด");
+        datePicker.setUndefinedAsDefault();
+        Toast.makeText(this, datePicker.getCalendar() + "", Toast.LENGTH_SHORT).show();
 
         findViewById(R.id.button).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+            @Override public void onClick(View view) {
                 DatePickerDialog dialog = new DatePickerDialog(DatePickerSampleActivity.this, datePickerCallback);
                 dialog.setMinDateIsToday();
                 dialog.show();
@@ -64,9 +62,9 @@ public class DatePickerSampleActivity extends AppCompatActivity {
         });
 
         datePicker.setOnDateChangedListener(new DatePicker.OnDateChangedListener() {
-            @Override
-            public void onDateChanged(Calendar calendar) {
-                Toast.makeText(DatePickerSampleActivity.this, calendar.getTime().toString(), Toast.LENGTH_SHORT).show();
+            @Override public void onDateChanged(Calendar calendar) {
+                Toast.makeText(DatePickerSampleActivity.this,
+                        calendar == null ? "undefined" : calendar.getTime().toString(), Toast.LENGTH_SHORT).show();
             }
         });
     }
