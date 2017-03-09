@@ -99,7 +99,7 @@ public class DatePicker extends Button implements DateView {
     }
 
     public Calendar getCalendar() {
-        return calendar;
+        return calendar == null ? null : (Calendar) calendar.clone();
     }
 
     @Override public boolean performClick() {
