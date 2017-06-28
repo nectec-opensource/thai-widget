@@ -18,17 +18,18 @@
 
 apply plugin: 'java'
 
+version = rootProject.version
+
 //noinspection GroovyUnusedAssignment
-sourceCompatibility = rootProject.ext.javaSourceCompatibility
+sourceCompatibility = javaVersion
 //noinspection GroovyUnusedAssignment
-targetCompatibility = rootProject.ext.javaTargetCompatibility
+targetCompatibility = javaVersion
 
 dependencies {
-    compile 'com.google.code.gson:gson:' + rootProject.ext.gsonVersion
-
-    testCompile 'junit:junit:' + rootProject.ext.junitVersion
+    compile 'com.google.code.gson:gson:' + gsonVersion
+    testCompile 'junit:junit:' + junitVersion
 }
 
-apply from: 'https://raw.githubusercontent.com/Blazei/java-quality-config/master/java/quality.gradle'
+apply from: 'https://raw.githubusercontent.com/piruin/java-quality-config/master/java/quality.gradle'
 apply from: 'maven.gradle'
 apply from: '../gradle/bintray.gradle'

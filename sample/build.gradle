@@ -33,8 +33,8 @@ android {
     }
 
     compileOptions {
-        sourceCompatibility rootProject.ext.javaSourceCompatibility
-        targetCompatibility rootProject.ext.javaTargetCompatibility
+        sourceCompatibility javaVersion
+        targetCompatibility javaVersion
     }
 
     signingConfigs {
@@ -62,7 +62,7 @@ android {
     }
 
     lintOptions {
-        abortOnError true
+        abortOnError false
         checkAllWarnings true
         warningsAsErrors true
         disable 'GoogleAppIndexingWarning'

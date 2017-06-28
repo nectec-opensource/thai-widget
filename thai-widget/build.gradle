@@ -16,8 +16,15 @@
  *
  */
 
+plugins {
+    id "com.github.dcendents.android-maven" version "1.5"
+}
+
+apply plugin: 'com.jfrog.bintray'
 apply plugin: 'com.android.library'
-apply plugin: 'com.noveogroup.android.check'
+apply plugin: 'org.stoyicker.android-check'
+
+version = rootProject.version
 
 android {
     compileSdkVersion  rootProject.ext.compileSdkVersion
@@ -26,13 +33,11 @@ android {
     defaultConfig {
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 1
-        versionName "1.0"
     }
 
     compileOptions {
-        sourceCompatibility rootProject.ext.javaSourceCompatibility
-        targetCompatibility rootProject.ext.javaTargetCompatibility
+        sourceCompatibility javaVersion
+        targetCompatibility javaVersion
     }
 
     buildTypes {
@@ -62,18 +67,15 @@ android {
 
 dependencies {
     compile project(':thai-widget-domain')
-    compile 'com.google.code.gson:gson:' + rootProject.ext.gsonVersion
-    compile 'th.or.nectec:thai-unit:' + rootProject.ext.thaiUnitVersion
+    compile 'com.google.code.gson:gson:' + gsonVersion
+    compile 'th.or.nectec:thai-unit:' + thaiUnitVersion
 
-    testCompile 'junit:junit:' + rootProject.ext.junitVersion
-    testCompile 'org.robolectric:robolectric:' + rootProject.ext.robolectricVersion
+    testCompile 'junit:junit:' +junitVersion
+    testCompile 'org.robolectric:robolectric:' + robolectricVersion
 }
 
 check {
     abortOnError true
-    findbugs {
-        skip true
-    }
 }
 
 apply from: '../gradle/artifact.gradle'

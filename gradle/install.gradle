@@ -34,7 +34,7 @@ install {
             }
             developers {
                 developer {
-                    id 'blazei'
+                    id 'piruin'
                     name 'Piruin Panichphol'
                     email 'piruin.panichphol@nectec.or.th'
                 }
