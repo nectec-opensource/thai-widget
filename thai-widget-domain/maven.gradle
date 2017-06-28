@@ -43,15 +43,13 @@ artifacts {
     archives sourcesJar, javadocJar
 }
 
-group = publishedGroupId
-
 publishing {
     publications {
         MyPublication(MavenPublication) {
             from components.java
-            groupId 'th.or.nectec.android'
+            groupId project.group
             artifactId project.name
-            version libraryVersion
+            version project.version
 
             artifact sourcesJar
             artifact javadocJar
