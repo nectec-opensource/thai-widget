@@ -28,8 +28,8 @@ group = rootProject.group
 version = rootProject.version
 
 android {
-    compileSdkVersion  rootProject.ext.compileSdkVersion
-    buildToolsVersion  rootProject.ext.buildToolsVersion
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    buildToolsVersion rootProject.ext.buildToolsVersion
 
     defaultConfig {
         minSdkVersion rootProject.ext.minSdkVersion
@@ -42,7 +42,7 @@ android {
     }
 
     buildTypes {
-        debug{
+        debug {
             testCoverageEnabled = true
         }
         release {
@@ -71,12 +71,16 @@ dependencies {
     compile 'com.google.code.gson:gson:' + gsonVersion
     compile 'th.or.nectec:thai-unit:' + thaiUnitVersion
 
-    testCompile 'junit:junit:' +junitVersion
+    testCompile 'junit:junit:' + junitVersion
     testCompile 'org.robolectric:robolectric:' + robolectricVersion
 }
 
 check {
     abortOnError true
+
+    pmd {
+        skip true
+    }
 }
 
 apply from: '../gradle/artifact.gradle'
