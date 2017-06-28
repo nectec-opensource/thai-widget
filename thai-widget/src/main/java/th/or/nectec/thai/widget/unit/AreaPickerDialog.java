@@ -24,7 +24,7 @@ import android.content.DialogInterface;
 import android.view.View;
 import android.widget.NumberPicker;
 
-import th.or.nectec.thai.unit.Area;
+import nectec.thai.unit.Area;
 import th.or.nectec.thai.widget.R;
 import th.or.nectec.thai.widget.utils.ViewUtils;
 
@@ -50,7 +50,7 @@ public class AreaPickerDialog extends AlertDialog implements AreaPopup {
         public void onClick(DialogInterface dialogInterface, int i) {
             View currentFocus = getCurrentFocus();
             if (currentFocus != null) currentFocus.clearFocus();
-            Area area = Area.fromRaiNganSqaureWa(rai.getValue(), ngan.getValue(), squareWa.getValue());
+            Area area = Area.from(rai.getValue(), ngan.getValue(), squareWa.getValue());
             onAreaPickListener.onAreaPick(area);
             dismiss();
         }

@@ -21,7 +21,7 @@ package th.or.nectec.thai.widget.unit;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.view.View;
-import th.or.nectec.thai.unit.Area;
+import nectec.thai.unit.Area;
 
 class AreaSaveState extends View.BaseSavedState {
 
@@ -48,12 +48,12 @@ class AreaSaveState extends View.BaseSavedState {
     }
 
     public Area getArea() {
-        return Area.fromSquareMeter(areaInSquareMeter);
+        return new Area(areaInSquareMeter);
     }
 
     public void setArea(Area area) {
         if (area != null)
-            areaInSquareMeter = area.getSquareMeter();
+            areaInSquareMeter = area.getSquareMetre();
     }
 
     @Override

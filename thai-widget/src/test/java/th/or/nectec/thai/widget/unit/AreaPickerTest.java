@@ -25,7 +25,6 @@ import org.junit.runner.RunWith;
 import org.robolectric.Robolectric;
 import org.robolectric.RobolectricGradleTestRunner;
 import org.robolectric.annotation.Config;
-import th.or.nectec.thai.unit.Area;
 import th.or.nectec.thai.widget.BuildConfig;
 
 import static org.junit.Assert.assertEquals;

@@ -18,7 +18,7 @@
 
 package th.or.nectec.thai.widget.unit;
 
-import th.or.nectec.thai.unit.Area;
+import nectec.thai.unit.Area;
 
 public interface AreaView {
 

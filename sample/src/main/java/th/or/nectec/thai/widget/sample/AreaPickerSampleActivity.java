@@ -23,7 +23,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
-import th.or.nectec.thai.unit.Area;
+import nectec.thai.unit.Area;
 import th.or.nectec.thai.widget.unit.AreaPicker;
 import th.or.nectec.thai.widget.unit.AreaPickerDialog;
 import th.or.nectec.thai.widget.unit.AreaView;

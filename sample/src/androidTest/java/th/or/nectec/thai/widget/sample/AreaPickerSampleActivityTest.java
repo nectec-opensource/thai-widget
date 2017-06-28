@@ -23,7 +23,6 @@ import android.support.test.runner.AndroidJUnit4;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import th.or.nectec.thai.unit.Area;
 import th.or.nectec.thai.widget.sample.action.NumberPickerAction;
 import th.or.nectec.thai.widget.unit.AreaPickerDialog;
 

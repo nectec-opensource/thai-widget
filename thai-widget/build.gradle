@@ -63,6 +63,7 @@ android {
 dependencies {
     compile project(':thai-widget-domain')
     compile 'com.google.code.gson:gson:' + rootProject.ext.gsonVersion
+    compile 'th.or.nectec:thai-unit:' + rootProject.ext.thaiUnitVersion
 
     testCompile 'junit:junit:' + rootProject.ext.junitVersion
     testCompile 'org.robolectric:robolectric:' + rootProject.ext.robolectricVersion

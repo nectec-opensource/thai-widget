@@ -26,7 +26,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.TextView;
 
-import th.or.nectec.thai.unit.Area;
+import nectec.thai.unit.Area;
 import th.or.nectec.thai.widget.utils.ViewUtils;
 
 public class AreaPicker extends TextView implements AreaView, OnClickListener {
@@ -45,7 +45,7 @@ public class AreaPicker extends TextView implements AreaView, OnClickListener {
         @Override
         public void onCancel() {
             setText(null);
-            setArea(Area.fromSquareMeter(0));
+            setArea(new Area(0));
         }
     };
 

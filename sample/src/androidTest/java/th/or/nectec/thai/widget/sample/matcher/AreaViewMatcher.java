@@ -22,7 +22,6 @@ import android.support.test.espresso.matcher.BoundedMatcher;
 import android.view.View;
 import org.hamcrest.Description;
 import org.hamcrest.Matcher;
-import th.or.nectec.thai.unit.Area;
 import th.or.nectec.thai.widget.unit.AreaPicker;
 
 public class AreaViewMatcher {
