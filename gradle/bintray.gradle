@@ -35,10 +35,10 @@ bintray {
         publish = true
         publicDownloadNumbers = true
         version {
-            name = libraryVersion
+            name = version
             desc = libraryDescription
             released = new Date()
-            vcsTag = libraryVersion
+            vcsTag = version
         }
     }
 }
