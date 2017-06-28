@@ -20,6 +20,7 @@ package th.or.nectec.thai.widget.sample.matcher;
 
 import android.support.test.espresso.matcher.BoundedMatcher;
 import android.view.View;
+import nectec.thai.unit.Area;
 import org.hamcrest.Description;
 import org.hamcrest.Matcher;
 import th.or.nectec.thai.widget.unit.AreaPicker;

@@ -67,7 +67,6 @@ android {
         warningsAsErrors true
         disable 'GoogleAppIndexingWarning'
     }
-
 }
 
 dependencies {

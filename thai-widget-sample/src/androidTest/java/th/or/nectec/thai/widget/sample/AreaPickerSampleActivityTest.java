@@ -20,6 +20,7 @@ package th.or.nectec.thai.widget.sample;
 
 import android.support.test.rule.ActivityTestRule;
 import android.support.test.runner.AndroidJUnit4;
+import nectec.thai.unit.Area;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -44,7 +45,7 @@ public class AreaPickerSampleActivityTest {
         onView(withId(R.id.area_picker))
                 .perform(click());
 
-        onView(withText(startsWith(AreaPickerDialog.TITLE)))
+        onView(withText(startsWith(AreaPickerDialog.DEFALT_TITLE)))
                 .check(matches(isDisplayed()));
 
         onView(withId(R.id.rai))
@@ -58,6 +59,6 @@ public class AreaPickerSampleActivityTest {
                 .perform(click());
 
         onView(withId(R.id.area_picker))
-                .check(matches(withArea(Area.fromRaiNganSqaureWa(10, 2, 40))));
+                .check(matches(withArea(Area.from(10, 2, 40))));
     }
 }
