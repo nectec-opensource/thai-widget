@@ -26,17 +26,19 @@ bintray {
         userOrg = bintrayOrg
         repo = bintrayRepo
         name = project.name
-        websiteUrl = siteUrl
-        vcsUrl = gitUrl
         licenses = ['Apache-2.0']
         labels = ['aar', 'android', 'library', 'thai', 'widget']
+        githubRepo = project.githubRepo
+        websiteUrl = "https://github.com/$project.githubRepo"
+        issueTrackerUrl = "https://github.com/$project.githubRepo/issues"
+        vcsUrl = "https://github.com/${project.githubRepo}.git"
         publish = true
         publicDownloadNumbers = true
         version {
-            name = version
+            name = project.version
             desc = libraryDescription
             released = new Date()
-            vcsTag = version
+            vcsTag = project.version
         }
     }
 }

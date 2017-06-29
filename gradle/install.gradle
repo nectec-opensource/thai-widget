@@ -36,11 +36,10 @@ install {
                     name 'Piruin Panichphol'
                     email 'piruin.panichphol@nectec.or.th'
                 }
-            }
-            scm {
-                connection gitUrl
-                developerConnection gitUrl
-                url siteUrl
+                developer {
+                    id 'chncs23'
+                    name 'N. Choatravee'
+                }
             }
         }
     }
