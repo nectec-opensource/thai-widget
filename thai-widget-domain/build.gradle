@@ -33,4 +33,4 @@ dependencies {
 
 apply from: 'https://raw.githubusercontent.com/piruin/java-quality-config/master/java/quality.gradle'
 apply from: 'maven.gradle'
-apply from: '../gradle/bintray.gradle'
+apply from: '../bintray.gradle'

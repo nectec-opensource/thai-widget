@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2016 NECTEC
+ * Copyright (c) 2017 NECTEC
  *   National Electronics and Computer Technology Center, Thailand
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -15,6 +15,35 @@
  * limitations under the License.
  *
  */
+
+apply plugin: 'com.github.dcendents.android-maven'
+
+install {
+    repositories.mavenInstaller {
+        pom.project {
+            name 'Android Thai Widget'
+            inceptionYear '2015'
+            packaging 'aar'
+            licenses {
+                license {
+                    name 'The Apache Software License, Version 2.0'
+                    url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+                }
+            }
+            developers {
+                developer {
+                    id 'piruin'
+                    name 'Piruin Panichphol'
+                    email 'piruin.panichphol@nectec.or.th'
+                }
+                developer {
+                    id 'chncs23'
+                    name 'N. Choatravee'
+                }
+            }
+        }
+    }
+}
 
 task sourcesJar(type: Jar) {
     from android.sourceSets.main.java.srcDirs
