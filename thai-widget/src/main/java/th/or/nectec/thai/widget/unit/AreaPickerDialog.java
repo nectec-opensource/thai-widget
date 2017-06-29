@@ -50,7 +50,7 @@ public class AreaPickerDialog extends AlertDialog implements AreaPopup {
         public void onClick(DialogInterface dialogInterface, int i) {
             View currentFocus = getCurrentFocus();
             if (currentFocus != null) currentFocus.clearFocus();
-            Area area = Area.from(rai.getValue(), ngan.getValue(), squareWa.getValue());
+            Area area = new Area(rai.getValue(), ngan.getValue(), squareWa.getValue());
             onAreaPickListener.onAreaPick(area);
             dismiss();
         }
@@ -117,7 +117,7 @@ public class AreaPickerDialog extends AlertDialog implements AreaPopup {
     private void updateValue(Area area) {
         rai.setValue(area.getRai());
         ngan.setValue(area.getNgan());
-        squareWa.setValue(area.getSquareWa());
+        squareWa.setValue((int) Math.round(area.getSquareWa()));
     }
 
     public interface OnAreaPickListener {

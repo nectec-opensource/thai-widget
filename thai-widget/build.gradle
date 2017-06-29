@@ -69,7 +69,7 @@ android {
 dependencies {
     compile project(':thai-widget-domain')
     compile 'com.google.code.gson:gson:' + gsonVersion
-    compile 'th.or.nectec:thai-unit:' + thaiUnitVersion
+    compile 'th.or.nectec:thai-unit:0.1.3'
 
     testCompile 'junit:junit:' + junitVersion
     testCompile 'org.robolectric:robolectric:' + robolectricVersion

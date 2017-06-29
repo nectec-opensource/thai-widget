@@ -53,7 +53,7 @@ public class AreaPickerTest {
 
     @Test
     public void testResetArea() throws Exception {
-        areaPicker.setArea(Area.from(2, 0, 30));
+        areaPicker.setArea(new Area(2, 0, 30));
 
         areaPicker.setArea(new Area(0));
 
@@ -62,14 +62,14 @@ public class AreaPickerTest {
 
     @Test
     public void testShowAreaRaiNganSquareWa() throws Exception {
-        areaPicker.setArea(Area.from(3, 3, 40));
+        areaPicker.setArea(new Area(3, 3, 40));
 
         assertEquals("3 ไร่ 3 งาน 40 ตารางวา", areaPicker.getText());
     }
 
     @Test
     public void testShowOnlyRai() throws Exception {
-        areaPicker.setArea(Area.from(2, 0, 0));
+        areaPicker.setArea(new Area(2, 0, 0.0));
 
         assertEquals("2 ไร่", areaPicker.getText());
     }

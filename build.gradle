@@ -31,7 +31,7 @@ buildscript {
         jcenter()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:2.3.2'
+        classpath 'com.android.tools.build:gradle:2.3.3'
         classpath "org.stoyicker.android-check:plugin:2.196"
         classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.7.3'
     }
@@ -53,7 +53,6 @@ ext {
     supportLibVersion = "25.3.1"
 
     gsonVersion = "2.4"
-    thaiUnitVersion = "0.1.2"
     junitVersion = "4.12"
     jMockVersion = "2.8.1"
     runnerVersion = "0.4.1"

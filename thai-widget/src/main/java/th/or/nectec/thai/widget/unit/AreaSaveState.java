@@ -36,7 +36,7 @@ class AreaSaveState extends View.BaseSavedState {
                 }
             };
 
-    private int areaInSquareMeter;
+    private double areaInSquareMeter;
 
     public AreaSaveState(Parcelable superState) {
         super(superState);
@@ -59,6 +59,6 @@ class AreaSaveState extends View.BaseSavedState {
     @Override
     public void writeToParcel(Parcel out, int flags) {
         super.writeToParcel(out, flags);
-        out.writeInt(this.areaInSquareMeter);
+        out.writeDouble(this.areaInSquareMeter);
     }
 }
