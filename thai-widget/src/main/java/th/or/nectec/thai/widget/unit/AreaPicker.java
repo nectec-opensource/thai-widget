@@ -19,17 +19,18 @@
 package th.or.nectec.thai.widget.unit;
 
 import android.content.Context;
+import android.graphics.Canvas;
 import android.os.Parcelable;
+import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.Gravity;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.widget.TextView;
-
+import android.widget.EditText;
 import nectec.thai.unit.Area;
 import th.or.nectec.thai.widget.utils.ViewUtils;
 
-public class AreaPicker extends TextView implements AreaView, OnClickListener {
+public class AreaPicker extends EditText implements AreaView, OnClickListener {
 
     protected static final String HINT_MESSAGE = "ระบุขนาดพื้นที่";
 
@@ -54,12 +55,13 @@ public class AreaPicker extends TextView implements AreaView, OnClickListener {
     }
 
     public AreaPicker(Context context, AttributeSet attrs) {
-        this(context, attrs, android.R.attr.spinnerStyle);
+        this(context, attrs, android.R.attr.editTextStyle);
     }
 
     public AreaPicker(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        setHint(HINT_MESSAGE);
+        if (TextUtils.isEmpty(getHint()))
+            setHint(HINT_MESSAGE);
         setGravity(Gravity.CENTER_VERTICAL);
         ViewUtils.updatePaddingRight(this);
         if (!isInEditMode()) {
@@ -72,18 +74,16 @@ public class AreaPicker extends TextView implements AreaView, OnClickListener {
         setOnClickListener(this);
     }
 
-    @Override
-    public Area getArea() {
-        return area;
+    @Override protected void onDraw(Canvas canvas) {
+        super.onDraw(canvas);
+        setFocusable(false);
+        setLongClickable(false);
+        setClickable(true);
     }
 
     @Override
-    public void setArea(Area area) {
-        if (area == null)
-            throw new IllegalArgumentException("area must not be null");
-        this.area = area;
-        setText(area.prettyPrint());
-        if (listener != null) listener.onAreaChanged(area);
+    public Area getArea() {
+        return area;
     }
 
     @Override
@@ -110,6 +110,15 @@ public class AreaPicker extends TextView implements AreaView, OnClickListener {
         AreaSaveState ss = (AreaSaveState) state;
         super.onRestoreInstanceState(ss.getSuperState());
         setArea(ss.getArea());
+    }
+
+    @Override public void setArea(Area area) {
+        if (area == null)
+            throw new IllegalArgumentException("area must not be null");
+        this.area = area;
+        setText(area.prettyPrint());
+        if (listener != null)
+            listener.onAreaChanged(area);
     }
 
     public void setTitle(String title) {

@@ -19,17 +19,17 @@
 package th.or.nectec.thai.widget.date;
 
 import android.content.Context;
+import android.graphics.Canvas;
 import android.os.Parcelable;
+import android.text.TextUtils;
 import android.util.AttributeSet;
-import android.widget.Button;
-
+import android.widget.EditText;
 import java.util.Calendar;
 import java.util.Locale;
-
 import th.or.nectec.thai.date.DatePrinter;
 import th.or.nectec.thai.widget.utils.ViewUtils;
 
-public class DatePicker extends Button implements DateView {
+public class DatePicker extends EditText implements DateView {
 
     protected static final String HINT_MESSAGE = "ระบุวันที";
 
@@ -56,7 +56,7 @@ public class DatePicker extends Button implements DateView {
     }
 
     public DatePicker(Context context, AttributeSet attrs) {
-        this(context, attrs, android.R.attr.spinnerStyle);
+        this(context, attrs, android.R.attr.editTextStyle);
     }
 
     public DatePicker(Context context, AttributeSet attrs, int defStyleAttr) {
@@ -66,7 +66,8 @@ public class DatePicker extends Button implements DateView {
             setCalendar(defaultCalendar());
         }
 
-        setHint(HINT_MESSAGE);
+        if (TextUtils.isEmpty(getHint()))
+            setHint(HINT_MESSAGE);
         ViewUtils.updatePaddingRight(this);
 
         popup = new DatePickerDialog(context, datePickerCallback);
@@ -94,12 +95,20 @@ public class DatePicker extends Button implements DateView {
     private void removeCalendar() {
         callback = null;
         calendar = null;
-        if (onDateChangedListener != null) onDateChangedListener.onDateChanged(calendar);
+        if (onDateChangedListener != null)
+            onDateChangedListener.onDateChanged(null);
         setText(null);
     }
 
     public Calendar getCalendar() {
         return calendar == null ? null : (Calendar) calendar.clone();
+    }
+
+    @Override protected void onDraw(Canvas canvas) {
+        super.onDraw(canvas);
+        setFocusable(false);
+        setLongClickable(false);
+        setClickable(true);
     }
 
     @Override public boolean performClick() {

@@ -19,15 +19,17 @@
 package th.or.nectec.thai.widget.address;
 
 import android.content.Context;
+import android.graphics.Canvas;
 import android.os.Parcelable;
+import android.text.TextUtils;
 import android.util.AttributeSet;
-import android.widget.Button;
+import android.widget.EditText;
 import th.or.nectec.thai.address.Address;
 import th.or.nectec.thai.widget.R;
 import th.or.nectec.thai.widget.address.repository.AddressRepositoryImpl;
 import th.or.nectec.thai.widget.utils.ViewUtils;
 
-public class AddressPicker extends Button implements AddressView {
+public class AddressPicker extends EditText implements AddressView {
 
     private Address address;
     private AddressRepositoryImpl addressRepository;
@@ -54,13 +56,14 @@ public class AddressPicker extends Button implements AddressView {
     }
 
     public AddressPicker(Context context, AttributeSet attrs) {
-        this(context, attrs, android.R.attr.spinnerStyle);
+        this(context, attrs, android.R.attr.editTextStyle);
     }
 
     public AddressPicker(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         emptyView();
-        setHint(R.string.please_define_address);
+        if (TextUtils.isEmpty(getHint()))
+            setHint(R.string.please_define_address);
         ViewUtils.updatePaddingRight(this);
 
         addressRepository = AddressRepositoryImpl.getInstance(context);
@@ -82,6 +85,13 @@ public class AddressPicker extends Button implements AddressView {
     public boolean performClick() {
         popup.show(address);
         return true;
+    }
+
+    @Override protected void onDraw(Canvas canvas) {
+        super.onDraw(canvas);
+        setFocusable(false);
+        setLongClickable(false);
+        setClickable(true);
     }
 
     @Override
