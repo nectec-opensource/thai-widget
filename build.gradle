@@ -46,7 +46,7 @@ allprojects {
 ext {
     javaVersion = JavaVersion.VERSION_1_7
 
-    minSdkVersion = 15
+    minSdkVersion = 16
     targetSdkVersion = 25
     compileSdkVersion = 25
     buildToolsVersion = "25.0.2"
@@ -65,16 +65,4 @@ ext {
 task wrapper(type: Wrapper) {
     description 'Creates the gradle wrapper.'
     gradleVersion '3.3'
-}
-
-task bintray {
-    group 'Publishing'
-    description 'Publish all artifcats to bintray'
-
-    dependsOn(":thai-widget-domain:check")
-    dependsOn(":thai-widget-domain:install")
-    dependsOn(":thai-widget-domain:bintrayUpload")
-    dependsOn(":thai-widget:build")
-    dependsOn(":thai-widget:install")
-    dependsOn(":thai-widget:bintrayUpload")
 }

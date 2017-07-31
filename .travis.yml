@@ -31,6 +31,6 @@ script:
 
 deploy:
   provider: script
-  script: ./gradlew bintray
+  script: ./gradlew bintrayUpload
   on:
       tags: true

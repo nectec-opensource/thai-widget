@@ -14,7 +14,7 @@ EditText for House ID with validator
 
 ![CitizenIdEditText](https://raw.githubusercontent.com/nectec-wisru/android-ThaiWidget/77c2a32fb9d21fcbbbed4f40ae29205384bb3ba1/images/house_id.gif)
 
-### AreaPicker 
+### AreaPicker
 For input area size in Rai Ngan Wa2 format
 
 ![CitizenIdEditText](https://raw.githubusercontent.com/nectec-wisru/android-ThaiWidget/77c2a32fb9d21fcbbbed4f40ae29205384bb3ba1/images/area_picker.gif)
@@ -79,7 +79,7 @@ This project use quality control by unit-test ui-test and code analysis tools.
 
 Static code analysis tools
 
-- [Checkstyle](http://checkstyle.sourceforge.net/) 
+- [Checkstyle](http://checkstyle.sourceforge.net/)
 - [PMD](https://pmd.github.io/)
 - [Findbugs](http://findbugs.sourceforge.net/)
 - [Android Check](https://github.com/noveogroup/android-check)
@@ -108,24 +108,6 @@ License
     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
     See the License for the specific language governing permissions and
     limitations under the License.
-    
+
 
 [![NECTEC](http://www.nectec.or.th/themes/nectec/img/logo.png)](https://www.nectec.or.th)
-
-Publishing to JCenter
----------
-The follow instructions only for Project Administrator
-
-1. Configure gradle.properties with:
-    
-        bintrayKey = <API KEY>
-        bintrayUser = <BINTRAY USERNAME>
-
-2. Upload with command :
-
-        ./gradlew bintray
-    
-3. Log in to Bintray to publish
-
-    
-
