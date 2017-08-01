@@ -21,15 +21,14 @@ package nectec.thai.widget.identity;
 import android.text.Editable;
 import android.text.InputFilter;
 import android.text.InputType;
-import android.text.Selection;
 import android.text.TextWatcher;
 import android.text.method.DigitsKeyListener;
 import android.widget.EditText;
 import nectec.thai.identity.Identity;
 
 public abstract class IdentityEditTextHandler implements TextWatcher {
-    protected EditText editText;
-    boolean watch = true;
+    private EditText editText;
+    private boolean watching = true;
     private Identity id;
 
     public IdentityEditTextHandler(EditText editText) {
@@ -58,23 +57,25 @@ public abstract class IdentityEditTextHandler implements TextWatcher {
 
     @Override
     public void afterTextChanged(Editable editable) {
-        if (watch)
+        if (watching)
             onIdChanged(editable);
     }
 
-    public void onIdChanged(Editable editable) {
+    void onIdChanged(Editable editable) {
         Identity id = onCreateNewId(editable.toString());
         updateText(id);
         updateErrorMessage(id);
     }
 
     private void updateText(Identity id) {
-        if (!id.equals(this.id)) {
+        String newText = id.prettyPrint();
+        String currentText = editText.getText().toString();
+        if (newText.length() > currentText.length()) {
+            watching = false;
             this.id = id;
-            watch = false;
-            editText.setText(id.prettyPrint());
-            Selection.setSelection(editText.getEditableText(), editText.length());
-            watch = true;
+            editText.setText(newText);
+            editText.setSelection(newText.length());
+            watching = true;
         }
     }
 

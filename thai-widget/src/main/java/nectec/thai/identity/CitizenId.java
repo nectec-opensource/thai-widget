@@ -63,7 +63,6 @@ public class CitizenId implements Identity {
     @Override
     public boolean isValidFormat() {
         return id.length() == LENGTH && TextUtils.isDigitOnly(id);
-
     }
 
     private boolean isRepeatNumber() {
@@ -112,6 +111,4 @@ public class CitizenId implements Identity {
     public String getId() {
         return id;
     }
-
-
 }
