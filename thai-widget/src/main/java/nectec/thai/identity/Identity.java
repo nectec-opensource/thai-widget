@@ -16,14 +16,18 @@
  *
  */
 
-package nectec.thai.widget.address;
+package nectec.thai.identity;
 
-import nectec.thai.address.Address;
+/**
+ * Interface to represent identity of something that have specify format and validation
+ */
+public interface Identity {
 
-public interface AddressPopup {
-    void show(Address address);
+    boolean isValidFormat();
 
-    void show(String addressCode);
+    boolean validate();
 
-    void setOnAddressChangedListener(AddressView.OnAddressChangedListener onAddressChangedListener);
+    String prettyPrint();
+
+    String getId();
 }

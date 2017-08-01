@@ -16,36 +16,35 @@
  *
  */
 
-package nectec.thai.widget.address.repository;
+package nectec.thai.address;
 
-import java.util.List;
-import nectec.thai.address.Region;
+import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
 
-public class RegionRepositoryTest {
+public class DistrictTest {
 
-    @Test
-    public void testFind() throws Exception {
-        List<Region> regions = RegionRepository.getInstance().find();
+    private District bangkok;
 
-        assertEquals(6, regions.size());
+    @Before
+    public void setUp() {
+        bangkok = new District("1001", "พระนคร");
+    }
+
+    @Test(expected = InvalidAddressCodeFormatException.class)
+    public void setInvalidProvinceCode() {
+        new District("102", "พระนคร");
     }
 
     @Test
-    public void testFindMustFoundCenterRegion() throws Exception {
-        List<Region> regions = RegionRepository.getInstance().find();
-
-        assertTrue(regions.contains(Region.CENTER));
+    public void getField() {
+        assertEquals("1001", bangkok.getCode());
+        assertEquals("พระนคร", bangkok.getName());
     }
 
     @Test
-    public void testFindMustFoundNorthRegion() throws Exception {
-        List<Region> regions = RegionRepository.getInstance().find();
-
-        assertTrue(regions.contains(Region.NORTH));
-
+    public void getProvinceCode() {
+        assertEquals("10", bangkok.getProvinceCode());
     }
 }

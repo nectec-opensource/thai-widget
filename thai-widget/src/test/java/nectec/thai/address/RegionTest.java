@@ -16,36 +16,34 @@
  *
  */
 
-package nectec.thai.widget.address.repository;
+package nectec.thai.address;
 
-import java.util.List;
-import nectec.thai.address.Region;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
 
-public class RegionRepositoryTest {
+public class RegionTest {
 
     @Test
-    public void testFind() throws Exception {
-        List<Region> regions = RegionRepository.getInstance().find();
+    public void testFromName() {
+        assertEquals(Region.CENTER, Region.fromName("ภาคกลาง"));
+        assertEquals(Region.EAST_NORTH, Region.fromName("ภาคตะวันออกเฉียงเหนือ"));
+    }
 
-        assertEquals(6, regions.size());
+    @Test(expected = IllegalArgumentException.class)
+    public void testInvalidFromName() {
+        Region.fromName("กลาง");
     }
 
     @Test
-    public void testFindMustFoundCenterRegion() throws Exception {
-        List<Region> regions = RegionRepository.getInstance().find();
-
-        assertTrue(regions.contains(Region.CENTER));
+    public void testToString() {
+        assertEquals("ภาคเหนือ", Region.NORTH.toString());
+        assertEquals("ภาคใต้", Region.SOUTH.toString());
     }
 
     @Test
-    public void testFindMustFoundNorthRegion() throws Exception {
-        List<Region> regions = RegionRepository.getInstance().find();
-
-        assertTrue(regions.contains(Region.NORTH));
-
+    public void testEqual() {
+        assertEquals(Region.NORTH, Region.NORTH);
+        assertEquals(Region.NORTH, Region.fromName("ภาคเหนือ"));
     }
 }

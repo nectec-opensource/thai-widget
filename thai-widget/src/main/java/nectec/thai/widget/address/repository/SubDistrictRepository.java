@@ -22,10 +22,10 @@ import android.content.Context;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import th.or.nectec.thai.address.AddressRepository;
-import th.or.nectec.thai.address.InvalidAddressCodeFormatException.InvalidDistrictCodeException;
-import th.or.nectec.thai.address.InvalidAddressCodeFormatException.InvalidSubDistrictCodeException;
-import th.or.nectec.thai.address.SubDistrict;
+import nectec.thai.address.AddressRepository;
+import nectec.thai.address.InvalidAddressCodeFormatException.InvalidDistrictCodeException;
+import nectec.thai.address.InvalidAddressCodeFormatException.InvalidSubDistrictCodeException;
+import nectec.thai.address.SubDistrict;
 
 public final class SubDistrictRepository implements AddressRepository<SubDistrict> {
 

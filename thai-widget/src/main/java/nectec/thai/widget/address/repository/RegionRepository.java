@@ -20,7 +20,7 @@ package nectec.thai.widget.address.repository;
 
 import java.util.ArrayList;
 import java.util.List;
-import th.or.nectec.thai.address.Region;
+import nectec.thai.address.Region;
 
 public final class RegionRepository {
 

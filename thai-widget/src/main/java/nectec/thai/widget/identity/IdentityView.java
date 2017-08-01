@@ -18,7 +18,7 @@
 
 package nectec.thai.widget.identity;
 
-import th.or.nectec.thai.identity.Identity;
+import nectec.thai.identity.Identity;
 
 public interface IdentityView {
     Identity getIdentity();

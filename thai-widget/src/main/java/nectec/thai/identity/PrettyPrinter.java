@@ -16,14 +16,11 @@
  *
  */
 
-package nectec.thai.widget.address;
+package nectec.thai.identity;
 
-import nectec.thai.address.Address;
 
-public interface AddressPopup {
-    void show(Address address);
+public interface PrettyPrinter {
+    String print(String text);
 
-    void show(String addressCode);
-
-    void setOnAddressChangedListener(AddressView.OnAddressChangedListener onAddressChangedListener);
+    String separator();
 }

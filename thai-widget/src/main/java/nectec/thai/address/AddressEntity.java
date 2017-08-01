@@ -16,14 +16,10 @@
  *
  */
 
-package nectec.thai.widget.address;
+package nectec.thai.address;
 
-import nectec.thai.address.Address;
+public interface AddressEntity {
+    String getCode();
 
-public interface AddressPopup {
-    void show(Address address);
-
-    void show(String addressCode);
-
-    void setOnAddressChangedListener(AddressView.OnAddressChangedListener onAddressChangedListener);
+    String getName();
 }

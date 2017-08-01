@@ -18,7 +18,7 @@
 
 package nectec.thai.widget.address;
 
-import th.or.nectec.thai.address.Address;
+import nectec.thai.address.Address;
 
 public interface AddressView {
     void setAddressCode(String addressCode);

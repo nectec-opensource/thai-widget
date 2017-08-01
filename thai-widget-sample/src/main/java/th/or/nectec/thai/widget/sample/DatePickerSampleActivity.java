@@ -24,10 +24,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 import java.util.Calendar;
+import nectec.thai.date.DatePrinter;
 import nectec.thai.widget.date.DatePicker;
 import nectec.thai.widget.date.DatePickerDialog;
 import nectec.thai.widget.date.DateView;
-import th.or.nectec.thai.date.DatePrinter;
 
 public class DatePickerSampleActivity extends AppCompatActivity {
 

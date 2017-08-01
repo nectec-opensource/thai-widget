@@ -21,7 +21,7 @@ package nectec.thai.widget.identity;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.EditText;
-import th.or.nectec.thai.identity.Identity;
+import nectec.thai.identity.Identity;
 
 public class CitizenIdEditText extends EditText implements IdentityView {
 

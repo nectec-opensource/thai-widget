@@ -60,7 +60,6 @@ public class AreaPickerSampleActivityTest {
         onView(withId(android.R.id.button1))
                 .perform(click());
 
-        onView(withId(R.id.area_picker))
-                .check(matches(withArea(Area.from(10, 2, 40))));
+        onView(withId(R.id.area_picker)).check(matches(withArea(new Area(10, 2, 40))));
     }
 }

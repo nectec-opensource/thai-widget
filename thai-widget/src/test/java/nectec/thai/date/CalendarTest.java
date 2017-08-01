@@ -16,36 +16,29 @@
  *
  */
 
-package nectec.thai.widget.address.repository;
+package nectec.thai.date;
 
-import java.util.List;
-import nectec.thai.address.Region;
+import java.util.Calendar;
 import org.junit.Test;
 
+import static java.util.Calendar.FEBRUARY;
+import static java.util.Calendar.MARCH;
+import static java.util.Calendar.SEPTEMBER;
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
 
-public class RegionRepositoryTest {
-
-    @Test
-    public void testFind() throws Exception {
-        List<Region> regions = RegionRepository.getInstance().find();
-
-        assertEquals(6, regions.size());
-    }
+public class CalendarTest {
 
     @Test
-    public void testFindMustFoundCenterRegion() throws Exception {
-        List<Region> regions = RegionRepository.getInstance().find();
+    public void testActualMaximum() throws Exception {
+        Calendar calendar = Calendar.getInstance();
 
-        assertTrue(regions.contains(Region.CENTER));
-    }
+        calendar.set(1988, SEPTEMBER, 21);
+        assertEquals(30, calendar.getActualMaximum(Calendar.DAY_OF_MONTH));
 
-    @Test
-    public void testFindMustFoundNorthRegion() throws Exception {
-        List<Region> regions = RegionRepository.getInstance().find();
+        calendar.set(2016, FEBRUARY, 10);
+        assertEquals(29, calendar.getActualMaximum(Calendar.DAY_OF_MONTH));
 
-        assertTrue(regions.contains(Region.NORTH));
-
+        calendar.set(Calendar.MONTH, MARCH);
+        assertEquals(31, calendar.getActualMaximum(Calendar.DAY_OF_MONTH));
     }
 }

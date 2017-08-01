@@ -22,10 +22,10 @@ import android.content.Context;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import th.or.nectec.thai.address.AddressRepository;
-import th.or.nectec.thai.address.District;
-import th.or.nectec.thai.address.InvalidAddressCodeFormatException.InvalidDistrictCodeException;
-import th.or.nectec.thai.address.InvalidAddressCodeFormatException.InvalidProvinceCodeException;
+import nectec.thai.address.AddressRepository;
+import nectec.thai.address.District;
+import nectec.thai.address.InvalidAddressCodeFormatException.InvalidDistrictCodeException;
+import nectec.thai.address.InvalidAddressCodeFormatException.InvalidProvinceCodeException;
 
 public final class DistrictRepository implements AddressRepository<District> {
 

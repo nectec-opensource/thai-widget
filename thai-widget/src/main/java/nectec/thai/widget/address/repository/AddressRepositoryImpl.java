@@ -20,12 +20,12 @@ package nectec.thai.widget.address.repository;
 
 
 import android.content.Context;
-import th.or.nectec.thai.address.Address;
-import th.or.nectec.thai.address.District;
-import th.or.nectec.thai.address.InvalidAddressCodeFormatException.InvalidSubDistrictCodeException;
-import th.or.nectec.thai.address.Province;
-import th.or.nectec.thai.address.SubDistrict;
-import th.or.nectec.util.TextUtils;
+import nectec.thai.address.Address;
+import nectec.thai.address.District;
+import nectec.thai.address.InvalidAddressCodeFormatException.InvalidSubDistrictCodeException;
+import nectec.thai.address.Province;
+import nectec.thai.address.SubDistrict;
+import nectec.util.TextUtils;
 
 public final class AddressRepositoryImpl {
 

@@ -22,10 +22,10 @@ import android.content.Context;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import th.or.nectec.thai.address.AddressRepository;
-import th.or.nectec.thai.address.InvalidAddressCodeFormatException.InvalidProvinceCodeException;
-import th.or.nectec.thai.address.Province;
-import th.or.nectec.thai.address.Region;
+import nectec.thai.address.AddressRepository;
+import nectec.thai.address.InvalidAddressCodeFormatException.InvalidProvinceCodeException;
+import nectec.thai.address.Province;
+import nectec.thai.address.Region;
 
 public final class ProvinceRepository implements AddressRepository<Province> {
 

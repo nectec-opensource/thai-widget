@@ -20,5 +20,4 @@
 rootProject.name = 'android-thaiWidget'
 
 include ':thai-widget-sample'
-include ':thai-widget-domain'
 include ':thai-widget'

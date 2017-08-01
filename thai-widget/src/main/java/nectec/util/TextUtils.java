@@ -16,14 +16,27 @@
  *
  */
 
-package nectec.thai.widget.address;
+package nectec.util;
 
-import nectec.thai.address.Address;
+public final class TextUtils {
 
-public interface AddressPopup {
-    void show(Address address);
+    private TextUtils() {
+    }
 
-    void show(String addressCode);
+    public static boolean isDigitOnly(String text) {
+        return text.matches("\\d+");
+    }
 
-    void setOnAddressChangedListener(AddressView.OnAddressChangedListener onAddressChangedListener);
+    public static boolean isRepeatingNumber(String text) {
+        return text.matches("\\b(\\d)\\1+\\b");
+    }
+
+    public static boolean isRepeatPatternNumber(String text) {
+        return text.matches("\\b(\\d+)\\1+\\b");
+    }
+
+    public static boolean isEmpty(String text) {
+        return text == null || text.isEmpty();
+    }
+
 }

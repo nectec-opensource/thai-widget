@@ -67,7 +67,6 @@ android {
 }
 
 dependencies {
-    compile project(':thai-widget-domain')
     compile 'com.google.code.gson:gson:' + gsonVersion
     compile 'th.or.nectec:thai-unit:0.1.3'
 

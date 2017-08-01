@@ -26,8 +26,8 @@ import android.util.AttributeSet;
 import android.widget.EditText;
 import java.util.Calendar;
 import java.util.Locale;
+import nectec.thai.date.DatePrinter;
 import nectec.thai.widget.ViewUtils;
-import th.or.nectec.thai.date.DatePrinter;
 
 public class DatePicker extends EditText implements DateView {
 

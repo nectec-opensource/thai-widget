@@ -29,7 +29,7 @@ import android.widget.Filterable;
 import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
-import th.or.nectec.thai.address.AddressEntity;
+import nectec.thai.address.AddressEntity;
 import th.or.nectec.thai.widget.BuildConfig;
 import th.or.nectec.thai.widget.R;
 

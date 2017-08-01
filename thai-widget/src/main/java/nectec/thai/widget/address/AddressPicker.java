@@ -24,9 +24,9 @@ import android.os.Parcelable;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.widget.EditText;
+import nectec.thai.address.Address;
 import nectec.thai.widget.ViewUtils;
 import nectec.thai.widget.address.repository.AddressRepositoryImpl;
-import th.or.nectec.thai.address.Address;
 import th.or.nectec.thai.widget.R;
 
 public class AddressPicker extends EditText implements AddressView {

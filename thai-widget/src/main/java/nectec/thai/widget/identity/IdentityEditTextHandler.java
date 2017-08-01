@@ -25,10 +25,11 @@ import android.text.Selection;
 import android.text.TextWatcher;
 import android.text.method.DigitsKeyListener;
 import android.widget.EditText;
-import th.or.nectec.thai.identity.Identity;
+import nectec.thai.identity.Identity;
 
 public abstract class IdentityEditTextHandler implements TextWatcher {
     protected EditText editText;
+    boolean watch = true;
     private Identity id;
 
     public IdentityEditTextHandler(EditText editText) {
@@ -57,7 +58,8 @@ public abstract class IdentityEditTextHandler implements TextWatcher {
 
     @Override
     public void afterTextChanged(Editable editable) {
-        onIdChanged(editable);
+        if (watch)
+            onIdChanged(editable);
     }
 
     public void onIdChanged(Editable editable) {
@@ -69,8 +71,10 @@ public abstract class IdentityEditTextHandler implements TextWatcher {
     private void updateText(Identity id) {
         if (!id.equals(this.id)) {
             this.id = id;
+            watch = false;
             editText.setText(id.prettyPrint());
             Selection.setSelection(editText.getEditableText(), editText.length());
+            watch = true;
         }
     }
 

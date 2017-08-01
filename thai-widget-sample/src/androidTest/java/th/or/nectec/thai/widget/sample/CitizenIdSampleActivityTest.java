@@ -20,11 +20,11 @@ package th.or.nectec.thai.widget.sample;
 
 import android.support.test.rule.ActivityTestRule;
 import android.support.test.runner.AndroidJUnit4;
+import nectec.thai.identity.CitizenId;
 import nectec.thai.widget.identity.CitizenIdHandler;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import th.or.nectec.thai.identity.CitizenId;
 
 import static android.support.test.espresso.Espresso.onView;
 import static android.support.test.espresso.action.ViewActions.typeText;

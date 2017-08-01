@@ -16,14 +16,16 @@
  *
  */
 
-package nectec.thai.widget.address;
+package nectec.thai.address;
 
-import nectec.thai.address.Address;
+import java.util.List;
 
-public interface AddressPopup {
-    void show(Address address);
 
-    void show(String addressCode);
+public interface AddressRepository<T extends AddressEntity> {
 
-    void setOnAddressChangedListener(AddressView.OnAddressChangedListener onAddressChangedListener);
+    List<T> find();
+
+    List<T> findByParentCode(String code);
+
+    T findByCode(String code);
 }

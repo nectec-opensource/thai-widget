@@ -16,36 +16,28 @@
  *
  */
 
-package nectec.thai.widget.address.repository;
+package nectec.thai.date;
 
-import java.util.List;
-import nectec.thai.address.Region;
+import java.util.Calendar;
 import org.junit.Test;
 
+import static java.util.Calendar.SEPTEMBER;
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
 
-public class RegionRepositoryTest {
+
+public class DatePrinterTest {
 
     @Test
-    public void testFind() throws Exception {
-        List<Region> regions = RegionRepository.getInstance().find();
-
-        assertEquals(6, regions.size());
+    public void testPrint() throws Exception {
+        assertEquals("21 กันยายน 2531", DatePrinter.print(1988, 8, 21));
+        assertEquals("20 เมษายน 2511", DatePrinter.print(1968, 3, 20));
     }
 
     @Test
-    public void testFindMustFoundCenterRegion() throws Exception {
-        List<Region> regions = RegionRepository.getInstance().find();
+    public void testPrintCalendar() throws Exception {
+        Calendar calendar = Calendar.getInstance();
+        calendar.set(1988, SEPTEMBER, 21);
 
-        assertTrue(regions.contains(Region.CENTER));
-    }
-
-    @Test
-    public void testFindMustFoundNorthRegion() throws Exception {
-        List<Region> regions = RegionRepository.getInstance().find();
-
-        assertTrue(regions.contains(Region.NORTH));
-
+        assertEquals("21 กันยายน 2531", DatePrinter.print(calendar));
     }
 }

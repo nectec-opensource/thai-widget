@@ -19,8 +19,8 @@
 package nectec.thai.widget.identity;
 
 import android.widget.EditText;
-import th.or.nectec.thai.identity.HouseId;
-import th.or.nectec.thai.identity.Identity;
+import nectec.thai.identity.HouseId;
+import nectec.thai.identity.Identity;
 
 public class HouseIdHandler extends IdentityEditTextHandler {
 

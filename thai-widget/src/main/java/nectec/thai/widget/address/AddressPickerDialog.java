@@ -30,17 +30,17 @@ import android.widget.TextView;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
+import nectec.thai.address.Address;
+import nectec.thai.address.AddressEntity;
+import nectec.thai.address.AddressRepository;
+import nectec.thai.address.District;
+import nectec.thai.address.Province;
+import nectec.thai.address.SubDistrict;
 import nectec.thai.widget.address.AddressView.OnAddressChangedListener;
 import nectec.thai.widget.address.repository.AddressRepositoryImpl;
 import nectec.thai.widget.address.repository.DistrictRepository;
 import nectec.thai.widget.address.repository.ProvinceRepository;
 import nectec.thai.widget.address.repository.SubDistrictRepository;
-import th.or.nectec.thai.address.Address;
-import th.or.nectec.thai.address.AddressEntity;
-import th.or.nectec.thai.address.AddressRepository;
-import th.or.nectec.thai.address.District;
-import th.or.nectec.thai.address.Province;
-import th.or.nectec.thai.address.SubDistrict;
 import th.or.nectec.thai.widget.R;
 
 public class AddressPickerDialog extends Dialog implements AddressPopup, AdapterView.OnItemClickListener {
