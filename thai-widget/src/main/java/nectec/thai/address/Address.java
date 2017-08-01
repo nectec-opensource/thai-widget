@@ -41,30 +41,29 @@ public class Address implements AddressEntity {
         return province;
     }
 
-    @Override
-    public int hashCode() {
+    @Override public int hashCode() {
         return subDistrict.hashCode();
     }
 
-    @Override
-    public boolean equals(Object other) {
-        if (this == other) return true;
-        if (other == null || getClass() != other.getClass()) return false;
+    @Override public boolean equals(Object other) {
+        if (this == other)
+            return true;
+        if (other == null || getClass() != other.getClass())
+            return false;
         Address otherAddress = (Address) other;
         return getCode().equals(otherAddress.getCode()) && getName().equals(otherAddress.getName());
     }
 
-    @Override
-    public String getCode() {
+    @Override public String getCode() {
         return subDistrict.getCode();
     }
 
-    @Override
-    public String getName() {
+    @Override public String getName() {
         return AddressPrinter.print(subDistrict, district, province);
     }
 
     @Override public String toString() {
-        return "Address{subDistrict="+subDistrict+", district="+district+", province="+province+'}';
+        return "Address{subDistrict=" + subDistrict + ", district=" + district + ", province="
+               + province + '}';
     }
 }

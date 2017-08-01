@@ -28,8 +28,7 @@ public class HouseId implements Identity {
     public static final int LENGTH = 11;
     private static final int[] MULTIPLIER_TABLE = {11, 10, 9, 8, 7, 6, 5, 4, 3, 2};
     private final String id;
-    private final nectec.thai.identity.PrettyPrinter printer =
-        new nectec.thai.identity.IdPrettyPrinter() {
+    private final nectec.thai.identity.PrettyPrinter printer = new IdPrettyPrinter() {
             @Override protected boolean positionToInsertSeparatorBefore(int position) {
                 switch (position) {
                     case 4:
@@ -65,8 +64,8 @@ public class HouseId implements Identity {
     }
 
     @Override public boolean validate() {
-        return isValidFormat() && !TextUtils.isRepeatingNumber(id) &&
-               calculateCheckDigit() == getCheckDigit();
+        return isValidFormat() && !TextUtils.isRepeatingNumber(id)
+               && calculateCheckDigit() == getCheckDigit();
     }
 
     @Override public boolean isValidFormat() {
@@ -76,17 +75,17 @@ public class HouseId implements Identity {
     protected int getCheckDigit() {
         if (!isValidFormat())
             return -1;
-        int lastIndex = HouseId.LENGTH-1;
+        int lastIndex = HouseId.LENGTH - 1;
         return Character.digit(id.charAt(lastIndex), 10);
     }
 
     protected int calculateCheckDigit() {
         int sum = 0;
-        for (int position = 0; position < LENGTH-1; position++) {
-            sum += Character.digit(id.charAt(position), 10)*MULTIPLIER_TABLE[position];
+        for (int position = 0; position < LENGTH - 1; position++) {
+            sum += Character.digit(id.charAt(position), 10) * MULTIPLIER_TABLE[position];
         }
-        int x = sum%11;
-        return (11-x)%10;
+        int x = sum % 11;
+        return (11 - x) % 10;
     }
 
     @Override public String prettyPrint() {
