@@ -28,7 +28,7 @@
             android:layout_height="wrap_content"
             android:text="@string/date_picker"/>
 
-    <th.or.nectec.thai.widget.date.DatePicker
+    <nectec.thai.widget.date.DatePicker
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/date_picker"/>

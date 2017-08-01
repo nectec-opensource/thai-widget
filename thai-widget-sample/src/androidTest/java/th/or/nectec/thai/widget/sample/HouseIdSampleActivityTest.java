@@ -20,14 +20,16 @@ package th.or.nectec.thai.widget.sample;
 
 import android.support.test.espresso.action.ViewActions;
 import android.support.test.rule.ActivityTestRule;
+import nectec.thai.widget.identity.HouseIdHandler;
 import org.junit.Rule;
 import org.junit.Test;
 import th.or.nectec.thai.identity.HouseId;
-import th.or.nectec.thai.widget.identity.HouseIdHandler;
 
 import static android.support.test.espresso.Espresso.onView;
 import static android.support.test.espresso.assertion.ViewAssertions.matches;
-import static android.support.test.espresso.matcher.ViewMatchers.*;
+import static android.support.test.espresso.matcher.ViewMatchers.isDisplayed;
+import static android.support.test.espresso.matcher.ViewMatchers.withId;
+import static android.support.test.espresso.matcher.ViewMatchers.withText;
 import static th.or.nectec.thai.widget.sample.matcher.EditTextMatcher.withError;
 import static th.or.nectec.thai.widget.sample.matcher.EditTextMatcher.withoutError;
 import static th.or.nectec.thai.widget.sample.matcher.IdentityViewMatcher.withIdentity;

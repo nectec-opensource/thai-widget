@@ -21,10 +21,10 @@ package th.or.nectec.thai.widget.sample;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import nectec.thai.widget.address.AddressPicker;
+import nectec.thai.widget.address.AddressPickerDialog;
+import nectec.thai.widget.address.AddressView.OnAddressChangedListener;
 import th.or.nectec.thai.address.Address;
-import th.or.nectec.thai.widget.address.AddressPicker;
-import th.or.nectec.thai.widget.address.AddressPickerDialog;
-import th.or.nectec.thai.widget.address.AddressView.OnAddressChangedListener;
 
 public class AddressPickerSampleActivity extends AppCompatActivity {
     private Address selectedAddress;

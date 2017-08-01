@@ -22,11 +22,10 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
-
 import nectec.thai.unit.Area;
-import th.or.nectec.thai.widget.unit.AreaPicker;
-import th.or.nectec.thai.widget.unit.AreaPickerDialog;
-import th.or.nectec.thai.widget.unit.AreaView;
+import nectec.thai.widget.unit.AreaPicker;
+import nectec.thai.widget.unit.AreaPickerDialog;
+import nectec.thai.widget.unit.AreaView;
 
 
 public class AreaPickerSampleActivity extends Activity {

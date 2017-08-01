@@ -21,10 +21,10 @@ package th.or.nectec.thai.widget.sample.matcher;
 import android.support.test.espresso.matcher.BoundedMatcher;
 import android.view.View;
 import android.widget.EditText;
+import nectec.thai.widget.identity.IdentityView;
 import org.hamcrest.Description;
 import org.hamcrest.Matcher;
 import th.or.nectec.thai.identity.Identity;
-import th.or.nectec.thai.widget.identity.IdentityView;
 
 public class IdentityViewMatcher {
 

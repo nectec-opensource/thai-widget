@@ -28,7 +28,7 @@
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="@string/lable_house_id"/>
 
-    <th.or.nectec.thai.widget.identity.HouseIdEditText
+    <nectec.thai.widget.identity.HouseIdEditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/house_id"
