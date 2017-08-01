@@ -28,23 +28,16 @@ public class HouseIdEditText extends EditText implements IdentityView {
     private IdentityEditTextHandler hidHandler;
 
     public HouseIdEditText(Context context) {
-        super(context);
-        initialHandler();
+        this(context, null);
     }
-
-    private void initialHandler() {
-        hidHandler = new HouseIdHandler(this);
-    }
-
 
     public HouseIdEditText(Context context, AttributeSet attrs) {
-        super(context, attrs);
-        initialHandler();
+        this(context, attrs, android.R.attr.editTextStyle);
     }
 
     public HouseIdEditText(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        initialHandler();
+        hidHandler = new HouseIdHandler(this);
     }
 
     @Override

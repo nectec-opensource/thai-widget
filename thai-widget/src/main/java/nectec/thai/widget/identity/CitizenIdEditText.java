@@ -25,26 +25,19 @@ import nectec.thai.identity.Identity;
 
 public class CitizenIdEditText extends EditText implements IdentityView {
 
-
     private IdentityEditTextHandler idHandler;
 
     public CitizenIdEditText(Context context) {
-        super(context);
-        initialHandler();
-    }
-
-    private void initialHandler() {
-        idHandler = new CitizenIdHandler(this);
+        this(context, null);
     }
 
     public CitizenIdEditText(Context context, AttributeSet attrs) {
-        super(context, attrs);
-        initialHandler();
+        this(context, attrs, android.R.attr.editTextStyle);
     }
 
     public CitizenIdEditText(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        initialHandler();
+        idHandler = new CitizenIdHandler(this);
     }
 
     @Override
