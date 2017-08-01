@@ -22,6 +22,7 @@ bintray {
     user = project.hasProperty('bintrayUser') ? project.getProperty('bintrayUser') : System.getenv('BINTRAY_USER') ?: ''
     key = project.hasProperty('bintrayKey') ? project.getProperty('bintrayKey') : System.getenv('BINTRAY_KEY') ?: ''
     configurations = ['published', 'archives']
+
     pkg {
         userOrg = bintrayOrg
         repo = bintrayRepo
