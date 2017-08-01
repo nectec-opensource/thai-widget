@@ -25,8 +25,17 @@ import android.view.View;
 import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.SearchView;
 import android.widget.TextView;
-import th.or.nectec.thai.address.*;
+import java.util.Collections;
+import java.util.Iterator;
+import java.util.List;
+import th.or.nectec.thai.address.Address;
+import th.or.nectec.thai.address.AddressEntity;
+import th.or.nectec.thai.address.AddressRepository;
+import th.or.nectec.thai.address.District;
+import th.or.nectec.thai.address.Province;
+import th.or.nectec.thai.address.SubDistrict;
 import th.or.nectec.thai.widget.R;
 import th.or.nectec.thai.widget.address.AddressView.OnAddressChangedListener;
 import th.or.nectec.thai.widget.address.repository.AddressRepositoryImpl;
@@ -34,16 +43,13 @@ import th.or.nectec.thai.widget.address.repository.DistrictRepository;
 import th.or.nectec.thai.widget.address.repository.ProvinceRepository;
 import th.or.nectec.thai.widget.address.repository.SubDistrictRepository;
 
-import java.util.Collections;
-import java.util.Iterator;
-import java.util.List;
-
 public class AddressPickerDialog extends Dialog implements AddressPopup, AdapterView.OnItemClickListener {
 
     private ArrayStack<AddressEntity> addressStack = new ArrayStack<>();
     private TextView header;
     private TextView breadcrumb;
     private ListView list;
+    private SearchView search;
     private AddressRepositoryImpl addressRepository;
     private AddressRepository<Province> provinceRepository;
     private AddressRepository<District> districtRepository;
@@ -79,6 +85,23 @@ public class AddressPickerDialog extends Dialog implements AddressPopup, Adapter
         breadcrumb = (TextView) findViewById(R.id.breadcrumb);
         header = (TextView) findViewById(R.id.header);
         list = (ListView) findViewById(R.id.picker_list);
+        search = (SearchView) findViewById(R.id.search);
+        search.setOnCloseListener(new SearchView.OnCloseListener() {
+            @Override public boolean onClose() {
+                return false;
+            }
+        });
+        search.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override public boolean onQueryTextSubmit(String query) {
+                return true;
+            }
+
+            @Override public boolean onQueryTextChange(String query) {
+                addressListAdapter.getFilter().filter(query);
+                return true;
+            }
+        });
+
         list.setOnItemClickListener(this);
         findViewById(R.id.back).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -165,6 +188,11 @@ public class AddressPickerDialog extends Dialog implements AddressPopup, Adapter
     public void updateDialog(int headerStringResId, List<? extends AddressEntity> addressEntityList) {
         header.setText(headerStringResId);
         setListAdapter(new AddressListAdapter<>(getContext(), addressEntityList));
+
+        search.setQueryHint(getContext().getString(headerStringResId).replace("เลือก", "ค้นหา"));
+        search.clearFocus();
+        search.setIconified(true); //Clear search test if present
+        search.setIconified(true);
     }
 
     private void setListAdapter(AddressListAdapter addressListAdapter) {
@@ -177,6 +205,10 @@ public class AddressPickerDialog extends Dialog implements AddressPopup, Adapter
         onAddressChangedListener.onAddressChanged(address);
     }
 
+    @Override public void show(String addressCode) {
+        show(addressRepository.findByCode(addressCode));
+    }
+
     @Override
     public void show(Address area) {
         addressStack = new ArrayStack<>();
@@ -185,11 +217,6 @@ public class AddressPickerDialog extends Dialog implements AddressPopup, Adapter
             addressStack.push(area.getDistrict());
         }
         show();
-    }
-
-    @Override
-    public void show(String addressCode) {
-        show(addressRepository.findByCode(addressCode));
     }
 
     @Override
