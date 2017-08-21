@@ -19,11 +19,12 @@
 package nectec.thai.widget.identity;
 
 import android.content.Context;
+import android.support.v7.widget.AppCompatEditText;
 import android.util.AttributeSet;
 import android.widget.EditText;
 import nectec.thai.identity.Identity;
 
-public class CitizenIdEditText extends EditText implements IdentityView {
+public class CitizenIdEditText extends AppCompatEditText implements IdentityView {
 
     private IdentityEditTextHandler idHandler;
 

@@ -67,6 +67,7 @@ android {
 }
 
 dependencies {
+    compile "com.android.support:appcompat-v7:$supportLibVersion"
     compile 'com.google.code.gson:gson:' + gsonVersion
     compile 'th.or.nectec:thai-unit:0.1.3'
 

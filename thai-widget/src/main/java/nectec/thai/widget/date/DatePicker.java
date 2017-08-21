@@ -21,6 +21,7 @@ package nectec.thai.widget.date;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.os.Parcelable;
+import android.support.v7.widget.AppCompatEditText;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.widget.EditText;
@@ -29,7 +30,7 @@ import java.util.Locale;
 import nectec.thai.date.DatePrinter;
 import nectec.thai.widget.ViewUtils;
 
-public class DatePicker extends EditText implements DateView {
+public class DatePicker extends AppCompatEditText implements DateView {
 
     protected static final String HINT_MESSAGE = "ระบุวันที";
 

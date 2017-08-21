@@ -21,6 +21,7 @@ package nectec.thai.widget.address;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.os.Parcelable;
+import android.support.v7.widget.AppCompatEditText;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.widget.EditText;
@@ -29,7 +30,7 @@ import nectec.thai.widget.ViewUtils;
 import nectec.thai.widget.address.repository.AddressRepositoryImpl;
 import th.or.nectec.thai.widget.R;
 
-public class AddressPicker extends EditText implements AddressView {
+public class AddressPicker extends AppCompatEditText implements AddressView {
 
     private Address address;
     private AddressRepositoryImpl addressRepository;

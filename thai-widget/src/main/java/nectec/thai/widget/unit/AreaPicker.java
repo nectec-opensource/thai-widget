@@ -21,16 +21,16 @@ package nectec.thai.widget.unit;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.os.Parcelable;
+import android.support.v7.widget.AppCompatEditText;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.Gravity;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.widget.EditText;
 import nectec.thai.unit.Area;
 import nectec.thai.widget.ViewUtils;
 
-public class AreaPicker extends EditText implements AreaView, OnClickListener {
+public class AreaPicker extends AppCompatEditText implements AreaView, OnClickListener {
 
     protected static final String HINT_MESSAGE = "ระบุขนาดพื้นที่";
 
