@@ -45,8 +45,8 @@ public class AreaPicker extends AppCompatEditText implements AreaView, OnClickLi
 
         @Override
         public void onCancel() {
-            setText(null);
             setArea(new Area(0));
+            setText(null);
         }
     };
 
