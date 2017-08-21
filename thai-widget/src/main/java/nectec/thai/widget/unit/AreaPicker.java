@@ -124,6 +124,10 @@ public class AreaPicker extends AppCompatEditText implements AreaView, OnClickLi
             listener.onAreaChanged(area);
     }
 
+    public void setMaxRai(int maxRai) {
+        if (popup instanceof AreaPickerDialog) ((AreaPickerDialog) popup).setMaxRai(maxRai);
+    }
+
     public void setTitle(String title) {
         popup.setPopupTitle(title);
     }

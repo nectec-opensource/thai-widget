@@ -102,6 +102,10 @@ public class AreaPickerDialog extends AlertDialog implements AreaPopup {
         setButton(BUTTON_NEGATIVE, getContext().getString(R.string.cancel), onNegativeButtonClick);
     }
 
+    public void setMaxRai(int maxRai) {
+        rai.setMaxValue(maxRai);
+    }
+
     @Override
     public void setPopupTitle(String title) {
         setTitle(title);

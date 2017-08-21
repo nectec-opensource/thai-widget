@@ -67,6 +67,7 @@ public class AreaPickerSampleActivity extends Activity {
             @Override
             public void onClick(View view) {
                 AreaPicker areaPicker = (AreaPicker) findViewById(R.id.area_picker);
+                areaPicker.setMaxRai(100);
                 areaPicker.setOnAreaChangeListener(new AreaView.OnAreaChangedListener() {
                     @Override
                     public void onAreaChanged(Area area) {
