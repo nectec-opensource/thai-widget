@@ -43,7 +43,7 @@ public class AreaPickerTest {
 
     @Test
     public void testHint() throws Exception {
-        assertEquals(AreaPicker.HINT_MESSAGE, areaPicker.getHint());
+        assertEquals(AreaPicker.DEFAULT_HINT, areaPicker.getHint());
     }
 
     @Test

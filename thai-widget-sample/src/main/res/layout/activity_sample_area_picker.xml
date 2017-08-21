@@ -31,6 +31,7 @@
     <nectec.thai.widget.unit.AreaPicker
             android:id="@+id/area_picker"
             android:minHeight="@dimen/interactive_view_min_height"
+            android:hint="พื้นที่"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
 

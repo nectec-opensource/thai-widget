@@ -29,15 +29,16 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import nectec.thai.unit.Area;
 import nectec.thai.widget.ViewUtils;
+import nectec.thai.widget.unit.AreaPickerDialog.OnAreaPickListener;
 
 public class AreaPicker extends AppCompatEditText implements AreaView, OnClickListener {
 
-    protected static final String HINT_MESSAGE = "ระบุขนาดพื้นที่";
+    protected static final String DEFAULT_HINT = "ระบุขนาดพื้นที่";
 
     private AreaPopup popup;
     private Area area = new Area(0);
     private OnAreaChangedListener listener;
-    private final AreaPickerDialog.OnAreaPickListener dialogListener = new AreaPickerDialog.OnAreaPickListener() {
+    private final OnAreaPickListener dialogListener = new OnAreaPickListener() {
         @Override
         public void onAreaPick(Area area) {
             setArea(area);
@@ -60,12 +61,14 @@ public class AreaPicker extends AppCompatEditText implements AreaView, OnClickLi
 
     public AreaPicker(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        if (TextUtils.isEmpty(getHint()))
-            setHint(HINT_MESSAGE);
         setGravity(Gravity.CENTER_VERTICAL);
         ViewUtils.updatePaddingRight(this);
+
+        CharSequence hint = getHint();
+        if (TextUtils.isEmpty(hint)) setHint(DEFAULT_HINT);
         if (!isInEditMode()) {
             setupPickerDialog();
+            if (!TextUtils.isEmpty(hint)) setTitle(hint.toString());
         }
     }
 
@@ -128,5 +131,4 @@ public class AreaPicker extends AppCompatEditText implements AreaView, OnClickLi
     public void setOnAreaChangeListener(OnAreaChangedListener listener) {
         this.listener = listener;
     }
-
 }
