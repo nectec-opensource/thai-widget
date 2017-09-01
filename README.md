@@ -48,10 +48,11 @@ Add dependencies on app module
 ```gradle
 dependencies {
     ...
-    compile 'th.or.nectec.android:thai-widget:0.4.6'
+    compile 'th.or.nectec.android:thai-widget:{LATEST_VERSION}'
     ...
 }
 ```
+for latest version look at Download badge
 
 ### Proguard-Rule
 
