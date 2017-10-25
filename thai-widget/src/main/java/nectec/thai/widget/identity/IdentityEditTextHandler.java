@@ -69,12 +69,12 @@ public abstract class IdentityEditTextHandler implements TextWatcher {
 
     private void updateText(Identity id) {
         String newText = id.prettyPrint();
-        String currentText = editText.getText().toString();
+        Editable currentText = editText.getText();
         if (newText.length() > currentText.length()) {
             watching = false;
             this.id = id;
             editText.setText(newText);
-            editText.setSelection(newText.length());
+            editText.setSelection(editText.getText().length());
             watching = true;
         }
     }
