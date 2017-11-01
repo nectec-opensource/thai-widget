@@ -65,7 +65,7 @@ public class AreaPickerDialog extends AlertDialog implements AreaPopup {
     }
 
     private void setupView(Context context) {
-        View view = ViewUtils.inflateView(context, R.layout.dialog_area_picker);
+        View view = ViewUtils.inflateView(context, R.layout.thwig_dialog_area_picker);
         setView(view);
         findView(view);
         initRai();

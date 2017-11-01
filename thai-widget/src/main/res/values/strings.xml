@@ -18,13 +18,13 @@
   -->
 
 <resources>
-    <string name="please_define_address">กรุณาระบุ ตำบล อำเภอ จังหวัด</string>
-    <string name="choose_subdistrict">เลือกแขวง/ตำบล</string>
-    <string name="choose_district">เลือกเขต/อำเภอ</string>
-    <string name="choose_province">เลือกจังหวัด</string>
-    <string name="cd_back_button">กดเพื่อย้อนกลับไปขั้นตอนก่อนหน้า</string>
+    <string name="thwig_please_define_address">กรุณาระบุ ตำบล อำเภอ จังหวัด</string>
+    <string name="thwig_choose_subdistrict">เลือกแขวง/ตำบล</string>
+    <string name="thwig_choose_district">เลือกเขต/อำเภอ</string>
+    <string name="thwig_choose_province">เลือกจังหวัด</string>
+    <string name="thwig_cd_back_button">กดเพื่อย้อนกลับไปขั้นตอนก่อนหน้า</string>
 
     <string name="ok">ตกลง</string>
     <string name="cancel">ยกเลิก</string>
-    <string name="address_code_format">#%s</string>
+    <string name="thwig_address_code_format">#%s</string>
 </resources>

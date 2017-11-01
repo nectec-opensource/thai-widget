@@ -27,9 +27,11 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.SearchView;
 import android.widget.TextView;
+
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
+
 import nectec.thai.address.Address;
 import nectec.thai.address.AddressEntity;
 import nectec.thai.address.AddressRepository;
@@ -81,7 +83,7 @@ public class AddressPickerDialog extends Dialog implements AddressPopup, Adapter
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.dialog_address_picker);
+        setContentView(R.layout.thwig_dialog_address_picker);
         breadcrumb = (TextView) findViewById(R.id.breadcrumb);
         header = (TextView) findViewById(R.id.header);
         list = (ListView) findViewById(R.id.picker_list);
@@ -149,18 +151,18 @@ public class AddressPickerDialog extends Dialog implements AddressPopup, Adapter
         if (addressStack.isEmpty()) {
             List<Province> provinceList = provinceRepository.find();
             Collections.sort(provinceList);
-            updateDialog(R.string.choose_province, provinceList);
+            updateDialog(R.string.thwig_choose_province, provinceList);
             return;
         }
         AddressEntity choosedEntity = addressStack.peek();
         if (choosedEntity instanceof Province) {
             List<District> districtList = districtRepository.findByParentCode(choosedEntity.getCode());
             Collections.sort(districtList);
-            updateDialog(R.string.choose_district, districtList);
+            updateDialog(R.string.thwig_choose_district, districtList);
         } else if (choosedEntity instanceof District) {
             List<SubDistrict> subDistrictList = subDistrictRepository.findByParentCode(choosedEntity.getCode());
             Collections.sort(subDistrictList);
-            updateDialog(R.string.choose_subdistrict, subDistrictList);
+            updateDialog(R.string.thwig_choose_subdistrict, subDistrictList);
         } else if (choosedEntity instanceof SubDistrict) {
             notifyAddressChange(choosedEntity.getCode());
             dismiss();

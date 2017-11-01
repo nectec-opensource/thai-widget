@@ -24,7 +24,7 @@ import android.os.Parcelable;
 import android.support.v7.widget.AppCompatEditText;
 import android.text.TextUtils;
 import android.util.AttributeSet;
-import android.widget.EditText;
+
 import nectec.thai.address.Address;
 import nectec.thai.widget.ViewUtils;
 import nectec.thai.widget.address.repository.AddressRepositoryImpl;
@@ -64,7 +64,7 @@ public class AddressPicker extends AppCompatEditText implements AddressView {
         super(context, attrs, defStyleAttr);
         emptyView();
         if (TextUtils.isEmpty(getHint()))
-            setHint(R.string.please_define_address);
+            setHint(R.string.thwig_please_define_address);
         ViewUtils.updatePaddingRight(this);
 
         addressRepository = AddressRepositoryImpl.getInstance(context);

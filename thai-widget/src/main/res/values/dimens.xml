@@ -18,5 +18,5 @@
   -->
 
 <resources>
-    <dimen name="spinner_padding_right">24dp</dimen>
+    <dimen name="thwig_spinner_padding_right">24dp</dimen>
 </resources>

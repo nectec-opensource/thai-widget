@@ -27,8 +27,10 @@ import android.widget.BaseAdapter;
 import android.widget.Filter;
 import android.widget.Filterable;
 import android.widget.TextView;
+
 import java.util.ArrayList;
 import java.util.List;
+
 import nectec.thai.address.AddressEntity;
 import th.or.nectec.thai.widget.BuildConfig;
 import th.or.nectec.thai.widget.R;
@@ -59,7 +61,7 @@ class AddressListAdapter<T extends AddressEntity> extends BaseAdapter implements
 
     @Override public View getView(int position, View convertView, ViewGroup parent) {
         if (convertView == null) {
-            convertView = mInflater.inflate(R.layout.list_item_address, parent, false);
+            convertView = mInflater.inflate(R.layout.thwig_list_item_address, parent, false);
             convertView.setTag(new ViewHolder(convertView));
             convertView.setClickable(false);
         }
@@ -123,7 +125,7 @@ class AddressListAdapter<T extends AddressEntity> extends BaseAdapter implements
 
         void setValue(T entity) {
             name.setText(entity.getName());
-            code.setText(context.getString(R.string.address_code_format, entity.getCode()));
+            code.setText(context.getString(R.string.thwig_address_code_format, entity.getCode()));
         }
     }
 }

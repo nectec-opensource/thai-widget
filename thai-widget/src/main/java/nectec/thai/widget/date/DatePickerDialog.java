@@ -78,7 +78,7 @@ public class DatePickerDialog extends AlertDialog implements DatePopup, NumberPi
         this.calendar = calendar;
         this.callback = datePickerCallback;
 
-        View view = ViewUtils.inflateView(getContext(), R.layout.dialog_date_picker);
+        View view = ViewUtils.inflateView(getContext(), R.layout.thwig_dialog_date_picker);
         setView(view);
 
         dayPicker = (NumberPicker) view.findViewById(R.id.day);

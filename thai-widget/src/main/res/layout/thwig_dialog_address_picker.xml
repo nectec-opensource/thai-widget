@@ -30,9 +30,9 @@
 
         <ImageButton
             android:background="?android:attr/selectableItemBackground"
-            android:contentDescription="@string/cd_back_button"
+            android:contentDescription="@string/thwig_cd_back_button"
             android:id="@+id/back"
-            android:src="@drawable/ic_back"
+            android:src="@drawable/thwig_ic_back"
             android:padding="8dp"
             android:layout_width="60dp"
             android:layout_height="48dp" />
@@ -75,7 +75,7 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="@color/gray_300" />
+        android:background="@color/thwig_separator"/>
 
     <ListView
         android:id="@+id/picker_list"

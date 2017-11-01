@@ -20,8 +20,10 @@ package nectec.thai.widget;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.res.Resources;
 import android.view.LayoutInflater;
 import android.view.View;
+
 import th.or.nectec.thai.widget.R;
 
 public final class ViewUtils {
@@ -36,7 +38,8 @@ public final class ViewUtils {
     }
 
     public static void updatePaddingRight(View view) {
-        int minPaddingRight = view.getContext().getResources().getDimensionPixelOffset(R.dimen.spinner_padding_right);
+        Resources resources = view.getContext().getResources();
+        int minPaddingRight = resources.getDimensionPixelOffset(R.dimen.thwig_spinner_padding_right);
         int paddingRight = view.getPaddingRight();
         if (paddingRight < minPaddingRight)
             paddingRight = minPaddingRight;
