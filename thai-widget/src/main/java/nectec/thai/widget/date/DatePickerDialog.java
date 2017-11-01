@@ -18,12 +18,14 @@
 
 package nectec.thai.widget.date;
 
-import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.support.v7.app.AlertDialog;
 import android.view.View;
 import android.widget.NumberPicker;
+
 import java.util.Calendar;
+
 import nectec.thai.widget.ViewUtils;
 import th.or.nectec.thai.widget.R;
 

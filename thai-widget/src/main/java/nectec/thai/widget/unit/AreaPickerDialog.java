@@ -18,11 +18,12 @@
 
 package nectec.thai.widget.unit;
 
-import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.support.v7.app.AlertDialog;
 import android.view.View;
 import android.widget.NumberPicker;
+
 import nectec.thai.unit.Area;
 import nectec.thai.widget.ViewUtils;
 import th.or.nectec.thai.widget.R;
@@ -32,7 +33,7 @@ import th.or.nectec.thai.widget.R;
  */
 public class AreaPickerDialog extends AlertDialog implements AreaPopup {
 
-    public static final String DEFALT_TITLE = "ระบุขนาดพื้นที่";
+    public static final String DEFAULT_TITLE = "ระบุขนาดพื้นที่";
     private final OnAreaPickListener onAreaPickListener;
     private final OnClickListener onNegativeButtonClick = new OnClickListener() {
         @Override
@@ -59,7 +60,7 @@ public class AreaPickerDialog extends AlertDialog implements AreaPopup {
         super(context);
         this.onAreaPickListener = listener;
 
-        setTitle(DEFALT_TITLE);
+        setTitle(DEFAULT_TITLE);
         setupView(context);
     }
 
