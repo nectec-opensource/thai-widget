@@ -19,14 +19,13 @@
 package nectec.thai.widget.identity;
 
 import android.content.Context;
-import android.support.v7.widget.AppCompatEditText;
 import android.util.AttributeSet;
-import android.widget.EditText;
-import nectec.thai.identity.Identity;
 
-public class CitizenIdEditText extends AppCompatEditText implements IdentityView {
+import nectec.thai.identity.CitizenId;
 
-    private IdentityEditTextHandler idHandler;
+public class CitizenIdEditText extends IdentityEditText<CitizenId> {
+
+    public static final String DEFAULT_ERROR_MESSAGE = "รหัสประชาชนไม่ถูกต้อง";
 
     public CitizenIdEditText(Context context) {
         this(context, null);
@@ -38,11 +37,6 @@ public class CitizenIdEditText extends AppCompatEditText implements IdentityView
 
     public CitizenIdEditText(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        idHandler = new CitizenIdHandler(this);
-    }
-
-    @Override
-    public Identity getIdentity() {
-        return idHandler.getId();
+        init(new CitizenIdHandler(this), DEFAULT_ERROR_MESSAGE);
     }
 }

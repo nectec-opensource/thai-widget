@@ -20,20 +20,18 @@ package th.or.nectec.thai.widget.sample;
 
 import android.support.test.rule.ActivityTestRule;
 import android.support.test.runner.AndroidJUnit4;
-import nectec.thai.unit.Area;
-import nectec.thai.widget.unit.AreaPickerDialog;
+
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+
+import nectec.thai.unit.Area;
 import th.or.nectec.thai.widget.sample.action.NumberPickerAction;
 
 import static android.support.test.espresso.Espresso.onView;
 import static android.support.test.espresso.action.ViewActions.click;
 import static android.support.test.espresso.assertion.ViewAssertions.matches;
-import static android.support.test.espresso.matcher.ViewMatchers.isDisplayed;
 import static android.support.test.espresso.matcher.ViewMatchers.withId;
-import static android.support.test.espresso.matcher.ViewMatchers.withText;
-import static org.hamcrest.Matchers.startsWith;
 import static th.or.nectec.thai.widget.sample.matcher.AreaViewMatcher.withArea;
 
 @RunWith(AndroidJUnit4.class)
@@ -46,9 +44,6 @@ public class AreaPickerSampleActivityTest {
     public void testView() throws Exception {
         onView(withId(R.id.area_picker))
                 .perform(click());
-
-        onView(withText(startsWith(AreaPickerDialog.DEFALT_TITLE)))
-                .check(matches(isDisplayed()));
 
         onView(withId(R.id.rai))
                 .perform(NumberPickerAction.setValue(10));

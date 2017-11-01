@@ -19,12 +19,11 @@
 package nectec.thai.widget.identity;
 
 import android.widget.EditText;
+
 import nectec.thai.identity.HouseId;
-import nectec.thai.identity.Identity;
 
-public class HouseIdHandler extends IdentityEditTextHandler {
+public class HouseIdHandler extends IdentityHandler<HouseId> {
 
-    public static final String DEFAULT_ERROR_MESSAGE = "รหัสประจำบ้านไม่ถูกต้อง";
     private static final int MAX_LENGTH = 13;
 
     public HouseIdHandler(EditText editText) {
@@ -37,12 +36,7 @@ public class HouseIdHandler extends IdentityEditTextHandler {
     }
 
     @Override
-    protected Identity onCreateNewId(String id) {
+    protected HouseId onCreateNewId(String id) {
         return new HouseId(id);
-    }
-
-    @Override
-    protected String getErrorMessage() {
-        return DEFAULT_ERROR_MESSAGE;
     }
 }

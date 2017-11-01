@@ -20,8 +20,8 @@
 <resources>
     <string name="app_name">Android-Thai-Widget</string>
 
-    <string name="lable_citizen_id">Citizen ID : </string>
-    <string name="lable_house_id">House ID :</string>
+    <string name="label_citizen_id">Citizen ID : </string>
+    <string name="label_house_id">House ID :</string>
     <string name="show_dialog">Show Dialog</string>
     <string name="area_picker">Area Picker</string>
     <string name="area_picker_dialog">Area Picker Dialog</string>

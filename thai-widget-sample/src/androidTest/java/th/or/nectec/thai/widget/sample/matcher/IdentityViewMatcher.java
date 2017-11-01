@@ -21,10 +21,12 @@ package th.or.nectec.thai.widget.sample.matcher;
 import android.support.test.espresso.matcher.BoundedMatcher;
 import android.view.View;
 import android.widget.EditText;
-import nectec.thai.identity.Identity;
-import nectec.thai.widget.identity.IdentityView;
+
 import org.hamcrest.Description;
 import org.hamcrest.Matcher;
+
+import nectec.thai.identity.Identity;
+import nectec.thai.widget.identity.IdentityEditText;
 
 public class IdentityViewMatcher {
 
@@ -38,7 +40,7 @@ public class IdentityViewMatcher {
 
             @Override
             protected boolean matchesSafely(EditText editText) {
-                return editText instanceof IdentityView && identityMatcher.equals(((IdentityView) editText).getIdentity());
+                return editText instanceof IdentityEditText && identityMatcher.equals(((IdentityEditText) editText).getIdentity());
             }
         };
     }

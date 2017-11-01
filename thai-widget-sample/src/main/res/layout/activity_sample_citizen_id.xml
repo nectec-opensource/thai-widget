@@ -19,21 +19,32 @@
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               xmlns:tools="http://schemas.android.com/tools"
-              android:orientation="vertical"
-              android:padding="8dp"
               android:layout_width="match_parent"
-              android:layout_height="match_parent">
-    <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="@string/lable_citizen_id"/>
+              android:layout_height="match_parent"
+              android:orientation="vertical"
+              android:padding="8dp">
 
-    <nectec.thai.widget.identity.CitizenIdEditText
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/label_citizen_id"
+        android:textAppearance="?android:attr/textAppearanceLarge"/>
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/citizen_id_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp">
+
+        <nectec.thai.widget.identity.CitizenIdEditText
+            android:id="@+id/citizen_id"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/citizen_id"
             android:ems="9"
+            android:hint="รหัสประชาชน"
             tools:text="1-3453-02323-93-3"/>
+
+    </android.support.design.widget.TextInputLayout>
+
 
 </LinearLayout>

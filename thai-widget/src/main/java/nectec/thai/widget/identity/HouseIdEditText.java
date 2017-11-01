@@ -19,14 +19,13 @@
 package nectec.thai.widget.identity;
 
 import android.content.Context;
-import android.support.v7.widget.AppCompatEditText;
 import android.util.AttributeSet;
-import android.widget.EditText;
-import nectec.thai.identity.Identity;
 
-public class HouseIdEditText extends AppCompatEditText implements IdentityView {
+import nectec.thai.identity.HouseId;
 
-    private IdentityEditTextHandler hidHandler;
+public class HouseIdEditText extends IdentityEditText<HouseId> {
+
+    public static final String DEFAULT_ERROR_MESSAGE = "รหัสประจำบ้านไม่ถูกต้อง";
 
     public HouseIdEditText(Context context) {
         this(context, null);
@@ -38,11 +37,6 @@ public class HouseIdEditText extends AppCompatEditText implements IdentityView {
 
     public HouseIdEditText(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        hidHandler = new HouseIdHandler(this);
-    }
-
-    @Override
-    public Identity getIdentity() {
-        return hidHandler.getId();
+        init(new HouseIdHandler(this), DEFAULT_ERROR_MESSAGE);
     }
 }

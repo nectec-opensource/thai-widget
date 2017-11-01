@@ -19,7 +19,12 @@
 package th.or.nectec.thai.widget.sample;
 
 import android.os.Bundle;
+import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
+
+import nectec.thai.identity.CitizenId;
+import nectec.thai.widget.identity.CitizenIdEditText;
+import nectec.thai.widget.identity.IdentityWatcher;
 
 public class CitizenIdSampleActivity extends AppCompatActivity {
 
@@ -27,5 +32,21 @@ public class CitizenIdSampleActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sample_citizen_id);
+
+        CitizenIdEditText cid = (CitizenIdEditText) findViewById(R.id.citizen_id);
+        final TextInputLayout layout = (TextInputLayout) findViewById(R.id.citizen_id_layout);
+        cid.setOnInvalid(new IdentityWatcher<CitizenId>() {
+
+            @Override
+            public void onInvalid(CitizenId identity) {
+                layout.setError(CitizenIdEditText.DEFAULT_ERROR_MESSAGE);
+            }
+
+            @Override
+            public void onValid(CitizenId identity) {
+                layout.setError(null);
+            }
+        });
+
     }
 }

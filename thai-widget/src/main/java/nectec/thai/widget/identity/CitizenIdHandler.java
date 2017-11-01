@@ -19,12 +19,11 @@
 package nectec.thai.widget.identity;
 
 import android.widget.EditText;
+
 import nectec.thai.identity.CitizenId;
-import nectec.thai.identity.Identity;
 
-public class CitizenIdHandler extends IdentityEditTextHandler {
+public class CitizenIdHandler extends IdentityHandler<CitizenId> {
 
-    public static final String DEFAULT_ERROR_MESSAGE = "รหัสประชาชน ไม่ถูกต้อง";
     private static final int MAX_LENGTH = 17;
 
     public CitizenIdHandler(EditText editText) {
@@ -37,12 +36,7 @@ public class CitizenIdHandler extends IdentityEditTextHandler {
     }
 
     @Override
-    protected Identity onCreateNewId(String id) {
+    protected CitizenId onCreateNewId(String id) {
         return new CitizenId(id);
-    }
-
-    @Override
-    protected String getErrorMessage() {
-        return DEFAULT_ERROR_MESSAGE;
     }
 }

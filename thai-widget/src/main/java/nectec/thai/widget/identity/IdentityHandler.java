@@ -24,74 +24,77 @@ import android.text.InputType;
 import android.text.TextWatcher;
 import android.text.method.DigitsKeyListener;
 import android.widget.EditText;
+
 import nectec.thai.identity.Identity;
 
-public abstract class IdentityEditTextHandler implements TextWatcher {
+public abstract class IdentityHandler<T extends Identity> {
     private EditText editText;
     private boolean watching = true;
-    private Identity id;
+    private T id;
 
-    public IdentityEditTextHandler(EditText editText) {
+    private IdentityWatcher<T> idWatcher;
+
+    public IdentityHandler(EditText editText) {
         this.editText = editText;
         this.id = onCreateNewId(editText.getText().toString());
 
         editText.setInputType(InputType.TYPE_CLASS_NUMBER);
         editText.setFilters(new InputFilter[]{new InputFilter.LengthFilter(getMaxLength())});
         editText.setKeyListener(DigitsKeyListener.getInstance(false, true));
-        editText.addTextChangedListener(this);
+        editText.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {//NOPMD
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {//NOPMD
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                if (watching) onIdChanged(editable);
+            }
+        });
     }
 
     protected abstract int getMaxLength();
 
-    protected abstract Identity onCreateNewId(String id);
+    protected abstract T onCreateNewId(String id);
 
-    @Override
-    public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {//NOPMD
-
-    }
-
-    @Override
-    public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {//NOPMD
-
-    }
-
-    @Override
-    public void afterTextChanged(Editable editable) {
-        if (watching)
-            onIdChanged(editable);
-    }
-
-    void onIdChanged(Editable editable) {
-        Identity id = onCreateNewId(editable.toString());
+    private void onIdChanged(Editable editable) {
+        T id = onCreateNewId(editable.toString());
         updateText(id);
-        updateErrorMessage(id);
     }
 
-    private void updateText(Identity id) {
+    private void updateText(T id) {
         String newText = id.prettyPrint();
         Editable currentText = editText.getText();
-        if (newText.length() > currentText.length()) {
+        if (newText.length() > currentText.length() && newText.length() <= getMaxLength()) {
             watching = false;
             this.id = id;
             editText.setText(newText);
             editText.setSelection(editText.getText().length());
             watching = true;
         }
-    }
 
-    private void updateErrorMessage(Identity id) {
-        if (id.isValidFormat()) {
-            editText.setError(id.validate() ? null : getErrorMessage());
-        } else {
-            editText.setError(null);
+        if (newText.length() == getMaxLength()) {
+            validate(id);
         }
     }
 
-    protected abstract String getErrorMessage();
+    private void validate(T id) {
+        if (id.validate()) {
+            if (idWatcher != null) idWatcher.onValid(id);
+        } else {
+            if (idWatcher != null) idWatcher.onInvalid(id);
+        }
+    }
 
-    public Identity getId() {
+    public T getId() {
         return id;
     }
 
-
+    public void setIdWatcher(IdentityWatcher idWatcher) {
+        this.idWatcher = idWatcher;
+    }
 }

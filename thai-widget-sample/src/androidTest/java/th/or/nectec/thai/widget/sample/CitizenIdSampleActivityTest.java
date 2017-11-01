@@ -20,11 +20,13 @@ package th.or.nectec.thai.widget.sample;
 
 import android.support.test.rule.ActivityTestRule;
 import android.support.test.runner.AndroidJUnit4;
-import nectec.thai.identity.CitizenId;
-import nectec.thai.widget.identity.CitizenIdHandler;
+
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+
+import nectec.thai.identity.CitizenId;
+import nectec.thai.widget.identity.CitizenIdEditText;
 
 import static android.support.test.espresso.Espresso.onView;
 import static android.support.test.espresso.action.ViewActions.typeText;
@@ -32,7 +34,6 @@ import static android.support.test.espresso.assertion.ViewAssertions.matches;
 import static android.support.test.espresso.matcher.ViewMatchers.isDisplayed;
 import static android.support.test.espresso.matcher.ViewMatchers.withId;
 import static android.support.test.espresso.matcher.ViewMatchers.withText;
-import static th.or.nectec.thai.widget.sample.matcher.EditTextMatcher.withError;
 import static th.or.nectec.thai.widget.sample.matcher.EditTextMatcher.withoutError;
 import static th.or.nectec.thai.widget.sample.matcher.IdentityViewMatcher.withIdentity;
 
@@ -68,8 +69,9 @@ public class CitizenIdSampleActivityTest {
     @Test
     public void typeInvalidId() {
         onView(withId(R.id.citizen_id))
-                .perform(typeText(INVALID_ID))
-                .check(matches(withError(CitizenIdHandler.DEFAULT_ERROR_MESSAGE)));
+            .perform(typeText(INVALID_ID));
+        onView(withText(CitizenIdEditText.DEFAULT_ERROR_MESSAGE))
+            .check(matches(isDisplayed()));
     }
 
     @Test
