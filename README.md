@@ -91,7 +91,7 @@ check for config of those tools at [Java Quality Config](https://github.com/Blaz
 
 ## Develop by
 
-- [Blaze Piruin](https://github.com/Blazei)
+- [Blast Piruin](https://github.com/piruin)
 - [N. Choatravee](https://github.com/chncs23)
 
 License
