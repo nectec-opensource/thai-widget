@@ -281,8 +281,8 @@ public class DatePickerDialog extends AlertDialog implements DatePopup, NumberPi
             monthPicker.setOnValueChangedListener(this);
             dayPicker.setOnValueChangedListener(this);
         } else {
-            monthPicker.setMinValue(0);
             monthPicker.setDisplayedValues(THAI_MONTH);
+            monthPicker.setMinValue(0);
             dayPicker.setMinValue(1);
         }
     }
