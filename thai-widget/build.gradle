@@ -80,3 +80,4 @@ check {
     }
 }
 
+apply from: 'maven.gradle'
